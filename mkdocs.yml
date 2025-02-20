@@ -1,7 +1,10 @@
 site_name: Introduction to Arduino Documentation
 
 plugins:
-   - glightbox
+  - glightbox
+#  - privacy:
+#      links_attr_map:
+#        target: _blank
 
 
 extra_css:
@@ -15,6 +18,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - abbr
+  - md_in_html
   - pymdownx.snippets
   - attr_list
   - md_in_html
@@ -38,9 +42,9 @@ extra_javascript:
 
 nav:
   - Introduction: index.md
-  - Background: Background.md
   - Laptop / MacBook Disclaimer: Disclaimer.md
   - Building the Robot: RobotBuild.md
+  - Background: Background.md
   - Introductory Exercises (Non-assessed): IntroExercises.md
   - Basic Exercises (Assessed):
     - LED Pattern: Ex1ledPattern.md

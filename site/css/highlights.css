@@ -1,0 +1,39 @@
+tr.yellow-row{
+    background-color: yellow;
+    color: black;
+  }
+  tr.green-row{
+    background-color: lime;
+    color: black;
+  }
+  tr.cyan-row{
+    background-color: cyan;
+    color: black;
+  }
+  tr.magenta-row{
+    background-color: magenta;
+    color: white;
+    font-weight: bolder;
+  }
+  tr.red-row{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Optional: Add background color to header */
+    color: black;
+  }
+  
+  debugHL {
+    background-color: yellow;
+  }
+
+  problemHL{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    font-size: x-large;
+  }
+  

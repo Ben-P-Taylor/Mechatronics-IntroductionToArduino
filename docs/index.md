@@ -1,6 +1,6 @@
 # Introduction to Arduino Labs
 
-Hmm!
+
 
 !!! Danger "Danger: Read This First!"
     Before proceeding with further through this documentation or making any of the circuits discussed within, you must read the [**Disclaimer for using your personal Laptop or MacBook**](./Disclaimer.md).
@@ -8,14 +8,15 @@ Hmm!
 !!! info "Before Starting the Exercises"
     Before starting the laboratory exercises, you should review the contents of the Mechatronics KIT Information folder, located in the Practicals content area of the Blackboard site for the Mechatronics course.
 
+!!! Note "Note: Open This website on the computer you are programming your Arduino on"
+    It is recommended that you open into website on the computer that you are doing your coding on, because there are several code examples that you can cut and paste directly from these documents into your working code.
+
 ## Introduction
 During this activity you will have three laboratory sessions to complete a number of laboratory exercises, based around a simple mobile robotic chassis, as shown in <debugHL>[Fig. 1](#chassisPic)</debugHL>.
 
 <figure  markdown="span">
   <a name="chassisPic"></a>
-
-  ![Picture of the completed robot chassis.](/images/Robot%201st%20Picture.jpg)
-
+  ![Picture of the completed robot chassis.](./Images/Robot%201st%20Picture.jpg)
   <figcaption>Picture of the completed robot chassis.</figcaption>
   </figure>
 

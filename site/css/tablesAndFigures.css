@@ -1,0 +1,40 @@
+ /* increment the counter for every instance of a figure or table even if it doesn't have a caption */
+ figure { counter-increment: figureCounter; }
+
+ /* prepend the counter to the figcaption content */
+ figure figcaption:before {
+     content: "Fig " counter(figureCounter) ": "
+ }  
+ 
+ .md-typeset__table{
+    width: 100%;
+ }
+
+ table {
+    
+ display:table !important;
+ table-layout: auto;
+ counter-increment: tableCounter;
+ border-spacing: 0;
+ /* border-collapse: collapse; /* Collapse borders to avoid double lines */
+ width: 100%;
+}
+/* prepend the counter to the tabcaption content */
+table caption:before {
+ content: "Table " counter(tableCounter) ": "
+}  
+caption {
+ caption-side: bottom; /* Places the caption below the table */
+ text-align: center; /* Optional: Center the caption text */
+ font-style: italic; font-weight: bold; /* Optional: Style the caption */
+ padding-top: 10px;   /* Optional: Add some spacing above the caption */
+ font-family: 'Arial', sans-serif;
+ font-size:medium
+}
+
+th, td {
+ border: 1px solid black; /* Add borders to cells */
+ padding: 0;
+ text-align: left; /* Or center, right, as needed */
+ font-weight:unset;
+}

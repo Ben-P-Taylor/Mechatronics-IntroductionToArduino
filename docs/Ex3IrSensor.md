@@ -20,40 +20,29 @@ Current stuff is not right
 
 ## Introduction
 
-The aim of this exercise is to interface the Sharp IR distance sensor with the Arduino, record the measured voltage as a function of the distance to a target, and observe any constraints for the operation of this sensor.
+The aim of this exercise is to generate a graph of sensor measurement from the Sharp IR distance sensor against measurement distance. During this exerercise, you will interface the Sharp IR distance sensor with the Arduino, record the measured voltage as a function of the distance to a target, and observe any constraints for the operation of this sensor.
 
 !!! Info "GTA Marking"
     This is an assessed Exercise. When you have completed exercise, you should show your work to a GTA to get marked.
+
+It should be noted:
+
+* Noise
+* Measurement characteristic
+
 
 **Procedure:**
 
 <problemHL>Check the Pinouts for this</problemHL>
 
-<ol>
-  <li>The starting point for this exercise is the Potentiometer test circuit, as used in the previous exercises and shown in <debugHL><a href=#IRsensor>Fig. 1</a></debugHL>.</li>
-  <li>This circuit should be modified, by adding the Sharp IR distance sensor, as shown in Figure 11. Where:</li>
-  <ul>
-    <li>Pin 1 of the distance sensor is the output voltage and should be connected to pin A1 of the Arduino. </li>
-    <li>Pin 2 is the ground connection.</li>
-    <li>Pin 3 is connected to the +5V supply from the Arduino.</li>
-  </ul>  
-</ol>
-
+1. The starting point for this exercise is the <debugHL>[circuit layout for the IR sensor](./RobotBuild.md#irSensor)</debugHL> and the potentiometer code, [POT.ini](./Ex1ledPattern.md#potInoCode), located at the end of the [LED pattern exercise](./Ex1ledPattern.md).
 
 For more details on concerning the pin connections for the Sharp GP2Y0A21YK0F distance measurement sensor, see the data sheet for the sensor on the Blackboard site:
 
-* ACS231 Blackboards Site>>Mechatronics Kit Information>> Component Data Sheets and Technical Documentation
+  * <debugHL>ACS231 Blackboards Site>>Mechatronics Kit Information>> Component Data Sheets and Technical Documentation.</debugHL>
 
-<problemHL>refer to the main diagram in build circuit</problemHL>
-
-<figure>
-  <a name="IRsensor"></a>
-  <img src="/images/IR Sensor.png" alt="The Sharp IR distance sensor added to the potentiometer test circuit.">
-  <figcaption>The Sharp IR distance sensor added to the potentiometer test circuit.</figcaption>
-</figure>
-
-<ol start=3>
-  <li> Write an Arduino sketch to read the analogue measurement value from the IR distance sensor and display the reading on the serial monitor. (It is acceptable to re-download the POT.ino sketch and use this as a template for this exercise.)</li>
+<ol start=2>
+  <li> Write an Arduino sketch to read the analogue measurement value from the IR distance sensor and display the reading on the serial monitor. (It is acceptable to use a fresh copy of the <debugHL><a href = ../Ex1ledPattern/#potInoCode>POT.ini</a></debugHL> as a template for this exercise.)</li>
 </ol>
 
 Once you have the measured value of the distance sensor being streamed to the serial monitor, you will be required to plot the distance sensor measurement value against distance measured, (with a ruler/scale).

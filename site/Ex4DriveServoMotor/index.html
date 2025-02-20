@@ -1,0 +1,1030 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Ex3IrSensor/">
+      
+      
+        <link rel="next" href="../Ex5DcMotor/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Driving a Servo Motor - Introduction to Arduino Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/styles.css">
+    
+      <link rel="stylesheet" href="../css/highlights.css">
+    
+      <link rel="stylesheet" href="../css/tablesAndFigures.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Introduction to Arduino Documentation" class="md-header__button md-logo" aria-label="Introduction to Arduino Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to Arduino Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Driving a Servo Motor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Introduction to Arduino Documentation" class="md-nav__button md-logo" aria-label="Introduction to Arduino Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction to Arduino Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disclaimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laptop / MacBook Disclaimer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RobotBuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building the Robot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IntroExercises/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introductory Exercises (Non-assessed)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic Exercises (Assessed)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Basic Exercises (Assessed)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex1ledPattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LED Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex2PotCalibration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calibration of Potentiometer Angle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex3IrSensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IR Sensor Measurement and Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Driving a Servo Motor
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Driving a Servo Motor
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlling-a-standard-servomotor-directly-from-the-arduino-informal-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling a Standard Servomotor directly from the Arduino. (Informal Exercise)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlling-a-standard-servo-with-an-external-power-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling a Standard Servo with an External Power Supply
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assessed-exercise-driving-the-mg996-servo-on-the-front-of-the-robot-chassis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessed Exercise: Driving the MG996 Servo on the front of the Robot Chassis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex5DcMotor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC Motor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex6EncodeMotor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Encoders + Motor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Exercises (Assessed)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Exercises (Assessed)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex7PiEncoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – Encoder Position
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex8PiIrDist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – IR Sensor Distance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex9PiIrSequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – IR with Sequence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#controlling-a-standard-servomotor-directly-from-the-arduino-informal-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling a Standard Servomotor directly from the Arduino. (Informal Exercise)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controlling-a-standard-servo-with-an-external-power-supply" class="md-nav__link">
+    <span class="md-ellipsis">
+      Controlling a Standard Servo with an External Power Supply
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assessed-exercise-driving-the-mg996-servo-on-the-front-of-the-robot-chassis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessed Exercise: Driving the MG996 Servo on the front of the Robot Chassis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Driving a Servo Motor</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>The aim of this exercise is to demonstrate the control of a position control servo, in this case the MG90 servomotor. The MG90 is a very low power servo motor and can be driven directly from the Arduino board power supply.</p>
+<div class="admonition info">
+<p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
+<p>The final pert of this activity is an assessed Exercise: <debugHL>What's its Name?</debugHL></p>
+<p>When you have completed this exercise you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Transitioning to MG90 Servo Motors</p>
+<p>We are transitioning away from SG90 servos due to robustness issues and replacing these with MG90 servos. Some of you may still find that you have an SG90 servo in your kit – this is OK, you can use this device with same wiring, fixtures, and code.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Servomotors can drain a lot of current, especially when changing direction. When multiple servos are connected, it is better to use an external power supply (battery or <abbr title="This will be provided on request with lab staff, nominally one per group">AC-DC Plug-in Power Supply</abbr>) to avoid either damaging the Arduino board or to problems caused by the Arduino <abbr title="Universal Serial Bus">USB</abbr> connection limiting the available current on the 5V power supply. </p>
+<p>See later in this section for more details.</p>
+</div>
+<h3 id="controlling-a-standard-servomotor-directly-from-the-arduino-informal-exercise">Controlling a Standard Servomotor directly from the Arduino. (Informal Exercise)</h3>
+<p>The MG90 is a very low power servo motor and can be driven directly from the Arduino board power supply, without the need for an external supply. If you attempt this with the MG996 servo, you may find that the current draw is too great, and this may cause glitches in the power supply lines that cause the Arduino to "<debugHL><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" title="Link to an article on the All About Circuits website">Brownout reset</a></debugHL>”. For the remainder of this exercise, we will use the MG90.</p>
+<div class="admonition note">
+<p class="admonition-title">Note on the following Informal Exercise</p>
+<p>The exercise is a legacy exercise from a previous iteration of this course and required an unconnected Arduino and a MG90 servo, i.e. not connected into your robot chassis, as shown in <debugHL><a href="#simpleServo">Fig. 1</a></debugHL>.</p>
+<p>This exercise is not manditory, but provides you with a code example for the operation of a standard servo motor, and the code is applicable for both the MG90 and the larger MG996. This example code, provided, can form the basis of the assessed exercise for the servo integrated onto the robot chassis.</p>
+</div>
+<p>During this exercise, we will use the circuit shown in <debugHL><a href="#simpleServo">Fig. 1</a></debugHL>, where:</p>
+<ul>
+<li>The red wire of the servo is the positive supply, and is connected to the 5V if the Arduino</li>
+<li>The brown wire is the negative supply and should be connected to the ground line.</li>
+<li>The orange wire is the control line and should be connected to a <abbr title="Pulse Width Modulation">PWM</abbr> enabled I/O pin on the Arduino board, in this example, pin 9.</li>
+</ul>
+<figure>
+  <a name="simpleServo"></a>
+  <a class="glightbox" href="/images/StandardServo.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/StandardServo.png" alt="Circuit diagram for this Exercise"></a>
+  <figcaption>Picture of the completed robot chassis.</figcaption>
+  </figure>
+
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Connecting the wires directly into the servo connector will result in a weak mechanical connection. This connection should be sufficient for this exercise, but if you wish for a more robust connection, you can push the male header pins into the breadboard and use this as intermediate connection.</p>
+</div>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>Connect the circuit shown in <debugHL><a href="#simpleServo">Fig. 1</a></debugHL>.</li>
+<li>Download the <debugHL><a href="https://drive.google.com/uc?id=12UGk72jEbWFEJZEG9WvTIxJYWdE80f4-">Standard_Servo_Example.ino</a></debugHL> code from the Blackboard folder for this practical. Also included below:</li>
+</ol>
+<p><em>Arduino code for the Standard_Servo_Example.ino Example</em>
+<div class="language-Arduino highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This Example code is for use with the Controlling a Standard Servomotor exercise</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">//</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// Include the servo library to allow for connection and control of servo motors</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Servo.h&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// define the macro pinServo1 as 9, to use for connecting the servo to pin 9</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cp">#define pinServo1 9</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">// Declare a servo motor class variable servo 1</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nf">Servo</span><span class="w"> </span><span class="n">servo1</span><span class="p">;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">// -------------------------------------</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">// Setup function</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">{</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="c1">// &quot;attach&quot;  servo 1 to the defined pin</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="n">pinServo1</span><span class="p">);</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="c1">// set the neutral, centre, position for the servo</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="c1">// Alternte command for setting the neutral position</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(1500);</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position, (1000ms is more time than needed)</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">}</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1">// -------------------------------------</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1">// Loop Function</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="p">{</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">  </span><span class="c1">// start from the nuetral position, (90 degrees from the fully clockwise position)</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(1500);  // Alternate Command</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="c1">// move to  0 degrees, (fully clockwise)</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(500);  // Alternate Command</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="c1">// move to 180 degrees, (fully anti cloclwise position)</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(2500);  // Alternate Command</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>Looking at the code, above, you will see that the servo library had been included in the sketch. This external is library containing several functions that allow the Arduino to control a variety of servo motors. The Arduino reference library webpage for the servo library is located here:</p>
+<p><debugHL><a href="https://www.arduino.cc/reference/en/libraries/servo/" title="Arduino reference library webpage for the servo library">https://www.arduino.cc/reference/en/libraries/servo/</a></debugHL></p>
+<p>Before you can use the servo control commands in your code, you must first perform the following operations in your code, (look at the code to see how this has been done):</p>
+<ul>
+<li>In the global namespace area:<ul>
+<li>Include the servo library <code>Servo servo1;</code></li>
+<li>Declare a servomotor class variable. This is used by the Arduino <abbr title="Integrated Development Environment">IDE</abbr> to direct your commands to the correct servo motor.</li>
+</ul>
+</li>
+<li>In the <code>setup()</code> function:<ul>
+<li>The servo motor class needs to be linked to an output pin. This is achieved using the <code>attach()</code> function. </li>
+</ul>
+</li>
+</ul>
+<p>In Standard_Servo_Example.ino we have declared a servo class variable as <code>servo1</code>, we have defined I/O pin 9 as the servo control pin, and we attached the <code>servo1</code> class to pin 9, using the following command: <code>servo1.attach(pinServo1);</code></p>
+<p>The servomotor is controlled using an encoded <abbr title="Pulse Width Modulation">PWM</abbr> signal. The on time of the <abbr title="Pulse Width Modulation">PWM</abbr> signal should be bounded between 1000μs and 2000μs, with a pulse repetition rate between 40 and 200Hz, i.e. a period between 5ms and 25ms.</p>
+<p>The servo centre position, or ‘neutral’ position, of the servo is commanded using a 1500μs pulse width. Typically, the 90° clockwise position is commanded with a pulse width of approximately 500μs, and the 90° anticlockwise position is commanded with a pulse width of approximately 2500μs. These 90° position pulse widths are often slightly different for each servo model, so you may need to refine these timings for servos you have been provided.</p>
+<p>The servo library has two functions for controlling the position of the servo:</p>
+<ul>
+<li><code>write()</code>, which directly commands the servo angle.</li>
+<li><code>writeMicroseconds()</code>, which commands a specifically timed pulse width for the servo output.</li>
+</ul>
+<p>The <code>write()</code> function may not be accurate for the servomotors you have been provided, and may vary between different models. You should investigate the accuracy of these commands when using the <code>write()</code> and <code>writeMicroseconds()</code> for applications which require accurate output angles.</p>
+<ol start=3>
+  <li>Look at the Standard_Servo_Example.ino code, and see how the servo library has been used, how a servo is declared and attached to the system.</li>
+  <li>Run the sketch and observe its operation</li>
+</ol>
+
+<h3 id="controlling-a-standard-servo-with-an-external-power-supply">Controlling a Standard Servo with an External Power Supply</h3>
+<p>The previous exercise demonstrates how to connect and power a small servo directly from the pins of the Arduino device. When operating with several small servos, or one or more larger servos, the power supply from the Arduino will not be capable of providing the power supply requirements for this load. This may result in the servos not working at all, or unpredicted system behaviour, due to <debugHL><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" title="Link to an article on the All About Circuits website">Brownout reset</a></debugHL>.</p>
+<p>This section will show how to power the servos from an external power supply, while controlling them from the Arduino.</p>
+<p>The SG90 is a very low power servo motor and can be driven directly from the Arduino board power supply, as shown in <debugHL><a href="#simpleServo">Fig. 1</a></debugHL>.</p>
+<p>If we wish to connect a larger servo to the system, then we must use an external power supply to power the servo, as illustrated in <debugHL><a href="#ServoExternalPower">Fig. 2</a></debugHL>. In <debugHL><a href="#ServoExternalPower">Fig. 2</a></debugHL>, we can see that the red, +5V line is supplied from the external power supply, and the <abbr title="Electrical Ground or 0V">GND</abbr> line of all the elements, Arduino, power entry socket, and servo are linked. This is to ensure that all the circuit elements are referenced to the same voltage.</p>
+<figure>
+  <a name="ServoExternalPower"></a>
+  <a class="glightbox" href="/images/ServoExternalPower.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/ServoExternalPower.png" alt="Wiring diagram for the servo powered from an external power supply."></a>
+  <figcaption>Wiring diagram for the servo powered from an external power supply.</figcaption>
+  </figure>
+
+<p>The pin connections for the external power supply connector, (provided in the mechatronics kit box), are shown in <debugHL><a href="#dcPower">Fig. 3</a></debugHL>.</p>
+<figure>
+  <a name="dcPower"></a>
+  <a class="glightbox" href="/images/DCpower.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/DCpower.jpg" alt="Annotated picture of the external power supply connector pins"></a>
+  <figcaption>Annotated picture of the external power supply connector pins.</figcaption>
+  </figure>
+
+<h2 id="assessed-exercise-driving-the-mg996-servo-on-the-front-of-the-robot-chassis">Assessed Exercise: Driving the MG996 Servo on the front of the Robot Chassis</h2>
+<div class="admonition note">
+<p class="admonition-title">Before Starting This Exercise</p>
+<p>Ensure that you have the servo and the external power supply connected, as described in the <debugHL><a href="../RobotBuild/#ElecConn">Electrical Connections section of the Building the Robot</a></debugHL> Document</p>
+</div>
+<p>The aim of this exercise is to demonstrate that you can operate a standard servo powered from an external supply.
+, and reset the servo to the null position. </p>
+<p><strong>Procedure:</strong></p>
+<ul>
+<li>Before starting this exercise, you will need to remove the <debugHL><a href="../RobotBuild/#LollyAss" title="Jump to the 'Assembling the Lolly Stick D Assembly' section of the Building the Robot Chassis document">lolly stick assembly</a></debugHL> from the MG996 servo on the robot chassis</li>
+<li>Write a program to reset the servo to the null position, using the command: <code>servo1.write(90);</code></li>
+<li>While the servo is in the null position, reattach the <debugHL><a href="../RobotBuild/#LollyAss" title="Jump to the 'Assembling the Lolly Stick D Assembly' section of the Building the Robot Chassis document">lolly stick assembly</a></debugHL>, with the arm as close to horizontal as the servo shaft will allow.</li>
+<li>Write a program to perform the following:<ul>
+<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set to a horizontal position.<ul>
+<li>You will need to adjust the initial angle of the servo in code to achieve this.</li>
+</ul>
+</li>
+<li>The three <abbr title="Light Emitting Diodes">LEDs</abbr> should flash three times, (on for 500ms and off for 500ms).</li>
+<li>The servo arm should then raise to the vertical position and maintain this position for 2 seconds.</li>
+<li>Repeat the above procedure once and then finally hold the servo arm in the vertical position.</li>
+</ul>
+</li>
+</ul>
+<p>The power supply of your servo <strong>MUST</strong> be supplied from the external power supply and not the Arduino +5V. The <abbr title="Electrical Ground or 0V">GND</abbr> of the Arduino, external supply and servo must be connected to the same node.</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger: You can destroy your Laptop motherboard if you get this wrong</p>
+<p>If you connect the +5V supply of the Arduino and the external power supply together you risk destroying the motherboard of your laptop by sending a voltage spike up the <abbr title="Universal Serial Bus">USB</abbr> lead when the servo operates.</p>
+<p>Read the <a href="../Disclaimer/">Disclaimer</a> document before proceeding.</p>
+<p>The University or <abbr title="Multidisciplinary Engineering Education">MEE</abbr> take no responsibility for damaged laptops due to this issue. We recommend using the University IT equipment to mitigate damaging your equipment.</p>
+</div>
+<p><strong>When completed, your code should function as follows:</strong></p>
+<p>Your Servo must be powered from the external power supply during this exercise.</p>
+<ul>
+<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set to a horizontal position.<ul>
+<li>You will need to adjust the initial angle of the servo in code to achieve this.</li>
+</ul>
+</li>
+<li>The three <abbr title="Light Emitting Diodes">LEDs</abbr> should flash three times, (on for 500ms and off for 500ms).</li>
+<li>The servo arm should then raise to the vertical position and maintain this position for 2 seconds.</li>
+<li>Repeat the above procedure once and then finally hold the servo arm in the vertical position.</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
+<p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tooltips", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

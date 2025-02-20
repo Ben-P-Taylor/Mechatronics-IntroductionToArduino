@@ -1,11 +1,11 @@
 ## Assessed Exercises
 
-There are 9 assessed exercises, each will build on a previous exercise. Six of these exercises are classed as “Basic” and we expect that all groups should be able to complete these using the three laboratory classes and maybe a little working outside the lab. These basic exercises are worth 65% of the total assessment mark. There are also three “Advances” exercises, which are an extension to the basic exercises, and **will** require extra work outside the laboratory session to complete – these are worth the final 35% of the assessment mark. 
+There are 9 assessed exercises, each will build on a previous exercise. Six of these exercises are classed as “Basic” and we expect that all groups should be able to complete these using the three laboratory classes and maybe a little working outside the lab. These basic exercises are worth <problemHL>70%</problemHL> of the total assessment mark. There are also three “Advances” exercises, which are an extension to the basic exercises, and **will** require extra work outside the laboratory session to complete – these are worth the final <problemHL>30%</problemHL> of the assessment mark. 
 
 !!! note
     You must complete **all** the basic exercises before you can gain credit for any of the advanced exercises.
 
-The marks weighting for each exercise is provided in [Table 1](#ExWeights):
+<problemHL>The marks weighting for each exercise is provided in [Table 1](#ExWeights):</problemHL>
 
 <table>
   <a name="ExWeights"></a>
@@ -13,15 +13,15 @@ The marks weighting for each exercise is provided in [Table 1](#ExWeights):
     <tr> <th>Exercise:</th><th>Weighting:</th> </tr>
   </thead>
   <tbody>
-    <tr> <td><strong>Basic:</strong> LED Pattern</td><td>15%</td> </tr>    
-    <tr> <td><strong>Basic:</strong> Calibration of Potentiometer Angle </td><td>5%</td> </tr>    
-    <tr> <td><strong>Basic:</strong> IR Sensor Measurement + Graph</td><td>10%</td> </tr>    
-    <tr> <td><strong>Basic:</strong> Externally Powered Servo</td><td>10%</td> </tr>    
-    <tr> <td><strong>Basic:</strong> DC Motor</td><td>15%</td> </tr>    
-    <tr> <td><strong>Basic:</strong> Encoders + Motor</td><td>15%</td> </tr>    
-    <tr> <td><strong>Advanced:</strong> PI Control – Encoder Position</td><td>10%</td> </tr>    
-    <tr> <td><strong>Advanced:</strong> PI Control – IR Sensor Distance</td><td>10%</td> </tr>    
-    <tr> <td><strong>Advanced:</strong> PI Control – IR with Sequence</td><td>10%</td> </tr>    
+    <tr> <td><strong>Basic:</strong> LED Pattern</td><td><problemHL>15%</td> </tr>    
+    <tr> <td><strong>Basic:</strong> Calibration of Potentiometer Angle </td><td><problemHL>5%</td> </tr>    
+    <tr> <td><strong>Basic:</strong> IR Sensor Measurement + Graph</td><td><problemHL>10%</td> </tr>    
+    <tr> <td><strong>Basic:</strong> Externally Powered Servo</td><td><problemHL>10%</td> </tr>    
+    <tr> <td><strong>Basic:</strong> DC Motor</td><td><problemHL>15%</td> </tr>    
+    <tr> <td><strong>Basic:</strong> Encoders + Motor</td><td><problemHL>15%</td> </tr>    
+    <tr> <td><strong>Advanced:</strong> PI Control – Encoder Position</td><td><problemHL>10%</td> </tr>    
+    <tr> <td><strong>Advanced:</strong> PI Control – IR Sensor Distance</td><td><problemHL>10%</td> </tr>    
+    <tr> <td><strong>Advanced:</strong> PI Control – IR with Sequence</td><td><problemHL>10%</td> </tr>    
     <tr style="font-size: large;"> <td><strong>Total</strong></td><td><strong>100%</strong></td> </tr>    
   </tbody>
 <caption>Marks Weighting for the Introduction to Arduino Exercises.</caption>

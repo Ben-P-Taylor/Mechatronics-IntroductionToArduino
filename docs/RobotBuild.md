@@ -6,18 +6,18 @@
 
 The system described in this section is the configuration that the author used during the development of the Introduction to Arduino exercises on this module, as shown in <debugHL>[Fig 1](#chassisPic)</debugHL>. This configuration is the recommended configuration for the exercises during this section of the course.
 
-<figure>
+<figure  markdown="span">
   <a name="chassisPic"></a>
-  <img src="/images/Robot%201st%20Picture.jpg" alt="Picture of the completed Robot.">
-  <figcaption>Picture of the completed Robot.</figcaption>
+  ![Picture of the completed Robot.](./Images/Robot%201st%20Picture.jpg)
+  <figcaption>Picture of the completed robot.</figcaption>
   </figure>
 
 ### Adding the mechanical components to the chassis
 This section will discuss the assembly of the mechanical system, and [a later section](#ElecConn "Electronic Component Layout and Connections") will discuss the assembly of the electronic circuitry.
 
-<figure>
+<figure  markdown="span">
   <a name="chassislayout"> </a>
-  <img src="/images/LayoutOfRobotChassis.png" alt="Annotated layout of the robot chassis.">
+  ![Annotated layout of the robot chassis](./Images/LayoutOfRobotChassis.png)
   <figcaption>Annotated layout of the robot chassis.</figcaption>
   </figure>
 
@@ -54,18 +54,18 @@ The cheap plastic wheels should be attached to the lugs at the front of the chas
 
 The MG996 servo is attached to the robot chassis using 3x M4x12 screws and 1x M4x6 screw, as illustrated in Figure 3. The shorter M4x6 screw is required to ensure that breadboard 2, see <debugHL>[Fig 3](#servoNuts)</debugHL>, will fit into the chassis. If you use an M4x12 screw in this location, the tail of the screw is too long and breadboard 2 will not fit into the space provided in the chassis. Figure 3 illustrates which of the 4 M4 screws should be the M4x6.
 
-<figure>
+<figure  markdown="span">
   <a name="servoNuts"></a>
-  <img src="/images/Fixing screws for the MG996 Servo.jpg" alt="Fixing screws for the MG996 Servo">
+  ![Fixing screws for the MG996 Servo](./Images/Fixing screws for the MG996 Servo.jpg)
   <figcaption>Fixing screws for the MG996 Servo.</figcaption>
   </figure>
 
 ####	Assembling the Lolly Stick D Assembly
 The lolly stick assembly comprises of the Sharp IR sensor, a laser cut plywood linkage and a servo horn for the MG996, as shown in <debugHL>[Fig 4](#LollyAss)</debugHL>.
 
-<figure>
+<figure  markdown="span">
   <a name="LollyAss"></a>
-  <img width=400 src="/images/Fixing Screws for the Lolly Stick Assembly.jpg" alt="Fixing Screws for the Lolly Stick Assembly.">
+  ![Fixing Screws for the Lolly Stick Assembly.](./Images/Fixing Screws for the Lolly Stick Assembly.jpg)
   <figcaption>Fixing Screws for the Lolly Stick Assembly.</figcaption>
   </figure>
 
@@ -84,9 +84,9 @@ The servo horn pushed onto the servo MG996 servo shaft, then a M3x6 screw is use
 !!! info
     This assembly will require repositioning at the start of the control of the standard servo exercise to ensure that the position is set correctly for the exercise.
 
-<figure>
+<figure  markdown="span">
   <a name="LollyUp"></a>
-  <img src="/images/LollyUp.jpg" alt="Pictures of the lolly stick assembly attached to the servo, rotated into the horizontal and vertical positions.">
+  ![Pictures of the lolly stick assembly attached to the servo, rotated into the horizontal and vertical positions.](./Images/LollyUp.jpg)
   <figcaption>Pictures of the lolly stick assembly attached to the servo, rotated into the horizontal and vertical positions.</figcaption>
   </figure>
 
@@ -105,9 +105,9 @@ The layout of the electronic components on the breadboard is entirely up to you,
 
 The location of breadboard 1 and breadboard 2 in the robot chassis is illustrated in <debugHL>[Fig 2](#chassislayout)</debugHL> and shown in the <debugHL>[Fig 1](#chassisPic)</debugHL>.
 
-<figure>
+<figure  markdown="span">
   <a name="BreadboardComps"></a>
-  <img src="/images/Breadboard.jpg" alt="Component positioning for breadboard 1 and breadboard 2.">
+  ![Component positioning for breadboard 1 and breadboard 2.](./Images/BreadBoard.jpg)
   <figcaption>Component positioning for (a) breadboard 1 and (b) breadboard 2.</figcaption>
   </figure>
 
@@ -119,17 +119,17 @@ The wiring connections for the components, described in <debugHL>[Fig 6](#Breadb
 Some of the robot systems draw too much power to be supplied directly from the Arduino, via the USB link. If you were to were to power the MG996 Servo or the DC motor from the Arduino, then you may pull too much power from the +5V rail and experience erratic behaviour due to the Arduino intermittently restarting – this is referred to as a <debugHL><a href = "https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" target="_blank">brownout restart</a></debugHL>.
 To overcome this problem, we will use an additional external DC power supply to provide extra current capability for some of the components – MG966 servos and DC motor driver board. To facilitate this, you will add a DC power connector to your robot system, shown in <debugHL>[Fig 7](#DcPower)</debugHL>.
  
-<figure>
+<figure  markdown="span">
   <a name="DcPower"></a>
-  <img width=300 src="/images/DcPower.jpg" alt="Annotated picture of the external power supply connector pins">
+  ![Annotated picture of the external power supply connector pins](./Images/BreadBoard.jpg)
   <figcaption>Annotated picture of the external power supply connector pins.</figcaption>
   </figure>
 In previous years, we have had problems with the DC power connector slipping out of the breadboard. To significantly reduce the chances of this, a cable tie can be used strap the dc connector down to breadboard 2, as illustrated in <debugHL>[Fig 8](#CableTie)</debugHL>.
 
-<figure>
+<figure  markdown="span">
   <a name="CableTie"></a>
-  <img  src="/images/CableTie.jpg" alt="Photograth of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard.">
-  <figcaption>Photograth of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard.</figcaption>
+  ![Photograph of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard.](./Images/CableTie.jpg)
+  <figcaption>Photograph of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard.</figcaption>
   </figure>
 
 !!! Note
@@ -160,7 +160,7 @@ The electronic system for the robot can be incrementally built as required for t
 
 Before you start any of the following exercises, you will need to add extra elements into your robot circuit.
 
-1. [Basic: LED Pattern](#”LEDPatternBuild)
+1. [Basic: LED Pattern](#LEDPatternBuild)
     * No extra circuitry is required for the Calibration of Potentiometer Angle Exercise. This uses the potentiometer from the LED Pattern Exercise.
 2. [Basic: IR Sensor Measurement + Graph](#irSensor)
 3. [Basic: Externally Powered Servo](#poweredServo)
@@ -171,13 +171,13 @@ Before you start any of the following exercises, you will need to add extra elem
     The advanced exercises do not require any extra circuit build. They work from the circuit that has been constructed for the final Basic Exercise: Encoders and Motor.
 
 #### Circuit Layout for the LED Pattern and Calibration of Potentiometer Angle Exercises
-<a name=”LEDPatternBuild></a>
+<a name="LEDPatternBuild"></a>
 
 The following circuit layout is sufficient to complete both the [LED pattern](./Ex1ledPattern.md) and the [Calibration of Potentiometer Angle](./Ex2PotCalibration.md) Exercises. This section illustrates where to layout and the connections for: the three LEDs and associated resistors, the button and the potentiometer, as illustrated in <debugHL>[Fig. 9](#LEDPattern)</debugHL>.
 
-<figure>
+<figure  markdown="span">
   <a name="LEDPattern"></a>
-  <img  src="/images/SillyBot LED Pattern.png" alt="Diagram showing the suggested component layout and wiring for the LED Pattern Exercise.">
+  ![Diagram showing the suggested component layout and wiring for the LED Pattern Exercise.](./Images/SillyBot LED Pattern.png)
   <figcaption>Diagram showing the suggested component layout and wiring for the LED Pattern Exercise.</figcaption>
   </figure>
 
@@ -215,9 +215,9 @@ This circuit layout can be used for the [LED pattern](./Ex1ledPattern.md) and th
 This section illustrates the connection of the Sharp IR sensor into the circuit, required for the [IR Sensor Measurement and Graph](./Ex3IrSensor.md) exercise, as illustrated in <debugHL>[Fig. 10](#irSensorPic)</debugHL>. You should keep the circuit wired from the previous section.
  
 
-<figure>
+<figure  markdown="span">
   <a name="irSensorPic"></a>
-  <img  src="/images/SillyBot IR Sensor.png" alt="Diagram showing the suggested component layout and wiring for the IR Sensor Exercise.">
+  ![Diagram showing the suggested component layout and wiring for the IR Sensor Exercise.](./Images/SillyBot IR Sensor.png)
   <figcaption>Diagram showing the suggested component layout and wiring for the IR Sensor Exercise.</figcaption>
   </figure>
 
@@ -245,9 +245,9 @@ The Sharp IR sensor cable has header connections attached to the non-sensor end.
 #### Circuit Layout for the Externally Powered Servo Exercise
 <a name="poweredServo"></a>
 
-<figure>
+<figure  markdown="span">
   <a name="powerServoPic"></a>
-  <img  src="/images/SillyBot Powered Servo.png" alt="Diagram showing the suggested component layout and wiring for the Externally Powered Servo Exercise.">
+  ![Diagram showing the suggested component layout and wiring for the Externally Powered Servo Exercise.](./Images/SillyBot Powered Servo.png)
   <figcaption>Diagram showing the suggested component layout and wiring for the Externally Powered Servo Exercise.</figcaption>
   </figure>
 
@@ -256,18 +256,18 @@ The Sharp IR sensor cable has header connections attached to the non-sensor end.
 #### Circuit Layout for the DC Motor Exercise
 <a name="dcMotor"></a>
 
-<figure>
+<figure  markdown="span">
   <a name="dcMotorPic"></a>
-  <img  src="/images/SillyBot dc Motor.png" alt="Diagram showing the suggested component layout and wiring for the DC Motor Exercise.">
+  ![Diagram showing the suggested component layout and wiring for the DC Motor Exercise.](./Images/SillyBot dc Motor.png)
   <figcaption>Diagram showing the suggested component layout and wiring for the DC Motor Exercise.</figcaption>
   </figure>
 
 #### Circuit Layout for the Encoders and Motor Exercise
 <a name="Encoder"></a>
 
-<figure>
+<figure  markdown="span">
   <a name="EncoderPic"></a>
-  <img  src="/images/SillyBot Encoder.png" alt="Diagram showing the suggested component layout and wiring for the Encoders and Motor Exercise.">
+  ![Diagram showing the suggested component layout and wiring for the Encoders and Motor Exercise.](./Images/SillyBot Encoder.png)
   <figcaption>Diagram showing the suggested component layout and wiring for the Encoders and Motor Exercise.</figcaption>
   </figure>
 
@@ -353,9 +353,9 @@ The 12-way header connector provides a convenient method for interfacing some of
 #### TB6612FG Motor Driver Board Connections
 Due to the most convenient orientation of the TB6612FG motor driver board on the robot, we will be using channel B for these exercises. The TB6612FG driver board is shown in <debugHL>[Fig 9](#TB6612FG)</debugHL>.
 
-<figure>
+<figure  markdown="span">
   <a name="TB6612FG"></a>
-  <img  src="/images/TB6612FG.jpg" alt="Picture of the TB6612FG motor driver board, with pins labelled.">
+  ![Picture of the TB6612FG motor driver board, with pins labelled.](./Images/TB6612FG.jpg)
   <figcaption>Picture of the TB6612FG motor driver board, with pins labelled.</figcaption>
   </figure>
 

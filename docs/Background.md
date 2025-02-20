@@ -1,6 +1,6 @@
 
 # Some Useful Background Information
-This is some background information to accompany the discussions
+<problemHL>This is some background information to accompany the discussions</problemHL>
 
 ## Analogue Sensors
 Sensors are used in real world applications to measure physical phenomena and convert these into an electrical characteristic, as illustrated in Figure 9.

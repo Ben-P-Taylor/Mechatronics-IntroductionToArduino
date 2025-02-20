@@ -1,0 +1,1085 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../RobotBuild/">
+      
+      
+        <link rel="next" href="../Ex1ledPattern/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Introductory Exercises (Non-assessed) - Introduction to Arduino Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/styles.css">
+    
+      <link rel="stylesheet" href="../css/highlights.css">
+    
+      <link rel="stylesheet" href="../css/tablesAndFigures.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-arduino-ide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Introduction to Arduino Documentation" class="md-header__button md-logo" aria-label="Introduction to Arduino Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to Arduino Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introductory Exercises (Non-assessed)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Introduction to Arduino Documentation" class="md-nav__button md-logo" aria-label="Introduction to Arduino Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction to Arduino Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Disclaimer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laptop / MacBook Disclaimer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RobotBuild/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building the Robot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introductory Exercises (Non-assessed)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introductory Exercises (Non-assessed)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Arduino IDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Arduino IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-installing-and-using-the-arduino-ide-on-a-university-managed-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Installing and Using the Arduino IDE on a University Managed PC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-setup-of-the-arduino-software-on-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Setup of the Arduino Software on your own
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laboratory-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laboratory Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Laboratory Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-digital-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Digital I/O
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Digital I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro-exercise-1-blink-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro Exercise 1: Blink Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intro-exercise-2-push-button-and-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro Exercise 2: Push Button and LED
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Basic Exercises (Assessed)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Basic Exercises (Assessed)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex1ledPattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LED Pattern
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex2PotCalibration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Calibration of Potentiometer Angle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex3IrSensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IR Sensor Measurement and Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex4DriveServoMotor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Driving a Servo Motor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex5DcMotor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC Motor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex6EncodeMotor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Encoders + Motor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced Exercises (Assessed)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Exercises (Assessed)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex7PiEncoder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – Encoder Position
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex8PiIrDist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – IR Sensor Distance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ex9PiIrSequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – IR with Sequence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assessment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assessment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-arduino-ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Arduino IDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Arduino IDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-installing-and-using-the-arduino-ide-on-a-university-managed-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Installing and Using the Arduino IDE on a University Managed PC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-and-setup-of-the-arduino-software-on-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Setup of the Arduino Software on your own
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laboratory-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laboratory Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Laboratory Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-digital-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Digital I/O
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Digital I/O">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro-exercise-1-blink-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro Exercise 1: Blink Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intro-exercise-2-push-button-and-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro Exercise 2: Push Button and LED
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Introductory Exercises (Non-assessed)</h1>
+
+<h2 id="the-arduino-ide">The Arduino <abbr title="Integrated Development Environment">IDE</abbr></h2>
+<p>This section is aimed at providing you with a brief overview into installing and setting up the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, ready for use with these laboratory activities.</p>
+<h3 id="the-installing-and-using-the-arduino-ide-on-a-university-managed-pc">The Installing and Using the Arduino <abbr title="Integrated Development Environment">IDE</abbr> on a University Managed PC</h3>
+<p>The Arduino software is available on all Managed University PC. In the Electronics and Control Laboratory, the software should already be installed on the workstation and laptop PCs. In other areas of the Diamond and the wider University campus, you may need to install Arduino using the Software Centre application.</p>
+<p><strong><em>Note:</em></strong> <em>As you should be aware, you can’t download and install software on the University Managed PC from the internet.</em></p>
+<h3 id="installation-and-setup-of-the-arduino-software-on-your-own">Installation and Setup of the Arduino Software on your own</h3>
+<p><strong>NOTE:</strong> <em>The procedures laid out in this section are only for use on your home computer. The PCs you will be using in the University laboratories and computer rooms already have the Arduino software installed, or it must be installed from the Managed Desktop software Centre.</em></p>
+<p><strong>Also Note:</strong> All the documentation for this module assumes you are using a Windows 10 or 11 on a PC. We do not support other operating system versions.</p>
+<p><strong>Information about installing the Arduino <abbr title="Integrated Development Environment">IDE</abbr> can be found on the Arduino website at:</strong> <a href="https://www.arduino.cc/en/Guide/Windows">https://www.arduino.cc/en/Guide/Windows</a></p>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>Navigate to the Arduino <abbr title="Integrated Development Environment">IDE</abbr> download page: <a href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a> and download the appropriate version of the Arduino <abbr title="Integrated Development Environment">IDE</abbr> for your operating system.</li>
+<li>Launch the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, to check it has been installed correctly</li>
+<li>
+<p>Ensure you have the latest version of the hardware drivers for the Arduino board:</p>
+<ul>
+<li>From within the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, select the Tools Menu and navigate to the Board Manager: <strong>Tools</strong> &gt; <strong>Board:</strong> <em>[name is the current board]</em> &gt; Boards Manager…</li>
+<li>From the Boards Manager menu that appears on the left side of the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, Find the <strong>Arduino AVR Boards</strong> item and ensure the latest version of the driver is installed. You can check if there is a more up-to-date version by clicking on the dropdown box in the <strong>Arduino AVR Boards</strong> section, and seeing if there is a higher version available than the installed version indicated at the top of the section – do not install a lower version.</li>
+</ul>
+</li>
+<li>
+<p>At this point you should connect the Arduino Uno to your system and direct the Arduino <abbr title="Integrated Development Environment">IDE</abbr> to the correct Arduino board type and Port to allow your Arduino device to be programmed.</p>
+<ul>
+<li>It you do not know how to do this, please look at the Getting Started with Arduino UNO guide on the Arduino website: <a href="https://www.arduino.cc/en/Guide/ArduinoUno">https://www.arduino.cc/en/Guide/ArduinoUno</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="laboratory-exercises">Laboratory Exercises</h2>
+<h3 id="simple-digital-io">Simple Digital I/O</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The remainder of this section is provided for students with no experience of using Arduino and serves as a tutorial example of how to use the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, in its most simple form.</p>
+</div>
+<p>The Arduino microcontroller is a powerful tool to build a wealth of mechatronics and robotic projects. We are just getting started - so let’s introduce how to work with push buttons and <abbr title="Light Emitting Diodes">LEDs</abbr>. These elements are digital inputs and outputs, and are representative of the type of actions we typically want in mechatronics projects: we want that upon a command (e.g., pressing a button), an action to take place that can modify the environment in a sensible way (e.g., a noticeable light on or off).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Before starting the laboratory exercises</strong>, you should review the contents of the "Mechatronics KIT Information" folder, located in the Lab Practicals (Sem 1) content area of the Blackboard site for the Mechatronics course.</p>
+</div>
+<h4 id="intro-exercise-1-blink-example">Intro Exercise 1: Blink Example</h4>
+<p>The aim of this exercise is to demonstrate how to upload and run a simple Arduino program.</p>
+<p>The Blink example is a good way to test the installation of your Arduino software, and also to identify if there is a major problem with your Arduino hardware.</p>
+<p><strong>Procedure:</strong></p>
+<ul>
+<li>Load the Blink example from the Arduino <abbr title="Integrated Development Environment">IDE</abbr> files menu: Files &gt; Examples &gt; 01.Basics &gt; Blink, as shown in <debugHL><a href="#blink">Fig. 1</a></debugHL>:</li>
+</ul>
+<figure>
+  <a name="blink"></a>
+  <a class="glightbox" href="/images/Blink.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/Blink.png" alt="Screen shot of how to find the blink example in the Adruino IDE."></a>
+  <figcaption>Screen shot of how to find the blink example in the Adruino IDE.</figcaption>
+</figure>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The built-in examples, provided in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, are a great way of finding out how to do certain operations and use some programming constructs.</p>
+</div>
+<ul>
+<li>You compile and upload your Arduino program, or Sketch, by pressing the Press Upload button, as highlighted with a red circle in <debugHL><a href="#upload">Fig. 2</a></debugHL>:</li>
+</ul>
+<figure>
+  <a name="upload"></a>
+  <a class="glightbox" href="/images/Upload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/Upload.png" alt="A screen shot of the Upload button, highlighted with a red circuit, in the Arduino IDE."></a>
+  <figcaption>A screen shot of the Upload button, highlighted with a red circuit, in the Arduino IDE.</figcaption>
+</figure>
+
+<p>After the <abbr title="Integrated Development Environment">IDE</abbr> compiles and uploads your program, the Arduino should start to run your code. For this example, this will be indicated by the <abbr title="Light Emitting Diode">LED</abbr>, “L”, (highlighted in Red in <debugHL><a href="#ledL">Fig. 3</a></debugHL>), which should be slowly flashing. (Note: <abbr title="Light Emitting Diode">LED</abbr> “L” is also connected to pin 13).</p>
+<figure>
+  <a name="ledL"></a>
+  <a class="glightbox" href="/images/LED L.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/LED L.png" alt="The Arduino Board, with the LED, “L”, highlighted with a red box."></a>
+  <figcaption>The Arduino Board, with the LED, “L”, highlighted with a red box.</figcaption>
+</figure>
+
+<ol>
+<li>The setup() and loop() functions of the Blink example are shown below. Modify the values in the delay() functions, (highlighted in red) and investigate its effects again. What happens?</li>
+</ol>
+<p><em>(See the Arduino Language Reference, from the Arduino website, for details of the delay() function:</em> <debugHL><a href="https://www.arduino.cc/reference/en/language/functions/time/delay/"><em>https://www.arduino.cc/reference/en/language/functions/time/delay/</em></a></debugHL><em>)</em></p>
+<p>You should observe that changing the value in the brackets for the upper delay() function, changes the on-time of the <abbr title="Light Emitting Diode">LED</abbr>, and changing the value of the lower delay function, changes the off-time for the <abbr title="Light Emitting Diode">LED</abbr>.</p>
+<h3 id="intro-exercise-2-push-button-and-led">Intro Exercise 2: Push Button and <abbr title="Light Emitting Diode">LED</abbr></h3>
+<p>The aim of this exercise is to use a digital input, in this case from a push button, to trigger the Arduino to produce a digital output. In this case and <abbr title="Light Emitting Diode">LED</abbr>, as illustrated in the circuit shown in <debugHL><a href="#ledButton">Fig. 4</a></debugHL>.</p>
+<p><strong>Wiring Procedure:</strong></p>
+<ul>
+<li>Using the Kit of parts provided, connect the circuit as shown in <debugHL><a href="#ledButton">Fig. 4</a></debugHL>.<ul>
+<li>It is not essential to maintain the colour of wires illustrated in the diagram.</li>
+<li>The digital input from the button is connected to pin 2</li>
+<li>The digital output to the <abbr title="Light Emitting Diode">LED</abbr> is connected to pin 13, (shared with the <abbr title="Light Emitting Diode">LED</abbr> “L” on the Arduino board)</li>
+<li>The resistor connected between the button and the <abbr title="Electrical Ground or 0V">GND</abbr> line is 10K, and the resistor connected between the anode of the <abbr title="Light Emitting Diode">LED</abbr> and pin 13 of the Arduino is 470Ω.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a guide to reading resistor values in the Mechatronics Kit Information section of the Blackboard site.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The digital Input, on pin 2, is ‘pulled’ down to the 0V supply rail by the a 10K resistor, (a resistor used in this manner is often referred to as a pull-down resistor). In this configuration, when we press the button, the digital input is connected to the +5V supply rail. When the button is released, the 10K resistor ‘pulls’ the digital input back down to 0V. without the 10K resistor, the input would ‘float’, and may produce a spurious input when the button is released.</p>
+</div>
+<figure>
+  <a name="ledButton"></a>
+  <a class="glightbox" href="/images/ledButton.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/ledButton.png" alt="Diagram illustrating the Circuit configuration for the Push Button and LED Exercise."></a>
+  <figcaption>Diagram illustrating the Circuit configuration for the Push Button and LED Exercise.</figcaption>
+</figure>
+
+<p>The code for this exercise can be found by selecting the in-built Button exercise from the Files menu in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>: Files &gt; Examples &gt; 02.Digital &gt; Button</p>
+<p><strong>Procedure:</strong></p>
+<ul>
+<li>Run Button example Arduino sketch: you should see the <abbr title="Light Emitting Diode">LED</abbr> light up when you press the button, and the <abbr title="Light Emitting Diode">LED</abbr> should go out when you release the button.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is often the case that we may wish to view data directly from within an Arduino program. To achieve this we can use the Serial library to stream data from the Arduino, across a <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> interface (this can be the same <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> port you are using to program the Arduino) to a terminal – we can use the Serial Monitor in the Arduino <abbr title="Integrated Development Environment">IDE</abbr> for convenience.</p>
+</div>
+<p>The modified Button example code, <debugHL><a href="#buttCode">shown below</a></debugHL>, is based on the Button example, but has the following two extra lines:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>  // Initialise communications with the serial monitor. Parameter: baud rate
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  Serial.begin(9600);
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>...and
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  // Write the value of the buttonState variable to the serial monitor
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  Serial.println(buttonState);
+</span></code></pre></div>
+<p>These extra commands initialise the Serial interface, and write data to the <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> port. A description of the Serial commands can be found in the Serial functions section of the Arduino reference guide:</p>
+<p><debugHL><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">https://www.arduino.cc/reference/en/language/functions/communication/serial/</a></debugHL></p>
+<p><a name="buttCode"></a>
+<div class="language-Arduino highlight"><span class="filename">Modified Button Example</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// constants won&#39;t change. They&#39;re used here to set pin numbers:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">buttonPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// the number of the push button pin</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">;</span><span class="w">    </span><span class="c1">// the number of the LED pin</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1">// variables will change:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kr">int</span><span class="w"> </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// variable for reading the push button status</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="c1">// Initialise communications with the serial monitor. Parameter: baud rate</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="c1">// initialize the LED pin as an output:</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="c1">// initialize the push button pin as an input:</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="c1">// read the state of the push button value:</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="n">buttonState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">digitalRead</span><span class="p">(</span><span class="n">buttonPin</span><span class="p">);</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="c1">// Write the value of the buttonState variable to the serial monitor</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">buttonState</span><span class="p">);</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="c1">// check if the push button is pressed. If it is, the buttonState is HIGH:</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buttonState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="c1">// turn LED on:</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="c1">// turn LED off:</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>Links to all the Serial function descriptions are listed towards the bottom of the <debugHL><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">Serial commands reference page</a></debugHL>.</p>
+<p>To open the Serial Monitor, from the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, click the button in the top right of the <abbr title="Integrated Development Environment">IDE</abbr>, as highlighted in <debugHL><a href="#SMbutt">Fig. 5</a></debugHL>.</p>
+<figure>
+  <a name="SMbutt"></a>
+  <a class="glightbox" href="/images/SM Button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="/images/SM Button.png" alt="Screen shot of the Serial Monitor button, in the Arduino IDE."></a>
+  <figcaption>Screen shot of the Serial Monitor button, in the Arduino IDE.</figcaption>
+</figure>
+
+<p><strong>Procedure:</strong></p>
+<ul>
+<li>Modify the Button example sketch, and open the Serial Monitor</li>
+<li>Run the code: You should see a ‘1’ printed on the serial monitor when the button is pressed, and the serial monitor should display ‘0’ when the button is released.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tooltips", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

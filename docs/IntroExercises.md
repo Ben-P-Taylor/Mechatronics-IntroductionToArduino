@@ -14,11 +14,13 @@ The Arduino software is available on all Managed University PC. In the Electroni
 
 **Also Note:** All the documentation for this module assumes you are using a Windows 10 or 11 on a PC. We do not support other operating system versions.
 
-**Information about installing the Arduino IDE can be found on the Arduino website at:** <https://www.arduino.cc/en/Guide/Windows>
+**Information about installing the Arduino IDE can be found on the Arduino website at:** <debugHL>[https://www.arduino.cc/en/Guide/Windows](https://www.arduino.cc/en/Guide/Windows){target="_blank"}</debugHL>
 
 **Procedure:**
 
-1. Navigate to the Arduino IDE download page: <https://www.arduino.cc/en/Main/Software> and download the appropriate version of the Arduino IDE for your operating system.
+Is This working
+
+1. Navigate to the Arduino IDE download page: <debugHL>[https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software){target="_blank"}</debugHL> download the appropriate version of the Arduino IDE for your operating system.
 2. Launch the Arduino IDE, to check it has been installed correctly
 3. Ensure you have the latest version of the hardware drivers for the Arduino board:
     - From within the Arduino IDE, select the Tools Menu and navigate to the Board Manager: **Tools** > **Board:** _\[name is the current board\]_ > Boards Manager…
@@ -26,7 +28,7 @@ The Arduino software is available on all Managed University PC. In the Electroni
 
 
 1. At this point you should connect the Arduino Uno to your system and direct the Arduino IDE to the correct Arduino board type and Port to allow your Arduino device to be programmed.
-    - It you do not know how to do this, please look at the Getting Started with Arduino UNO guide on the Arduino website: <https://www.arduino.cc/en/Guide/ArduinoUno>
+    - It you do not know how to do this, please look at the Getting Started with Arduino UNO guide on the Arduino website: <debugHL>[https://www.arduino.cc/en/Guide/ArduinoUno](https://www.arduino.cc/en/Guide/ArduinoUno){target="_blank"}</debugHL>
 
 ## Laboratory Exercises
 
@@ -50,9 +52,9 @@ The Blink example is a good way to test the installation of your Arduino softwar
 
 * Load the Blink example from the Arduino IDE files menu: Files > Examples > 01.Basics > Blink, as shown in <debugHL>[Fig. 1](#blink)</debugHL>:
 
-<figure>
+<figure markdown="span">
   <a name="blink"></a>
-  <img src="/images/Blink.png" alt="Screen shot of how to find the blink example in the Adruino IDE.">
+![Screen shot of how to find the blink example in the Adruino IDE.](./Images/Blink.png)
   <figcaption>Screen shot of how to find the blink example in the Adruino IDE.</figcaption>
 </figure>
 
@@ -62,24 +64,24 @@ The Blink example is a good way to test the installation of your Arduino softwar
 
 * You compile and upload your Arduino program, or Sketch, by pressing the Press Upload button, as highlighted with a red circle in <debugHL>[Fig. 2](#upload)</debugHL>:
 
-<figure>
+<figure markdown="span" markdown="span">
   <a name="upload"></a>
-  <img src="/images/Upload.png" alt="A screen shot of the Upload button, highlighted with a red circuit, in the Arduino IDE.">
+![A screen shot of the Upload button, highlighted with a red circuit, in the Arduino IDE.](./Images/Upload.png)
   <figcaption>A screen shot of the Upload button, highlighted with a red circuit, in the Arduino IDE.</figcaption>
 </figure>
 
 
 After the IDE compiles and uploads your program, the Arduino should start to run your code. For this example, this will be indicated by the LED, “L”, (highlighted in Red in <debugHL>[Fig. 3](#ledL)</debugHL>), which should be slowly flashing. (Note: LED “L” is also connected to pin 13).
 
-<figure>
+<figure markdown="span">
   <a name="ledL"></a>
-  <img src="/images/LED L.png" alt="The Arduino Board, with the LED, “L”, highlighted with a red box.">
+  ![The Arduino Board, with the LED, “L”, highlighted with a red box.](./Images/LED L.png)
   <figcaption>The Arduino Board, with the LED, “L”, highlighted with a red box.</figcaption>
 </figure> 
 
 1. The setup() and loop() functions of the Blink example are shown below. Modify the values in the delay() functions, (highlighted in red) and investigate its effects again. What happens?
 
-_(See the Arduino Language Reference, from the Arduino website, for details of the delay() function:_ <debugHL>[_https://www.arduino.cc/reference/en/language/functions/time/delay/_](https://www.arduino.cc/reference/en/language/functions/time/delay/)</debugHL>_)_
+_(See the Arduino Language Reference, from the Arduino website, for details of the delay() function:<debugHL>[https://www.arduino.cc/reference/en/language/functions/time/delay/](https://www.arduino.cc/reference/en/language/functions/time/delay/){target="_blank"}</debugHL>_)
 
 
 You should observe that changing the value in the brackets for the upper delay() function, changes the on-time of the LED, and changing the value of the lower delay function, changes the off-time for the LED.
@@ -102,9 +104,9 @@ The aim of this exercise is to use a digital input, in this case from a push but
 !!! Note
     The digital Input, on pin 2, is ‘pulled’ down to the 0V supply rail by the a 10K resistor, (a resistor used in this manner is often referred to as a pull-down resistor). In this configuration, when we press the button, the digital input is connected to the +5V supply rail. When the button is released, the 10K resistor ‘pulls’ the digital input back down to 0V. without the 10K resistor, the input would ‘float’, and may produce a spurious input when the button is released.
 
-<figure>
+<figure markdown="span">
   <a name="ledButton"></a>
-  <img src="/images/ledButton.png" alt="Diagram illustrating the Circuit configuration for the Push Button and LED Exercise.">
+  ![Diagram illustrating the Circuit configuration for the Push Button and LED Exercise.](./Images/ledButton.png)
   <figcaption>Diagram illustrating the Circuit configuration for the Push Button and LED Exercise.</figcaption>
 </figure> 
 
@@ -120,19 +122,19 @@ The code for this exercise can be found by selecting the in-built Button exercis
 
 The modified Button example code, <debugHL>[shown below](#buttCode)</debugHL>, is based on the Button example, but has the following two extra lines:
 
-```
-  // Initialise communications with the serial monitor. Parameter: baud rate
-  Serial.begin(9600);
+``` Arduino
+// Initialise communications with the serial monitor. Parameter: baud rate
+Serial.begin(9600);
 
 ...and
 
-  // Write the value of the buttonState variable to the serial monitor
-  Serial.println(buttonState);
+// Write the value of the buttonState variable to the serial monitor
+Serial.println(buttonState);
 ```
 
 These extra commands initialise the Serial interface, and write data to the COM port. A description of the Serial commands can be found in the Serial functions section of the Arduino reference guide:
 
-<debugHL>[https://www.arduino.cc/reference/en/language/functions/communication/serial/](https://www.arduino.cc/reference/en/language/functions/communication/serial/)</debugHL>
+<debugHL>[https://www.arduino.cc/reference/en/language/functions/communication/serial/](https://www.arduino.cc/reference/en/language/functions/communication/serial/){target="_blank"}</debugHL>
 
 <a name="buttCode"></a>
 ``` Arduino title="Modified Button Example"
@@ -172,13 +174,13 @@ void loop() {
 
 ```
 
-Links to all the Serial function descriptions are listed towards the bottom of the <debugHL>[Serial commands reference page](https://www.arduino.cc/reference/en/language/functions/communication/serial/)</debugHL>.
+Links to all the Serial function descriptions are listed towards the bottom of the <debugHL>[Serial commands reference page](https://www.arduino.cc/reference/en/language/functions/communication/serial/){target="_blank"}</debugHL>.
 
 To open the Serial Monitor, from the Arduino IDE, click the button in the top right of the IDE, as highlighted in <debugHL>[Fig. 5](#SMbutt)</debugHL>.
 
-<figure>
+<figure markdown="span">
   <a name="SMbutt"></a>
-  <img src="/images/SM Button.png" alt="Screen shot of the Serial Monitor button, in the Arduino IDE.">
+  ![Screen shot of the Serial Monitor button, in the Arduino IDE.](./Images/SM Button.png)
   <figcaption>Screen shot of the Serial Monitor button, in the Arduino IDE.</figcaption>
 </figure> 
 
