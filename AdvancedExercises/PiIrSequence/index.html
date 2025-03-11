@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../PiEncoder/">
       
       
-        <link rel="next" href="../Ex8PiEncoder/">
+        <link rel="next" href="../../Assessment/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>PI Control – IR Sensor Distance - Introduction to Arduino Documentation</title>
+        <title>PI Control – IR with Sequence - Introduction to Arduino Documentation</title>
       
     
     
@@ -88,11 +88,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#calibrate-potentiometer-angle" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -125,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PI Control – IR Sensor Distance
+              PI Control – IR with Sequence
             
           </span>
         </div>
@@ -430,8 +425,6 @@
       
         
       
-        
-      
     
     
     
@@ -478,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex1ledPattern/" class="md-nav__link">
+      <a href="../../BasicExercises/ledPattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -500,29 +493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex2PotCalibration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Calibration of Potentiometer Angle
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex3IrSensor/" class="md-nav__link">
+      <a href="../../BasicExercises/IrSensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -544,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex4DriveServoMotor/" class="md-nav__link">
+      <a href="../../BasicExercises/DriveServoMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -566,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex5DcMotor/" class="md-nav__link">
+      <a href="../../BasicExercises/DcMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -588,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex6EncodeMotor/" class="md-nav__link">
+      <a href="../../BasicExercises/EncodeMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -674,31 +645,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    PI Control – IR Sensor Distance
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../PiIrDist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,68 +658,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pi-controller-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      PI controller implementation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="PI controller implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-note-on-code-timing-and-determinacy-for-embedded-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      A note on code timing and determinacy for embedded systems
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assessed-exercise" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assessed Exercise
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -782,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex8PiEncoder/" class="md-nav__link">
+      <a href="../PiEncoder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -801,10 +689,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Ex9PiIrSequence/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -814,6 +709,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -847,6 +743,48 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../License/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -864,58 +802,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pi-controller-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      PI controller implementation
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="PI controller implementation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-note-on-code-timing-and-determinacy-for-embedded-systems" class="md-nav__link">
-    <span class="md-ellipsis">
-      A note on code timing and determinacy for embedded systems
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assessed-exercise" class="md-nav__link">
-    <span class="md-ellipsis">
-      Assessed Exercise
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -931,32 +817,9 @@
 
 
 
-<h1 id="calibrate-potentiometer-angle">Calibrate Potentiometer Angle</h1>
-<div class="admonition info">
-<p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed the <debugHL><a href="#calibPotEx">Assessed Exercise</a></debugHL>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Before Continuing</p>
-<p>Before starting these exercises, you should ensure that you have completed all the <debugHL><a href="../../BasicExercises/">Basic Exercises</a></debugHL> and have fully constructed the robot chassis, as described in the <debugHL><a href="../../RobotBuild/">Building the Robot</a></debugHL> document.</p>
-</div>
-<p>The following video is a quick demonstration of the final outcome from this exercise:</p>
-<figure>
-<div style="text-align: center;">
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_a3eviyhm&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_4q6vxp1v%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;justify-content:center;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Placeholder - Quick Test Video"></iframe>
-</div>
+  <h1>PI Control – IR with Sequence</h1>
 
-<figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
-</figure>
 
-<h2 id="introduction">Introduction</h2>
-<h2 id="pi-controller-implementation"><abbr title="Proportional and Integral Controller">PI</abbr> controller implementation</h2>
-<h3 id="a-note-on-code-timing-and-determinacy-for-embedded-systems">A note on code timing and determinacy for embedded systems</h3>
-<p>When implementing a <abbr title="Proportional and Integral Controller">PI</abbr> controller on an embedded system, it is important to maintain strict timing of the algorithm, to ensure that you are reading the inputs and sensors, and processing the controller algorithm at known times, normally at specific time intervals. Maintaining strict and consistent timing for these ensures that the algorithms you are using function as expected and produce predictable behaviour.</p>
-<p>Using <code>delay()</code> functions within your code often leads to code that does not have consistent timing, and it is often difficult to predict the code execution time for sections of code.</p>
-<p>To maintain more consistent code timing, the millisecond tick timer, called using the <code>millis()</code> function, should be used to constrain the timing of your code. This is more consistent with the real-time programming requirements of embedded system control and can significantly improve the determinacy of your code. </p>
-<p><a name = "calibPotEx"></a></p>
-<h2 id="assessed-exercise">Assessed Exercise</h2>
 
 
 

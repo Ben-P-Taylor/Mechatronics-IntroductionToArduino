@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Ex8PiEncoder/">
+        <link rel="prev" href="../PiIrDist/">
       
       
-        <link rel="next" href="../../Assessment/">
+        <link rel="next" href="../PiIrSequence/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>PI Control – IR with Sequence - Introduction to Arduino Documentation</title>
+        <title>PI Control – Encoder Position - Introduction to Arduino Documentation</title>
       
     
     
@@ -88,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#using-the" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -120,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PI Control – IR with Sequence
+              PI Control – Encoder Position
             
           </span>
         </div>
@@ -425,8 +430,6 @@
       
         
       
-        
-      
     
     
     
@@ -473,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex1ledPattern/" class="md-nav__link">
+      <a href="../../BasicExercises/ledPattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -495,29 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex2PotCalibration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Calibration of Potentiometer Angle
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex3IrSensor/" class="md-nav__link">
+      <a href="../../BasicExercises/IrSensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -539,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex4DriveServoMotor/" class="md-nav__link">
+      <a href="../../BasicExercises/DriveServoMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex5DcMotor/" class="md-nav__link">
+      <a href="../../BasicExercises/DcMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -583,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicExercises/Ex6EncodeMotor/" class="md-nav__link">
+      <a href="../../BasicExercises/EncodeMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -672,33 +653,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex7PiIrDist/" class="md-nav__link">
+      <a href="../PiIrDist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     PI Control – IR Sensor Distance
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Ex8PiEncoder/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PI Control – Encoder Position
     
   </span>
   
@@ -722,8 +681,88 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PI Control – Encoder Position
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    PI Control – Encoder Position
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-finite-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Simple Finite State Machine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PiIrSequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -733,7 +772,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -767,6 +805,48 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../License/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -784,6 +864,40 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-simple-finite-state-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Simple Finite State Machine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -799,9 +913,27 @@
 
 
 
-  <h1>PI Control – IR with Sequence</h1>
+<h1 id="using-the">Using the</h1>
+<div class="admonition info">
+<p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
+<p>This is an assessed Exercise. When you have completed the <debugHL><a href="#calibPotEx">Assessed Exercise</a></debugHL>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Before Continuing</p>
+<p>Before starting these exercises, you should ensure that you have completed all the <debugHL><a href="../../BasicExercises/">Basic Exercises</a></debugHL> and have fully constructed the robot chassis, as described in the <debugHL><a href="../../RobotBuild/">Building the Robot</a></debugHL> document.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>During this exercise you will write a program to move the robot chassis forwards and backwards through a sequence of set distances. The robot must be controlled in closed loop, using a <abbr title="Proportional and Integral Controller">PI</abbr> controller, and using the motor encoder as the feedback sensor.</p>
+<p>Your code should use a simple finite state machine to control the sequences of operation.</p>
+<p>The following video is a quick demonstration of the final outcome from this exercise:</p>
+<figure>
+<div style="text-align: center;">
+<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
+</div>
+<figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
+</figure>
 
-
+<h3 id="a-simple-finite-state-machine">A Simple Finite State Machine</h3>
 
 
 

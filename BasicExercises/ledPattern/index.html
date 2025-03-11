@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Ex2PotCalibration/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../Ex4DriveServoMotor/">
+        <link rel="next" href="../IrSensor/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>IR Sensor Measurement and Graph - Introduction to Arduino Documentation</title>
+        <title>LED Pattern - Introduction to Arduino Documentation</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measure-the-output-of-the-sharp-ir-distance-sensor" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IR Sensor Measurement and Graph
+              LED Pattern
             
           </span>
         </div>
@@ -432,8 +432,6 @@
       
         
       
-        
-      
     
     
     
@@ -477,50 +475,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../Ex1ledPattern/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LED Pattern
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Ex2PotCalibration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Calibration of Potentiometer Angle
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -530,14 +484,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    IR Sensor Measurement and Graph
+    LED Pattern
     
   </span>
   
@@ -549,7 +501,7 @@
         
   
   <span class="md-ellipsis">
-    IR Sensor Measurement and Graph
+    LED Pattern
     
   </span>
   
@@ -562,8 +514,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -572,28 +522,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-and-background" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction and Background
+      Introduction
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction and Background">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-led-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: LED Sequence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-potentiometer-control-of-the-sequence-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Potentiometer Control of the Sequence Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Potentiometer Control of the Sequence Rate">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#noise-on-the-ir-sensor" class="md-nav__link">
+  <a href="#section-1-the-read-the-potentiometer-test-program-potino" class="md-nav__link">
     <span class="md-ellipsis">
-      Noise on the IR sensor
+      Section 1: The Read the Potentiometer Test Program, POT.ino
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#experimental-setup-with-lolly-stick-up" class="md-nav__link">
+  <a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Experimental Setup with Lolly Stick up
+      Section 2: Integrate the Potentiometer Value Into Your LED Sequence Program
     </span>
   </a>
   
@@ -605,18 +573,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#expected-results" class="md-nav__link">
+  <a href="#part-3-addition-of-a-pause-button" class="md-nav__link">
     <span class="md-ellipsis">
-      Expected Results
+      Part 3: Addition of a Pause Button
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assessed-exercise" class="md-nav__link">
+  <a href="#appendix-potino-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Assessed Exercise
+      Appendix: POT.INO Code
     </span>
   </a>
   
@@ -638,7 +606,29 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex4DriveServoMotor/" class="md-nav__link">
+      <a href="../IrSensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IR Sensor Measurement and Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DriveServoMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -660,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex5DcMotor/" class="md-nav__link">
+      <a href="../DcMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -682,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex6EncodeMotor/" class="md-nav__link">
+      <a href="../EncodeMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -769,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AdvancedExercises/Ex7PiIrDist/" class="md-nav__link">
+      <a href="../../AdvancedExercises/PiIrDist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -791,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AdvancedExercises/Ex8PiEncoder/" class="md-nav__link">
+      <a href="../../AdvancedExercises/PiEncoder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -813,7 +803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AdvancedExercises/Ex9PiIrSequence/" class="md-nav__link">
+      <a href="../../AdvancedExercises/PiIrSequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,6 +846,48 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../License/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Elements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -873,8 +905,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -883,28 +913,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction-and-background" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction and Background
+      Introduction
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction and Background">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-led-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1: LED Sequence
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-potentiometer-control-of-the-sequence-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2: Potentiometer Control of the Sequence Rate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Potentiometer Control of the Sequence Rate">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#noise-on-the-ir-sensor" class="md-nav__link">
+  <a href="#section-1-the-read-the-potentiometer-test-program-potino" class="md-nav__link">
     <span class="md-ellipsis">
-      Noise on the IR sensor
+      Section 1: The Read the Potentiometer Test Program, POT.ino
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#experimental-setup-with-lolly-stick-up" class="md-nav__link">
+  <a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program" class="md-nav__link">
     <span class="md-ellipsis">
-      Experimental Setup with Lolly Stick up
+      Section 2: Integrate the Potentiometer Value Into Your LED Sequence Program
     </span>
   </a>
   
@@ -916,18 +964,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#expected-results" class="md-nav__link">
+  <a href="#part-3-addition-of-a-pause-button" class="md-nav__link">
     <span class="md-ellipsis">
-      Expected Results
+      Part 3: Addition of a Pause Button
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#assessed-exercise" class="md-nav__link">
+  <a href="#appendix-potino-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Assessed Exercise
+      Appendix: POT.INO Code
     </span>
   </a>
   
@@ -949,98 +997,153 @@
 
 
 
-<h1 id="measure-the-output-of-the-sharp-ir-distance-sensor">Measure the Output of the Sharp <abbr title="Infra Red">IR</abbr> Distance Sensor</h1>
+  <h1>LED Pattern</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>During the <abbr title="Light Emitting Diode">LED</abbr> Pattern exercise you will generate a repeating sequence on 3 <abbr title="Light Emitting Diodes">LEDs</abbr>, use a potentiometer to change the cycle rate of the sequence, and use a push button to pause the sequence.</p>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed the <a href="#irSensorExercise">Assessed Exercise</a>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+<p>This is an assessed Exercise. When you have completed part 3, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debugHL><a href="../../RobotBuild/#irSensorPic">Building the Robot: Fig. 11</a></debugHL>. Furthermore, you should ensure that all the connections described in the <a href="../../RobotBuild/#irSensor">Building the Robot: Circuit Layout for the <abbr title="Infra Red">IR</abbr> Sensor Exercise</a> are correct.</p>
+<p>Before starting these exercises, you should ensure that you have added the <abbr title="Light Emitting Diodes">LEDs</abbr>, the button and the potentiometer to the breadboards on the robot chassis, as suggested on <debugHL><a href="../../RobotBuild/#BreadboardComps">Building the Robot: Fig. 6</a></debugHL>. Furthermore, you should ensure that your connections for these components are correct - suggested connections are shown in <debugHL><a href="../../RobotBuild/#ledPatConnect">Building the Robot: Building the Robot: Table. 1</a></debugHL>.</p>
 </div>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
 <div style="text-align: center;">
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
+<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_xav3xgmf&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_hd9727jk%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="LED Pattern"></iframe>
 </div>
 <figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
 </figure>
 
-<h2 id="introduction-and-background">Introduction and Background</h2>
-<p>The aim of this exercise is to generate a graph of sensor measurement from the Sharp <abbr title="Infra Red">IR</abbr> distance sensor against measurement distance. During this exercise, you will interface the Sharp <abbr title="Infra Red">IR</abbr> distance sensor with the Arduino, record the measured voltage as a function of the distance to a target, and observe any constraints for the operation of this sensor.</p>
-<p>Before you start this exercise, you will need to construct the circuit according to <debugHL><a href="../../RobotBuild/#irSensor">the <abbr title="Infra Red">IR</abbr> sensor circuit instructions</a></debugHL> in the <debugHL><a href="../../RobotBuild/">Building the Robot Document</a></debugHL>.</p>
-<h3 id="noise-on-the-ir-sensor">Noise on the <abbr title="Infra Red">IR</abbr> sensor</h3>
-<p>The <abbr title="Infra Red">IR</abbr> sensor is not an ideal sensor and induces noise onto the output of the sensor, as shown in <debugHL><a href="#irWithNoise">Fig 1</a></debugHL>.</p>
-<figure>
-  <a name="irWithNoise"></a>
-  <a class="glightbox" href="../../Images/SerialPlotter-irWithNoise.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Serial Plotter Showing Noise on the IR distance sensor." src="../../Images/SerialPlotter-irWithNoise.png" /></a>
-  <figcaption>Serial Plotter Showing Noise on the <abbr title="Infra Red">IR</abbr> distance sensor.</figcaption>
-</figure>
-<p>A <debugHL><a href="https://en.wikipedia.org/wiki/Moving_average">simple moving averaging</a></debugHL> filter technique can be used on the data to reduce the noise content of the signal. A simple, but effective, implementation of this technique is shown in the Averaging Code, below:</p>
-<p><div class="language-Arduino highlight"><span class="filename">Averaging Code</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//Read the IR sensor</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// accumulate a further 7 readings</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">// right shift 3 places to divide by 8</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-</span></code></pre></div>
-The Averaging Code, above, sums the result of 8 <abbr title="Analogue to Digital Converter">ADC</abbr> readings of the <abbr title="Infra Red">IR</abbr> sensor and take the average value of these readings. This is a crude, but effective method for noise reduction, in this instance. The results of this implementation can be seen from the data shown in <debugHL><a href="#averagedIrSensor">Fig 2</a></debugHL>.</p>
-<figure>
-  <a name="averagedIrSensor"></a>
-  <a class="glightbox" href="../../Images/SerialPlotter-irWithAveraging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Serial Plotter Showing the Averaged IR Sensor Data." src="../../Images/SerialPlotter-irWithAveraging.png" /></a>
-  <figcaption>Serial Plotter Showing the Averaged <abbr title="Infra Red">IR</abbr> Sensor Data.</figcaption>
-</figure>
-<p>Camparing the magnitude of the noise on the <abbr title="Infra Red">IR</abbr> sensor measurement, between <debugHL><a href="#irWithNoise">Fig 1</a></debugHL> and <debugHL><a href="#averagedIrSensor">Fig 2</a></debugHL> it can be seen that this averaging technique has significantly reduced the sensor noise. </p>
-<h3 id="experimental-setup-with-lolly-stick-up">Experimental Setup with Lolly Stick up</h3>
-<p>The <abbr title="Infra Red">IR</abbr> sensor is sensitive to picking up reflections from any surface that it is operating. It has been found from experimentation, that raising the sensor above the surface that it is operating produces improved and more consistant results.</p>
-<p>As a result, when using the <abbr title="Infra Red">IR</abbr> sensor, you should ensure that the lolly stick assembly is in the upright position, as shown in the righthand figure in the <debugHL><a href="../../RobotBuild/#LollyUp">Building the Robot document</a></debugHL></p>
-<p>For more details on concerning the pin connections for the Sharp GP2Y0A21YK0F distance measurement sensor, see the data sheet for the sensor on the Blackboard site:</p>
-<ul>
-<li><debugHL>ACS231 Blackboards Site&gt;&gt;Mechatronics Kit Information&gt;&gt; Component Data Sheets and Technical Documentation.</debugHL></li>
-</ul>
-<h2 id="expected-results">Expected Results</h2>
-<p>The <abbr title="Infra Red">IR</abbr> sensor has a non-linear distance to output voltage characteristic, as illustrated in <debugHL><a href="#irSensorDist">Fig 3</a></debugHL>. This graph has been provided as an example characteristic for how your data should come out...except that your results should have a y-axis scale!</p>
-<figure>
-  <a name="irSensorDist"></a>
-  <a class="glightbox" href="../../Images/Expected%20IR%20Sensor%20Result.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Characteristic measurement result from the IR distance sensor." src="../../Images/Expected%20IR%20Sensor%20Result.png" /></a>
-  <figcaption>Characteristic measurement result from the <abbr title="Infra Red">IR</abbr> distance sensor.</figcaption>
-</figure>
-<p><a name = "irSensorExercise"></a></p>
-<h2 id="assessed-exercise">Assessed Exercise</h2>
-<p>For this exercise you will write an Arduino sketch to measure the output of the <abbr title="Infra Red">IR</abbr> sensor and display its value of on the serial monitor. The distance measurements should be taken at static positions, using a series of measurement points similar to:</p>
-<p>1cm, 2cm, 3cm, 4cm, 5cm, 6cm, 7cm, 8cm, 9cm, 10cm, 15cm, 20cm, 25cm, 30cm, 35cm, 40cm, 45cm, 50cm, 55cm, 60cm, 65cm, 70cm, 75cm, and 80cm</p>
-<p>You should plot your results in a computer package, such as Excel or MATLAB, with the x-axis as the distance measured, and the y-axis as the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value. </p>
+<h2 id="part-1-led-sequence">Part 1: <abbr title="Light Emitting Diode">LED</abbr> Sequence</h2>
+<p><a name="Part1"></a>
+During this part, you will write a program to create a repeating sequence of <abbr title="Light Emitting Diodes">LEDs</abbr>, with a fixed sequence time step, e.g. say every ½ second. A suggested <abbr title="Light Emitting Diode">LED</abbr> sequence is shown in <debugHL><a href="#ArduinoConnect">Table. 1</a></debugHL>. </p>
+<table>
+  <a name="ArduinoConnect"></a>
+  <thead>
+    <tr> <th>Sequence Index:</th> <th>LED 3 (DIO 13)</th> <th>LED 2 (DIO 12):</th> <th>LED 1 (DIO 11):</th> </tr>
+  </thead>
+  <tbody>
+    <tr> <td>0</td><td>0</td><td>0</td><td>0</td> </tr>    
+    <tr> <td>1</td><td>0</td><td>0</td><td>1</td> </tr>    
+    <tr> <td>2</td><td>0</td><td>1</td><td>0</td> </tr>    
+    <tr> <td>3</td><td>0</td><td>1</td><td>1</td> </tr>    
+    <tr> <td>4</td><td>1</td><td>0</td><td>0</td> </tr>    
+    <tr> <td>5</td><td>1</td><td>0</td><td>1</td> </tr>    
+    <tr> <td>6</td><td>1</td><td>1</td><td>0</td> </tr>    
+    <tr> <td>7</td><td>1</td><td>1</td><td>1</td> </tr>    
+
+  </tbody>
+  <caption>Suggested simple repeating sequence, (counting-up in binary).</caption>
+</table>
+
+<p>We will not provide any example code to facilitate this exercise, you must create this code from scratch, possibly using some of the example code provided in the <debugHL><a href="../../IntroMaterial/IntroExercises/#buttCode">Introductory Exercises</a></debugHL> or the built-in examples as inspiration.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-  <li> The starting point for this exercise is the <debugHL><a href = ../../RobotBuild#irSensor>circuit layout for the IR sensor</a></debugHL> and the potentiometer code, <debugHL><a href =../Ex1ledPattern#potInoCode>POT.ini</a></debugHL> located at the end of the <debugHL><a href =../Ex1ledPattern>LED pattern exercise</a></debugHL>.</li>
-
-  <li> Write an Arduino sketch to read the analogue measurement value from the IR distance sensor and display the reading on the serial monitor. (It is acceptable to use a fresh copy of the <debugHL><a href = ../Ex1ledPattern/#potInoCode>POT.ini</a></debugHL> as a template for this exercise.)</li>
+<li>Ensure that the circuit is correctly connected:<ul>
+<li>We suggest the anode of the <abbr title="Light Emitting Diode">LED</abbr> be connected to Arduino pins DIO11 to 13.</li>
+<li>Each of the cathodes of the <abbr title="Light Emitting Diodes">LEDs</abbr> should be connected through a 470Ω resistor to ground.</li>
+</ul>
+</li>
+<li>Write a program to change the pattern of the <abbr title="Light Emitting Diodes">LEDs</abbr> at a fixed rate, say every ½ second, and loop through the sequence continuously. We suggest using the sequence from <debugHL><a href="#ArduinoConnect">Table 1</a></debugHL>.</li>
+<li>If you do not use the sequence provided in <debugHL><a href="#ArduinoConnect">Table 1</a></debugHL>, your sequence should have at least 8 patterns, some but not most may repeat.</li>
+<li>For this we suggest using a delay function to control the timing of the sequence. The rationale for this is that we will replace the bracket value on the <code>delay()</code> function with the <abbr title="Analogue to Digital Converter">ADC</abbr> read value, to control the speed of the sequence. </li>
+<li>Ensure that you save your code when you have completed this part.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We strongly recommend using the suggested connection and layout provided in <debugHL><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debugHL> because it will link conveniently with the discussions and the example code provided. Using the suggested layout and connections also makes debugging your work easier because you will have a more familiar structure for the staff and <abbr title="Graduate Teaching Assistants">GTAs</abbr>.</p>
+</div>
+<h2 id="part-2-potentiometer-control-of-the-sequence-rate">Part 2: Potentiometer Control of the Sequence Rate</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is suggested in the <debugHL><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debugHL> that your potentiometer is connected to analogue pin A5.</p>
+</div>
+<p>This part of the exercise is split into two sub sections:</p>
+<ol>
+<li>Using the <debugHL><a href="#potInoCode">POT.ino</a></debugHL> test program to read the potentiometer value and display it on the serial monitor.</li>
+<li>Modifying the <abbr title="Light Emitting Diode">LED</abbr> sequence code so that the potentiometer value is used to control the pattern change rate of the <abbr title="Light Emitting Diode">LED</abbr> sequence.</li>
+</ol>
+<h3 id="section-1-the-read-the-potentiometer-test-program-potino">Section 1: The Read the Potentiometer Test Program, POT.ino</h3>
+<p>The aim of the <debugHL><a href="#potInoCode">POT.ino</a></debugHL> example code is to show you how to read an analogue value from a sensor, or other device, and use its value. In this example code you will read the voltage from a potentiometer, generate a <abbr title="Pulse Width Modulation">PWM</abbr> output to change the brightness of an <abbr title="Light Emitting Diode">LED</abbr>, and stream some data to the Serial Monitor. </p>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>Copy the <debugHL><a href="#potInoCode">POT.ino</a></debugHL> code into a black Arduino sketch and save it into your working folder.</li>
+<li>Ensure the <abbr title="Light Emitting Diodes">LEDs</abbr> and potentiometer are connected into your circuit, as described in the <debugHL><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debugHL></li>
+<li>Ensure the potentiometer is connected into the circuit.<ul>
+<li>Connect left hand pin of the potentiometer to <abbr title="Electrical Ground or 0V">GND</abbr> and the 5V and the right hand pin to +5V.</li>
+<li>It is suggested that the middle pin of the potentiometer is connected to the analogue A5 pin.</li>
+</ul>
+</li>
+</ol>
+<p>The analogue to digital converter, <abbr title="Analogue to Digital Converter">ADC</abbr>, inputs to the Arduino have 10 bits of resolution (i.e. 1024 different values). By default, they measure from ground (0V) to 5 volts. That means that the 0-5V range of the potentiometer will be proportionally mapped to the 0-1023 digital values range in the microcontroller. </p>
+<ol start=4>
+  <li>Upload the program to the Arduino, then open the serial monitor and observe data being streamed to the terminal.</li>
+  <li>Rotate the knob of the potentiometer and observe the range that the data spans.</li>
+  <li>Observe the rightness of the LED as you rotate the potentiometer.</li>
+  <li>Ensure that you save your code when you have completed this section.</li>
 </ol>
 
-<p>Once you have the measured value of the distance sensor being streamed to the serial monitor, you will be required to plot the distance sensor measurement value against distance measured, (with a ruler/scale).</p>
-<ol start=3>
-  <li> Perform an experiment to characterise the Sharp IR sensor between 1cm and 80cm distance. The results from this experiment should be a graph of the ADC measurement value from the Sharp IR distance sensor, against the distance from the target. Note: Your graph should have a similar characteristic to that shown in <debugHL><a href = ./#irSensorDist>Fig 3</a></debugHL>.</li>
+<p>This example program uses the map() function to ‘map’ the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement values between 0 and 1023, to a range of 0 to 255. This new range is required to write the <abbr title="Pulse Width Modulation">PWM</abbr> signal to change the <abbr title="Light Emitting Diode">LED</abbr> brightness – <abbr title="Pulse Width Modulation">PWM</abbr> will be covered in the next lab session, so for this example, just assume this is an analogue output from the Arduino.</p>
+<p>Look at the code and see how the map() command is used. The Arduino language reference for the map command can be found at:</p>
+<p><debugHL><a href="https://www.arduino.cc/reference/en/language/functions/math/map/" title="Map command in the Arduino reference documentation">https://www.arduino.cc/reference/en/language/functions/math/map/</a></debugHL> </p>
+<h3 id="section-2-integrate-the-potentiometer-value-into-your-led-sequence-program">Section 2: Integrate the Potentiometer Value Into Your <abbr title="Light Emitting Diode">LED</abbr> Sequence Program</h3>
+<p>During this section you will integrate the reading of the potentiometer into the program for your <abbr title="Light Emitting Diode">LED</abbr> sequence, and use the <abbr title="Analogue to Digital Converter">ADC</abbr> value to control the delay function in the main loop.</p>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>Starting with the code you wrote in <debugHL><a href="#part-1-led-sequence">Part 1</a></debugHL>, modify your code to read the voltage value of the potentiometer, using the <abbr title="Analogue to Digital Converter">ADC</abbr>, each time the sequence value changes.</li>
+<li>The <abbr title="Analogue to Digital Converter">ADC</abbr> value should be used to control the <code>delay()</code> function time within the sequence loop.</li>
+<li>Ensure that you save your code when you have completed this section.</li>
 </ol>
-
-<p><strong>When completed, your code should allow you to run an experiment to draw the following graph:</strong></p>
+<p>When you rotate the potentiometer to the right, the sequence should speed up, and when you rotate the potentiometer to the left, the sequence should slow down. There should be a continuous variation in sequence speed proportional to the position of the potentiometer between the left and right extremes.</p>
+<h2 id="part-3-addition-of-a-pause-button">Part 3: Addition of a Pause Button</h2>
+<p>During this part, you will implement the reading of the button on breadboard 1 and use the button value to pause the execution of the sequence.</p>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>Starting from your code that you completed in <debugHL><a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program">Part 2, section 2</a></debugHL>, implement a button read from the button on breadboard 1.</li>
+<li>Use this the pressed value of the button to hold the flow of execution until the button is released. </li>
+</ol>
+<p><strong>When completed, your code should function as follows:</strong></p>
 <ul>
-<li>A graph of <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value against distance.</li>
-<li>The trace should be correctly framed within the axes.</li>
-<li>Appropriate axes labels, with units and a descriptive graph title.
-You should plot your results in a computer package, such as Excel or MATLAB, with the x-axis as the distance measured, and the y-axis as the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value, as illustrated in <debugHL><a href="#irSensorDist">Fig 3</a></debugHL></li>
+<li>The three <abbr title="Light Emitting Diodes">LEDs</abbr> should be flashing in a continuously repeating sequence of at lease 8 different patterns.</li>
+<li>When you rotate the potentiometer to the right, the sequence should speed up, and when you rotate the potentiometer to the left, the sequence should slow down. There should be a continuous variation in sequence speed proportional to the position of the potentiometer between the left and right extremes.</li>
+<li>When the button is pressed, the sequence should pause, but not reset.</li>
 </ul>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
 </div>
+<h2 id="appendix-potino-code">Appendix: POT.INO Code</h2>
+<p><a name="potInoCode"></a></p>
+<div class="language-Arduino highlight"><span class="filename">POT.ino Arduino Code</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Global Name Space</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kr">int</span><span class="w"> </span><span class="n">potAnalogPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// FSR is connected to analog 0</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kr">int</span><span class="w"> </span><span class="n">LEDpin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span><span class="w">      </span><span class="c1">// connect Red LED to pin 11 (PWM pin)</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">int</span><span class="w"> </span><span class="n">potReading</span><span class="p">;</span><span class="w">      </span><span class="c1">// the analog reading from the FSR resistor divider</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kr">int</span><span class="w"> </span><span class="n">LEDbrightness</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">(</span><span class="kr">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="c1">// We&#39;ll send debugging information via the serial monitor</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span><span class="w">   </span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">LEDpin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">(</span><span class="kr">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="n">potReading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">potAnalogPin</span><span class="p">);</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Analog reading = &quot;</span><span class="p">);</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">potReading</span><span class="p">);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="c1">// we&#39;ll need to change the range from the analog reading (0-1023) down to</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="c1">//the range used by analogWrite (0-255) with map!</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="n">LEDbrightness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">map</span><span class="p">(</span><span class="n">potReading</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1023</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="c1">// LED gets brighter the harder you press</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nf">analogWrite</span><span class="p">(</span><span class="n">LEDpin</span><span class="p">,</span><span class="w"> </span><span class="n">LEDbrightness</span><span class="p">);</span><span class="w"> </span><span class="c1">// here you are using PWM !!!</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="p">}</span>
+</span></code></pre></div>
 
 
 

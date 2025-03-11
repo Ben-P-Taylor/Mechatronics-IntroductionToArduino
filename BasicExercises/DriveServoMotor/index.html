@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Ex3IrSensor/">
+        <link rel="prev" href="../IrSensor/">
       
       
-        <link rel="next" href="../Ex5DcMotor/">
+        <link rel="next" href="../DcMotor/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -432,8 +432,6 @@
       
         
       
-        
-      
     
     
     
@@ -480,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex1ledPattern/" class="md-nav__link">
+      <a href="../ledPattern/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,29 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex2PotCalibration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Calibration of Potentiometer Angle
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Ex3IrSensor/" class="md-nav__link">
+      <a href="../IrSensor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -617,6 +593,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#linear-mapping-of-a-value-to-a-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear mapping of a Value to a Measurement
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -647,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex5DcMotor/" class="md-nav__link">
+      <a href="../DcMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -669,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Ex6EncodeMotor/" class="md-nav__link">
+      <a href="../EncodeMotor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -756,7 +741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AdvancedExercises/Ex7PiIrDist/" class="md-nav__link">
+      <a href="../../AdvancedExercises/PiIrDist/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -778,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AdvancedExercises/Ex8PiEncoder/" class="md-nav__link">
+      <a href="../../AdvancedExercises/PiEncoder/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -800,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AdvancedExercises/Ex9PiIrSequence/" class="md-nav__link">
+      <a href="../../AdvancedExercises/PiIrSequence/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -834,6 +819,48 @@
   
   <span class="md-ellipsis">
     Assessment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../License/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardware.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hardware Elements
     
   </span>
   
@@ -890,6 +917,15 @@
   <a href="#controlling-a-standard-servo-with-an-external-power-supply" class="md-nav__link">
     <span class="md-ellipsis">
       Controlling a Standard Servo with an External Power Supply
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-mapping-of-a-value-to-a-measurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear mapping of a Value to a Measurement
     </span>
   </a>
   
@@ -1077,30 +1113,44 @@
   <a class="glightbox" href="../../Images/DCpower.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotated picture of the external power supply connector pins" src="../../Images/DCpower.jpg" /></a>
   <figcaption>Annotated picture of the external power supply connector pins.</figcaption>
 </figure>
+<h3 id="linear-mapping-of-a-value-to-a-measurement">Linear mapping of a Value to a Measurement</h3>
+<p>In some cases a sensor measurement can be linearly mapped from an input variable to a meaningful measurement value. In this case, we can map the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value from the potentiometer, between 0 and 1023, into a servo angle between 90° and 0°, i.e. the lolly stick between horizontal and vertical.</p>
+<p>The map function can be used to provide a linear calibration/mapping between a measured value and a real world parameter. In this exercise, you will use the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value as the input to a <code>map()</code> function and use it to provide the linear command for the servomotor output.</p>
+<div class="admonition info">
+<p class="admonition-title"><code>map()</code> function</p>
+<p>See the <code>map()</code> function page from the Arduino language reference pages for a description: <debugHL><a href="https://docs.arduino.cc/language-reference/en/functions/math/map/" target="_blank">https://docs.arduino.cc/language-reference/en/functions/math/map/</a></debugHL></p>
+</div>
 <p><a name = "ServoExercise"></a></p>
 <h2 id="assessed-exercise-driving-the-mg996-servo-on-the-front-of-the-robot-chassis">Assessed Exercise: Driving the MG996 Servo on the front of the Robot Chassis</h2>
 <div class="admonition note">
 <p class="admonition-title">Before Starting This Exercise</p>
 <p>Ensure that you have the servo and the external power supply connected, as described in the <debugHL><a href="../../RobotBuild/#ElecConn">Electrical Connections section of the Building the Robot</a></debugHL> Document</p>
 </div>
-<p>The aim of this exercise is to demonstrate that you can operate a standard servo powered from an external supply.
-, and reset the servo to the null position. </p>
+<p>The aim of this exercise is to demonstrate that you can operate a standard servo powered from an external supply, and reset the servo to the null position. </p>
 <p><strong>Procedure:</strong></p>
 <ul>
 <li>Before starting this exercise, you will need to remove the <debugHL><a href="../../RobotBuild/#LollyAss" title="Jump to the 'Assembling the Lolly Stick D Assembly' section of the Building the Robot Chassis document">lolly stick assembly</a></debugHL> from the MG996 servo on the robot chassis</li>
 <li>Write a program to reset the servo to the null position, using the command: <code>servo1.write(90);</code></li>
 <li>While the servo is in the null position, reattach the <debugHL><a href="../../RobotBuild/#LollyAss" title="Jump to the 'Assembling the Lolly Stick D Assembly' section of the Building the Robot Chassis document">lolly stick assembly</a></debugHL>, with the arm as close to horizontal as the servo shaft will allow.</li>
-<li>Write a program to perform the following:<ul>
-<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set to a horizontal position.<ul>
-<li>You will need to adjust the initial angle of the servo in code to achieve this.</li>
+<li>Write a 2nd program, (the assessed part), to perform the following:<ul>
+<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should reset to the horizontal position.<ul>
+<li>You will need to adjust the initial angle of the servo in code to achieve this, because <code>servo1.write(90);</code> will not quite achieve this.</li>
 </ul>
 </li>
-<li>The three <abbr title="Light Emitting Diodes">LEDs</abbr> should flash three times, (on for 500ms and off for 500ms).</li>
-<li>The servo arm should then raise to the vertical position and maintain this position for 2 seconds.</li>
-<li>Repeat the above procedure once and then finally hold the servo arm in the vertical position.</li>
+<li>The servo position should remain commanded to horizontal for 1 second</li>
+<li>The servo arm should then raise to the vertical position and maintain this position for 1 second.</li>
+<li>Repeat the above horizontal to vertical process once.</li>
+<li>After a further 1 second delay, the lolly stick angle should track the potentiometer input:<ul>
+<li><abbr title="Analogue to Digital Converter">ADC</abbr> value, 0 to 1023 maps a to servo angle of approximately 90° to 0°, maps between horizontal to vertical</li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will need to adjust the map angles to get the servo to a position as close to horizontal and vertical as possible. 90° servo demand is not exactly horizontal and 0° servo demand is not exactly vertical.</p>
+</div>
 <p>The power supply of your servo <strong>MUST</strong> be supplied from the external power supply and not the Arduino +5V. The <abbr title="Electrical Ground or 0V">GND</abbr> of the Arduino, external supply and servo must be connected to the same node.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger: You can destroy your Laptop motherboard if you get this wrong</p>
@@ -1111,13 +1161,19 @@
 <p><strong>When completed, your code should function as follows:</strong></p>
 <p>Your Servo must be powered from the external power supply during this exercise.</p>
 <ul>
-<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set to a horizontal position.<ul>
+<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set as close to horizontal as possible.<ul>
 <li>You will need to adjust the initial angle of the servo in code to achieve this.</li>
 </ul>
 </li>
-<li>The three <abbr title="Light Emitting Diodes">LEDs</abbr> should flash three times, (on for 500ms and off for 500ms).</li>
-<li>The servo arm should then raise to the vertical position and maintain this position for 2 seconds.</li>
-<li>Repeat the above procedure once and then finally hold the servo arm in the vertical position.</li>
+<li>The servo should wait 1 second before raising to as close to the vertical position as possible.</li>
+<li>The servo should wait 1 second before dropping to the horizontal position.</li>
+<li>The servo should wait 1 second before raising again to the vertical position.</li>
+<li>After 1 second, the servo should track the servo position, such that:<ul>
+<li>When the potentiometer is in the far right position, the lolly stick is horizontal.</li>
+<li>When the potentiometer is in the far left position, the lolly stick is vertical.</li>
+<li>The lolly stick position tracks the potentiometer with a linear mapping.</li>
+</ul>
+</li>
 </ul>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
