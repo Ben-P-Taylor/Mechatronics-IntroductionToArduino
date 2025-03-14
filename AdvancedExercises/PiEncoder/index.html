@@ -1048,12 +1048,33 @@
 </ul>
 <div class="admonition info title">
 <p class="admonition-title">Hint:</p>
-<p>The state transition conditions are </p>
+<p><problemHL>The state transition conditions are </problemHL></p>
 <p>The system states are a position demand reference value for the <abbr title="Proportional and Integral Controller">PI</abbr> controller. Process the position controller within the case statements.</p>
 <p>The sampling time for the <abbr title="Proportional and Integral Controller">PI</abbr> controller should be set to 10ms.</p>
-<p>We recommend using the following controller gains: Kp = 4.0, Ki = 0.0.</p>
+<p>We recommend using the following controller gains: Kp = 4.0, Ki = 0.0. These controller values should give an oscillatory response.</p>
 </div>
 <h3 id="what-do-we-expect-to-see-from-the-demonstration">What do we expect to see from the demonstration:</h3>
+<ul>
+<li>When the robot is reset, there is a delay of 3 seconds before the system starts</li>
+<li>The robot should move forward 30cm</li>
+<li>When it has reached its destination, the robot should wait 2 seconds.</li>
+<li>The robot should move backward 15cm</li>
+<li>When it has reached its destination, the robot should wait 2 seconds.</li>
+<li>The robot should move forward 30cm</li>
+<li>When it has reached its destination, the robot should wait 2 seconds.</li>
+<li>The robot should move backward 45cm, returning to the start point.</li>
+<li>When it has reached its destination, the robot should wait 2 seconds, before repeating the above sequence.</li>
+</ul>
+<p>You show the <abbr title="Graduate Teaching Assistants">GTAs</abbr> the following in your code:</p>
+<ul>
+<li>You have not used <code>delay()</code> or <code>delayMicroseconds()</code> functions to achieve the timing of the code</li>
+<li>You have used a <code>switch</code> statement to achieve the state machine behaviour of the system</li>
+<li>You are using a <abbr title="Proportional and Integral Controller">PI</abbr> controller to control the position of the robot</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
+<p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 
 
 
