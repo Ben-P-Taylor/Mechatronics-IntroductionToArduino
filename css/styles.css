@@ -3,8 +3,6 @@
   
 /* initialise the counter */
 body { 
-  counter-reset: figureCounter;
-  counter-reset: tableCounter;
   font-family: 'Arial', sans-serif; 
   }
 
