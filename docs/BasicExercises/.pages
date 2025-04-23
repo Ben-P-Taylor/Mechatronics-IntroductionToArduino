@@ -1,0 +1,7 @@
+nav:
+  - Introduction to the Basic Exercises: README.md
+  - LED Pattern: ledPattern.md
+  - IR Sensor Measurement and Graph: IrSensor.md
+  - Driving a Servo Motor: DriveServoMotor.md
+  - DC Motor: DcMotor.md
+  - Encoders + Motor: EncodeMotor.md

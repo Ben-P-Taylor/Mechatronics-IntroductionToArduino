@@ -1,0 +1,5 @@
+nav:
+  - Introduction to the Advanced Exercises: README.md
+  - PI Control – IR Sensor Distance: PiIrDist.md
+  - PI Control – Encoder Position: PiEncoder.md
+  - PI Control – IR with Sequence: PiIrSequence.md
