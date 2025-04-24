@@ -1,9 +1,0 @@
-# Introduction
-
-
-This section is aimed at ensuring that there is a getting started guide to the Arduino IDE and a self paces tutorial structure for students that are not confident with C or Arduino programming. There are two documents in this section:
-
-1. The <debugHL>[Supplementary Signposting Document to Accompany the introductory Exercises](./SupplSignPost.md)</debugHL> document: This document is aimed as a point of reference for students that are not confident with C or Arduino programming. The document provides reference links to external websites and the specific parts of the <debugHL>[Arduino Language Reference](https://docs.arduino.cc/language-reference/){target="_blank}</debugHL> pages, relating to elements of the Introductory exercises.
-2. The "Getting Started" <debugHL>[Introductory Exercises](./IntroExercises.md)</debugHL> are aimed at students that have little or no experience with Arduino and aimed at getting you started with installing and setting up the Arduino IDE, ready for use with these laboratory activities, and programming with simple I/O. These exercises are formative and non-assessed.
-
-To provide you with comprehensive instruction into C-programming is both outside the scope of this module and would take far more time than is available for the teaching/contact time allocated to this module. There are countless very good on-line resources for self-paced learning of programming languages. Therefore, instead of writing yet another tutorial, the <debugHL>[Supplementary Signposting](./SupplSignPost.md)</debugHL> document should provide you with some signposts to resources for basic C programming topics that we think are necessary to facilitate the laboratory activities within this module.
