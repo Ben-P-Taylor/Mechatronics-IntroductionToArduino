@@ -940,7 +940,7 @@
 <h1 id="controlling-the-distance-of-the-robot-from-a-target">Controlling the Distance of the robot from a Target</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed the <debugHL><a href="#calibPotEx">Assessed Exercise</a></debugHL>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+<p>This is an assessed Exercise. When you have completed the <debugHL><a href="#PiIrDistEx">Assessed Exercise</a></debugHL>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Before Continuing</p>
@@ -1052,7 +1052,7 @@ $$</p>
 <p>When implementing a <abbr title="Proportional and Integral Controller">PI</abbr> controller on an embedded system, it is important to maintain strict timing of the algorithm, to ensure that you are reading the inputs and sensors, and processing the controller algorithm at known times, normally at specific time intervals. Maintaining strict and consistent timing for these ensures that the algorithms you are using function as expected and produce predictable behaviour.</p>
 <p>Using <code>delay()</code> functions within your code often leads to code that does not have consistent timing, and it is often difficult to predict the code execution time for sections of code. </p>
 <p>To maintain more consistent timing in your code, you should use the millisecond tick timer function, <code>millis()</code>, to provide a timing source for your code execution, similar to that used in the <debugHL><a href="../../BasicExercises/EncodeMotor/#TwoInterruptEncoder">TwoInterruptEncoder.ino example</a></debugHL>. In the TwoInterruptEncoder.ino example we use this method for timing the serial monitor printing, in the main loop function, <code>loop()</code>.</p>
-<p><a name = "calibPotEx"></a></p>
+<p><a name = "PiIrDistEx"></a></p>
 <h2 id="assessed-exercise">Assessed Exercise</h2>
 <p>During this exercise you will write a program that will maintain a set distance between the robot chassis from a target. You will implement a closed loop control system with a <abbr title="Proportional and Integral Controller">PI</abbr> controller, the <abbr title="Infra Red">IR</abbr> sensor for distance feedback and a <abbr title="Pulse Width Modulation">PWM</abbr> actuation signal will be fed to the motor driver board.</p>
 <p><strong>Procedure:</strong></p>
