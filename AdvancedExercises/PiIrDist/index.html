@@ -937,22 +937,22 @@
 
 
 
-<h1 id="controlling-the-distance-of-the-robot-from-a-target">Controlling the Distance of the robot from a Target</h1>
+<div><h1 id="controlling-the-distance-of-the-robot-from-a-target">Controlling the Distance of the robot from a Target</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed the <debugHL><a href="#PiIrDistEx">Assessed Exercise</a></debugHL>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+<p>This is an assessed Exercise. When you have completed the <debughl><a href="#PiIrDistEx">Assessed Exercise</a></debughl>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Before Continuing</p>
-<p>Before starting these exercises, you should ensure that you have completed all the <debugHL><a href="../../BasicExercises/">Basic Exercises</a></debugHL> and have fully constructed the robot chassis, as described in the <debugHL><a href="../../RobotBuild/">Building the Robot</a></debugHL> document.</p>
+<p>Before starting these exercises, you should ensure that you have completed all the <debughl><a href="../../BasicExercises/">Basic Exercises</a></debughl> and have fully constructed the robot chassis, as described in the <debughl><a href="../../RobotBuild/">Building the Robot</a></debughl> document.</p>
 </div>
 <h2 id="introduction">Introduction</h2>
 <p>During this exercise you will write a program that will maintain a set distance between the robot chassis from a target. You will implement a closed loop control system with a <abbr title="Proportional and Integral Controller">PI</abbr> controller, the <abbr title="Infra Red">IR</abbr> sensor for distance feedback and a <abbr title="Pulse Width Modulation">PWM</abbr> actuation signal will be fed to the motor driver board.</p>
-<p>The circuit requirements for this exercise is that of the <debugHL><a href="../../BasicExercises/EncodeMotor/">Motor and Encoder Exercise</a></debugHL>.</p>
+<p>The circuit requirements for this exercise is that of the <debughl><a href="../../BasicExercises/EncodeMotor/">Motor and Encoder Exercise</a></debughl>.</p>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
 <div style="text-align: center;">
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D" style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
 </div>
 <figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
 </figure>
@@ -962,7 +962,7 @@
 <p>A proportional and integral, <abbr title="Proportional and Integral Controller">PI</abbr>, controller can be used to control the behaviour of a system - in the case the position of the robot chassis. The Pi controller sits within a closed loop control system, as shown in the Block diagram, below:</p>
 <figure>
   <a name="closedLoopPI"></a>
-  <a class="glightbox" href="../../Images/ClosedLoopPI.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block diagram of the closed loop control system, showing the PI controller." src="../../Images/ClosedLoopPI.png" /></a>
+  <a class="glightbox" href="../../Images/ClosedLoopPI.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block diagram of the closed loop control system, showing the PI controller." src="../../Images/ClosedLoopPI.png"></a>
   <figcaption>Block diagram of the closed loop control system, showing the <abbr title="Proportional and Integral Controller">PI</abbr> controller.</figcaption>
 </figure>
 <p><em>Where: <span class="arithmatex">\(R(t)\)</span> is the reference signal, <span class="arithmatex">\(e(t)\)</span> is the error signal, <span class="arithmatex">\(m(t)\)</span> is the manipulated variable and <span class="arithmatex">\(y(t)\)</span> is the system output, and <span class="arithmatex">\(Gp\)</span> is the process dynamics of the robot chassis.</em></p>
@@ -973,7 +973,7 @@ m(t) = \underbrace{K_p\,e(t)}_{\text{Proportional Term, }p(t)}+\space\space\spac
 <p>A Block diagram of the above <abbr title="Proportional and Integral Controller">PI</abbr> control algorithm is <a href="#PIcontroller">shown below</a>:</p>
 <figure>
   <a name="PIcontroller"></a>
-  <a class="glightbox" href="../../Images/PIcontroller.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block diagram representation of the PI controller." src="../../Images/PIcontroller.png" /></a>
+  <a class="glightbox" href="../../Images/PIcontroller.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Block diagram representation of the PI controller." src="../../Images/PIcontroller.png"></a>
   <figcaption>Block diagram representation of the <abbr title="Proportional and Integral Controller">PI</abbr> controller.</figcaption>
 </figure>
 <p>*Where: <span class="arithmatex">\(e(t)\)</span> is the error, <span class="arithmatex">\(p(t)\)</span> is the proportional term, <span class="arithmatex">\(i(t)\)</span> is the integral term, and <span class="arithmatex">\(m(t)\)</span> is the manipulated variable. <span class="arithmatex">\(K_p\)</span> and <span class="arithmatex">\(K_i\)</span> are the controller gains.</p>
@@ -993,15 +993,15 @@ m[k]=p[k] + i[k]
 $$</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The integral term is susceptible to a process called integral wind-up <debugHL>reference</debugHL>. To mitigate this effect, the integral term, <span class="arithmatex">\(i[t]\)</span>, can be prevented from exceeding certain bounds, such that, for the case of the Arduino <abbr title="Pulse Width Modulation">PWM</abbr>:
-<div class="language-Arduino highlight"><span class="filename">Integral Term Saturation to Prevent Excess Wind-Up</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">{</span>
+<p>The integral term is susceptible to a process called integral wind-up <debughl>reference</debughl>. To mitigate this effect, the integral term, <span class="arithmatex">\(i[t]\)</span>, can be prevented from exceeding certain bounds, such that, for the case of the Arduino <abbr title="Pulse Width Modulation">PWM</abbr>:
+</p><div class="language-Arduino highlight"><span class="filename">Integral Term Saturation to Prevent Excess Wind-Up</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">255</span><span class="p">;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">}</span>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-255</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-255</span><span class="p">;</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<em>Where: <code>i</code> is the current integral term, <span class="arithmatex">\(i[k]\)</span>.</em></p>
+<em>Where: <code>i</code> is the current integral term, <span class="arithmatex">\(i[k]\)</span>.</em>
 </div>
 <p>The integral controller can be implemented in function, to improve readability of your main loop, as illustrated in the following example code:</p>
 <div class="language-Arduino highlight"><span class="filename">Example code for a PI controller function</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kr">int</span><span class="w"> </span><span class="nf">piControllerfunction</span><span class="p">(</span><span class="kr">float</span><span class="w"> </span><span class="n">contrKp</span><span class="p">,</span><span class="w"> </span><span class="kr">float</span><span class="w"> </span><span class="n">contrKi</span><span class="p">,</span>
@@ -1051,15 +1051,15 @@ $$</p>
 <h3 id="a-note-on-code-timing-and-determinacy-for-embedded-systems">A Note on Code Timing and Determinacy for Embedded Systems</h3>
 <p>When implementing a <abbr title="Proportional and Integral Controller">PI</abbr> controller on an embedded system, it is important to maintain strict timing of the algorithm, to ensure that you are reading the inputs and sensors, and processing the controller algorithm at known times, normally at specific time intervals. Maintaining strict and consistent timing for these ensures that the algorithms you are using function as expected and produce predictable behaviour.</p>
 <p>Using <code>delay()</code> functions within your code often leads to code that does not have consistent timing, and it is often difficult to predict the code execution time for sections of code. </p>
-<p>To maintain more consistent timing in your code, you should use the millisecond tick timer function, <code>millis()</code>, to provide a timing source for your code execution, similar to that used in the <debugHL><a href="../../BasicExercises/EncodeMotor/#TwoInterruptEncoder">TwoInterruptEncoder.ino example</a></debugHL>. In the TwoInterruptEncoder.ino example we use this method for timing the serial monitor printing, in the main loop function, <code>loop()</code>.</p>
-<p><a name = "PiIrDistEx"></a></p>
+<p>To maintain more consistent timing in your code, you should use the millisecond tick timer function, <code>millis()</code>, to provide a timing source for your code execution, similar to that used in the <debughl><a href="../../BasicExercises/EncodeMotor/#TwoInterruptEncoder">TwoInterruptEncoder.ino example</a></debughl>. In the TwoInterruptEncoder.ino example we use this method for timing the serial monitor printing, in the main loop function, <code>loop()</code>.</p>
+<p><a name="PiIrDistEx"></a></p>
 <h2 id="assessed-exercise">Assessed Exercise</h2>
 <p>During this exercise you will write a program that will maintain a set distance between the robot chassis from a target. You will implement a closed loop control system with a <abbr title="Proportional and Integral Controller">PI</abbr> controller, the <abbr title="Infra Red">IR</abbr> sensor for distance feedback and a <abbr title="Pulse Width Modulation">PWM</abbr> actuation signal will be fed to the motor driver board.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Ensure that you have the completed the building of the robot chassis and the electronic circuit, as described in the <debugHL><a href="../../RobotBuild/">Building the Robot Chassis</a></debugHL> document.</li>
+<li>Ensure that you have the completed the building of the robot chassis and the electronic circuit, as described in the <debughl><a href="../../RobotBuild/">Building the Robot Chassis</a></debughl> document.</li>
 <li>
-<p>A good starting point for the code for this exercise is the assessed exercise you completed for the <debugHL><a href="../../BasicExercises/EncodeMotor/#assessed-exercise">Motor and Encoder section</a></debugHL></p>
+<p>A good starting point for the code for this exercise is the assessed exercise you completed for the <debughl><a href="../../BasicExercises/EncodeMotor/#assessed-exercise">Motor and Encoder section</a></debughl></p>
 </li>
 <li>
 <p>The lolly stick should be rained to the vertical position at the start of the exercise demonstration.</p>
@@ -1096,7 +1096,7 @@ $$</p>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
-</div>
+</div></div>
 
 
 

@@ -943,19 +943,19 @@
 
 
 
-<h1 id="interfacing-the-incremental-encoder-from-the-gear-motor">Interfacing the Incremental Encoder from the Gear Motor</h1>
+<div><h1 id="interfacing-the-incremental-encoder-from-the-gear-motor">Interfacing the Incremental Encoder from the Gear Motor</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
 <p>This is an assessed Exercise. When you have completed the <a href="#encoderExercise">Assessed Exercise</a>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debugHL><a href="../../RobotBuild/#EncoderPic">Building the Robot: Fig. 15</a></debugHL>. Furthermore, you should ensure that all the connections described in the <debugHL><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debugHL> are correct.</p>
+<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#EncoderPic">Building the Robot: Fig. 15</a></debughl>. Furthermore, you should ensure that all the connections described in the <debughl><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debughl> are correct.</p>
 </div>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
 <div style="text-align: center;">
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_a3eviyhm&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_4q6vxp1v%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;justify-content:center;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Placeholder - Quick Test Video"></iframe>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_a3eviyhm&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_4q6vxp1v%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D" style="width: 400px;height: 285px;border: 0;justify-content:center;" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Placeholder - Quick Test Video"></iframe>
 </div>
 <figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
 </figure>
@@ -968,12 +968,12 @@
 <li>Incremental position encoder: This class of device will indicate the position of the rotating shaft, relative to an initial position or index point. Absolute position can be obtained by knowing the exact initial position, at start-up, or index point, (if the device has an index pulse).</li>
 </ol>
 <p>The following link will provide you with some further insight into rotary position encoders:</p>
-<p><a href = "https://en.wikipedia.org/wiki/Rotary_encoder">https://en.wikipedia.org/wiki/Rotary_encoder</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Rotary_encoder">https://en.wikipedia.org/wiki/Rotary_encoder</a></p>
 <p>Rotary speed can be measured by a rotary shaft encoder, often called a tachometer – we will not further discuss these devices in this document. Shaft speed can be calculated from the position encoder, by measuring the displacement of a rotary shaft and dividing this by the time interval between measurements.</p>
-<p>The sensing technologies for position encoders varies between devices, but the two most common are optical and magnetic. The incremental encoder used on the FIT0450 gear motor, (contained within the Mechatronics kit), is a magnetic quadrature encoder. This is a specific type of incremental encoder called a quadrature encoder and has two square wave outputs, A and B, both offset by 90°, as illustrated in <debugHL><a href="#encoderAandB">Fig 1</a></debugHL>.</p>
+<p>The sensing technologies for position encoders varies between devices, but the two most common are optical and magnetic. The incremental encoder used on the FIT0450 gear motor, (contained within the Mechatronics kit), is a magnetic quadrature encoder. This is a specific type of incremental encoder called a quadrature encoder and has two square wave outputs, A and B, both offset by 90°, as illustrated in <debughl><a href="#encoderAandB">Fig 1</a></debughl>.</p>
 <figure>
   <a name="encoderAandB"></a>
-  <a class="glightbox" href="../../Images/Encoder%20A%20and%20B%20Signals.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Example of the quadrature encoder output." src="../../Images/Encoder%20A%20and%20B%20Signals.png" /></a>
+  <a class="glightbox" href="../../Images/Encoder%20A%20and%20B%20Signals.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Example of the quadrature encoder output." src="../../Images/Encoder%20A%20and%20B%20Signals.png"></a>
   <figcaption>Example of the quadrature encoder output.</figcaption>
 </figure>
 <p>Figure 20 shows the quadrature encoder attached to the FIT0450 gear. This device has a 120:1 gear box attached between the motor and the output shaft. There is a quadrature encoder, comprising of an 8 pole-pair magnetic disc, attached to the back of the motor shaft, and 2 offset Hall effect switch sensors, mounted to the motor body.</p>
@@ -983,10 +983,10 @@
 </div>
 <figure>
   <a name="encoderPic"></a>
-  <a class="glightbox" href="../../Images/Encoder%20Picture.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Connections between the encoder and the Arduino and components of the encoder." src="../../Images/Encoder%20Picture.png" /></a>
+  <a class="glightbox" href="../../Images/Encoder%20Picture.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Connections between the encoder and the Arduino and components of the encoder." src="../../Images/Encoder%20Picture.png"></a>
   <figcaption>Connections between the encoder and the Arduino and components of the encoder.</figcaption>
 </figure>
-<p>As the disk rotates, each time a north pole of the magnet passes a Hall effect switch, the output changes from 0 to 1 and back to 0 when the south pole passes. This results in a square wave output from the Hall effect switch as the shaft rotates. The encoder has two Hall outputs, A and B, one for each Hall effect switch sensor. The sensors are offset 90°, (electrically), around the circumference of the disk, consequently, outputs A and B are 90° out of phase with respect to each other, as shown in <debugHL><a href="#encoderAandB">Fig 1</a></debugHL>. This difference in phase is crucial in determining the direction of rotation of the disc, such that, output A will lead B in one direction and output B will lead A in the other.</p>
+<p>As the disk rotates, each time a north pole of the magnet passes a Hall effect switch, the output changes from 0 to 1 and back to 0 when the south pole passes. This results in a square wave output from the Hall effect switch as the shaft rotates. The encoder has two Hall outputs, A and B, one for each Hall effect switch sensor. The sensors are offset 90°, (electrically), around the circumference of the disk, consequently, outputs A and B are 90° out of phase with respect to each other, as shown in <debughl><a href="#encoderAandB">Fig 1</a></debughl>. This difference in phase is crucial in determining the direction of rotation of the disc, such that, output A will lead B in one direction and output B will lead A in the other.</p>
 <p>The number of magnetic sections of the disc determines the number of “pulses per revolution”, which is a characteristic of each encoder. This is important in determining the minimum detectable angle of rotation and, therefore, the accuracy of the system overall. </p>
 <p>As mentioned above, there are 8 magnetic pole pairs on the disk, consequently, there are 8 pulses on the output of each sensor for one revolution of the magnetic disk. The motor has a 120:1 gear box, therefore, for one rotation of the output shaft there will be <span class="arithmatex">\(8\times120=960\)</span> pulses on the output of each sensor (or <span class="arithmatex">\(960\times4\)</span> digital edges). The positional accuracy of the encoder is, therefore, 960 pulses per revolution, or:</p>
 <div class="arithmatex">\[
@@ -995,19 +995,19 @@
 <p>When using a quadrature encoder with a microcontroller, the rotation of the encoder can be fast, leading to high frequency pulses. As a result, trying to read the states of the encoder outputs in the Arduino loop function is not a reliable method for reading the quadrature encoder. If the microcontroller is busy executing other instructions when the pin’s state changes, then the pulse is not counted, resulting in a mismatch between the real angle and the software measurement. A much more reliable way of acquiring the outputs A and B is through a special feature of the microcontroller called an interrupt. The interrupt module can be used to sense an event on a digital input, (in this case the encoder output), and run a special piece of code, to “service” the interrupt. This special piece of code is called an interrupt service routine, or ISR.</p>
 <p>In the case of reading the quadrature encoder, we use a level change interrupt on the pins of the microcontroller, attached to the quadrature encoder. Each time there is a level transition in either output A or B, the main code is interrupted and the ISR is run by the microcontroller. This means that whatever the microcontroller is busy doing, the execution is stopped to process the interrupt, and no pulses are lost.</p>
 <p>There several ways of using the interrupts to measure the encoder outputs. For maximum resolution, two interrupts are required, but a single interrupt can be used to produce a position resolution of half this resolution. </p>
-<p>The method, illustrated in <debugHL><a href="#EncoderBits">Table 1</a></debugHL>, uses a counter to track the “pulse” position of the encoder, and two interrupts for the two inputs, A and B. One ISR is attached to the A pin interrupt and processes the event associated with a change in the A input value, and similarly, there is an ISR for input pin B.
-Table 3 illustrates the operation of the two ISR servicing the A and B pin interrupts. When an encoder interrupt occurs on either pin A or B, the pin values are compares and the counter value is either incremented or decremented, depending on the A and B pin values and the logical function described in <debugHL><a href="#EncoderBits">Table 1</a></debugHL>. <debugHL><a href="#EncoderBits">Table 1</a></debugHL> also shown which ISR each line of the table is processed.</p>
+<p>The method, illustrated in <debughl><a href="#EncoderBits">Table 1</a></debughl>, uses a counter to track the “pulse” position of the encoder, and two interrupts for the two inputs, A and B. One ISR is attached to the A pin interrupt and processes the event associated with a change in the A input value, and similarly, there is an ISR for input pin B.
+Table 3 illustrates the operation of the two ISR servicing the A and B pin interrupts. When an encoder interrupt occurs on either pin A or B, the pin values are compares and the counter value is either incremented or decremented, depending on the A and B pin values and the logical function described in <debughl><a href="#EncoderBits">Table 1</a></debughl>. <debughl><a href="#EncoderBits">Table 1</a></debughl> also shown which ISR each line of the table is processed.</p>
 <p><a name="EncoderBits"></a></p>
 <table>
   <thead>
     <tr> <th>ROTATION:</th><th>OUTPUT A:</th><th>OUTPUT B:</th><th>Which ISR?</th><th>COUNT:</th> </tr>
   </thead>
   <tbody>
-    <tr> <td rowspan = "4">CW</td><td>0→1</td><td>0</td><td>A</td><td>+1</td> </tr>
+    <tr> <td rowspan="4">CW</td><td>0→1</td><td>0</td><td>A</td><td>+1</td> </tr>
     <tr> <td>1</td><td>0→1</td><td>B</td><td>+1</td> </tr>
     <tr> <td>1→0</td><td>1</td><td>A</td><td>+1</td> </tr>
     <tr> <td>0</td><td>1→0</td><td>B</td><td>+1</td> </tr>
-    <tr> <td rowspan = "4">CCW</td><td>0→1</td><td>1</td><td>A</td><td>-1</td> </tr>
+    <tr> <td rowspan="4">CCW</td><td>0→1</td><td>1</td><td>A</td><td>-1</td> </tr>
     <tr> <td>1</td><td>1→0</td><td>B</td><td>-1</td> </tr>
     <tr> <td>1→0</td><td>0</td><td>A</td><td>-1</td> </tr>
     <tr> <td>0</td><td>0→1</td><td>B</td><td>-1</td> </tr>
@@ -1017,7 +1017,7 @@ Table 3 illustrates the operation of the two ISR servicing the A and B pin inter
 
 <p>The following code snippet is a framework to setup pins D2 and D3 as digital inputs and assign each one an interrupt service routine, <code>ChannelA()</code> and <code>ChannelB()</code>, respectively.</p>
 <p>The code provided, below, is a framework to set up the interrupt capable, digital input pins for the Arduino Uno, D2 and D3. The functions <code>ChannelA()</code> and <code>ChannelB()</code> are declared as ISRs using the <code>attachInterrupt()</code> function.</p>
-<p><div class="language-Arduino highlight"><span class="filename">How to setup The D2 and D3 pins as interrupt capable</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define PINA 2 </span><span class="c1">// A output of the  encoder attached to PIN 2 of the Arduino</span>
+<p></p><div class="language-Arduino highlight"><span class="filename">How to setup The D2 and D3 pins as interrupt capable</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define PINA 2 </span><span class="c1">// A output of the  encoder attached to PIN 2 of the Arduino</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define PINB 3 </span><span class="c1">// B output of the  encoder attached to PIN 3 of the Arduino</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">volatile</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">enc_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pulse count from the quadrature encoder</span>
@@ -1048,11 +1048,11 @@ Table 3 illustrates the operation of the two ISR servicing the A and B pin inter
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">...</span>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">}</span>
 </span></code></pre></div>
-See the following link for a fuller description of the attachInterrupt() function:</p>
-<p><debugHL><a href="https://www.arduino.cc/reference/tr/language/functions/external-interrupts/attachinterrupt/" target="_blank">https://www.arduino.cc/reference/tr/language/functions/external-interrupts/attachinterrupt/</a></debugHL></p>
+See the following link for a fuller description of the attachInterrupt() function:
+<p><debughl><a href="https://www.arduino.cc/reference/tr/language/functions/external-interrupts/attachinterrupt/" target="_blank">https://www.arduino.cc/reference/tr/language/functions/external-interrupts/attachinterrupt/</a></debughl></p>
 <p>We use the CHANGE option with the attachInterrupt() function to ensure that the interrupt is generated for both rising and falling transitions of the interrupt pins, A and B.</p>
 <p>Note: the enc_count variable has been declared as “volatile”. This is required for variables that will be changed in an ISR, because the memory storage needs to be handled slightly differently for that usage of variables. See the following link for more details:</p>
-<p><debugHL><a href="https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/" target="&quot;_Blank">https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/</a></debugHL></p>
+<p><debughl><a href="https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/" target='"_Blank'>https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/</a></debughl></p>
 <div class="admonition note title">
 <p class="admonition-title">Note Regarding Interrupt Pins on the Arduino</p>
 <p>On the Arduino UNO, only pins D2 and D3 can be used with the attachInterrupt() function. On an Arduino Mega, pins D2, D3, D18, D19, D20, D21 are available (D20 and D21 cannot be used if I2C is used used (I2C is a communication protocol for some specific sensors; not among those in the Mechatronics kit)). </p>
@@ -1071,9 +1071,9 @@ shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per 
 </div>
 <h2 id="reading-the-output-of-the-incremental-encoder">Reading the Output of the Incremental Encoder</h2>
 <p>The aim of this exercise is to read the encoder position and display this on the serial monitor.</p>
-<p>Before starting, you should ensure that all the connections described in the <debugHL><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debugHL> are correct.</p>
+<p>Before starting, you should ensure that all the connections described in the <debughl><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debughl> are correct.</p>
 <p><a name="TwoInterruptEncoder"></a>
-<div class="language-Arduino highlight"><span class="filename">TwoInterruptEncoder.ino Example Code Template</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define ENC_K [Insert the value for the FIT0450 Gearmotor] </span><span class="c1">//Number of edges</span>
+</p><div class="language-Arduino highlight"><span class="filename">TwoInterruptEncoder.ino Example Code Template</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define ENC_K [Insert the value for the FIT0450 Gearmotor] </span><span class="c1">//Number of edges</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">//  per revolution of the output shaft</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#define PINA 2 </span><span class="c1">// A output of the quadrature encoder attached to PIN 2</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cp">#define PINB 3 </span><span class="c1">// A output of the quadrature encoder attached to PIN 3</span>
@@ -1113,11 +1113,11 @@ shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per 
 </span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="n">lastDisplay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span>
 </span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
 </span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span><span class="c1">// construct the serial monitor messages</span>
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Encoder Pulse Count = &quot;</span><span class="p">);</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Encoder Pulse Count = "</span><span class="p">);</span>
 </span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">encCount</span><span class="p">);</span>
-</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Wheel angle = &quot;</span><span class="p">);</span><span class="w">  </span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Wheel angle = "</span><span class="p">);</span><span class="w">  </span>
 </span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">wheelAngle</span><span class="p">);</span>
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;°&quot;</span><span class="p">);</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">"°"</span><span class="p">);</span>
 </span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="p">}</span>
 </span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>
@@ -1155,7 +1155,7 @@ shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per 
 </span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">  </span><span class="c1">// Use function channelA() as a template</span>
 </span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">  </span><span class="c1">// This time focus on the rows of the table where Output B is changing</span>
 </span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="p">}</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <div class="admonition note title">
 <p class="admonition-title">Remember</p>
 <p>This Interrupt Method counts the digital edges of the A and B signals, not the number of pulses. As a result, there are <span class="arithmatex">\(4\times\)</span> the number of edges to pulses, therefore, the output count will be <span class="arithmatex">\(4\times\)</span> greater than the number of pulses.</p>
@@ -1163,11 +1163,11 @@ shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per 
 <p><a name="encoderPosition"></a></p>
 <h2 id="reading-the-rotary-encoder-exercise">Reading the Rotary Encoder Exercise</h2>
 <p>The aim of this exercise is for you to develop the Encoder Read functionality before you attempt to use the encoders in conjunction with actuating the motor.</p>
-<p>This is a non-assessed exercise, but it is strongly recommended that you complete this exercise before proceeding, because it provides you with the first half of the requirements for the <debugHL><a href="#encoderExercise">Assessed Exercise</a><debugHL>.</p>
+<p>This is a non-assessed exercise, but it is strongly recommended that you complete this exercise before proceeding, because it provides you with the first half of the requirements for the <debughl><a href="#encoderExercise">Assessed Exercise</a><debughl>.</debughl></debughl></p>
 <p><strong>Procedure:</strong></p>
 <ol>
 <li>Copy and paste the code provided, above, into a new Arduino sketch.</li>
-<li>The code for the pin A ISR, channelA(), is partially completed. You should implement the logic function for the A interrupt illustrated in <debugHL><a href="#EncoderBits">Table 1</a></debugHL>.</li>
+<li>The code for the pin A ISR, channelA(), is partially completed. You should implement the logic function for the A interrupt illustrated in <debughl><a href="#EncoderBits">Table 1</a></debughl>.</li>
 <li>Use your working for the <code>ChannelA()</code> code to write the code for the <code>ChannelB()</code> function.</li>
 <li>Modify the code to update the serial monitor display every 250ms.</li>
 <li>Ensure that you have set the <code>ENC_K</code> value to the number of digital edges per revolution, not number of pulses</li>
@@ -1182,8 +1182,8 @@ shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per 
 <p>The aim of this exercise is to measure the wheel angle of the gear motor, using the quadrature encoder, and move the wheel angle to a series of desired locations.
 During this exercise you will be required to integrate the code form:</p>
 <ul>
-<li>The <debugHL><a href="#encoderPosition">Reading the Rotary Encoder Exercise</a></debugHL>, above</li>
-<li>The <debugHL><a href="../DcMotor/#dcMotorExercise">DC Motor: Assessed Exercise</a></debugHL></li>
+<li>The <debughl><a href="#encoderPosition">Reading the Rotary Encoder Exercise</a></debughl>, above</li>
+<li>The <debughl><a href="../DcMotor/#dcMotorExercise">DC Motor: Assessed Exercise</a></debughl></li>
 </ul>
 <p><strong>Procedure:</strong></p>
 <p>Write a program that can rotate the wheel connected to the DC motor according to the following cycle:</p>
@@ -1225,13 +1225,13 @@ During this exercise you will be required to integrate the code form:</p>
 <p>Note: This is a formative exercise and will not be assessed, but you may find it useful to complete, to help you with your group project.</p>
 <p>The aim of this exercise is to use the pin change interrupt on one of the input ports of the microcontroller, instead of the dedicated interrupt pins. (<em><strong>Note:</strong> this is a feature of AVR microcontrollers and may not be available on all devices or may be implemented slightly differently.</em>)</p>
 <p>When controlling a mobile robot, it is usually necessary to read more than one encoder. Unfortunately, when using an Arduino UNO, the <code>attachInterrupt()</code> instruction can only be used with digital pins D2 and D3. Moving to a board with more I/Os, such as the Mega, solves the problem to some degree. Still, when dealing with a larger number of encoders, a more general approach may be required. </p>
-<p>A simple and efficient way of acquiring two or more encoders, is to use the pin change interrupts. The pins on a microcontroller are grouped in ports. On typical Arduino boards each port consists of up to 8 pins. These can be found by looking at a pinout diagram for the board in use, such as shown for the Arduino Uno in <debugHL><a href="#arduinoPinout">Fig 4</a></debugHL>.</p>
+<p>A simple and efficient way of acquiring two or more encoders, is to use the pin change interrupts. The pins on a microcontroller are grouped in ports. On typical Arduino boards each port consists of up to 8 pins. These can be found by looking at a pinout diagram for the board in use, such as shown for the Arduino Uno in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>.</p>
 <figure>
   <a name="arduinoPinout"></a>
-  <a class="glightbox" href="../../Images/ArduinoPinout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pinout of the Arduino UNO board." src="../../Images/ArduinoPinout.png" /></a>
+  <a class="glightbox" href="../../Images/ArduinoPinout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pinout of the Arduino UNO board." src="../../Images/ArduinoPinout.png"></a>
   <figcaption>Pinout of the Arduino UNO board.</figcaption>
 </figure>
-<p>In this exercise, you will consider the Port D pins on I/O D0 to D7, as illustrated in <debugHL><a href="#arduinoPinout">Fig 4</a></debugHL>.</p>
+<p>In this exercise, you will consider the Port D pins on I/O D0 to D7, as illustrated in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>.</p>
 <div class="admonition note title">
 <p class="admonition-title">Note:</p>
 <p>This method does not use the Arduino libraries to use the interrupts. Instead, you will be interfacing with the microcontroller control resisters directly, unlike the interrupt pins method shown in Exercise 2, which uses the pre-build Arduino libraries.</p>
@@ -1249,9 +1249,9 @@ During this exercise you will be required to integrate the code form:</p>
 </ul>
 </li>
 </ul>
-<p>This process is explained in more depth in the <debugHL><a href="https://dronebotworkshop.com/interrupts/" target="&quot;_blank">DroneBot Workshop article</a></debugHL>.</p>
+<p>This process is explained in more depth in the <debughl><a href="https://dronebotworkshop.com/interrupts/" target='"_blank'>DroneBot Workshop article</a></debughl>.</p>
 <p>The advantage of using this more advanced approach is that any pin on the microcontroller can be used to read encoder outputs, dramatically increasing the number of encoders that can be used in a system.
-Let us consider a system with two encoders attached to an Arduino Uno on pins D3, D4, D5, and D6, for the encoder 1 A &amp; B pins and the encoder 2 A &amp; B pins, respectively. As can be seen from <debugHL><a href="#arduinoPinout">Fig 4</a></debugHL>, all these pins are part of Port D on the Arduino Uno.</p>
+Let us consider a system with two encoders attached to an Arduino Uno on pins D3, D4, D5, and D6, for the encoder 1 A &amp; B pins and the encoder 2 A &amp; B pins, respectively. As can be seen from <debughl><a href="#arduinoPinout">Fig 4</a></debughl>, all these pins are part of Port D on the Arduino Uno.</p>
 <p>The code below shows a snippet of code outlining a basic framework of how to initialise this process:</p>
 <ol>
 <li>Activate the pin change interrupts for PORT D, using the command: <code>PCICR |= 0b00000100;</code></li>
@@ -1280,13 +1280,13 @@ Let us consider a system with two encoders attached to an Arduino Uno on pins D3
 </span></code></pre></div>
 <p>The interrupts are now only active on the 4 pins connected to the encoders, D3 to D6. When one of the pins changes its state, the function ISR(PCINT2_vect) is automatically executed. <em><strong>Note:</strong> PCINT2_vect is the interrupt request handler for PORT D and is required code work for the ISR.</em></p>
 <p>One method to measure the output of the attached encoders is to define a look-up table to modify the encoder counter. The look-up table output defines whether the encoder counter is incremented, decremented, or left unchanged, based on the values of pervious measured state and the current measured state of the encoder.</p>
-<p>We can define an encoder variable for each encoder, made up 4 bits of data arranged in the form, shown in <debugHL><a href="#encoderDataVariable">Fig 5</a></debugHL>:</p>
+<p>We can define an encoder variable for each encoder, made up 4 bits of data arranged in the form, shown in <debughl><a href="#encoderDataVariable">Fig 5</a></debughl>:</p>
 <figure>
   <a name="encoderDataVariable"></a>
-  <a class="glightbox" href="../../Images/Encoder%20Data%20Variable.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Arrangement of the encoder data variable." src="../../Images/Encoder%20Data%20Variable.png" /></a>
+  <a class="glightbox" href="../../Images/Encoder%20Data%20Variable.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Arrangement of the encoder data variable." src="../../Images/Encoder%20Data%20Variable.png"></a>
   <figcaption>Arrangement of the encoder data variable.</figcaption>
 </figure>
-<p>Using this encoding, one can create the following <debugHL><a href="#encoderStates">table</a></debugHL>:</p>
+<p>Using this encoding, one can create the following <debughl><a href="#encoderStates">table</a></debughl>:</p>
 <table>
 <a name="encoderStates"></a>
   <thead>
@@ -1318,7 +1318,7 @@ Let us consider a system with two encoders attached to an Arduino Uno on pins D3
 <p><em>Where: </em><em>No</em><em> = No rotation (current state = previous state), and </em><em>NA</em><em> = Not applicable (Impossible condition. Only one bit at a time can change)</em></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Analyse <debugHL><a href="#encoderStates">Table 2</a></debugHL> and you’ll see that the number of rows that have a +1 or -1 is 8, the same as the number of rows of <debugHL><a href="#EncoderBits">Table 1</a></debugHL>. Try also comparing the rows between the two tables, to better understand how <debugHL><a href="#encoderStates">Table 2</a></debugHL> was derived.</p>
+<p>Analyse <debughl><a href="#encoderStates">Table 2</a></debughl> and you’ll see that the number of rows that have a +1 or -1 is 8, the same as the number of rows of <debughl><a href="#EncoderBits">Table 1</a></debughl>. Try also comparing the rows between the two tables, to better understand how <debughl><a href="#encoderStates">Table 2</a></debughl> was derived.</p>
 </div>
 <p>The resulting 4-bit binary encoder variable produces a decimal number between 0 and 15. This number can then be used to index an array of data - the lookup table, comprising of the data in column 5 from Table 4. It is important to keep all entries, even the impossible ones, so that one can create the following lookup table array:</p>
 <p><code>static const int9_t lookup_table[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};</code></p>
@@ -1363,9 +1363,9 @@ Let us consider a system with two encoders attached to an Arduino Uno on pins D3
 </span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">    </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w">  </span><span class="c1">// Record the current tick counter value</span>
 </span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
 </span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">    </span><span class="c1">// Display the current encoder counter values on the serial monitor</span>
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Encoder 1 Count = &quot;</span><span class="p">);</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Encoder 1 Count = "</span><span class="p">);</span>
 </span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">enc1_count</span><span class="p">);</span>
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">Encoder 2 Count = &quot;</span><span class="p">);</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">Encoder 2 Count = "</span><span class="p">);</span>
 </span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">enc2_count</span><span class="p">);</span>
 </span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="p">}</span>
@@ -1415,7 +1415,7 @@ Let us consider a system with two encoders attached to an Arduino Uno on pins D3
 <div class="admonition note title">
 <p class="admonition-title">Also Note</p>
 <p>After computing the encoder count, one still needs to convert it to revolutions of the encoder, or revolutions of motor shaft, using suitable constants.</p>
-</div>
+</div></div>
 
 
 

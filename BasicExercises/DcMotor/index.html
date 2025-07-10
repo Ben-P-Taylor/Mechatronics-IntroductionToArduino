@@ -1047,18 +1047,18 @@
 
   <h1>DC Motor</h1>
 
-<div class="admonition info">
+<div><div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
 <p>This is an assessed Exercise. When you have completed the <a href="#dcMotorExercise">Assessed Exercise</a>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debugHL><a href="../../RobotBuild/#dcMotorPic">Building the Robot: Fig. 13</a></debugHL>. Furthermore, you should ensure that all the connections described in the <debugHL><a href="../../RobotBuild/#dcMotor">Building the Robot: Circuit Layout for the DC Motor Exercise</a></debugHL> are correct.</p>
+<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#dcMotorPic">Building the Robot: Fig. 13</a></debughl>. Furthermore, you should ensure that all the connections described in the <debughl><a href="../../RobotBuild/#dcMotor">Building the Robot: Circuit Layout for the DC Motor Exercise</a></debughl> are correct.</p>
 </div>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
 <div style="text-align: center;">
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_a3eviyhm&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_4q6vxp1v%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;justify-content:center;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Placeholder - Quick Test Video"></iframe>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_a3eviyhm&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_4q6vxp1v%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D" style="width: 400px;height: 285px;border: 0;justify-content:center;" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Placeholder - Quick Test Video"></iframe>
 </div>
 <figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
 </figure>
@@ -1067,13 +1067,13 @@
 <p>The aim of this exercise is to control a DC motor from an Arduino, using a DC motor driver interface. You will be using a <abbr title="Pulse Width Modulation">PWM</abbr> signal to drive the motor.</p>
 <h3 id="pwm-control-for-the-dc-motor"><abbr title="Pulse Width Modulation">PWM</abbr> Control for the DC Motor</h3>
 <p><abbr title="Pulse Width Modulation">PWM</abbr> is a way of encoding information into a rectangular pulse train. Generally, the period, (and hence the frequency), of the pulse train is maintained constant, and the width of the rectangular pulses are varied – we will assume this definition for the remainder of these laboratory sessions. 
-<debugHL><a href="#pwmAverage">Fig 1</a></debugHL> illustrated the time domain waveform of the <abbr title="Pulse Width Modulation">PWM</abbr> signal, where the digital waveform has a rising edge at t=t<sub>0</sub>, and a falling edge at t=t<sub>2</sub>. The on-state of the <abbr title="Pulse Width Modulation">PWM</abbr> signal is defined as t<sub>on</sub>, the off-state of the signal is defined as t<sub>off</sub>, and the <abbr title="Pulse Width Modulation">PWM</abbr> period is defined as T<sub>s</sub>.</p>
+<debughl><a href="#pwmAverage">Fig 1</a></debughl> illustrated the time domain waveform of the <abbr title="Pulse Width Modulation">PWM</abbr> signal, where the digital waveform has a rising edge at t=t<sub>0</sub>, and a falling edge at t=t<sub>2</sub>. The on-state of the <abbr title="Pulse Width Modulation">PWM</abbr> signal is defined as t<sub>on</sub>, the off-state of the signal is defined as t<sub>off</sub>, and the <abbr title="Pulse Width Modulation">PWM</abbr> period is defined as T<sub>s</sub>.</p>
 <figure>
   <a name="pwmAverage"></a>
-  <a class="glightbox" href="../../Images/PWM%20Average.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pulse Width Modulation, (left) time domain waveforms, (rich) average voltage of PWM signal." src="../../Images/PWM%20Average.png" /></a>
+  <a class="glightbox" href="../../Images/PWM%20Average.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pulse Width Modulation, (left) time domain waveforms, (rich) average voltage of PWM signal." src="../../Images/PWM%20Average.png"></a>
   <figcaption>Pulse Width Modulation, (left) time domain waveforms, (rich) average voltage of <abbr title="Pulse Width Modulation">PWM</abbr> signal.</figcaption>
 </figure>
-<p><abbr title="Pulse Width Modulation">PWM</abbr> can be used in a number of different ways; the most common being to ‘chop’ a DC voltage to reduce its average value, as illustrated graphically in Figure 13. The input voltage, V<sub>in</sub> is ‘chopped’, using a converter circuit, into pulses, as shown in Figure 13 (left), where the time integral of the on-state of the waveform is <debugHL>t<sub>on</sub> x V<sub>in</sub>, </debugHL>and has a graphical area of A. The filtering effect of the system we are driving will effectively spread the area under the pulse across in, <debugHL><a href="#pwmAverage">Fig 1 (left)</a></debugHL> </debugHL>, across the switching period, Ts, as illustrated in <debugHL><a href="#pwmAverage">Fig 1 (right)</a></debugHL>. </p>
+<p><abbr title="Pulse Width Modulation">PWM</abbr> can be used in a number of different ways; the most common being to ‘chop’ a DC voltage to reduce its average value, as illustrated graphically in Figure 13. The input voltage, V<sub>in</sub> is ‘chopped’, using a converter circuit, into pulses, as shown in Figure 13 (left), where the time integral of the on-state of the waveform is <debughl>t<sub>on</sub> x V<sub>in</sub>, </debughl>and has a graphical area of A. The filtering effect of the system we are driving will effectively spread the area under the pulse across in, <debughl><a href="#pwmAverage">Fig 1 (left)</a></debughl> , across the switching period, Ts, as illustrated in <debughl><a href="#pwmAverage">Fig 1 (right)</a></debughl>. </p>
 <p>This can be expressed as an integral equation:</p>
 <p><a name="eqn1"></a>
 $$
@@ -1090,15 +1090,15 @@ Another way in which <abbr title="Pulse Width Modulation">PWM</abbr> can be used
 <p>The DC motor is different from the standard servomotor, in terms of the type of control. For servomotors, the average value of the <abbr title="Pulse Width Modulation">PWM</abbr> signal is not being used to regulate the average supply voltage to the device, like it is for DC motors, but instead, the <abbr title="Pulse Width Modulation">PWM</abbr> on-time is bounded between 2 values, (1ms and 2ms in this case), and is an encoded signal relating to a rotational position demand parameter for the servomotor, closed loop, controller.</p>
 <h3 id="code-example-control-led-intensity-example">Code Example: Control <abbr title="Light Emitting Diode">LED</abbr> Intensity Example</h3>
 <p>In this example, we will use the <code>analogWrite()</code> function to generate a <abbr title="Pulse Width Modulation">PWM</abbr> signal, which we will use to vary the voltage supplied to an <abbr title="Light Emitting Diode">LED</abbr>, and hence the <abbr title="Light Emitting Diode">LED</abbr> intensity.</p>
-<p>A <abbr title="Pulse Width Modulation">PWM</abbr> signal can be generated by the <code>analogWrite()</code> function. The value passed to the <code>analogWrite()</code> function can be between 0 and 255, which results in a <abbr title="Pulse Width Modulation">PWM</abbr> output between 0% and 100% duty cycle, as illustrated in <debugHL><a href="#analoWritePWM">Fig 2</a></debugHL>. </p>
+<p>A <abbr title="Pulse Width Modulation">PWM</abbr> signal can be generated by the <code>analogWrite()</code> function. The value passed to the <code>analogWrite()</code> function can be between 0 and 255, which results in a <abbr title="Pulse Width Modulation">PWM</abbr> output between 0% and 100% duty cycle, as illustrated in <debughl><a href="#analoWritePWM">Fig 2</a></debughl>. </p>
 <figure>
   <a name="analoWritePWM"></a>
-  <a class="glightbox" href="../../Images/Pwm_5steps.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Illustration of the use of analogWrite() function, and the resulting PWM output." src="../../Images/Pwm_5steps.gif" /></a>
+  <a class="glightbox" href="../../Images/Pwm_5steps.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Illustration of the use of analogWrite() function, and the resulting PWM output." src="../../Images/Pwm_5steps.gif"></a>
   <figcaption>. Illustration of the use of analogWrite() function, and the resulting <abbr title="Pulse Width Modulation">PWM</abbr> output.</figcaption>
 </figure>
-<p>(<debugHL><a href="#analoWritePWM">Fig 2</a></debugHL> is taken from: <a href = "https://commonpwmAverages.wikimedia.org/wiki/File:Pwm_5steps.gif">https://commonpwmAverages.wikimedia.org/wiki/File:Pwm_5steps.gif</a>)</p>
+<p>(<debughl><a href="#analoWritePWM">Fig 2</a></debughl> is taken from: <a href="https://commonpwmAverages.wikimedia.org/wiki/File:Pwm_5steps.gif">https://commonpwmAverages.wikimedia.org/wiki/File:Pwm_5steps.gif</a>)</p>
 <p>The Arduino language reference page for the analogWrite command can be found at:
-<a href = "https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/">https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/</a>.</p>
+<a href="https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/">https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/</a>.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
 <li>
@@ -1108,7 +1108,7 @@ Another way in which <abbr title="Pulse Width Modulation">PWM</abbr> can be used
 <p>Use the following example code to run this exercise:</p>
 </li>
 </ol>
-<p><div class="language-Arduino highlight"><span class="filename">LED Fade.ino Example</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//This sketch is the Control LED Intensity Example from the Introduction to</span>
+<p></p><div class="language-Arduino highlight"><span class="filename">LED Fade.ino Example</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//This sketch is the Control LED Intensity Example from the Introduction to</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">// Arduino – PWM control of Actuators laboratory worksheet</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// define a macro for the LED pin number </span>
@@ -1145,19 +1145,19 @@ Another way in which <abbr title="Pulse Width Modulation">PWM</abbr> can be used
 </span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="p">}</span>
 </span></code></pre></div>
-3. Run the program and observe the effects on the <abbr title="Light Emitting Diode">LED</abbr> of the different values being passed to the <code>analogWrite()</code> function.</p>
+3. Run the program and observe the effects on the <abbr title="Light Emitting Diode">LED</abbr> of the different values being passed to the <code>analogWrite()</code> function.
 <h2 id="using-the-tb6612fng-breakout-board">Using the TB6612FNG breakout board</h2>
-<p>A DC motor cannot be powered directly from the pins of the Arduino board, because the current drawn by the DC motor is too large and could damage the Arduino by overloading the output pins. To overcome this problem, a power electronic driver circuit is required to interface the motor to the Arduino microcontroller board. During this exercise, you will be using a TB6612FNG motor driver breakout board, as shown in <debugHL><a href="#TB6612FG">Fig 3</a></debugHL>, and an external power supply, to drive motor from control signals generated in the Arduino.</p>
+<p>A DC motor cannot be powered directly from the pins of the Arduino board, because the current drawn by the DC motor is too large and could damage the Arduino by overloading the output pins. To overcome this problem, a power electronic driver circuit is required to interface the motor to the Arduino microcontroller board. During this exercise, you will be using a TB6612FNG motor driver breakout board, as shown in <debughl><a href="#TB6612FG">Fig 3</a></debughl>, and an external power supply, to drive motor from control signals generated in the Arduino.</p>
 <figure>
   <a name="TB6612FG"></a>
-  <a class="glightbox" href="../../Images/TB6612FG.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture of the TB6612FG motor driver board, with pins labelled." src="../../Images/TB6612FG.jpg" /></a>
+  <a class="glightbox" href="../../Images/TB6612FG.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture of the TB6612FG motor driver board, with pins labelled." src="../../Images/TB6612FG.jpg"></a>
   <figcaption>Picture of the TB6612FG motor driver board, with pins labelled.</figcaption>
 </figure>
 <p>This section is aimed at providing you with some useful information, to help you get started with using the TB6612FNG breakout board. This section will not provide you with all the information you may need, so it will be up to you to research other sources of information to help. There are numerous online guides detailing the interfacing of this breakout board with an Arduino controller.</p>
 <p>The TB6612FNG, from TOSHIBA, is a monolithic bridge driver IC, in other words, it is a single integrated circuit containing the power electronic switching and control interface circuitry required for implementing a bridge motor driver circuit. The TB6612FNG contains two independently controlled H-bridge drive circuits. See the data sheet, linked in the following section for more details.</p>
 <p>In isolation, an integrated circuit can be difficult to interface with a control system, without a custom PCB design. The use of breakout board circuits provides a convenient way of connecting surface mount chips to breadboard prototyping circuit, and interfacing then with control processors, such as the Arduino devices we will be using. 
-The TB6612FNG board, shown in <debugHL><a href="#TB6612FG">Fig 3</a></debugHL>, is a breakout board for the TB6612FNG IC, and is packaged with the required capacitors to correctly operate the device.
-The pin descriptions for each pins on the TB6612FNG breakout board are described in <debugHL><a href="#pinsTB6612FG">Table 1</a></debugHL>:</p>
+The TB6612FNG board, shown in <debughl><a href="#TB6612FG">Fig 3</a></debughl>, is a breakout board for the TB6612FNG IC, and is packaged with the required capacitors to correctly operate the device.
+The pin descriptions for each pins on the TB6612FNG breakout board are described in <debughl><a href="#pinsTB6612FG">Table 1</a></debughl>:</p>
 <table>
 <a name="pinsTB6612FG"></a>
   <thead>
@@ -1185,16 +1185,16 @@ The pin descriptions for each pins on the TB6612FNG breakout board are described
 <h3 id="online-documentation-from-the-manufacturer-and-other-sites">Online Documentation from the manufacturer and other sites</h3>
 <p>Semiconductor manufacturers often provide information for the use of their manufactured devices in the form of a data sheet, and often provide application notes and other material for more complicated classes of device. Links to some relevant manufacturer’s documentation and some other relevant application documents are provided:</p>
 <ul>
-<li>TB6612FNG Data sheet (TOSHIBA): <debugHL><a href="https://toshiba.semicon-storage.com/info/docget.jsp?did=10660&amp;prodName=TB6612FNG" target="_blank">TB6612FNG Data sheet</a></debugHL>.</li>
-<li>Data Sheet for the breakout board (Sparkfun): <debugHL><a href="https://media.digikey.com/pdf/Data Sheets/Sparkfun PDFs/ROB-14450_Web.pdf" target="_blank">SparkFun Motor Driver - Dual</a></debugHL>.</li>
-<li>Application note (ST Microelectronics): <debugHL><a href="https://www.st.com/resource/en/application_note/cd00003776-applications-of-monolithic-bridge-drivers-stmicroelectronics.pdf" target="_blank">Applications of Monolithic Bridge Driver</a></debugHL>.</li>
-<li>Presentation/Training Material (ST Microelectronics): <debugHL><a href="https://www.st.com/resource/en/application_presentation/introduction_to_electric_motors_pres.pdf" target="_blank">An Introduction to Electric Motors</a></debugHL>.</li>
+<li>TB6612FNG Data sheet (TOSHIBA): <debughl><a href="https://toshiba.semicon-storage.com/info/docget.jsp?did=10660&amp;prodName=TB6612FNG" target="_blank">TB6612FNG Data sheet</a></debughl>.</li>
+<li>Data Sheet for the breakout board (Sparkfun): <debughl><a href="https://media.digikey.com/pdf/Data%20Sheets/Sparkfun%20PDFs/ROB-14450_Web.pdf" target="_blank">SparkFun Motor Driver - Dual</a></debughl>.</li>
+<li>Application note (ST Microelectronics): <debughl><a href="https://www.st.com/resource/en/application_note/cd00003776-applications-of-monolithic-bridge-drivers-stmicroelectronics.pdf" target="_blank">Applications of Monolithic Bridge Driver</a></debughl>.</li>
+<li>Presentation/Training Material (ST Microelectronics): <debughl><a href="https://www.st.com/resource/en/application_presentation/introduction_to_electric_motors_pres.pdf" target="_blank">An Introduction to Electric Motors</a></debughl>.</li>
 </ul>
 <h2 id="h-bridge-circuit-and-example-code">H-Bridge Circuit and Example Code</h2>
 <p>The TB6612FNG IC is configured to operate as two independent H-bridge circuits, we will only discuss the operation of a single H-bright Circuit, using channel B. The outputs for channel B are BO1 and BO2, and this is controlled using the PWMB signal. The direction of rotation can be configured using the BI1 and BI2 inputs. The operation of an H-bridge circuit is covered in the lecture material for this course, so will not be discussed in detail in this document.</p>
-<p>Before proceeding, ensure that you have constructed the H-bridge circuit in <debugHL><a href="../../RobotBuild/#dcMotor">Circuit Layout for the DC Motor Exercise</a></debugHL>.</p>
+<p>Before proceeding, ensure that you have constructed the H-bridge circuit in <debughl><a href="../../RobotBuild/#dcMotor">Circuit Layout for the DC Motor Exercise</a></debughl>.</p>
 <h3 id="operation-of-the-tb6612fng-driver-board-circuit">Operation of the TB6612FNG Driver Board Circuit</h3>
-<p>Each H-bridge circuit is configured using two control inputs, In1 and In2, with a separate <abbr title="Pulse Width Modulation">PWM</abbr> input for each bridge. The control operation of the H-bridge is described in <debugHL><a href="#ServoMotorConnect">Table 2</a></debugHL>.</p>
+<p>Each H-bridge circuit is configured using two control inputs, In1 and In2, with a separate <abbr title="Pulse Width Modulation">PWM</abbr> input for each bridge. The control operation of the H-bridge is described in <debughl><a href="#ServoMotorConnect">Table 2</a></debughl>.</p>
 <table>
   <a name="ServoMotorConnect"></a>
   <thead>
@@ -1207,13 +1207,13 @@ The pin descriptions for each pins on the TB6612FNG breakout board are described
     <tr><td>Low</td><td>High</td><td>Low</td><td>Low</td><td>Forward (Freewheel)</td></tr>
     <tr><td rowspan="2">High</td><td rowspan="2">Low</td><td>High</td><td>High</td><td>High</td><td>Low</td><td>Backward(Drive)</td></tr>
     <tr><td>Low</td><td>High</td><td>Low</td><td>Low</td><td>Backward(Freewheel)</td></tr>
-    <tr><td>Low</td><td>Low</td><td>High</td><td>High</td><td colspan = "2">OFF (High Impedance)</td><td>Stop (Coast)</td></tr>
-    <tr><td>High/Low</td><td>High/Low</td><td>High/Low</td><td>Low</td><td colspan = "2">OFF (High Impedance)</td><td>Standby</td></tr>
+    <tr><td>Low</td><td>Low</td><td>High</td><td>High</td><td colspan="2">OFF (High Impedance)</td><td>Stop (Coast)</td></tr>
+    <tr><td>High/Low</td><td>High/Low</td><td>High/Low</td><td>Low</td><td colspan="2">OFF (High Impedance)</td><td>Standby</td></tr>
     </tbody>
   <caption>Control operation of the H-bridge.</caption>
 </table>
 
-<p>In essence, <debugHL><a href="#">Table 2</a></debugHL> indicates that the direction of the motor is configured using the In1 and In2 inputs, (BI1 and BI2, respectively for channel B), and the speed of the motor is controlled with the <abbr title="Pulse Width Modulation">PWM</abbr> input, (PWMB for channel B). The standby input is provided to set the driver board into a power sleep state.</p>
+<p>In essence, <debughl><a href="#">Table 2</a></debughl> indicates that the direction of the motor is configured using the In1 and In2 inputs, (BI1 and BI2, respectively for channel B), and the speed of the motor is controlled with the <abbr title="Pulse Width Modulation">PWM</abbr> input, (PWMB for channel B). The standby input is provided to set the driver board into a power sleep state.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The wiring polarity of the motor power, will define if forward is clockwise or anticlockwise rotation. If the connection of the motor is reversed on Out1 and Out2, then the motor will spin in the opposite direction.</p>
@@ -1274,13 +1274,13 @@ The pin descriptions for each pins on the TB6612FNG breakout board are described
 </span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">  </span><span class="nf">analogWrite</span><span class="p">(</span><span class="n">pinPWM</span><span class="p">,</span><span class="w"> </span><span class="n">pwmValue</span><span class="p">);</span>
 </span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>
 </span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">  </span><span class="c1">// Display the board variable status to the Serial Monitor</span>
-</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;PWM output value = &quot;</span><span class="p">);</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"PWM output value = "</span><span class="p">);</span>
 </span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">pwmValue</span><span class="p">);</span>
-</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;, Standby = &quot;</span><span class="p">);</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">", Standby = "</span><span class="p">);</span>
 </span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">standBy</span><span class="p">);</span>
-</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;, BI1 = &quot;</span><span class="p">);</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">", BI1 = "</span><span class="p">);</span>
 </span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">BI1</span><span class="p">);</span>
-</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;, BI2 = &quot;</span><span class="p">);</span>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">", BI2 = "</span><span class="p">);</span>
 </span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">BI2</span><span class="p">);</span>
 </span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>
 </span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">  </span><span class="c1">// wait 250ms</span>
@@ -1323,7 +1323,7 @@ The pin descriptions for each pins on the TB6612FNG breakout board are described
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
-</div>
+</div></div>
 
 
 

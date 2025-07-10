@@ -919,14 +919,14 @@
 
 
 
-<h1 id="closed-loop-control-using-the-encoder-as-a-feedback-sensor">Closed Loop Control Using the Encoder as a Feedback Sensor</h1>
+<div><h1 id="closed-loop-control-using-the-encoder-as-a-feedback-sensor">Closed Loop Control Using the Encoder as a Feedback Sensor</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed the <debugHL><a href="#PiEncEx">Assessed Exercise</a></debugHL>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+<p>This is an assessed Exercise. When you have completed the <debughl><a href="#PiEncEx">Assessed Exercise</a></debughl>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Before Continuing</p>
-<p>Before starting these exercises, you should ensure that you have completed all the <debugHL><a href="../../BasicExercises/">Basic Exercises</a></debugHL> and have fully constructed the robot chassis, as described in the <debugHL><a href="../../RobotBuild/">Building the Robot</a></debugHL> document.</p>
+<p>Before starting these exercises, you should ensure that you have completed all the <debughl><a href="../../BasicExercises/">Basic Exercises</a></debughl> and have fully constructed the robot chassis, as described in the <debughl><a href="../../RobotBuild/">Building the Robot</a></debughl> document.</p>
 </div>
 <h2 id="introduction">Introduction</h2>
 <p>During this exercise you will write a program to move the robot chassis forwards and backwards through a sequence of set distances. The robot must be controlled in closed loop, using a <abbr title="Proportional and Integral Controller">PI</abbr> controller, and using the motor encoder as the feedback sensor.</p>
@@ -934,7 +934,7 @@
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
 <div style="text-align: center;">
-<iframe id="kaltura_player" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D'  style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
+<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D" style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
 </div>
 <figcaption>Video demonstrating the expected outcome from this exercise</figcaption>
 </figure>
@@ -942,19 +942,19 @@
 <h3 id="a-simple-finite-state-machine">A Simple Finite State Machine</h3>
 <p>In simple terms, finite state machines are a design methodology for designing and implementing a program to a system that is triggered by events that occur. We will only consider their use in the most simple form. </p>
 <p>A simple state machine can define the operation of a system in terms of the “states” of the system and the triggers, (or events), that decide when to transition between one state and another: “state transition conditions”. The system can only transition from one state and another when state transition conditions are satisfied</p>
-<p>Let us consider a very simple system: a system consisting of a light bulb and an on/off switch. The light can only be on or off, therefore we can define two-states to describe this behaviour. The state transition condition to transition between state 1, (on), to state 2, (off), is for the switch to be moved to the off position. Similarly, to transition from state 2 to state 1, the switch must be moved to the on position. This operation is summarised on the state transition diagram, shown in <debugHL><a href="#onOffStateMachine">Fig. 2</a></debugHL>:</p>
+<p>Let us consider a very simple system: a system consisting of a light bulb and an on/off switch. The light can only be on or off, therefore we can define two-states to describe this behaviour. The state transition condition to transition between state 1, (on), to state 2, (off), is for the switch to be moved to the off position. Similarly, to transition from state 2 to state 1, the switch must be moved to the on position. This operation is summarised on the state transition diagram, shown in <debughl><a href="#onOffStateMachine">Fig. 2</a></debughl>:</p>
 <figure>
   <a name="onOffStateMachine"></a>
-  <a class="glightbox" href="../../Images/OnOffStateMachine.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A state transition diagram for the on/off light bulb/switch system." src="../../Images/OnOffStateMachine.png" /></a>
+  <a class="glightbox" href="../../Images/OnOffStateMachine.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A state transition diagram for the on/off light bulb/switch system." src="../../Images/OnOffStateMachine.png"></a>
   <figcaption>A state transition diagram for the on/off light bulb/switch system.</figcaption>
 </figure>
-<p>This is a very simple state machine example for a 2 state system. We can extend this idea to a system which varies the light level output between: off, dimmed, medium and bright, with state transitions defined by two buttons: on and off. <a name="lightDimmer"></a>When the system starts, the system automatically switches to state 1: off. The on button is used to switch the light on and toggle the system states between states 2, 3 and 4, to adjust the brightness, whereas if the off button is pressed, the system will always return to the off state. This operation is summarised on the state transition diagram, <debugHL><a href="#dimmerStateMachine">Fig. 3</a></debugHL>:</p>
+<p>This is a very simple state machine example for a 2 state system. We can extend this idea to a system which varies the light level output between: off, dimmed, medium and bright, with state transitions defined by two buttons: on and off. <a name="lightDimmer"></a>When the system starts, the system automatically switches to state 1: off. The on button is used to switch the light on and toggle the system states between states 2, 3 and 4, to adjust the brightness, whereas if the off button is pressed, the system will always return to the off state. This operation is summarised on the state transition diagram, <debughl><a href="#dimmerStateMachine">Fig. 3</a></debughl>:</p>
 <figure>
   <a name="dimmerStateMachine"></a>
-  <a class="glightbox" href="../../Images/DimmerState.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A state transition diagram for the light dimmer system." src="../../Images/DimmerState.png" /></a>
+  <a class="glightbox" href="../../Images/DimmerState.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A state transition diagram for the light dimmer system." src="../../Images/DimmerState.png"></a>
   <figcaption>A state transition diagram for the light dimmer system.</figcaption>
 </figure>
-<p>To implement the <debugHL><a href="#lightDimmer">light dimmer system state machine</a></debugHL>, we can use a <code>switch</code> statement, where each <code>case</code> statement defines the state behaviour of the system, such that:</p>
+<p>To implement the <debughl><a href="#lightDimmer">light dimmer system state machine</a></debughl>, we can use a <code>switch</code> statement, where each <code>case</code> statement defines the state behaviour of the system, such that:</p>
 <div class="language-Arduino highlight"><span class="filename">Arduino code describing the light dimmer system state machine</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define onPin 1       </span><span class="c1">// On button pin</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define offPin 2      </span><span class="c1">// Of button pin</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#define outputPin 13  </span><span class="c1">// LED output Pin</span>
@@ -1049,7 +1049,7 @@
 </ul>
 <div class="admonition info title">
 <p class="admonition-title">Hint:</p>
-<p><problemHL>The state transition conditions are </problemHL></p>
+<p><problemhl>The state transition conditions are </problemhl></p>
 <p>The system states are a position demand reference value for the <abbr title="Proportional and Integral Controller">PI</abbr> controller. Process the position controller within the case statements.</p>
 <p>The sampling time for the <abbr title="Proportional and Integral Controller">PI</abbr> controller should be set to 10ms.</p>
 <p>We recommend using the following controller gains: Kp = 4.0, Ki = 0.0. These controller values should give an oscillatory response.</p>
@@ -1075,7 +1075,7 @@
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
-</div>
+</div></div>
 
 
 

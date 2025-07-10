@@ -1181,22 +1181,22 @@
 
 
 
-<h1 id="building-the-robot-chassis">Building the Robot Chassis</h1>
+<div><h1 id="building-the-robot-chassis">Building the Robot Chassis</h1>
 <h2 id="introduction">Introduction</h2>
-<p>The system described in this section is the configuration that the author used during the development of the Introduction to Arduino exercises on this module, as shown in <debugHL><a href="#chassisPic">Fig 1</a></debugHL>. This configuration is the recommended configuration for the exercises during this section of the course.</p>
+<p>The system described in this section is the configuration that the author used during the development of the Introduction to Arduino exercises on this module, as shown in <debughl><a href="#chassisPic">Fig 1</a></debughl>. This configuration is the recommended configuration for the robot build, as it will be assumed that you have followed the following procedures, when you carry out the exercises.</p>
 <figure>
   <a name="chassisPic"></a>
-  <a class="glightbox" href="../Images/Robot%201st%20Picture.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture of the completed Robot." src="../Images/Robot%201st%20Picture.jpg" /></a>
+  <a class="glightbox" href="../Images/Robot%201st%20Picture.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture of the completed Robot." src="../Images/Robot%201st%20Picture.jpg"></a>
   <figcaption>Picture of the completed robot.</figcaption>
 </figure>
 <h2 id="adding-the-mechanical-components-to-the-chassis">Adding the mechanical components to the chassis</h2>
 <p>This section will discuss the assembly of the mechanical system, and <a href="#ElecConn" title="Electronic Component Layout and Connections">a later section</a> will discuss the assembly of the electronic circuitry.</p>
 <figure>
   <a name="chassislayout"> </a>
-  <a class="glightbox" href="../Images/LayoutOfRobotChassis.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotated layout of the robot chassis" src="../Images/LayoutOfRobotChassis.png" /></a>
+  <a class="glightbox" href="../Images/LayoutOfRobotChassis.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotated layout of the robot chassis" src="../Images/LayoutOfRobotChassis.png"></a>
   <figcaption>Annotated layout of the robot chassis.</figcaption>
 </figure>
-<p>Due to the design of the robot chassis, some elements of the robot must be constructed in order, due to overlapping parts, see <debugHL><a href="#chassislayout">Fig 2</a></debugHL> for a diagram of the layout. The suggested order of construction is:</p>
+<p>Due to the design of the robot chassis, some elements of the robot must be constructed in the order described, due to overlapping parts, see <debughl><a href="#chassislayout">Fig 2</a></debughl> for a diagram of the layout. The suggested order of construction is:</p>
 <ol>
 <li>Attach the yellow FIT0450 motor to the back of the chassis</li>
 <li>Attach the skinny wheel to the motor</li>
@@ -1219,76 +1219,79 @@
 <p class="admonition-title">Do this Before Attaching The Servo</p>
 <p>These wheels must be attached before the servo, because the servo obscures access to the screw heads for the left wheel.</p>
 </div>
-<p>The cheap plastic wheels should be attached to the lugs at the front of the chassis M4x20 machine screws. Because these wheels rotate freely, you will either need a pair of <debugHL><a href = "https://www.boltscience.com/pages/twonuts.htm" target="_blank">locking nuts</a></debugHL>, (the method I have used in <debugHL><a href="#chassisPic">Fig 1</a></debugHL>), or using an M4 nylon-insert lock nut – nyloc, to ensure the wheels are secure but free to rotate, as illustrated in <debugHL><a href="#nylocWheel">Fig 3</a></debugHL>.</p>
+<p>The cheap plastic wheels should be attached to the lugs at the front of the chassis M4x20 machine screws. Because these wheels rotate freely, you will either need a pair of <debughl><a href="https://www.boltscience.com/pages/twonuts.htm" target="_blank">locking nuts</a></debughl>, (the method I have used in <debughl><a href="#chassisPic">Fig 1</a></debughl>), or using an M4 nylon-insert lock nut – nyloc, to ensure the wheels are secure but free to rotate, as illustrated in <debughl><a href="#nylocWheel">Fig 3</a></debughl>.</p>
 <figure>
   <a name="nylocWheel"></a>
-  <a class="glightbox" href="../Images/Nyloc%20Wheel.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing the cheap plastic wheels using nyloc nuts." src="../Images/Nyloc%20Wheel.jpg" /></a>
+  <a class="glightbox" href="../Images/Nyloc%20Wheel.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing the cheap plastic wheels using nyloc nuts." src="../Images/Nyloc%20Wheel.jpg"></a>
   <figcaption>Fixing the cheap plastic wheels using nyloc nuts.</figcaption>
 </figure>
+<p>The following is a short video showing the video for this section of the assembly:
+<a class="glightbox" href="https://youtube.com/embed/7-MFaJx_KcQ" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://youtube.com/embed/7-MFaJx_KcQ" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a>
+<strong><em>Note:</em></strong> <em>This video has no commentary</em></p>
 <h3 id="attaching-the-mg996-servo">Attaching the MG996 Servo</h3>
 <div class="admonition note">
 <p class="admonition-title">Do this After You Have Attached Both of the Wheels</p>
 </div>
-<p>The MG996 servo is attached to the robot chassis using 3x M4x12 screws and 1x M4x6 screw, as illustrated in Figure 3. The shorter M4x6 screw is required to ensure that breadboard 2, see <debugHL><a href="#servoNuts">Fig 4</a></debugHL>, will fit into the chassis. If you use an M4x12 screw in this location, the tail of the screw is too long and breadboard 2 will not fit into the space provided in the chassis. Figure 3 illustrates which of the 4 M4 screws should be the M4x6.</p>
+<p>The MG996 servo is attached to the robot chassis using 3x M4x12 screws and 1x M4x6 screw, as illustrated in Figure 3. The shorter M4x6 screw is required to ensure that breadboard 2, see <debughl><a href="#servoNuts">Fig 4</a></debughl>, will fit into the chassis. If you use an M4x12 screw in this location, the tail of the screw is too long and breadboard 2 will not fit into the space provided in the chassis. Figure 3 illustrates which of the 4 M4 screws should be the M4x6.</p>
 <figure>
   <a name="servoNuts"></a>
-  <a class="glightbox" href="../Images/Fixing%20screws%20for%20the%20MG996%20Servo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing screws for the MG996 Servo" src="../Images/Fixing%20screws%20for%20the%20MG996%20Servo.jpg" /></a>
+  <a class="glightbox" href="../Images/Fixing%20screws%20for%20the%20MG996%20Servo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing screws for the MG996 Servo" src="../Images/Fixing%20screws%20for%20the%20MG996%20Servo.jpg"></a>
   <figcaption>Fixing screws for the MG996 Servo.</figcaption>
 </figure>
 <h3 id="assembling-the-lolly-stick-d-assembly">Assembling the Lolly Stick D Assembly</h3>
-<p>The lolly stick assembly comprises of the Sharp <abbr title="Infra Red">IR</abbr> sensor, a laser cut plywood linkage and a servo horn for the MG996, as shown in <debugHL><a href="#LollyAss">Fig 4</a></debugHL>.</p>
+<p>The lolly stick assembly comprises of the Sharp <abbr title="Infra Red">IR</abbr> sensor, a laser cut plywood linkage and a servo horn for the MG996, as shown in <debughl><a href="#LollyAss">Fig 4</a></debughl>.</p>
 <figure>
   <a name="LollyAss"></a>
-  <a class="glightbox" href="../Images/Fixing%20Screws%20for%20the%20Lolly%20Stick%20Assembly.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing Screws for the Lolly Stick Assembly." src="../Images/Fixing%20Screws%20for%20the%20Lolly%20Stick%20Assembly.jpg" /></a>
+  <a class="glightbox" href="../Images/Fixing%20Screws%20for%20the%20Lolly%20Stick%20Assembly.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing Screws for the Lolly Stick Assembly." src="../Images/Fixing%20Screws%20for%20the%20Lolly%20Stick%20Assembly.jpg"></a>
   <figcaption>Fixing Screws for the Lolly Stick Assembly.</figcaption>
 </figure>
-<p>It is recommended that you assemble the lolly stick assembly as shown in <debugHL><a href="#LollyAss">Fig 5</a></debugHL>, because this results in the header terminals for the <abbr title="Infra Red">IR</abbr> sensor being on the top side of the <abbr title="Infra Red">IR</abbr> sensor, when the lolly stick is in the horizontal position, see <debugHL><a href="#LollyUp">Fig 6</a></debugHL>.</p>
-<p>The <abbr title="Infra Red">IR</abbr> sensor is fixed to the lolly stick with 2x M3x6 screws and 2x M3 nuts, as can be seen in <debugHL><a href="#LollyAss">Fig 5</a></debugHL>.</p>
+<p>It is recommended that you assemble the lolly stick assembly as shown in <debughl><a href="#LollyAss">Fig 5</a></debughl>, because this results in the header terminals for the <abbr title="Infra Red">IR</abbr> sensor being on the top side of the <abbr title="Infra Red">IR</abbr> sensor, when the lolly stick is in the horizontal position, see <debughl><a href="#LollyUp">Fig 6</a></debughl>.</p>
+<p>The <abbr title="Infra Red">IR</abbr> sensor is fixed to the lolly stick with 2x M3x6 screws and 2x M3 nuts, as can be seen in <debughl><a href="#LollyAss">Fig 5</a></debughl>.</p>
 <p>The servo horn is attached to the lolly stick using 2x M2x8mm Phillips Head Flange Screws. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning: Sharp Screws</p>
 <p>The sharp ends of the Flange screws will protrude through the opposite side of the servo horn. Please be careful while handling this assembly to prevent causing minor injury on the protruding screws.</p>
 </div>
 <h3 id="attaching-the-lolly-stick-d-assembly-to-the-servo">Attaching the Lolly Stick D Assembly to the Servo</h3>
-<p>The servo horn pushes onto the servo MG996 servo shaft, then a M3x6 screw is used to fix it into position. Once attached, ensure the servo can rotate between horizontal and vertical, see <debugHL><a href="#LollyUp">Fig 6</a></debugHL>.</p>
+<p>The servo horn pushes onto the servo MG996 servo shaft, then a M3x6 screw is used to fix it into position. Once attached, ensure the servo can rotate between horizontal and vertical, see <debughl><a href="#LollyUp">Fig 6</a></debughl>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>This assembly will require repositioning at the start of the control of the standard servo exercise to ensure that the position is set correctly for the exercise.</p>
 </div>
 <figure>
   <a name="LollyUp"></a>
-  <a class="glightbox" href="../Images/LollyUp.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pictures of the lolly stick assembly attached to the servo, rotated into the horizontal and vertical positions." src="../Images/LollyUp.jpg" /></a>
+  <a class="glightbox" href="../Images/LollyUp.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pictures of the lolly stick assembly attached to the servo, rotated into the horizontal and vertical positions." src="../Images/LollyUp.jpg"></a>
   <figcaption>Pictures of the lolly stick assembly attached to the servo, rotated into the horizontal and vertical positions.</figcaption>
 </figure>
 <h2 id="electronic-component-layout-and-connections">Electronic Component Layout and Connections</h2>
 <p><a name="ElecConn"></a></p>
 <p>The layout of the electronic components on the breadboard is entirely up to you, but following sections illustrate how they were laid out during the design and prototyping stages of these exercises. The author recommends following this layout because it also follows the example code provided for the exercises, and it is a tried and tested layout.</p>
-<p>The connections for each exercise are discussed in more detail in the <debugHL><a href="#ExCirLay">following sections</a></debugHL>, but these subsections provide a bit of high level detail concerning the component placement and the <debugHL><a href="#dcPowerSocket">DC power socket</a></debugHL>.</p>
+<p>The connections for each exercise are discussed in more detail in the <debughl><a href="#ExCirLay">following sections</a></debughl>, but these subsections provide a bit of high level detail concerning the component placement and the <debughl><a href="#dcPowerSocket">DC power socket</a></debughl>.</p>
 <h3 id="breadboard-layouts">Breadboard layouts</h3>
-<p>We suggest that the components should be placed on the two breadboards, as shown in <debugHL><a href="#BreadboardComps">Fig 7</a></debugHL>, with each breadboard containing:</p>
+<p>We suggest that the components should be placed on the two breadboards, as shown in <debughl><a href="#BreadboardComps">Fig 7</a></debughl>, with each breadboard containing:</p>
 <ul>
 <li>Breadboard 1: the <abbr title="Light Emitting Diodes">LEDs</abbr>, button and the motor driver board. </li>
 <li>Breadboard 2: the DC power inlet socket, 10K potentiometer and a 12-way header strip, used to connect the motor power and encoder, MG996 servo and the Sharp <abbr title="Infra Red">IR</abbr> sensor. </li>
 </ul>
-<p>The location of breadboard 1 and breadboard 2 in the robot chassis is illustrated in <debugHL><a href="#chassislayout">Fig 2</a></debugHL> and shown in the <debugHL><a href="#chassisPic">Fig 1</a></debugHL>.</p>
+<p>The location of breadboard 1 and breadboard 2 in the robot chassis is illustrated in <debughl><a href="#chassislayout">Fig 2</a></debughl> and shown in the <debughl><a href="#chassisPic">Fig 1</a></debughl>.</p>
 <figure>
   <a name="BreadboardComps"></a>
-  <a class="glightbox" href="../Images/BreadBoard.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Component positioning for breadboard 1 and breadboard 2." src="../Images/BreadBoard.jpg" /></a>
+  <a class="glightbox" href="../Images/BreadBoard.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Component positioning for breadboard 1 and breadboard 2." src="../Images/BreadBoard.jpg"></a>
   <figcaption>Component positioning for (a) breadboard 1 and (b) breadboard 2.</figcaption>
 </figure>
 <p><a name="dcPowerSocket"></a></p>
 <h3 id="external-dc-power-socket-and-connection">External DC Power Socket and Connection</h3>
-<p>Some of the robot systems draw too much power to be supplied directly from the Arduino, via the <abbr title="Universal Serial Bus">USB</abbr> link. If you were to were to power the MG996 Servo or the DC motor from the Arduino, then you may pull too much power from the +5V rail and experience erratic behaviour due to the Arduino intermittently restarting – this is referred to as a <debugHL><a href = "https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" target="_blank">brownout restart</a></debugHL>.
-To overcome this problem, we will use an additional external DC power supply to provide extra current capability for some of the components – MG966 servos and DC motor driver board. To facilitate this, you will add a DC power connector to your robot system, shown in <debugHL><a href="#DcPower">Fig 8</a></debugHL>.</p>
+<p>Some of the robot systems draw too much power to be supplied directly from the Arduino, via the <abbr title="Universal Serial Bus">USB</abbr> link. If you were to were to power the MG996 Servo or the DC motor from the Arduino, then you may pull too much power from the +5V rail and experience erratic behaviour due to the Arduino intermittently restarting – this is referred to as a <debughl><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" target="_blank">brownout restart</a></debughl>.
+To overcome this problem, we will use an additional external DC power supply to provide extra current capability for some of the components – MG966 servos and DC motor driver board. To facilitate this, you will add a DC power connector to your robot system, shown in <debughl><a href="#DcPower">Fig 8</a></debughl>.</p>
 <figure>
   <a name="DcPower"></a>
-  <a class="glightbox" href="../Images/DCpower.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotated picture of the external power supply connector pins" src="../Images/DCpower.jpg" /></a>
+  <a class="glightbox" href="../Images/DCpower.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotated picture of the external power supply connector pins" src="../Images/DCpower.jpg"></a>
   <figcaption>Annotated picture of the external power supply connector pins.</figcaption>
 </figure>
-<p>In previous years, we have had problems with the DC power connector slipping out of the breadboard. To significantly reduce the chances of this, a cable tie can be used strap the dc connector down to breadboard 2, as illustrated in <debugHL><a href="#CableTie">Fig 9</a></debugHL>.</p>
+<p>In previous years, we have had problems with the DC power connector slipping out of the breadboard. To significantly reduce the chances of this, a cable tie can be used strap the dc connector down to breadboard 2, as illustrated in <debughl><a href="#CableTie">Fig 9</a></debughl>.</p>
 <figure>
   <a name="CableTie"></a>
-  <a class="glightbox" href="../Images/CableTie.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Photograph of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard." src="../Images/CableTie.jpg" /></a>
+  <a class="glightbox" href="../Images/CableTie.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Photograph of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard." src="../Images/CableTie.jpg"></a>
   <figcaption>Photograph of the cable tie used to hold the DC power connector and the  positioning of the DC power connector on the breadboard.</figcaption>
 </figure>
 <div class="admonition note">
@@ -1303,14 +1306,14 @@ To overcome this problem, we will use an additional external DC power supply to 
 <li>The external +5V from the AC-DC Plug-in Power Supply.</li>
 </ol>
 <p><span style="font-weight:bolder;color:red;">UNDER NO CIRCUMSTANCE</span> should the +5V lines of these power supplied be connected together. You must, however, connect all the <abbr title="Electrical Ground or 0V">GND</abbr> lines of these power supplies, and other systems, to a common <abbr title="Electrical Ground or 0V">GND</abbr> net/node on your robot chassis to ensure that all the working from the same reference voltage.</p>
-<p>The external +5V should only be connected to the V<sub>m</sub> connection of the motor drive board and the V+ power connections of any servo used on your system. The Arduino +5V should be used for the V<sub>cc</sub> connection of the motor drive board and any other connection requiring +5V, <span style=color:red;>which is not connected to the external +5V</span>.</p>
+<p>The external +5V should only be connected to the V<sub>m</sub> connection of the motor drive board and the V+ power connections of any servo used on your system. The Arduino +5V should be used for the V<sub>cc</sub> connection of the motor drive board and any other connection requiring +5V, <span style="color:red;">which is not connected to the external +5V</span>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger: You can destroy your Laptop motherboard if you get this wrong</p>
 <p>If you connect the +5V supply of the Arduino and the external power supply together you risk destroying the motherboard of your laptop by sending a voltage spike up the <abbr title="Universal Serial Bus">USB</abbr> lead when the servo or the DC motor operate.</p>
 <p>Read the <a href="../Disclaimer/">Disclaimer</a> document before proceeding.</p>
 <p>The University and <abbr title="Multidisciplinary Engineering Education">MEE</abbr> take no responsibility for damaged laptops due to this issue. We recommend using the University IT equipment to mitigate damaging your personal equipment.</p>
 </div>
-<p><em>At this point you may have noticed that we don't want you to connect the external +5V to the Arduino +5V. This is because we don't want to tell any other student that we will not be paying for repairs to their personal IT equipment... <span style=color:red;>It is not a fun conversation to have</span>!</em></p>
+<p><em>At this point you may have noticed that we don't want you to connect the external +5V to the Arduino +5V. This is because we don't want to tell any other student that we will not be paying for repairs to their personal IT equipment... <span style="color:red;">It is not a fun conversation to have</span>!</em></p>
 <h2 id="suggested-circuit-layouts-for-the-exercises">Suggested Circuit Layouts for the Exercises</h2>
 <p><a name="ExCirLay"></a>
 The electronic system for the robot can be incrementally built as required for the exercise you are working on. The exercises are designed, such that, you only need to add components to the system, with the later exercises build on the previous. This means that no circuitry needs to be removed between exercises.</p>
@@ -1331,13 +1334,13 @@ The electronic system for the robot can be incrementally built as required for t
 </div>
 <h4 id="circuit-layout-for-the-led-pattern-and-calibration-of-potentiometer-angle-exercises">Circuit Layout for the <abbr title="Light Emitting Diode">LED</abbr> Pattern and Calibration of Potentiometer Angle Exercises</h4>
 <p><a name="LEDPatternBuild"></a></p>
-<p>The following circuit layout is sufficient to complete both the <a href="../BasicExercises/ledPattern/"><abbr title="Light Emitting Diode">LED</abbr> pattern</a> Exercise. This section illustrates where to layout and the connections for: the three <abbr title="Light Emitting Diodes">LEDs</abbr> and associated resistors, the button and the potentiometer, as illustrated in <debugHL><a href="#LEDPattern">Fig. 10</a></debugHL>.</p>
+<p>The following circuit layout is sufficient to complete both the <a href="../BasicExercises/ledPattern/"><abbr title="Light Emitting Diode">LED</abbr> pattern</a> Exercise. This section illustrates where to layout and the connections for: the three <abbr title="Light Emitting Diodes">LEDs</abbr> and associated resistors, the button and the potentiometer, as illustrated in <debughl><a href="#LEDPattern">Fig. 10</a></debughl>.</p>
 <figure>
   <a name="LEDPattern"></a>
-  <a class="glightbox" href="../Images/SillyBot%20LED%20Pattern.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the LED Pattern Exercise." src="../Images/SillyBot%20LED%20Pattern.png" /></a>
+  <a class="glightbox" href="../Images/SillyBot%20LED%20Pattern.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the LED Pattern Exercise." src="../Images/SillyBot%20LED%20Pattern.png"></a>
   <figcaption>Diagram showing the suggested component layout and wiring for the <abbr title="Light Emitting Diode">LED</abbr> Pattern Exercise.</figcaption>
 </figure>
-<p>The extra components list required for this exercise, shown in <debugHL><a href="#LEDPattern">Fig. 10</a></debugHL>, other than the Arduino and 2x breadboards:</p>
+<p>The extra components list required for this exercise, shown in <debughl><a href="#LEDPattern">Fig. 10</a></debughl>, other than the Arduino and 2x breadboards:</p>
 <ul>
 <li>3x <abbr title="Light Emitting Diode">LED</abbr></li>
 <li>3x 470Ω resistor</li>
@@ -1346,8 +1349,8 @@ The electronic system for the robot can be incrementally built as required for t
 <li>Potentiometer</li>
 <li>12-way header</li>
 </ul>
-<p><debugHL><a href="#LEDPattern">Fig. 10</a></debugHL> illustrates the component layout, but for clarity, <debugHL><a href="#ledPatConnect">Table 1</a></debugHL> lists the connections into the Arduino that we recommend for this section:</p>
-<table >
+<p><debughl><a href="#LEDPattern">Fig. 10</a></debughl> illustrates the component layout, but for clarity, <debughl><a href="#ledPatConnect">Table 1</a></debughl> lists the connections into the Arduino that we recommend for this section:</p>
+<table>
   <a name="ledPatConnect"></a>
   <thead>
     <tr> <th>Arduino Pin:</th> <th>Description:</th> </tr>
@@ -1364,10 +1367,10 @@ The electronic system for the robot can be incrementally built as required for t
 
 <p><a name="irSensor"></a></p>
 <h4 id="circuit-layout-for-the-ir-sensor-exercise">Circuit Layout for the <abbr title="Infra Red">IR</abbr> Sensor Exercise</h4>
-<p>This section illustrates the connection of the Sharp <abbr title="Infra Red">IR</abbr> sensor into the circuit, required for the <a href="../BasicExercises/IrSensor/"><abbr title="Infra Red">IR</abbr> Sensor Measurement and Graph</a> exercise, as illustrated in <debugHL><a href="#irSensorPic">Fig. 11</a></debugHL>. You should keep the circuit wired from the previous section.</p>
+<p>This section illustrates the connection of the Sharp <abbr title="Infra Red">IR</abbr> sensor into the circuit, required for the <a href="../BasicExercises/IrSensor/"><abbr title="Infra Red">IR</abbr> Sensor Measurement and Graph</a> exercise, as illustrated in <debughl><a href="#irSensorPic">Fig. 11</a></debughl>. You should keep the circuit wired from the previous section.</p>
 <figure>
   <a name="irSensorPic"></a>
-  <a class="glightbox" href="../Images/SillyBot%20IR%20Sensor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the IR Sensor Exercise." src="../Images/SillyBot%20IR%20Sensor.png" /></a>
+  <a class="glightbox" href="../Images/SillyBot%20IR%20Sensor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the IR Sensor Exercise." src="../Images/SillyBot%20IR%20Sensor.png"></a>
   <figcaption>Diagram showing the suggested component layout and wiring for the <abbr title="Infra Red">IR</abbr> Sensor Exercise.</figcaption>
 </figure>
 <p>Extra parts required for this configuration:</p>
@@ -1375,8 +1378,8 @@ The electronic system for the robot can be incrementally built as required for t
 <li>Sharp <abbr title="Infra Red">IR</abbr> Sensor</li>
 <li>Sharp <abbr title="Infra Red">IR</abbr> Sensor cable</li>
 </ul>
-<p><debugHL><a href="#IRConnect">Table 2</a></debugHL> lists the connections into the Arduino that we recommend for the <abbr title="Infra Red">IR</abbr> Sensor:</p>
-<table >
+<p><debughl><a href="#IRConnect">Table 2</a></debughl> lists the connections into the Arduino that we recommend for the <abbr title="Infra Red">IR</abbr> Sensor:</p>
+<table>
   <a name="IRConnect"></a>
   <thead>
     <tr> <th>Arduino Pin:</th> <th>Description:</th> </tr>
@@ -1387,9 +1390,9 @@ The electronic system for the robot can be incrementally built as required for t
   <caption>Suggested Connection Table for the LED Pattern Exercise.</caption>
 </table>
 
-<p>The Sharp <abbr title="Infra Red">IR</abbr> sensor cable has header connections attached to the non-sensor end. The header connections should plug into the <debugHL><a href="#12WayHeader">12-way header</a></debugHL> on the breadboard, in the place illustrated in <debugHL><a href="#irSensorPic">Fig. 11</a></debugHL>.</p>
+<p>The Sharp <abbr title="Infra Red">IR</abbr> sensor cable has header connections attached to the non-sensor end. The header connections should plug into the <debughl><a href="#12WayHeader">12-way header</a></debughl> on the breadboard, in the place illustrated in <debughl><a href="#irSensorPic">Fig. 11</a></debughl>.</p>
 <h4 id="circuit-layout-for-the-externally-powered-servo-exercise">Circuit Layout for the Externally Powered Servo Exercise</h4>
-<p>The servo will be used in the <debugHL><a href="../BasicExercises/DriveServoMotor/">Driving a Servo Motor</a></debugHL> Exercise. <debugHL><a href="#poweredServo">Fig. 12</a></debugHL> illustrates the connections required for the servo and the external DC power socket. You should keep the circuit wired from the previous section.</p>
+<p>The servo will be used in the <debughl><a href="../BasicExercises/DriveServoMotor/">Driving a Servo Motor</a></debughl> Exercise. <debughl><a href="#poweredServo">Fig. 12</a></debughl> illustrates the connections required for the servo and the external DC power socket. You should keep the circuit wired from the previous section.</p>
 <div class="admonition danger">
 <p class="admonition-title">Warning</p>
 <p><span style="font-weight:bolder;color:red;">UNDER NO CIRCUMSTANCE</span> should the +5V External power supply be connected to the +5V Arduino supply. You must, however, connect all the <abbr title="Electrical Ground or 0V">GND</abbr> lines of these power supplies, and other systems, to a common <abbr title="Electrical Ground or 0V">GND</abbr> net/node on your robot chassis to ensure that all the working from the same reference voltage.</p>
@@ -1397,19 +1400,19 @@ The electronic system for the robot can be incrementally built as required for t
 <p><a name="poweredServo"></a></p>
 <figure>
   <a name="powerServoPic"></a>
-  <a class="glightbox" href="../Images/SillyBot%20Powered%20Servo.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the Externally Powered Servo Exercise." src="../Images/SillyBot%20Powered%20Servo.png" /></a>
+  <a class="glightbox" href="../Images/SillyBot%20Powered%20Servo.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the Externally Powered Servo Exercise." src="../Images/SillyBot%20Powered%20Servo.png"></a>
   <figcaption>Diagram showing the suggested component layout and wiring for the Externally Powered Servo Exercise.</figcaption>
 </figure>
-<p>The extra components list required for this exercise, shown in <debugHL><a href="#poweredServo">Fig. 12</a></debugHL>, other than the Arduino and 2x breadboards:</p>
+<p>The extra components list required for this exercise, shown in <debughl><a href="#poweredServo">Fig. 12</a></debughl>, other than the Arduino and 2x breadboards:</p>
 <ul>
 <li>DC Servo</li>
-<li>DC power socket (SG90 for the <debugHL><a href="../BasicExercises/DriveServoMotor/#mg90Servo">initial servo exercise</a></debugHL> and final assessed Exercise)</li>
+<li>DC power socket (SG90 for the <debughl><a href="../BasicExercises/DriveServoMotor/#mg90Servo">initial servo exercise</a></debughl> and final assessed Exercise)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <debugHL><a href="../BasicExercises/DriveServoMotor/#mg90Servo">initial servo exercise</a></debugHL> used the MG90 powered from the Arduino +5V supply, not the external 5V supply. You may wish to consider this when building your circuit.</p>
+<p>The <debughl><a href="../BasicExercises/DriveServoMotor/#mg90Servo">initial servo exercise</a></debughl> used the MG90 powered from the Arduino +5V supply, not the external 5V supply. You may wish to consider this when building your circuit.</p>
 </div>
-<p><debugHL><a href="#ServoMotorConnect">Table 3</a></debugHL> lists the connections into the Arduino that we recommend for the servo exercise:</p>
+<p><debughl><a href="#ServoMotorConnect">Table 3</a></debughl> lists the connections into the Arduino that we recommend for the servo exercise:</p>
 <table>
   <a name="ServoMotorConnect"></a>
   <thead>
@@ -1423,10 +1426,10 @@ The electronic system for the robot can be incrementally built as required for t
 
 <p><a name="dcMotor"></a></p>
 <h4 id="circuit-layout-for-the-dc-motor-exercise">Circuit Layout for the DC Motor Exercise</h4>
-<p>The DC motor exercise requires both the TB6612FG and the DC motor to be wired into the circuit, as illustrated in <debugHL><a href="#dcMotorPic">Fig. 13</a></debugHL>. During this section you will only be wiring the power connections to the motor, and not the encoder signals. You should keep the circuit wired from the previous section.</p>
+<p>The DC motor exercise requires both the TB6612FG and the DC motor to be wired into the circuit, as illustrated in <debughl><a href="#dcMotorPic">Fig. 13</a></debughl>. During this section you will only be wiring the power connections to the motor, and not the encoder signals. You should keep the circuit wired from the previous section.</p>
 <figure>
   <a name="dcMotorPic"></a>
-  <a class="glightbox" href="../Images/SillyBot%20dc%20Motor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the DC Motor Exercise." src="../Images/SillyBot%20dc%20Motor.png" /></a>
+  <a class="glightbox" href="../Images/SillyBot%20dc%20Motor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the DC Motor Exercise." src="../Images/SillyBot%20dc%20Motor.png"></a>
   <figcaption>Diagram showing the suggested component layout and wiring for the DC Motor Exercise.</figcaption>
 </figure>
 <p>Extra parts required for this configuration:</p>
@@ -1435,13 +1438,13 @@ The electronic system for the robot can be incrementally built as required for t
 <li>DC motor</li>
 <li>DC motor power cable</li>
 </ul>
-<p>Due to the most convenient orientation of the TB6612FG motor driver board on the robot, we will be using channel B for these exercises. The TB6612FG driver board is shown in <debugHL><a href="#TB6612FG">Fig 14</a></debugHL>.</p>
+<p>Due to the most convenient orientation of the TB6612FG motor driver board on the robot, we will be using channel B for these exercises. The TB6612FG driver board is shown in <debughl><a href="#TB6612FG">Fig 14</a></debughl>.</p>
 <figure>
   <a name="TB6612FG"></a>
-  <a class="glightbox" href="../Images/TB6612FG.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture of the TB6612FG motor driver board, with pins labelled." src="../Images/TB6612FG.jpg" /></a>
+  <a class="glightbox" href="../Images/TB6612FG.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Picture of the TB6612FG motor driver board, with pins labelled." src="../Images/TB6612FG.jpg"></a>
   <figcaption>Picture of the TB6612FG motor driver board, with pins labelled.</figcaption>
 </figure>
-<p><debugHL><a href="#DcMotorConnect">Table 4</a></debugHL> lists the connections into the Arduino that we recommend for the DC motor exercise:</p>
+<p><debughl><a href="#DcMotorConnect">Table 4</a></debughl> lists the connections into the Arduino that we recommend for the DC motor exercise:</p>
 <table>
   <a name="DcMotorConnect"></a>
   <thead>
@@ -1485,20 +1488,20 @@ The electronic system for the robot can be incrementally built as required for t
 <caption>Pin connections to the TB6612FG motor driver board.</caption>
 </table>
 
-<p>The DC motor power is connected through the <debugHL><a href="#12WayHeader">12-way header</a></debugHL>, as shown in <debugHL><a href="#EncoderPic">Fig. 13</a></debugHL>. The connections for the driver board are shown in <debugHL><a href="#TB6612FGConnect">Table 5</a></debugHL>. </p>
+<p>The DC motor power is connected through the <debughl><a href="#12WayHeader">12-way header</a></debughl>, as shown in <debughl><a href="#EncoderPic">Fig. 13</a></debughl>. The connections for the driver board are shown in <debughl><a href="#TB6612FGConnect">Table 5</a></debughl>. </p>
 <p><a name="Encoder"></a></p>
 <h4 id="circuit-layout-for-the-encoders-and-motor-exercise">Circuit Layout for the Encoders and Motor Exercise</h4>
-<p>The final part of the circuit to connect is the motor encoder to the Arduino, as illustrated in <debugHL><a href="#EncoderPic">Fig. 15</a></debugHL>. The encoder is connected through the <debugHL><a href="#12WayHeader">12-way header</a></debugHL>, as shown in <debugHL><a href="#EncoderPic">Fig. 15</a></debugHL>.</p>
+<p>The final part of the circuit to connect is the motor encoder to the Arduino, as illustrated in <debughl><a href="#EncoderPic">Fig. 15</a></debughl>. The encoder is connected through the <debughl><a href="#12WayHeader">12-way header</a></debughl>, as shown in <debughl><a href="#EncoderPic">Fig. 15</a></debughl>.</p>
 <figure>
   <a name="EncoderPic"></a>
-  <a class="glightbox" href="../Images/SillyBot%20Encoder.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the Encoders and Motor Exercise." src="../Images/SillyBot%20Encoder.png" /></a>
+  <a class="glightbox" href="../Images/SillyBot%20Encoder.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram showing the suggested component layout and wiring for the Encoders and Motor Exercise." src="../Images/SillyBot%20Encoder.png"></a>
   <figcaption>Diagram showing the suggested component layout and wiring for the Encoders and Motor Exercise.</figcaption>
 </figure>
 <p>Extra parts required for this configuration:</p>
 <ul>
 <li>DC motor encoder cable</li>
 </ul>
-<p><debugHL><a href="#EncoderConnect">Table 4</a></debugHL> lists the connections into the Arduino that we recommend for the DC motor exercise:</p>
+<p><debughl><a href="#EncoderConnect">Table 4</a></debughl> lists the connections into the Arduino that we recommend for the DC motor exercise:</p>
 <table>
   <a name="EncoderConnect"></a>
   <thead>
@@ -1513,7 +1516,7 @@ The electronic system for the robot can be incrementally built as required for t
 
 <h3 id="the-12-way-header-connections">The 12-Way Header Connections</h3>
 <p><a name="12WayHeader"></a>
-The 12-way header connector provides a convenient method for interfacing some of the system components: motor, encoder, servo and, <abbr title="Infra Red">IR</abbr> sensor, to the breadboard for easy connection to the remaining electrical system. A summary of the connections used in development are provided in <debugHL><a href="#headerConnect">Table 7</a></debugHL>.</p>
+The 12-way header connector provides a convenient method for interfacing some of the system components: motor, encoder, servo and, <abbr title="Infra Red">IR</abbr> sensor, to the breadboard for easy connection to the remaining electrical system. A summary of the connections used in development are provided in <debughl><a href="#headerConnect">Table 7</a></debughl>.</p>
 <table>
   <a name="headerConnect"></a>
   <thead>
@@ -1531,10 +1534,10 @@ The 12-way header connector provides a convenient method for interfacing some of
     <tr> <td>9</td><td>Servo GND</td><td>GND</td> </tr>    
     <tr> <td>10</td><td>IR Sensor +5V</td><td>Arduino +5V</td> </tr>    
     <tr> <td>11</td><td>IR Sensor GND</td><td>GND</td> </tr>    
-    <tr> <td >12</td><td>IR Sensor Signal</td><td>Arduino Analogue Input A4</td> </tr>    
+    <tr> <td>12</td><td>IR Sensor Signal</td><td>Arduino Analogue Input A4</td> </tr>    
   </tbody>
 <caption>12-Way Header Connections to robot components.</caption>
-</table>
+</table></div>
 
 
 
