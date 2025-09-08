@@ -1032,11 +1032,11 @@
 <div><h1 id="introduction-to-arduino-labs">Introduction to Arduino Labs</h1>
 <div class="admonition danger">
 <p class="admonition-title">Danger: Read This First!</p>
-<p>Before proceeding any further through this documentation or making any of the circuits discussed within, you must read the <debughl><a href="Disclaimer/"><strong>Disclaimer for using your personal Laptop or MacBook</strong></a><debughl>.</debughl></debughl></p>
+<p>Before proceeding any further through this documentation or making any of the circuits discussed within, you must read the <debughl><a href="Disclaimer/"><strong>Disclaimer for using your personal Laptop or MacBook</strong></a></debughl>.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Before Starting the Exercises</p>
-<p>Before starting the laboratory exercises, you should review the contents of the Mechatronics Kit Information folder, located in the Practicals content area of the Blackboard site for the Mechatronics course.</p>
+<p>Before starting the laboratory exercises, you should review the contents of the Mechatronics Kit Information document, located in the "Practicals Lans in the 1st Semester" area of the Mechatronics course Blackboard site.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note: Open this website on the computer you are programming your Arduino on</p>
@@ -1061,7 +1061,7 @@
 <ul>
 <li><strong>This Introduction:</strong> A quick overview of this section of the course, providing aims and objectives, structure of laboratory sessions, and a suggested timeline a subset of the assessed exercises.</li>
 <li><debughl><a href="Disclaimer/"><strong>Laptop Disclaimer:</strong></a></debughl> <strong>You MUST read this disclaimer before continuing!</strong></li>
-<li><debughl><a href="RobotBuild/"><strong>Building the Robot Chassis Document:</strong></a></debughl> This page describes the building and recommended layout for the electronic circuit.</li>
+<li><debughl><a href="RobotBuild/"><strong>Building the Robot Chassis Document:</strong></a></debughl> This section describes the construction of the robot chassis and the recommended layout of the electronic circuit.</li>
 <li><debughl><a href="IntroMaterial/"><strong>Introductory and Supplementary Material:</strong></a></debughl> There are two pages in this section:<ul>
 <li><debughl><a href="IntroMaterial/SupplSignPost/"><strong>Supplementary Signposting Document:</strong></a></debughl> This document is aimed as a point of reference for students that are not confident with C or Arduino programming. The document provides reference links to external websites and the specific parts of the Arduino Language Reference pages, relating to elements of the Introductory exercises.</li>
 <li><debughl><a href="IntroMaterial/IntroExercises/"><strong>Introductory Exercises:</strong></a></debughl>This document provides you with two non-assessed exercises aimed at getting you started with installing and setting up the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, ready for use with these laboratory activities, and programming with simple I/O.</li>
@@ -1105,8 +1105,12 @@
 <p>The hardware kits that you will be using during these exercises are loaned to you for the duration of the Mechatronics module and you will take them home between laboratory and project sessions. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We will provide 3 supported laboratory sessions for you to work in, but you are also expected to do some work at home to ensure that you have completed all the exercises <strong>AND</strong> have them marked before the end of the 3rd laboratory session. 15 minutes before the end of the 3rd Introduction to Arduino laboratory session, we will stop marking work, with the remainder of the time being available for tidying your work area and exiting the laboratory. Any exercises not marked before this deadline, (regardless of whether they have been completed or not), will be forfeit and you will lose these marks. Please ensure that you get your work marked incrementally as you proceed through the exercises, and not leave them until the final moments, to avoid disappointment. </p>
+<p>We will provide 3 supported laboratory sessions for you to work in, but you are also expected to do some work at home to ensure that you have completed all the exercises <strong>AND</strong> have them marked before the end of the 3rd laboratory session. 15 minutes before the end of the 3rd Introduction to Arduino laboratory session, we will stop marking work, with the remainder of the time being available for tidying your work area and exiting the laboratory. </p>
 <p>You can have any of the assessed exercises marked at any point during the three laboratory sessions, as long as there is someone free to mark your work.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Any exercises not marked before this deadline, (regardless of whether they have been completed or not), will be forfeit and you will lose these marks. Please ensure that you get your work marked incrementally as you proceed through the exercises, and not leave them until the final moments, to avoid disappointment. </p>
 </div>
 <h2 id="suggested-timeline-for-completing-the-basic-exercises-only">Suggested Timeline for completing the Basic Exercises, only.</h2>
 <p><a name="Timeline"></a>
@@ -1118,27 +1122,35 @@ There is no rigid structure for your progress through these exercises, but the f
 <li><strong>Basic:</strong> <debughl><a href="BasicExercises/ledPattern/"><abbr title="Light Emitting Diode">LED</abbr> Pattern</a></debughl></li>
 </ul>
 <h3 id="before-the-start-of-the-2nd-lab-session">Before the start of the 2<sup>nd</sup> lab session</h3>
-<p>Before the start of the 2nd lab session, it is recommended that you have a working circuit capable of performing:</p>
+<p>Before the start of the 2nd lab session, it is recommended that you have:</p>
 <ul>
-<li><strong>Basic:</strong> <problemhl>ReDoMe</problemhl></li>
+<li>Completed and checked the wiring for the following 2 exercises:<ul>
+<li><strong>Basic:</strong> <debughl><a href="BasicExercises/IrSensor/"><abbr title="Infra Red">IR</abbr> Sensor Measurement + Graph</a></debughl> </li>
+<li><strong>Basic:</strong> <debughl><a href="BasicExercises/DriveServoMotor/">Externally Powered Servo</a></debughl> </li>
+</ul>
+</li>
 </ul>
 <p>You should also ensure that you have read the exercise document, linked above. Ensure you have understood all the procedures.</p>
 <h3 id="by-the-end-of-the-2nd-lab-session">By the end of the 2<sup>nd</sup> lab session</h3>
 <p>By the end of the 2<sup>nd</sup> laboratory session, it is recommended that you have the following exercises completed <strong>and marked</strong>:</p>
 <ul>
-<li><strong>Basic:</strong> <problemhl>ReDoMe</problemhl></li>
+<li><strong>Basic:</strong>  <debughl><a href="BasicExercises/IrSensor/"><abbr title="Infra Red">IR</abbr> Sensor Measurement + Graph</a></debughl></li>
 <li><strong>Basic:</strong> <debughl><a href="BasicExercises/DriveServoMotor/">Externally Powered Servo</a></debughl></li>
-<li><strong>Basic:</strong> <debughl><a href="BasicExercises/DcMotor/">DC Motor</a></debughl></li>
 </ul>
 <h3 id="before-the-start-of-the-3rd-lab-session">Before the start of the 3<sup>rd</sup> lab session</h3>
 <p>Before the start of the 3<sup>rd</sup> lab session, it is recommended that you have a working circuit capable of performing:</p>
 <ul>
+<li>Completed and checked the wiring for the following 2 exercises:<ul>
+<li><strong>Basic:</strong> <debughl><a href="BasicExercises/DcMotor/">DC Motor</a></debughl></li>
 <li><strong>Basic:</strong> <debughl><a href="BasicExercises/EncodeMotor/">Encoders + Motor</a></debughl></li>
+</ul>
+</li>
 </ul>
 <p>You should also ensure that you have read the exercise document, linked above. Ensure you have understood all the procedures.</p>
 <h3 id="by-the-end-of-the-3rd-laboratory-session">By the end of the 3<sup>rd</sup> laboratory session</h3>
-<p>By the end of the 3<sup>rd</sup> laboratory session, ensure that you have <strong>all exercises completed and marked.</strong></p>
+<p>By the end of the 3<sup>rd</sup> laboratory session, ensure that you have <strong>all exercises completed and marked</strong>, including:</p>
 <ul>
+<li><strong>Basic:</strong> <debughl><a href="BasicExercises/DcMotor/">DC Motor</a></debughl></li>
 <li><strong>Basic:</strong> <debughl><a href="BasicExercises/EncodeMotor/">Encoders + Motor</a></debughl></li>
 </ul>
 <div class="admonition note">
