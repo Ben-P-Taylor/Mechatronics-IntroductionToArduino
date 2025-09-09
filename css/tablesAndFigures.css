@@ -1,11 +1,22 @@
 
-body { 
+.md-content { 
   counter-reset: figureCounter;
   counter-reset: tableCounter;
 }
 
 /* increment the counter for every instance of a figure or table even if it doesn't have a caption */
- figure { counter-increment: figureCounter; 
+ figure { 
+  counter-increment: figureCounter; 
+}
+
+table {
+  /* increment the counter for every instance of a table or table even if it doesn't have a caption */
+  counter-increment: tableCounter;
+}
+
+/* prepend the counter to the tableCounter content */
+table caption::before {
+  content: "Table " counter(tableCounter) ": ";
 }
 
  /* prepend the counter to the figcaption content */
@@ -18,19 +29,14 @@ body {
  }
 
  table {  
-   display:table !important;
-   table-layout: auto;
-   border-spacing: 0;
-   border-collapse: collapse; /* Collapse borders to avoid double lines */
-   width: 100%;
-   vertical-align:middle;
+  display:table !important;
+  table-layout: auto;
+  border-spacing: 0;
+  border-collapse: collapse; /* Collapse borders to avoid double lines */
+  width: 100%;
+  vertical-align:middle; 
+ }
 
-   /* prepend the counter to the tableCounter content */
-   caption:before {
-    counter-increment: tableCounter;
-    content: "Table " counter(tableCounter) ": ";
-  }  
-}
 caption {
   caption-side: bottom; /* Places the caption below the table */
   text-align: center; /* Optional: Center the caption text */
