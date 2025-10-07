@@ -1,8 +1,12 @@
 
+/*
+Moved to Styles.css
+
 .md-content { 
   counter-reset: figureCounter;
   counter-reset: tableCounter;
 }
+*/
 
 /* increment the counter for every instance of a figure or table even if it doesn't have a caption */
  figure { 

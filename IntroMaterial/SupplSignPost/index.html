@@ -52,8 +52,6 @@
     
       <link rel="stylesheet" href="../../css/tablesAndFigures.css">
     
-      <link rel="stylesheet" href="../../css/HeadingNumbers.css">
-    
       <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -1163,12 +1161,12 @@
 <p>The following programming syntax, (linked from the Arduino language reference), are necessary for correct implementation of your code:</p>
 <ul>
 <li><debughl><a href="https://www.arduino.cc/reference/en/language/structure/further-syntax/semicolon/" target="_blank">Semicolon</a></debughl></li>
-<li><debughl><a href="https://www.arduino.cc/reference/cs/language/structure/further-syntax/curlybraces/" target="_blank">Curly braces</a></debughl></li>
+<li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/curlyBraces/" target="_blank">Curly braces</a></debughl></li>
 </ul>
 <p>Code comments are a readable explanation or annotation of the code that you have written. You should provide comments throughout your code to help explain what you have written and why you have written it in that way. Code comments are an invaluable tool to help you debug code that is not working in the manner intended, and should be updated when code is changed. Links to how to implement code commenting in Arduino:</p>
 <ul>
 <li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/singleLineComment/" target="_blank">Single Line Comment</a></debughl></li>
-<li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/singleLineComment" target="_blank">Block Comment</a></debughl></li>
+<li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/blockComment/" target="_blank">Block Comment</a></debughl></li>
 </ul>
 <p>Simple Macros are a very useful tool when writing clear and effective embedded code, not only helping with the readability of your code, but also help when trying to debug your work. The <debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/" target="_blank">#define</a></debughl> directive replace a constant numeric value throughout your code, with a simple name defined in the global namespace. This can simplify the readability of your code and allow you to quickly update these distributed constants from a single location. The <debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/define/" target="_blank">#define</a></debughl> can also be used to create macros for small blocks of instructions, but care must be used, because it may be more appropriate to use a function instead.</p>
 <p>Whilst programming, you may wish to link an external library into your Arduino code. The <debughl><a href="https://docs.arduino.cc/language-reference/en/structure/further-syntax/include/" target="_blank">#include</a></debughl> directive can be used to link external libraries into your work, such as an external library of code to interface a servo device.</p>
@@ -1188,7 +1186,7 @@ Functions are discussed in the <debughl><a href="https://www.learn-c.org/en/Func
 <ul>
 <li>Global namespace - area at the top of the code used for declaration of global variables and location for compiler directives, such as #define and #include instructions</li>
 <li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/sketch/setup/" target="_blank">setup()</a></debughl> function - This function runs once at the start of the program and is generally used to initialise variables, hardware and libraries, and to define I/O pin modes.</li>
-<li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/" target="_blank">loop()</a></debughl> function - This function is the generally main body of your Arduino program, and loop continuously, allowing your system hardware to be read and controlled each loop iteration.</li>
+<li><debughl><a href="https://docs.arduino.cc/language-reference/en/structure/sketch/loop/" target="_blank">loop()</a></debughl> function - This function is generally the main body of your Arduino program, and loop continuously, allowing your system hardware to be read and controlled each loop iteration.</li>
 </ul>
 <p>You will notice the use of the <debughl><a href="https://docs.arduino.cc/language-reference/en/functions/time/delay/" target="_blank">delay()</a></debughl> function. This is a simple time delay function used to control the execution of your code.</p>
 <p>At this point is worth signposting:</p>
