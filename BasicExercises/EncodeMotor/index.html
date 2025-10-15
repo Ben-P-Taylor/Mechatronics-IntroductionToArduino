@@ -1049,7 +1049,7 @@ Table 3 illustrates the operation of the two ISR servicing the A and B pin inter
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">}</span>
 </span></code></pre></div>
 See the following link for a fuller description of the attachInterrupt() function:
-<p><debughl><a href="https://www.arduino.cc/reference/tr/language/functions/external-interrupts/attachinterrupt/" target="_blank">https://www.arduino.cc/reference/tr/language/functions/external-interrupts/attachinterrupt/</a></debughl></p>
+<p><debughl><a href="https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/" target="_blank">https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/</a></debughl></p>
 <p>We use the CHANGE option with the attachInterrupt() function to ensure that the interrupt is generated for both rising and falling transitions of the interrupt pins, A and B.</p>
 <p>Note: the enc_count variable has been declared as “volatile”. This is required for variables that will be changed in an ISR, because the memory storage needs to be handled slightly differently for that usage of variables. See the following link for more details:</p>
 <p><debughl><a href="https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/" target='"_Blank'>https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/</a></debughl></p>
