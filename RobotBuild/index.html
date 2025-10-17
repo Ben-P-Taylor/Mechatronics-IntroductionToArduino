@@ -1241,6 +1241,10 @@
 <p class="admonition-title">Note</p>
 <p>Many of the pictures for this Mechanical Component Assembly section were taken during the prototyping phase of the system design and are of a slightly earlier version of the robot chassis. As a result, there may be slight differences with the robot chassis in your kit, but the describes in this documentation are all for the final chassis design.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For those of you that are not familliar with breadboard circuits, Sparkfun have in intersting article on <debughl><a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/" target="_blank">How to Use a Breadboard</a></debughl>, describing their use and construction.</p>
+</div>
 <h2 id="adding-the-mechanical-components-to-the-chassis">Adding the mechanical components to the chassis</h2>
 <p>This section will discuss the assembly of the mechanical system, and <a href="#ElecConn" title="Electronic Component Layout and Connections">a later section</a> will discuss the assembly of the electronic circuitry.</p>
 <figure>
@@ -1278,13 +1282,17 @@
 <p><em><strong>Note:</strong> This video has no commentary</em></p>
 <figcaption>Motor and wheel assembly video</figcaption>
 </figure>
+<div class="admonition note">
+<p class="admonition-title">Note: Skinny Wheels May need drilling out</p>
+<p>The M3 mounting hole on some of the skinny wheels is too small. This will need drilling out to 3mm. Please see one of the lab technical staff in the lab session if this is the case.</p>
+</div>
 <h3 id="attaching-the-moulded-plastic-wheels">Attaching the Moulded Plastic wheels</h3>
 <div class="admonition note">
 <p class="admonition-title">Do this Before Attaching The MG996 Servo</p>
 <p>These wheels must be attached before the servo, because the servo obscures access to the screw heads for the left wheel.</p>
 </div>
 <h4 id="attaching-the-lefthand-moulded-plastic-wheel">Attaching the Lefthand Moulded Plastic Wheel</h4>
-<p>The lefthand moulded plastic wheel is the wheel next to the servo, at the front of the robot, and should be attached first. To attach this wheel, you require an <problemhl>M3x20 bolt and an M3 nyloc nut</problemhl>. The moulded plastic wheels are attached to the lugs at the front of the robot chassis.</p>
+<p>The lefthand moulded plastic wheel is the wheel next to the servo, at the front of the robot, and should be attached first. To attach this wheel, you require an M3x20 bolt and an M3 nyloc nut. The moulded plastic wheels are attached to the lugs at the front of the robot chassis.</p>
 <p>The bolt for this wheel <strong>Must</strong> be pushed through from the between the lugs, with the head infront of the rectangular servo hole. This is to ensure that the servo hole is not obsured and an be inserted correctly.</p>
 <p><debughl><a href="#nylocWheel1Vid">Fig 5</a></debughl> shows a short video showing assembly of the lefthand wheel beside the servo. (Note: This video was recorded for a previous version of the chassis using an M4x20 bolt, not the M3x20 that is neccessary for the newer chassises.)</p>
 <figure>
@@ -1294,7 +1302,7 @@
 <figcaption>Video showing the attachment of the lefthand moulded plastic wheel beside the servo.</figcaption>
 </figure>
 <h4 id="attaching-the-righthand-moulded-plastic-wheel">Attaching the Righthand Moulded Plastic Wheel</h4>
-<p>The righthand moulded plastic wheel is the wheel away from the servo, at the front of the robot, and should be inserted second. To attach this wheel, you require an <problemhl>M4x20 bolt and an M4 nyloc nut</problemhl>.The presence of the lefthand wheel makes screwing in the bolt difficult, if inserted from between the lugs - we advise inserting the screw from the outside of the lugs, with the bolt on the inside.</p>
+<p>The righthand moulded plastic wheel is the wheel away from the servo, at the front of the robot, and should be inserted second. To attach this wheel, you require an M3x20 bolt and an M3 nyloc nut. The presence of the lefthand wheel makes screwing in the bolt difficult, if inserted from between the lugs - we advise inserting the screw from the outside of the lugs, with the bolt on the inside.</p>
 <div class="admonition note">
 <p class="admonition-title">Note on wheel screw tightness</p>
 <p>When fastening the screws on the moulded plastic screws, ensure that you have sufficiently tightened the nyloc nut to prevent too much wobble in the wheel, but the wheel is still able to spin freely.</p>
@@ -1317,7 +1325,7 @@
 <p class="admonition-title">Attach the moulded plastic wheels before the MG996 Servo</p>
 <p>You must attach both plastic wheels before attaching the MG996 servo, otherwise, the MG996 servo bolts will obscure the placement of the moulded plastic wheel screw.</p>
 </div>
-<p>The MG996 servo is attached to the robot chassis using 4x M3x12 screws, as illustrated in <debughl><a href="#servoNuts">Fig 8</a></debughl>.</p>
+<p>The MG996 servo is attached to the robot chassis using 4x M3x12 screws, as illustrated in <debughl><a href="#servoNuts">Fig 8</a></debughl>. The top screws obscure access to the bottom screws, so it is recomended that you fit the bottom screws before the top screws.</p>
 <figure>
   <a name="servoNuts"></a>
   <a class="glightbox" href="../Images/Fixing%20screws%20for%20the%20MG996%20Servo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Fixing screws for the MG996 Servo" src="../Images/Fixing%20screws%20for%20the%20MG996%20Servo.jpg"></a>
@@ -1403,7 +1411,7 @@ To overcome this problem, we will use an additional external DC power supply to 
 <li>The +5V supply from the Arduino</li>
 <li>The external +5V from the AC-DC Plug-in Power Supply.</li>
 </ol>
-<p><span style="font-weight:bolder;color:red;">UNDER NO CIRCUMSTANCE</span> should the +5V lines of these power supplied be connected together. You must, however, connect all the <abbr title="Electrical Ground or 0V">GND</abbr> lines of these power supplies, and other systems, to a common <abbr title="Electrical Ground or 0V">GND</abbr> net/node on your robot chassis to ensure that all the working from the same reference voltage.</p>
+<p><span style="font-weight:bolder;color:red;">UNDER NO CIRCUMSTANCE</span> should the +5V line from the Arduino be connected to the External 5V line. You must, however, connect all the <abbr title="Electrical Ground or 0V">GND</abbr> lines of these power supplies, and other systems, to a common <abbr title="Electrical Ground or 0V">GND</abbr> net/node on your robot chassis to ensure that all the working from the same reference voltage.</p>
 <p>The external +5V should only be connected to the V<sub>m</sub> connection of the motor drive board and the V+ power connections of any servo used on your system. The Arduino +5V should be used for the V<sub>cc</sub> connection of the motor drive board and any other connection requiring +5V, <span style="color:red;">which is not connected to the external +5V</span>.</p>
 <div class="admonition danger">
 <p class="admonition-title">Danger: You can destroy your Laptop motherboard if you get this wrong</p>
@@ -1602,9 +1610,9 @@ The electronic system for the robot can be incrementally built as required for t
     <tr> <td>AI2</td><td>Channel A Bridge Configuration Input 2</td><td>N/C</td> </tr>    
     <tr> <td>AI1</td><td>Channel A Bridge Configuration Input 1</td><td>N/C</td> </tr>    
     <tr> <td>Standby</td><td>Driver Chip Standby Signal</td><td>Arduino +5V</td> </tr>    
-    <tr> <td>BI1</td><td>Channel B Bridge Configuration Input 1</td><td>Arduino DIO 8</td> </tr>    
-    <tr> <td>BI2</td><td>Channel B Bridge Configuration Input 2</td><td>Arduino DIO 7</td> </tr>    
-    <tr> <td>PWMB</td><td>Channel B PWM Signal</td><td>Arduino DIO 5</td> </tr>    
+    <tr> <td>BI1</td><td>Channel B Bridge Configuration Input 1</td><td>Arduino DIO 7</td> </tr>    
+    <tr> <td>BI2</td><td>Channel B Bridge Configuration Input 2</td><td>Arduino DIO 8</td> </tr>    
+    <tr> <td>PWMB</td><td>Channel B PWM Signal</td><td>Arduino DIO 9</td> </tr>    
     <tr> <td>GND</td><td>Ground</td><td>Power Supply GND</td> </tr>  
   </tbody>
 <caption>Pin connections to the TB6612FG motor driver board.</caption>
@@ -1651,7 +1659,7 @@ The electronic system for the robot can be incrementally built as required for t
     <tr> <td>3</td><td>Encoder A Signal</td><td>Arduino DIO 3</td> </tr>    
     <tr> <td>4</td><td>Encoder B Signal</td><td>Arduino DIO 2</td> </tr>  
     <tr> <td>5</td><td>Encoder GND</td><td>GND</td> </tr>    
-    <tr> <td>6</td><td>Encoder +5V</td><td>Arduino +5V</td> </tr>    
+    <tr> <td>6</td><td>Encoder +5V</td><td>External +5V</td> </tr>    
     <tr> <td>7</td><td>Servo Signal</td><td>Arduino DIO 6</td> </tr>    
     <tr> <td>8</td><td>Servo +5V</td><td>External +5V</td> </tr> 
     <tr> <td>9</td><td>Servo GND</td><td>GND</td> </tr>    
