@@ -317,9 +317,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#warning-and-disclaimer-when-using-your-own-pcmac" class="md-nav__link">
+  <a href="#warning-and-disclaimer-regarding-personal-laptops-and-computers" class="md-nav__link">
     <span class="md-ellipsis">
-      Warning and Disclaimer when using your own PC/Mac
+      Warning and Disclaimer Regarding Personal Laptops and Computers
     </span>
   </a>
   
@@ -819,9 +819,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#warning-and-disclaimer-when-using-your-own-pcmac" class="md-nav__link">
+  <a href="#warning-and-disclaimer-regarding-personal-laptops-and-computers" class="md-nav__link">
     <span class="md-ellipsis">
-      Warning and Disclaimer when using your own PC/Mac
+      Warning and Disclaimer Regarding Personal Laptops and Computers
     </span>
   </a>
   
@@ -846,29 +846,33 @@
 <div><h1 id="warning-and-disclaimer-when-using-your-own-laptopmacbook">Warning and Disclaimer when using your own Laptop/MacBook</h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<h2 id="warning-and-disclaimer-when-using-your-own-pcmac">Warning and Disclaimer when using your own PC/Mac</h2>
-<p>In previous years we have had one or two incidents where student’s laptops have stopped working while connected to course hardware. The exact reason for the damage is unknown, but it is suspected that a voltage spike from the servo affected the power supply/data lines on the <abbr title="Universal Serial Bus">USB</abbr> interface and caused irreparable damage to the connected computer.</p>
-<p>Unfortunately, the <abbr title="School of Electronic and Electrical Engineering">SoEEE</abbr> or <abbr title="Multidisciplinary Engineering Education">MEE</abbr> cannot accept liability for damage to personal IT systems under these circumstances. If you connect anything to your personal IT equipment, you do so at your own risk and you take responsibility for the consequences. This is especially true if you are working with circuits that you have built. It is recommended that you use the University PCs to do these activities to prevent the potential of damage to your personal equipment.</p>
-<p>There are a few discussions on the internet regarding this issue, one of which is:</p>
+<h2 id="warning-and-disclaimer-regarding-personal-laptops-and-computers">Warning and Disclaimer Regarding Personal Laptops and Computers</h2>
+<p>In previous years, there have been rare instances where students' laptops suffered hardware damage while connected to course hardware. While the exact cause remains unconfirmed, inductive voltage spikes backfeeding through <abbr title="Universal Serial Bus">USB</abbr> power and data lines from inductive components (such as servo motors) can irreparably damage connected computer interfaces.</p>
+<p>Unfortunately, neither the School of Electrical and Electronic Engineering (<abbr title="School of Electronic and Electrical Engineering">SoEEE</abbr>) nor the Department of Mechanical Engineering (<abbr title="Multidisciplinary Engineering Education">MEE</abbr>) can accept liability for damage to personal IT equipment under these circumstances. If you connect custom circuits to your personal computer, you do so entirely at your own risk and accept full responsibility for any potential consequences.</p>
+<p>To eliminate the risk of damaging your personal equipment, we strongly recommend using the university lab PCs for all practical exercises.</p>
+<p>For further context and technical background on this issue, consult the following external resources:</p>
 <p><debughl><a href="https://chipwired.com/can-arduino-damage-your-computer/" target="_blank">https://chipwired.com/can-arduino-damage-your-computer/</a></debughl></p>
-<p>It appears that a simple <abbr title="Universal Serial Bus">USB</abbr> Isolator device can mostly overcome these rare occurrences. One such device is the FIT0860 Industrial <abbr title="Universal Serial Bus">USB</abbr> Isolator from DFRobot:</p>
+<p>Using a inline <abbr title="Universal Serial Bus">USB</abbr> isolator module can mitigate these risks by electrically isolating the host computer's power and communication lines from the micro-controller circuit. One such device is the <strong>DFRobot Industrial <abbr title="Universal Serial Bus">USB</abbr> Isolator (FIT0860)</strong>:</p>
 <p><debughl><a href="https://www.dfrobot.com/product-2444.html" target="_blank">https://www.dfrobot.com/product-2444.html</a></debughl></p>
-<p>This device is available from numerous UK on-line suppliers for approximately £20</p>
-<p><strong>We will not be providing <abbr title="Universal Serial Bus">USB</abbr> isolators for the Arduino activities on this module.</strong></p>
-<p>Other <abbr title="Universal Serial Bus">USB</abbr> Isolators range from £15 for a hobbyist device to more than £200 for an industrialised device. Beware of poor imitations, they may not provide the same protection.</p>
-<p>There are further ways of minimizing potential damage to your home computer:</p>
+<p>This device is available from numerous UK on-line suppliers for approximately £20 to £25</p>
+<div class="admonition note">
+<p class="admonition-title">Note: <abbr title="Universal Serial Bus">USB</abbr> Isolator Availability</p>
+<p>Please note that the department will not provide <abbr title="Universal Serial Bus">USB</abbr> isolators for the Arduino laboratory activities in this module. If you choose to work on your personal computer, you may purchase an isolator independently or use the provided university laboratory PCs.</p>
+</div>
+<p>Other <abbr title="Universal Serial Bus">USB</abbr> isolators range from £15 for hobbyist-grade boards to over £200 for industrial-grade units. Exercise caution when purchasing unbranded alternatives, as they may not provide adequate isolation or surge protection.</p>
+<p>In addition to using a <abbr title="Universal Serial Bus">USB</abbr> isolator, follow these best practices to minimize the risk of damaging your computer:</p>
 <ul>
-<li>Do not make connections to your circuit while Arduino is connected to the PC.</li>
-<li>Check for short circuits or incorrect connections before connecting the Arduino to the PC</li>
-<li>Do not power the larger servos, the DC motor or multiple SG90 servos from the power supply lines of the Arduino – you should be using the external power supply, provided.</li>
-<li>If using an external source, power the test circuit using the power supply and only connect the ground and signal lines to the Arduino if you are maintaining the connection to the PC.</li>
-<li>If you are planning to run your system from a battery pack, and not normally connected to the PC using the <abbr title="Universal Serial Bus">USB</abbr>, then disconnect the wires between the battery and the Arduino before connecting the <abbr title="Universal Serial Bus">USB</abbr> line. </li>
+<li><strong>Disconnect <abbr title="Universal Serial Bus">USB</abbr> before altering circuits:</strong> Do not make or change circuit connections while the Arduino is plugged into your PC.</li>
+<li><strong>Inspect wiring for short circuits:</strong> Double-check all wiring and power connections for short circuits before connecting the Arduino <abbr title="Universal Serial Bus">USB</abbr> cable to your computer.</li>
+<li><strong>Power motors and servos externally:</strong> Do not power high-current actuators (such as the MG996 servo, DC motor, or multiple SG90 servos) directly from the Arduino 5V pin. Always use the provided external DC power supply.</li>
+<li><strong>Isolate power domains:</strong> When using an external DC supply while connected to a PC via <abbr title="Universal Serial Bus">USB</abbr>, ensure the external supply powers the load components directly. Connect only the signal lines and ground (<abbr title="Electrical Ground or 0V">GND</abbr>) reference back to the Arduino.</li>
+<li><strong>Disconnect external power before <abbr title="Universal Serial Bus">USB</abbr> connection:</strong> If your system is powered by an external power supply or battery pack, disconnect the power supply input lines from the circuit before plugging in the <abbr title="Universal Serial Bus">USB</abbr> cable. </li>
 </ul>
-<p>These methods are not a definitive answer; but should minimise a potential failure. A <abbr title="Universal Serial Bus">USB</abbr> isolator device is a more robust method to minimise these potential failures.</p>
-<p>Just to reiterate, these occurrences are very rare, but there is a potential of problems occurring when connecting any <abbr title="Universal Serial Bus">USB</abbr> device to a computer, especially if it is not a certified device, such as a circuit you have made.</p>
-<p>For more information regarding this issue, please speak to the <span style="font-size: 18px;"> <strong>Lab Academic Lead</strong> </span> during the lab sessions.</p>
-<p>Over the years we have had many hundred students use their personal IT equipment and have only had one or two computer failures that may be due to this issue. Using a <abbr title="Universal Serial Bus">USB</abbr> isolator and following the above points is the best method to protect your personal devices, when connected to an Arduino, but is not 100% guaranteed.</p>
-<p></p><p style="text-align: center; font-size: 18px;"> <strong>We recommend using the University computers for these activities.</strong></p>
+<p>While these precautions significantly reduce risk, an inline <abbr title="Universal Serial Bus">USB</abbr> isolator remains the most reliable safeguard against hardware failure.</p>
+<p>To reiterate, severe damage events are rare. However, connecting uncertified, custom-built electronic circuits to a computer always carries an inherent risk.</p>
+<p>For more information regarding this issue, please speak to the <span style="font-size: 18px;"> <strong>Lab Academic Lead</strong> </span> during scheduled laboratory sessions..</p>
+<p>Over the years, hundreds of students have used their personal devices without incident, with only one or two isolated hardware failures reported. Following the best practices outlined above and using a <abbr title="Universal Serial Bus">USB</abbr> isolator is the most effective way to safeguard your personal computer when working with microcontrollers, though no method offers 100% protection against custom wiring errors.</p>
+<p></p><p style="text-align: center; font-size: 18px;"> <strong>We strongly recommend using university laboratory computers for these activities.</strong></p>
 </div></div>
 
 
