@@ -564,12 +564,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Section 1: The Read the Potentiometer Test Program, POT.ino">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-map-scaling-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The map() Scaling Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program" class="md-nav__link">
+  <a href="#section-2-dynamically-adjusting-sequence-delay" class="md-nav__link">
     <span class="md-ellipsis">
-      Section 2: Integrate the Potentiometer Value Into Your LED Sequence Program
+      Section 2: Dynamically Adjusting Sequence Delay
     </span>
   </a>
   
@@ -581,9 +596,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-3-addition-of-a-pause-button" class="md-nav__link">
+  <a href="#part-3-pause-control-via-push-button-input" class="md-nav__link">
     <span class="md-ellipsis">
-      Part 3: Addition of a Pause Button
+      Part 3: Pause Control via Push Button Input
     </span>
   </a>
   
@@ -939,12 +954,27 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Section 1: The Read the Potentiometer Test Program, POT.ino">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-map-scaling-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      The map() Scaling Function
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program" class="md-nav__link">
+  <a href="#section-2-dynamically-adjusting-sequence-delay" class="md-nav__link">
     <span class="md-ellipsis">
-      Section 2: Integrate the Potentiometer Value Into Your LED Sequence Program
+      Section 2: Dynamically Adjusting Sequence Delay
     </span>
   </a>
   
@@ -956,9 +986,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-3-addition-of-a-pause-button" class="md-nav__link">
+  <a href="#part-3-pause-control-via-push-button-input" class="md-nav__link">
     <span class="md-ellipsis">
-      Part 3: Addition of a Pause Button
+      Part 3: Pause Control via Push Button Input
     </span>
   </a>
   
@@ -1015,14 +1045,14 @@
 
 <div><h1 id="led-pattern-exercise"><abbr title="Light Emitting Diode">LED</abbr> Pattern Exercise</h1>
 <h2 id="introduction">Introduction</h2>
-<p>During the <abbr title="Light Emitting Diode">LED</abbr> Pattern exercise you will generate a repeating sequence on 3 <abbr title="Light Emitting Diodes">LEDs</abbr>, use a potentiometer to change the cycle rate of the sequence, and use a push button to pause the sequence.</p>
+<p>In this exercise, you will implement a repeating light sequence across three <abbr title="Light Emitting Diodes">LEDs</abbr>, use a potentiometer analog input to dynamically adjust the flash rate, and use a push button digital input to pause and resume sequence execution.</p>
 <div class="admonition info">
-<p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed part 3, you should ensure that you have completed all the <debughl><a href="#ledFlashEx">assessment requirements</a></debughl> and show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+<p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Assessment Sign-Off</p>
+<p>This is an assessed laboratory exercise. Upon completing Part 3, verify that your implementation satisfies all Assessment Criteria before demonstrating your working system to a Graduate Teaching Assistant (<abbr title="Graduate Teaching Assistant">GTA</abbr>) for marking. </p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have added the <abbr title="Light Emitting Diodes">LEDs</abbr>, the button and the potentiometer to the breadboards on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#BreadboardComps">Building the Robot: Fig. 6</a></debughl>. Furthermore, you should ensure that your connections for these components are correct - suggested connections are shown in <debughl><a href="../../RobotBuild/#ledPatConnect">Building the Robot: Building the Robot: Table. 1</a></debughl>.</p>
+<p class="admonition-title">Hardware Prerequisites &amp; Pin Mapping</p>
+<p>Before beginning this exercise, verify that the three <abbr title="Light Emitting Diodes">LEDs</abbr>, push button switch, and potentiometer are mounted to the breadboard on your robot chassis, as described in <debughl><a href="../../RobotBuild/#ledPatConnect">Building the Robot: Building the Robot: Table. 1</a></debughl>.</p>
 </div>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
@@ -1034,7 +1064,7 @@
 
 <h2 id="part-1-led-sequence">Part 1: <abbr title="Light Emitting Diode">LED</abbr> Sequence</h2>
 <p><a name="Part1"></a>
-During this part, you will write a program to create a repeating sequence of <abbr title="Light Emitting Diodes">LEDs</abbr>, with a fixed sequence time step, e.g. say every ½ second. A suggested <abbr title="Light Emitting Diode">LED</abbr> sequence is shown in <debughl><a href="#ArduinoConnect">Table. 1</a></debughl>. </p>
+In this part, you will write a program to generate a repeating output sequence across the three <abbr title="Light Emitting Diodes">LEDs</abbr> with a fixed time step (e.g., <span class="arithmatex">\(500\,\text{ms}\)</span>). <debughl><a href="#ArduinoConnect">Table. 1</a></debughl> outlines the suggested state sequence.</p>
 <table>
   <a name="ArduinoConnect"></a>
   <thead>
@@ -1054,71 +1084,104 @@ During this part, you will write a program to create a repeating sequence of <ab
   <caption>Suggested simple repeating sequence, (counting-up in binary).</caption>
 </table>
 
-<p>We will not provide any example code to facilitate this exercise, you must create this code from scratch, possibly using some of the example code provided in the <debughl><a href="../../IntroMaterial/IntroExercises/#buttCode">Introductory Exercises</a></debughl> or the built-in examples as inspiration.</p>
+<p>No starter template code is provided for this task; you must author your sketch from scratch. You may reference code structure patterns from the <debughl><a href="../../IntroMaterial/IntroExercises/#buttCode">Introductory Exercises</a></debughl> or built-in <abbr title="Integrated Development Environment">IDE</abbr> examples as design guidance.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Ensure that the circuit is correctly connected:<ul>
-<li>We suggest the anode of the <abbr title="Light Emitting Diode">LED</abbr> be connected to Arduino pins DIO11 to 13.</li>
-<li>Each of the cathodes of the <abbr title="Light Emitting Diodes">LEDs</abbr> should be connected through a 470Ω resistor to ground.</li>
+<li><strong>Verify Hardware Connections:</strong> Verify your <abbr title="Light Emitting Diode">LED</abbr> circuit connections against the recommended chassis breadboard layout:<ul>
+<li>Connect the <strong>anode</strong> (longer lead) of each <abbr title="Light Emitting Diode">LED</abbr> to Arduino digital pins 11, 12, and 13, respectively.</li>
+<li>Connect the <strong>cathode</strong> (shorter lead) of each <abbr title="Light Emitting Diode">LED</abbr> to the <abbr title="Electrical Ground or 0V">GND</abbr> rail through an individual <span class="arithmatex">\(470\,\Omega\)</span> current-limiting resistor.</li>
 </ul>
 </li>
-<li>Write a program to change the pattern of the <abbr title="Light Emitting Diodes">LEDs</abbr> at a fixed rate, say every ½ second, and loop through the sequence continuously. We suggest using the sequence from <debughl><a href="#ArduinoConnect">Table 1</a></debughl>.</li>
-<li>If you do not use the sequence provided in <debughl><a href="#ArduinoConnect">Table 1</a></debughl>, your sequence should have at least 8 patterns, some but not most may repeat.</li>
-<li>For this we suggest using a delay function to control the timing of the sequence. The rationale for this is that we will replace the bracket value on the <code>delay()</code> function with the <abbr title="Analogue to Digital Converter">ADC</abbr> read value, to control the speed of the sequence. </li>
-<li>Ensure that you save your code when you have completed this part.</li>
+<li><strong>Develop the Base Sequence Sketch:</strong> Write a sketch to cycle through an <abbr title="Light Emitting Diode">LED</abbr> pattern at a fixed time step (e.g., <span class="arithmatex">\(500\,\text{ms}\)</span>).<ul>
+<li>You may implement the 4-step sequence from <debughl><a href="#ArduinoConnect">Table 1</a></debughl> or design a custom sequence.</li>
+<li>If implementing a custom sequence, it must consist of at least 8 distinct patterns (minor pattern repetitions are permitted, but the sequence must not be purely repetitive).</li>
+</ul>
+</li>
+<li><strong>Implement Timing Controls:</strong> Use the <code>delay()</code> function to control sequence step durations.<ul>
+<li><strong>Implementation Rationale:</strong> Hardcoding time delays using delay() at this stage allows you to seamlessly substitute the static delay duration argument with dynamic values read from the Analog-to-Digital Converter (<abbr title="Analogue to Digital Converter">ADC</abbr>) in Part 2.</li>
+</ul>
+</li>
+<li><strong>Save and Verify Sketch:</strong> Compile, upload, and test your program. Save your completed sketch (Part1_LED_Sequence.ino) before proceeding to Part 2.</li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We strongly recommend using the suggested connection and layout provided in <debughl><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debughl> because it will link conveniently with the discussions and the example code provided. Using the suggested layout and connections also makes debugging your work easier because you will have a more familiar structure for the staff and <abbr title="Graduate Teaching Assistants">GTAs</abbr>.</p>
+<p class="admonition-title">Standardized Layout Recommendation</p>
+<p>We strongly advise following the chassis breadboard layout and pin assignments specified in the <debughl><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debughl>. Adhering to these standardized pin assignments ensures compatibility with subsequent code examples and allows laboratory staff and <abbr title="Graduate Teaching Assistants">GTAs</abbr> to assist you efficiently during troubleshooting.</p>
 </div>
 <h2 id="part-2-potentiometer-control-of-the-sequence-rate">Part 2: Potentiometer Control of the Sequence Rate</h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>It is suggested in the <debughl><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debughl> that your potentiometer is connected to analogue pin A5.</p>
+<p>As specified in the <debughl><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debughl> connect the center wiper pin of your potentiometer to analog input pin A5. The outer pins should connect to <span class="arithmatex">\(+5\,\text{V}\)</span> and <abbr title="Electrical Ground or 0V">GND</abbr>, respectively.</p>
 </div>
+<p>This part of the exercise is divided into two distinct sections:</p>
 <p>This part of the exercise is split into two sub sections:</p>
-<ol>
-<li>Using the <debughl><a href="#potInoCode">POT.ino</a></debughl> test program to read the potentiometer value and display it on the serial monitor.</li>
-<li>Modifying the <abbr title="Light Emitting Diode">LED</abbr> sequence code so that the potentiometer value is used to control the pattern change rate of the <abbr title="Light Emitting Diode">LED</abbr> sequence.</li>
-</ol>
+<ul>
+<li><strong>Section 1:</strong> Execute the <debughl><a href="#potInoCode">POT.ino</a></debughl> test program to sample the potentiometer's analog voltage and display the converted digital values on the Serial Monitor.</li>
+<li><strong>Section 2:</strong> Integrate analog reading logic into your <abbr title="Light Emitting Diode">LED</abbr> sequencing sketch to dynamically control the pattern flash rate using the potentiometer.</li>
+</ul>
 <h3 id="section-1-the-read-the-potentiometer-test-program-potino">Section 1: The Read the Potentiometer Test Program, POT.ino</h3>
-<p>The aim of the <debughl><a href="#potInoCode">POT.ino</a></debughl> example code is to show you how to read an analogue value from a sensor, or other device, and use its value. In this example code you will read the voltage from a potentiometer, generate a <abbr title="Pulse Width Modulation">PWM</abbr> output to change the brightness of an <abbr title="Light Emitting Diode">LED</abbr>, and stream some data to the Serial Monitor. </p>
+<p>The aim of the <debughl><a href="#potInoCode">POT.ino</a></debughl> reference sketch is to demonstrate analog signal acquisition using the microcontroller's internal Analog-to-Digital Converter (<abbr title="Analogue to Digital Converter">ADC</abbr>). You will sample the variable analog voltage from a potentiometer, convert it to a digital reading, map that value to set an <abbr title="Light Emitting Diode">LED</abbr> brightness using Pulse-Width Modulation (<abbr title="Pulse Width Modulation">PWM</abbr>), and stream real-time data to the Serial Monitor console. </p>
+<div class="admonition info">
+<p class="admonition-title"><abbr title="Analogue to Digital Converter">ADC</abbr> Resolution &amp; Voltage Mapping</p>
+<p>The ATmega328P microcontroller's <abbr title="Analogue to Digital Converter">ADC</abbr> features a 10-bit resolution (<span class="arithmatex">\(2^{10} = 1024\)</span> discrete quantisation levels). Operating across a <span class="arithmatex">\(0\,\text{V}\)</span> to <span class="arithmatex">\(+5\,\text{V}\)</span> reference range, input voltages are mapped directly to integer values from 0 (<span class="arithmatex">\(0\,\text{V}\)</span>) to 1023 (<span class="arithmatex">\(+5\,\text{V}\)</span>), yielding an analog resolution of approximately <span class="arithmatex">\(4.88\,\text{mV}\)</span> per <abbr title="Analogue to Digital Converter">ADC</abbr> step (<span class="arithmatex">\(5\,\text{V} / 1024\)</span>).</p>
+</div>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Copy the <debughl><a href="#potInoCode">POT.ino</a></debughl> code into a black Arduino sketch and save it into your working folder.</li>
-<li>Ensure the <abbr title="Light Emitting Diodes">LEDs</abbr> and potentiometer are connected into your circuit, as described in the <debughl><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debughl></li>
-<li>Ensure the potentiometer is connected into the circuit.<ul>
-<li>Connect left hand pin of the potentiometer to <abbr title="Electrical Ground or 0V">GND</abbr> and the 5V and the right hand pin to +5V.</li>
-<li>It is suggested that the middle pin of the potentiometer is connected to the analogue A5 pin.</li>
+<li><strong>Setup Sketch Environment:</strong> Create a new, blank sketch in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, paste the <debughl><a href="#potInoCode">POT.ino</a></debughl> source code into the editor, and save it to your working directory as POT.ino.</li>
+<li><strong>Verify Breadboard Wiring:</strong> Verify your circuit wiring against the pin allocations specified in the <debughl><a href="../../RobotBuild/#LEDPatternBuild">Building the Robot Document</a></debughl>:<ul>
+<li><strong>Potentiometer Outer Pin 1:</strong> Connect to the <abbr title="Electrical Ground or 0V">GND</abbr> rail (<span class="arithmatex">\(0\,\text{V}\)</span>).</li>
+<li><strong>Potentiometer Outer Pin 2:</strong> Connect to the +5V power rail.</li>
+<li><strong>Potentiometer Center Wiper Pin:</strong> Connect to analog input pin A5.</li>
+<li><strong>Output <abbr title="Light Emitting Diodes">LEDs</abbr>:</strong> Status <abbr title="Light Emitting Diode">LED</abbr>: Ensure the external indicator <abbr title="Light Emitting Diode">LED</abbr> is connected to <abbr title="Pulse Width Modulation">PWM</abbr> digital pin 11 through a <span class="arithmatex">\(470\,\Omega\)</span> resistor.</li>
 </ul>
 </li>
+<li>
+<ul>
+<li><strong>Upload and Open Serial Monitor:</strong> Compile and upload POT.ino to the Arduino Uno. Open the Serial Monitor console (Ctrl + Shift + M) and confirm that the baud rate is set to 9600 baud.</li>
+</ul>
+</li>
+<li><strong>Test Analog Response:</strong> Observe live telemetry streaming to the terminal and hardware response while adjusting the control knob:<ul>
+<li>Rotate the potentiometer wiper across its full angular travel and verify that <abbr title="Analogue to Digital Converter">ADC</abbr> output spans the full 10-bit dynamic range (0 to 1023).</li>
+<li>Observe the status <abbr title="Light Emitting Diode">LED</abbr> brightness scale proportionally with potentiometer position.</li>
+</ul>
+</li>
+<li><strong>Save Sketch Progress:</strong> Save your verified sketch before moving on to Section 2.</li>
 </ol>
-<p>The analogue to digital converter, <abbr title="Analogue to Digital Converter">ADC</abbr>, inputs to the Arduino have 10 bits of resolution (i.e. 1024 different values). By default, they measure from ground (0V) to 5 volts. That means that the 0-5V range of the potentiometer will be proportionally mapped to the 0-1023 digital values range in the microcontroller. </p>
-<ol start="4">
-  <li>Upload the program to the Arduino, then open the serial monitor and observe data being streamed to the terminal.</li>
-  <li>Rotate the knob of the potentiometer and observe the range that the data spans.</li>
-  <li>Observe the rightness of the LED as you rotate the potentiometer.</li>
-  <li>Ensure that you save your code when you have completed this section.</li>
-</ol>
-
+<h4 id="the-map-scaling-function">The map() Scaling Function</h4>
+<p>The 'POT.ino' sketch uses the Arduino 'map()' function to perform linear interpolation, scaling 10-bit <abbr title="Analogue to Digital Converter">ADC</abbr> raw values (0–1023) down to an 8-bit range (0–255) required for the hardware <abbr title="Pulse Width Modulation">PWM</abbr> timer register ('analogWrite()'):</p>
+<div class="arithmatex">\[\text{output} = (\text{x} - \text{in\_min}) \times \frac{\text{out\_max} - \text{out\_min}}{\text{in\_max} - \text{in\_min}} + \text{out\_min}\]</div>
 <p>This example program uses the map() function to ‘map’ the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement values between 0 and 1023, to a range of 0 to 255. This new range is required to write the <abbr title="Pulse Width Modulation">PWM</abbr> signal to change the <abbr title="Light Emitting Diode">LED</abbr> brightness – <abbr title="Pulse Width Modulation">PWM</abbr> will be covered in the next lab session, so for this example, just assume this is an analogue output from the Arduino.</p>
-<p>Look at the code and see how the map() command is used. The Arduino language reference for the map command can be found at:</p>
-<p><debughl><a href="https://www.arduino.cc/reference/en/language/functions/math/map/" title="Map command in the Arduino reference documentation">https://www.arduino.cc/reference/en/language/functions/math/map/</a></debughl> </p>
-<h3 id="section-2-integrate-the-potentiometer-value-into-your-led-sequence-program">Section 2: Integrate the Potentiometer Value Into Your <abbr title="Light Emitting Diode">LED</abbr> Sequence Program</h3>
-<p>During this section you will integrate the reading of the potentiometer into the program for your <abbr title="Light Emitting Diode">LED</abbr> sequence, and use the <abbr title="Analogue to Digital Converter">ADC</abbr> value to control the delay function in the main loop.</p>
+<p>For full syntax and implementation details, consult the official: <debughl><a href="https://www.arduino.cc/reference/en/language/functions/math/map/" target="_blank">Arduino language reference for the map command</a></debughl> </p>
+<h3 id="section-2-dynamically-adjusting-sequence-delay">Section 2: Dynamically Adjusting Sequence Delay</h3>
+<p>In this section, you will integrate the potentiometer sampling logic from Section 1 into your <abbr title="Light Emitting Diode">LED</abbr> pattern sketch from Part 1. The sampled <abbr title="Analogue to Digital Converter">ADC</abbr> value will be passed dynamically to the delay() function to adjust sequence timing in real time.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Starting with the code you wrote in <debughl><a href="#part-1-led-sequence">Part 1</a></debughl>, modify your code to read the voltage value of the potentiometer, using the <abbr title="Analogue to Digital Converter">ADC</abbr>, each time the sequence value changes.</li>
-<li>The <abbr title="Analogue to Digital Converter">ADC</abbr> value should be used to control the <code>delay()</code> function time within the sequence loop.</li>
-<li>Ensure that you save your code when you have completed this section.</li>
+<li><strong>Incorporate <abbr title="Analogue to Digital Converter">ADC</abbr> Sampling Logic:</strong> Open your completed sketch from <debughl><a href="#part-1-led-sequence">Part 1</a></debughl> Declare an integer variable (e.g., sensorVal) and use analogRead(); inside loop() to sample the potentiometer state during each step of the sequence.</li>
+<li><strong>Bind <abbr title="Analogue to Digital Converter">ADC</abbr> Values to Sequence Delay:</strong> Pass the variable containing the sampled <abbr title="Analogue to Digital Converter">ADC</abbr> value directly into the <code>delay()</code> function calls controlling pattern step intervals.</li>
+<li><strong>Test Dynamic Speed Scaling:</strong> Compile, upload, and test your code on the Arduino Uno:<ul>
+<li>Rotating the potentiometer one-way should increase input voltage toward <span class="arithmatex">\(+5\,\text{V}\)</span> (increasing <abbr title="Analogue to Digital Converter">ADC</abbr> count), extending delay time and slowing down sequence rate.</li>
+<li>Rotating the potentiometer the other way should drop input voltage toward <span class="arithmatex">\(0\,\text{V}\)</span> (decreasing <abbr title="Analogue to Digital Converter">ADC</abbr> count), reducing delay time and speeding up sequence rate.</li>
+<li>Verify smooth, continuous speed adjustment across the full travel range.</li>
+</ul>
+</li>
+<li><strong>Save Completed Sketch:</strong> Save your finalized sketch (Part2_Variable_LED_Sequence.ino) before moving to Part 3.</li>
 </ol>
-<p>When you rotate the potentiometer to the right, the sequence should speed up, and when you rotate the potentiometer to the left, the sequence should slow down. There should be a continuous variation in sequence speed proportional to the position of the potentiometer between the left and right extremes.</p>
-<h2 id="part-3-addition-of-a-pause-button">Part 3: Addition of a Pause Button</h2>
-<p>During this part, you will implement the reading of the button on breadboard 1 and use the button value to pause the execution of the sequence.</p>
+<div class="admonition note">
+<p class="admonition-title">Optional Speed Mapping</p>
+<p>By default, passing raw 10-bit <abbr title="Analogue to Digital Converter">ADC</abbr> values (0 to 1023) directly into delay() results in timing delays ranging from <span class="arithmatex">\(0\,\text{ms}\)</span> (instantaneous state transitions) to <span class="arithmatex">\(1023\,\text{ms}\)</span> (~<span class="arithmatex">\(1\,\text{s}\)</span>). If you wish to constrain or invert speed ranges (e.g., <span class="arithmatex">\(100\,\text{ms}\)</span> to <span class="arithmatex">\(2000\,\text{ms}\)</span>), use the map() function to re-scale the raw <abbr title="Analogue to Digital Converter">ADC</abbr> value prior to calling delay().</p>
+</div>
+<h2 id="part-3-pause-control-via-push-button-input">Part 3: Pause Control via Push Button Input</h2>
+<p>In this final section of Basic Exercise 1, you will integrate digital input sampling for the breadboard push button switch. The button state will act as a blocking control signal to pause pattern progression while pressed and resume pattern execution upon release.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Starting from your code that you completed in <debughl><a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program">Part 2, section 2</a></debughl>, implement a button read from the button on breadboard 1.</li>
-<li>Use this the pressed value of the button to hold the flow of execution until the button is released. </li>
+<li><strong>Initialize Push Button Input:</strong> Open your completed sketch from <debughl><a href="#section-2-integrate-the-potentiometer-value-into-your-led-sequence-program">Part 2</a></debughl> and cofigure the button on digital input 4</li>
+<li><strong>Implement Pause Condition Logic:</strong> Incorporate code to inspect the button state during sequence transitions. Hold code execution inside a conditional evaluation loop (such as a while statement) for as long as the button reads HIGH.</li>
+<li><strong>Test Integrated System Operation:</strong> Compile, upload, and verify full system operation on your Arduino Uno:<ul>
+<li><strong>Sequence Execution:</strong> <abbr title="Light Emitting Diodes">LEDs</abbr> cycle through the pattern sequence continuously.</li>
+<li><strong>Speed Control:</strong> Rotating the potentiometer dynamically scales pattern step timing.</li>
+<li><strong>Pause Functionality:</strong> Pressing and holding the push button freezes the current <abbr title="Light Emitting Diode">LED</abbr> state instantly. Releasing the button resumes sequence execution from where it paused.</li>
+</ul>
+</li>
+<li><strong>Prepare for Marking Sign-Off:</strong> Save your finalized sketch (Part3_Integrated_LED_Pattern.ino). Verify your system satisfies all criteria in the <debughl><a href="#ledFlashEx">Exercise Assessment</a></debughl> before calling a <abbr title="Graduate Teaching Assistant">GTA</abbr> to demonstrate your working circuit and code.</li>
 </ol>
 <p><a name="ledFlashEx"></a></p>
 <h2 id="exercise-assessment">Exercise Assessment</h2>

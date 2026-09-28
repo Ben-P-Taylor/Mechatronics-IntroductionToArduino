@@ -512,6 +512,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Intro Exercise 2: Push Button and LED">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-the-serial-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launching the Serial Monitor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -966,6 +981,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Intro Exercise 2: Push Button and LED">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launching-the-serial-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launching the Serial Monitor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -991,50 +1021,57 @@
 
 <div><h1 id="getting-started-introductory-exercises-non-assessed">Getting Started - Introductory Exercises (Non-assessed)</h1>
 <h2 id="the-arduino-ide">The Arduino <abbr title="Integrated Development Environment">IDE</abbr></h2>
-<p>This section is aimed at providing you with a brief overview into installing and setting up the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, ready for use with these laboratory activities. <debughl>There are two introductory exercises, presented, which should get you started with uploading code to the Arduino and </debughl></p>
+<p>This guide provides a brief overview of installing and configuring the Arduino Integrated Development Environment (<abbr title="Integrated Development Environment">IDE</abbr>) for your laboratory activities. Two introductory exercises accompany this section to guide you through compiling and uploading code to the Arduino microcontroller, as well as working with basic digital inputs and outputs.</p>
 <h3 id="the-installing-and-using-the-arduino-ide-on-a-university-managed-pc">The Installing and Using the Arduino <abbr title="Integrated Development Environment">IDE</abbr> on a University Managed PC</h3>
-<p>The Arduino software is available on all Managed University PC. In the Electronics and Control Laboratory, the software should already be installed on the workstation and laptop PCs. In other areas of the Diamond and the wider University campus, you may need to install Arduino using the Software Centre application.</p>
-<p><strong><em>Note:</em></strong> <em>As you should be aware, you can’t download and install software on the University Managed PC from the internet.</em></p>
+<p>The Arduino <abbr title="Integrated Development Environment">IDE</abbr> is pre-installed on workstations across the Electronics and Control Laboratory. If you are using a managed PC in another area of The Diamond or across the wider university campus, you can install the software directly via the Software Centre application.</p>
+<div class="admonition note">
+<p class="admonition-title">Administrative Restrictions</p>
+<p>Students do not have administrator rights on university-managed desktop PCs and cannot download or run executable installers directly from the web. Always use Software Centre for software installation on campus hardware.</p>
+</div>
 <h3 id="installation-and-setup-of-the-arduino-software-on-your-own">Installation and Setup of the Arduino Software on your own</h3>
-<p><strong>NOTE:</strong> <em>The procedures laid out in this section are only for use on your home computer. The PCs you will be using in the University laboratories and computer rooms already have the Arduino software installed, or it must be installed from the Managed Desktop software Centre.</em></p>
-<p><strong>Also Note:</strong> All the documentation for this module assumes you are using a Windows 10 or 11 on a PC. We do not support other operating system versions.</p>
-<p><strong>Information about installing the Arduino <abbr title="Integrated Development Environment">IDE</abbr> can be found on the Arduino website at:</strong> <debughl><a href="https://www.arduino.cc/en/Guide/Windows" target="_blank">https://www.arduino.cc/en/Guide/Windows</a></debughl></p>
+<div class="admonition info">
+<p class="admonition-title">Scope Notice</p>
+<p>The installation steps below apply only to setting up personal home computers or laptops. All university laboratory PCs already have the required software pre-configured.</p>
+<p>Please note that all module documentation, drivers, and laboratory instructions are written for Windows 10 and 11 (64-bit). The course team cannot provide technical support for other operating systems.</p>
+<p>For official installation instructions, board package setup guides, and software downloads, visit the official <debughl><a href="https://docs.arduino.cc/learn/starting-guide/the-arduino-software-ide/" target="_blank">Arduino Software Guide</a></debughl>.</p>
+</div>
 <p><strong>Procedure:</strong></p>
-<p>Is This working</p>
 <ol>
-<li>Navigate to the Arduino <abbr title="Integrated Development Environment">IDE</abbr> download page: <debughl><a href="https://www.arduino.cc/en/Main/Software" target="_blank">https://www.arduino.cc/en/Main/Software</a></debughl> download the appropriate version of the Arduino <abbr title="Integrated Development Environment">IDE</abbr> for your operating system.</li>
-<li>Launch the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, to check it has been installed correctly</li>
-<li>
-<p>Ensure you have the latest version of the hardware drivers for the Arduino board:</p>
-<ul>
-<li>From within the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, select the Tools Menu and navigate to the Board Manager: <strong>Tools</strong> &gt; <strong>Board:</strong> <em>[name is the current board]</em> &gt; Boards Manager…</li>
-<li>From the Boards Manager menu that appears on the left side of the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, Find the <strong>Arduino AVR Boards</strong> item and ensure the latest version of the driver is installed. You can check if there is a more up-to-date version by clicking on the dropdown box in the <strong>Arduino AVR Boards</strong> section, and seeing if there is a higher version available than the installed version indicated at the top of the section – do not install a lower version.</li>
+<li><strong>Download and Install Arduino <abbr title="Integrated Development Environment">IDE</abbr>:</strong> Download the Windows installer package from the official debugHL&gt;<a href="https://www.arduino.cc/en/Main/Software" target="_blank">hhttps://www.arduino.cc/en/software/</a> and complete the setup wizard.</li>
+<li><strong>Verify <abbr title="Integrated Development Environment">IDE</abbr> Installation:</strong> Launch the Arduino <abbr title="Integrated Development Environment">IDE</abbr> to verify that the application opens cleanly without initialization errors.</li>
+<li>Ensure the correct board core package is installed to support the ATmega328P microcontroller:<ul>
+<li>Open the Boards Manager via Tools <span class="arithmatex">\(\rightarrow\)</span> Board <span class="arithmatex">\(\rightarrow\)</span> Boards Manager... (or click the Board Manager icon in the left-hand sidebar).</li>
+<li>Search for <strong>Arduino AVR Boards</strong>.</li>
+<li>Verify that the package is installed. If an update is available, select the latest version from the drop-down menu and click <strong>Update</strong>.</li>
 </ul>
 </li>
 <li>
-<p>At this point you should connect the Arduino Uno to your system and direct the Arduino <abbr title="Integrated Development Environment">IDE</abbr> to the correct Arduino board type and Port to allow your Arduino device to be programmed.</p>
+<p><strong>Connect Hardware and Select Target Port:</strong> Connect your Arduino Uno board to your computer via <abbr title="Universal Serial Bus">USB</abbr> (using an inline <abbr title="Universal Serial Bus">USB</abbr> isolator on personal laptops) and configure the target device settings:</p>
 <ul>
-<li>It you do not know how to do this, please look at the Getting Started with Arduino UNO guide on the Arduino website: <debughl><a href="https://www.arduino.cc/en/Guide/ArduinoUno" target="_blank">https://www.arduino.cc/en/Guide/ArduinoUno</a></debughl></li>
+<li>Go to Tools <span class="arithmatex">\(\rightarrow\)</span> Board <span class="arithmatex">\(\rightarrow\)</span> Arduino AVR Boards and select <strong>Arduino Uno</strong>.</li>
+<li>Go to Tools <span class="arithmatex">\(\rightarrow\)</span> Port and select the active communication port corresponding to your connected board (e.g., COM3 or COM4 on Windows).</li>
 </ul>
+<p>For detailed board selection and driver troubleshooting, refer to the official Getting Started with <debughl><a href="https://docs.arduino.cc/hardware/uno-rev3/" target="_blank">Arduino Uno Guide</a></debughl>.</p>
 </li>
 </ol>
 <h2 id="laboratory-exercises">Laboratory Exercises</h2>
 <h3 id="simple-digital-io">Simple Digital I/O</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The remainder of this section is provided for students with no experience of using Arduino and serves as a tutorial example of how to use the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, in its most simple form.</p>
+<p>The following exercises provide an introductory, step-by-step tutorial on compiling and uploading basic code via the Arduino <abbr title="Integrated Development Environment">IDE</abbr>. They are specifically designed for students with no prior microcontroller experience.</p>
 </div>
-<p>The Arduino microcontroller is a powerful tool to build a wealth of mechatronics and robotic projects. We are just getting started - so let’s introduce how to work with push buttons and <abbr title="Light Emitting Diodes">LEDs</abbr>. These elements are digital inputs and outputs, and are representative of the type of actions we typically want in mechatronics projects: we want that upon a command (e.g., pressing a button), an action to take place that can modify the environment in a sensible way (e.g., a noticeable light on or off).</p>
+<p>Microcontrollers serve as the core embedded controller in many mechatronic and robotic systems. In these introductory exercises, you will interface basic digital input components (such as tactile push buttons) and digital output components (such as Light Emitting Diodes).</p>
+<p>These digital components demonstrate fundamental sensor-actuator control loops: an user-initiated input event (e.g., depressing a push button) triggers software execution that modifies system output state (e.g., toggling an <abbr title="Light Emitting Diode">LED</abbr> indicator).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><strong>Before starting the laboratory exercises</strong>, you should review the contents of the "Mechatronics KIT Information" folder, located in the Lab Practicals (Sem 1) content area of the Blackboard site for the Mechatronics course.</p>
+<p><strong>Before starting the laboratory exercises</strong>, review the documentation inside the Mechatronics Kit Information directory under the <strong>Lab Practicals (Sem 1)</strong> area on the  Blackboard site.</p>
 </div>
 <h4 id="intro-exercise-1-blink-example">Intro Exercise 1: Blink Example</h4>
-<p>The aim of this exercise is to demonstrate how to upload and run a simple Arduino program.</p>
-<p>The Blink example is a good way to test the installation of your Arduino software, and also to identify if there is a major problem with your Arduino hardware.</p>
+<p>The aim of this exercise is to demonstrate how to compile, upload, and run a simple program on the Arduino Uno hardware..</p>
+<p>Executing the built-in "Blink" sketch verifies that your software environment and toolchain are configured correctly while confirming hardware functionality and <abbr title="Universal Serial Bus">USB</abbr> communication.</p>
 <p><strong>Procedure:</strong></p>
 <ul>
-<li>Load the Blink example from the Arduino <abbr title="Integrated Development Environment">IDE</abbr> files menu: Files &gt; Examples &gt; 01.Basics &gt; Blink, as shown in <debughl><a href="#blink">Fig. 1</a></debughl>:</li>
+<li>In the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, navigate to File <span class="arithmatex">\(\rightarrow\)</span> Examples <span class="arithmatex">\(\rightarrow\)</span> 01.Basics <span class="arithmatex">\(\rightarrow\)</span> Blink as shown in <debughl><a href="#blink">Fig. 1</a></debughl>:</li>
 </ul>
 <figure>
   <a name="blink"></a>
@@ -1042,73 +1079,78 @@
   <figcaption>Screen shot of how to find the blink example in the Adruino <abbr title="Integrated Development Environment">IDE</abbr>.</figcaption>
 </figure>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The built-in examples, provided in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, are a great way of finding out how to do certain operations and use some programming constructs.</p>
+<p class="admonition-title">Built-in Examples</p>
+<p>The built-in examples provided within the Arduino <abbr title="Integrated Development Environment">IDE</abbr> offer a valuable repository of reference implementations demonstrating hardware control, peripheral interfacing, and C programming constructs.</p>
 </div>
 <ul>
-<li>You compile and upload your Arduino program, or Sketch, by pressing the Press Upload button, as highlighted with a red circle in <debughl><a href="#upload">Fig. 2</a></debughl>:</li>
+<li>To compile and upload the sketch to your connected Arduino board, click the Upload button (the right-pointing arrow icon) located on the top toolbar, as shown in <debughl><a href="#upload">Fig. 2</a></debughl>:</li>
 </ul>
 <figure>
   <a name="upload"></a>
 <a class="glightbox" href="../../Images/Upload.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screen shot of the Upload button, highlighted with a red circuit, in the Arduino IDE." src="../../Images/Upload.png"></a>
   <figcaption>A screen shot of the Upload button, highlighted with a red circuit, in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>.</figcaption>
 </figure>
-<p>After the <abbr title="Integrated Development Environment">IDE</abbr> compiles and uploads your program, the Arduino should start to run your code. For this example, this will be indicated by the <abbr title="Light Emitting Diode">LED</abbr>, “L”, (highlighted in Red in <debughl><a href="#ledL">Fig. 3</a></debughl>), which should be slowly flashing. (Note: <abbr title="Light Emitting Diode">LED</abbr> “L” is also connected to pin 13).</p>
+<p>After the Arduino <abbr title="Integrated Development Environment">IDE</abbr> finishes compiling and uploading the sketch, the microcontroller automatically executes the program. For the Blink sketch, successful execution is indicated by the onboard status <abbr title="Light Emitting Diode">LED</abbr>, labeled "L" (highlighted in red in <debughl><a href="#ledL">Fig. 3</a></debughl>), which will flash at a rate of <span class="arithmatex">\(1\,\text{Hz}\)</span> (one second on, one second off).!!! Info "Onboard <abbr title="Light Emitting Diode">LED</abbr> Connection"The onboard status <abbr title="Light Emitting Diode">LED</abbr> "L" is hardwired directly to digital pin 13 (LED_BUILTIN) on the Arduino Uno board.</p>
 <figure>
   <a name="ledL"></a>
   <a class="glightbox" href="../../Images/LED%20L.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="The Arduino Board, with the LED, “L”, highlighted with a red box." src="../../Images/LED%20L.png"></a>
   <figcaption>The Arduino Board, with the <abbr title="Light Emitting Diode">LED</abbr>, “L”, highlighted with a red box.</figcaption>
 </figure>
 <ol>
-<li>The setup() and loop() functions of the Blink example are shown below. Modify the values in the delay() functions, (highlighted in red) and investigate its effects again. What happens?</li>
+<li>The setup() and loop() functions for the Blink sketch are shown below:</li>
 </ol>
-<p><em>(See the Arduino Language Reference, from the Arduino website, for details of the delay() function:<debughl><a href="https://www.arduino.cc/reference/en/language/functions/time/delay/" target="_blank">https://www.arduino.cc/reference/en/language/functions/time/delay/</a></debughl></em>)</p>
-<p>You should observe that changing the value in the brackets for the upper delay() function, changes the on-time of the <abbr title="Light Emitting Diode">LED</abbr>, and changing the value of the lower delay function, changes the off-time for the <abbr title="Light Emitting Diode">LED</abbr>.</p>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// the setup function runs once when you press reset or power the board</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="c1">// initialize digital pin LED_BUILTIN as an output.</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="n">pinMode</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// the loop function runs over and over again forever</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span><span class="w">  </span><span class="c1">// turn the LED on (HIGH is the voltage level)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">                      </span><span class="c1">// wait for a second</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_BUILTIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w">   </span><span class="c1">// turn the LED off by making the voltage LOW</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w">                      </span><span class="c1">// wait for a second</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Modify the integer arguments inside the <code>delay()</code> calls (e.g., change <code>1000</code> to <code>200</code> or <code>2000</code>), compile, and upload the updated sketch to your board. Observe the state changes on the onboard <abbr title="Light Emitting Diode">LED</abbr> "L".</p>
+<p><em>(For detailed function syntax, input parameters, and execution limitations of the <code>delay()</code> function, consult the official <debughl><a href="https://www.arduino.cc/reference/en/language/functions/time/delay/" target="_blank">https://www.arduino.cc/reference/en/language/functions/time/delay/</a></debughl>)</em></p>
 <h3 id="intro-exercise-2-push-button-and-led">Intro Exercise 2: Push Button and <abbr title="Light Emitting Diode">LED</abbr></h3>
-<p>The aim of this exercise is to use a digital input, in this case from a push button, to trigger the Arduino to produce a digital output. In this case and <abbr title="Light Emitting Diode">LED</abbr>, as illustrated in the circuit shown in <debughl><a href="#ledButton">Fig. 4</a></debughl>.</p>
+<p>The aim of this exercise is to interface a digital input device (a tactile push button switch) to control a digital output actuator (a Light Emitting Diode). <debughl><a href="#ledButton">Fig. 4</a></debughl>.</p>
 <p><strong>Wiring Procedure:</strong></p>
 <ul>
-<li>Using the Kit of parts provided, connect the circuit as shown in <debughl><a href="#ledButton">Fig. 4</a></debughl>.<ul>
-<li>It is not essential to maintain the colour of wires illustrated in the diagram.</li>
-<li>The digital input from the button is connected to pin 2</li>
-<li>The digital output to the <abbr title="Light Emitting Diode">LED</abbr> is connected to pin 13, (shared with the <abbr title="Light Emitting Diode">LED</abbr> “L” on the Arduino board)</li>
-<li>The resistor connected between the button and the <abbr title="Electrical Ground or 0V">GND</abbr> line is 10K, and the resistor connected between the anode of the <abbr title="Light Emitting Diode">LED</abbr> and pin 13 of the Arduino is 470Ω.</li>
+<li>Using the components provided in your Mechatronics lab kit, assemble the circuit shown in <debughl><a href="#ledButton">Fig. 4</a></debughl>on your breadboard according to the following specifications:<ul>
+<li><strong>Digital Input (Push Button):</strong> Connect one side of the push button switch to digital pin 2 on the Arduino Uno. Connect a <span class="arithmatex">\(10\,\text{k}\Omega\)</span> pull-down resistor between digital pin 2 and the <abbr title="Electrical Ground or 0V">GND</abbr> rail to ensure a stable low state when the button is unpressed.</li>
+<li><strong>Digital Output (<abbr title="Light Emitting Diode">LED</abbr>):</strong> Connect digital pin 13 on the Arduino Uno to the anode (longer leg) of the <abbr title="Light Emitting Diode">LED</abbr> through a <span class="arithmatex">\(470\,\Omega\)</span> current-limiting resistor. Connect the cathode (shorter leg) of the <abbr title="Light Emitting Diode">LED</abbr> directly to the <abbr title="Electrical Ground or 0V">GND</abbr> rail. (Note: Digital pin 13 is shared with the onboard status <abbr title="Light Emitting Diode">LED</abbr> "L").</li>
+<li><strong>Power Connections:</strong> Connect the 5V and <abbr title="Electrical Ground or 0V">GND</abbr> header pins from the Arduino Uno to the power distribution rails of your breadboard.</li>
 </ul>
 </li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There is a guide to reading resistor values in the Mechatronics Kit Information section of the Blackboard site.</p>
+<p class="admonition-title">Wire Color Coding</p>
+<p>While wire insulation color does not affect electrical functionality, adhering to standard color conventions (e.g., Red for 5V, Black for <abbr title="Electrical Ground or 0V">GND</abbr>) improves circuit readability and simplifies troubleshooting during lab practicals.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The digital Input, on pin 2, is ‘pulled’ down to the 0V supply rail by the a 10K resistor, (a resistor used in this manner is often referred to as a pull-down resistor). In this configuration, when we press the button, the digital input is connected to the +5V supply rail. When the button is released, the 10K resistor ‘pulls’ the digital input back down to 0V. without the 10K resistor, the input would ‘float’, and may produce a spurious input when the button is released.</p>
+<p class="admonition-title">Pull-Down Resistor Operation</p>
+<p>Digital pin 2 is tied to the <span class="arithmatex">\(0\,\text{V}\)</span> (<abbr title="Electrical Ground or 0V">GND</abbr>) supply rail through a <span class="arithmatex">\(10\,\text{k}\Omega\)</span> pull-down resistor.</p>
+<p>When the button is pressed, pin 2 is connected directly to the <span class="arithmatex">\(+5\,\text{V}\)</span> rail, driving the input state <code>HIGH</code>. When the button is released, the <span class="arithmatex">\(10\,\text{k}\Omega\)</span> resistor drains remaining charge and pulls the input voltage back down to <span class="arithmatex">\(0\,\text{V}\)</span> (<code>LOW</code>). Without this pull-down resistor, the input pin would "float" in a high-impedance state, picking up electromagnetic noise and causing unpredictable or spurious input readings.</p>
 </div>
 <figure>
   <a name="ledButton"></a>
   <a class="glightbox" href="../../Images/ledButton.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram illustrating the Circuit configuration for the Push Button and LED Exercise." src="../../Images/ledButton.png"></a>
   <figcaption>Diagram illustrating the Circuit configuration for the Push Button and <abbr title="Light Emitting Diode">LED</abbr> Exercise.</figcaption>
 </figure>
-<p>The code for this exercise can be found by selecting the in-built Button exercise from the Files menu in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>: Files &gt; Examples &gt; 02.Digital &gt; Button</p>
+<p>To open the sketch for this exercise within the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, navigate to:File <span class="arithmatex">\(\rightarrow\)</span> Examples <span class="arithmatex">\(\rightarrow\)</span> 02.Digital <span class="arithmatex">\(\rightarrow\)</span> Button</p>
 <p><strong>Procedure:</strong></p>
 <ul>
-<li>Run Button example Arduino sketch: you should see the <abbr title="Light Emitting Diode">LED</abbr> light up when you press the button, and the <abbr title="Light Emitting Diode">LED</abbr> should go out when you release the button.</li>
+<li><strong>Compile and Upload:</strong> Click the Upload button to compile and upload the Button sketch to your Arduino board.</li>
+<li><strong>Verify Circuit Operation:</strong> Press and hold the push button. The external <abbr title="Light Emitting Diode">LED</abbr> (and onboard <abbr title="Light Emitting Diode">LED</abbr> "L") should illuminate immediately. Release the push button; the <abbr title="Light Emitting Diode">LED</abbr> should extinguish.</li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is often the case that we may wish to view data directly from within an Arduino program. To achieve this we can use the Serial library to stream data from the Arduino, across a <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> interface (this can be the same <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> port you are using to program the Arduino) to a terminal – we can use the Serial Monitor in the Arduino <abbr title="Integrated Development Environment">IDE</abbr> for convenience.</p>
+<p class="admonition-title">Serial Data Logging and Debugging</p>
 </div>
-<p>The modified Button example code, <debughl><a href="#buttCode">shown below</a></debughl>, is based on the Button example, but has the following two extra lines:</p>
-<div class="language-Arduino highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Initialise communications with the serial monitor. Parameter: baud rate</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">...</span><span class="o">and</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Write the value of the buttonState variable to the serial monitor</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">buttonState</span><span class="p">);</span>
-</span></code></pre></div>
-<p>These extra commands initialise the Serial interface, and write data to the <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> port. A description of the Serial commands can be found in the Serial functions section of the Arduino reference guide:</p>
-<p><debughl><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/" target="_blank">https://www.arduino.cc/reference/en/language/functions/communication/serial/</a></debughl></p>
+<p>In embedded system development, monitoring runtime variable values and diagnostic messages is essential for verifying software execution. Using the built-in Serial library, the Arduino streams ASCII text data over its hardware UART line and <abbr title="Universal Serial Bus">USB</abbr> connection (utilizing the same Virtual <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> port used to flash firmware). You can observe this real-time data stream directly using the Serial Monitor terminal in the Arduino <abbr title="Integrated Development Environment">IDE</abbr>.</p>
+<p>The modified Button example code, <debughl><a href="#buttCode">shown below</a></debughl>, is updated with two key Serial API calls to enable live console logging:</p>
 <p><a name="buttCode"></a>
 </p><div class="language-Arduino highlight"><span class="filename">Modified Button Example</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// constants won't change. They're used here to set pin numbers:</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">buttonPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// the number of the push button pin</span>
@@ -1144,6 +1186,18 @@
 </span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="p">}</span>
 </span></code></pre></div>
+<p>These additional commands perform the following operations:</p>
+<ul>
+<li>
+<p><strong><code>Serial.begin(9600);</code>:</strong> Configures the microcontroller's hardware serial peripheral and sets the communication speed to 9600 baud (bits per second). This must be called inside the setup() function.</p>
+</li>
+<li>
+<p><strong><code>Serial.println(buttonState);</code>:</strong> Formats the integer value of buttonState as text and transmits it across the <abbr title="Serial communications Bus. This is emulated using the UART interface of the Arduino, and sent across the USB Bus. (It is all done for you automatically!)">COM</abbr> port, terminating the line with a carriage return and line feed (\r\n).</p>
+</li>
+</ul>
+<p>For complete syntax documentation and related peripheral drivers, see the Arduino Serial Reference Guide<debughl><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/" target="_blank">Arduino Serial Reference Guide</a></debughl>.</p>
+<h4 id="launching-the-serial-monitor">Launching the Serial Monitor</h4>
+<p>To open the Serial Monitor console within the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, click the Serial Monitor icon (magnifying glass icon in <abbr title="Integrated Development Environment">IDE</abbr> 1.x or the terminal icon in <abbr title="Integrated Development Environment">IDE</abbr> 2.x) located in the upper-right corner of the window, as shown in Figure 5.</p>
 <p>Links to all the Serial function descriptions are listed towards the bottom of the <debughl><a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/" target="_blank">Serial commands reference page</a></debughl>.</p>
 <p>To open the Serial Monitor, from the Arduino <abbr title="Integrated Development Environment">IDE</abbr>, click the button in the top right of the <abbr title="Integrated Development Environment">IDE</abbr>, as highlighted in <debughl><a href="#SMbutt">Fig. 5</a></debughl>.</p>
 <figure>
@@ -1153,8 +1207,13 @@
 </figure>
 <p><strong>Procedure:</strong></p>
 <ul>
-<li>Modify the Button example sketch, and open the Serial Monitor</li>
-<li>Run the code: You should see a ‘1’ printed on the serial monitor when the button is pressed, and the serial monitor should display ‘0’ when the button is released.</li>
+<li><strong>Update and Upload the Sketch:</strong> Add <code>Serial.begin(9600);</code> to <code>setup()</code> and <code>Serial.println(buttonState);</code> to <code>loop()</code>, then click Upload to program the Arduino Uno.</li>
+<li><strong>Launch the Serial Monitor:</strong> Click the Serial Monitor button in the top-right corner of the Arduino <abbr title="Integrated Development Environment">IDE</abbr> interface (or press Ctrl + Shift + M). Ensure the baud rate drop-down menu in the bottom-right of the terminal is set to 9600 baud.</li>
+<li><strong>Observe Output Stream:</strong> Observe the output console while interacting with the hardware:<ul>
+<li><strong>Button Released:</strong> The Serial Monitor prints continuous streams of 0.</li>
+<li><strong>Button Pressed:</strong> The output state transitions instantly to 1.</li>
+</ul>
+</li>
 </ul></div>
 
 

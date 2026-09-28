@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#basic-exercises" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -757,6 +762,38 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Exercises
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assessment-demonstrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assessment &amp; Demonstrations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -773,12 +810,15 @@
 
   <h1>Introduction to the Basic Exercises</h1>
 
-<div><p>The assessed exercises are split into sections:</p>
+<div><h2 id="basic-exercises">Basic Exercises</h2>
+<p>The laboratory practicals are structured into two distinct tiers:</p>
 <ol>
-<li>Basic Exercises: These are more concerned with the fundamentals of getting a specific interface, sensor, or actuator operating.</li>
-<li><debughl><a href="../AdvancedExercises/">Advanced Exercises</a></debughl>: These are more concerned with integrating the elements of the Basic Exercises into a working system, to achieve a goal. During the Advanced exercises you will also work with slightly more advanced programming concepts, such as implementation of a <abbr title="Proportional and Integral Controller">PI</abbr> Controller and simple <debughl><a href="https://en.wikipedia.org/wiki/Finite-state_machine">finite state machines</a></debughl>, (we will provide programming templates for both of these topics).</li>
+<li><strong>Basic Exercises:</strong> Focus on fundamental interfacing techniques, sensor signal acquisition, and low-level actuator control.</li>
+<li><strong><debughl><a href="../AdvancedExercises/">Advanced Exercises</a></debughl>:</strong> These are more concerned with integrating the elements of the Basic Exercises into a working system, to achieve a goal. During the Advanced exercises you will also work with slightly more advanced programming concepts, such as implementation of a <abbr title="Proportional and Integral Controller">PI</abbr> Controller and simple <debughl><a href="https://en.wikipedia.org/wiki/Finite-state_machine">finite state machines</a></debughl>, (we will provide programming templates for both of these topics).</li>
 </ol>
-<p>As discussed in the <debughl><a href="../">Introduction document</a></debughl>, This activity is split into several assessed exercises. This section describes the Basic Exercises, as follows:</p>
+<p>Focus on system-level integration, combining individual hardware drivers to achieve complex closed-loop functionality. These tasks introduce higher-level embedded control strategies, including Proportional-Integral (<abbr title="Proportional and Integral Controller">PI</abbr>) control loops and <debughl><a href="https://en.wikipedia.org/wiki/Finite-state_machine">Finite State Machines (FSMs)</a></debughl> (starter templates will be provided).</p>
+<p>Basic Exercises List
+As outlined in the <debughl><a href="../">Module Introduction Guide</a></debughl>, you must complete the following five foundational exercises:</p>
 <ul>
 <li><strong>Basic:</strong> <debughl><a href="ledPattern/"><abbr title="Light Emitting Diode">LED</abbr> Pattern</a></debughl></li>
 <li><strong>Basic:</strong> <debughl><a href="IrSensor/"><abbr title="Infra Red">IR</abbr> Sensor Measurement + Graph</a></debughl></li>
@@ -786,13 +826,18 @@
 <li><strong>Basic:</strong> <debughl><a href="DcMotor/">DC Motor</a></debughl></li>
 <li><strong>Basic:</strong> <debughl><a href="EncodeMotor/">Encoders + Motor</a></debughl></li>
 </ul>
-<p>You must complete, and have had marked, all of these exercises before you can gain credit for the <debughl><a href="../AdvancedExercises/">Advanced Exercises</a></debughl>.</p>
-<p>A suggested timeline for achieving only the basic exercises is provided in the <debughl><a href="../#Timeline">introductory document</a></debughl>.</p>
+<div class="admonition note">
+<p class="admonition-title">Prerequisite Progression Rule</p>
+<p>You must complete and obtain assessment sign-off for all five Basic Exercises before you can receive credit for any <debughl><a href="../AdvancedExercises/">Advanced Exercises</a></debughl>.</p>
+</div>
+<p>Refer to the <debughl><a href="../#Timeline">Module Schedule &amp; Timeline</a></debughl> for the recommended completion schedule across laboratory sessions.</p>
+<h3 id="assessment-demonstrations">Assessment &amp; Demonstrations</h3>
+<p>Each exercise is evaluated during timetabled laboratory sessions by Graduate Teaching Assistants (<abbr title="Graduate Teaching Assistants">GTAs</abbr>) using the marking criteria at the end of each exercise. When you have completed and verified an exercise circuit and sketch, notify a <abbr title="Graduate Teaching Assistant">GTA</abbr> to demonstrate your working system.</p>
 <p>Each of these exercises will be assessed during the laboratory session, using the assessment structure outlined in the Appendix section of this document. When you have completed an assessed exercise, you should get your work marked one of the <abbr title="Graduate Teaching Assistants">GTAs</abbr>. </p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>DO NOT leave all your exercises until the end of the 3rd laboratory session to get marked.</strong> This may result in you running out of time to get your work marked within the allotted time, and you <strong><em>will</em></strong> lose marks. Instead, you should get your work marked as you complete each assessed exercise.</p>
-</div></div>
+<p class="admonition-title">Marking Deadline &amp; Queue Management</p>
+</div>
+<p>Do NOT delay marking until the final laboratory session. <abbr title="Graduate Teaching Assistants">GTAs</abbr> cannot guarantee sign-offs if a backlog occurs near the end of the final session, and unverified exercises will result in lost marks. Request marking immediately upon completing each individual exercise.</p></div>
 
 
 
