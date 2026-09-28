@@ -1938,7 +1938,7 @@ The electronic system for the robot can be built incrementally as required for e
                     <section class='print-page md-section' id='section-5' heading-number='5'>
                         <h1>Basic Exercises<a class='headerlink' href='#section-5' title='Permanent link'></a>
                         </h1>
-                    <section class="print-page" id="basicexercises" heading-number="5.1"><h1 id="basicexercises-basicexercises">Introduction to the Basic Exercises</h1><div><h2 id="basic-exercises">Basic Exercises</h2>
+                    <section class="print-page" id="basicexercises" heading-number="5.1"><div><h1 id="basic-exercises">Basic Exercises</h1>
 <p>The laboratory practicals are structured into two distinct tiers:</p>
 <ol>
 <li><strong>Basic Exercises:</strong> Focus on fundamental interfacing techniques, sensor signal acquisition, and low-level actuator control.</li>
@@ -1959,7 +1959,7 @@ As outlined in the <debughl><a href="#.">Module Introduction Guide</a></debughl>
 <p>You must complete and obtain assessment sign-off for all five Basic Exercises before you can receive credit for any <debughl><a href="#advancedexercises">Advanced Exercises</a></debughl>.</p>
 </div>
 <p>Refer to the <debughl><a href="#index-Timeline">Module Schedule &amp; Timeline</a></debughl> for the recommended completion schedule across laboratory sessions.</p>
-<h3 id="basicexercises-assessment-demonstrations">Assessment &amp; Demonstrations</h3>
+<h2 id="basicexercises-assessment-demonstrations">Assessment &amp; Demonstrations</h2>
 <p>Each exercise is evaluated during timetabled laboratory sessions by Graduate Teaching Assistants (<abbr title="Graduate Teaching Assistants">GTAs</abbr>) using the marking criteria at the end of each exercise. When you have completed and verified an exercise circuit and sketch, notify a <abbr title="Graduate Teaching Assistant">GTA</abbr> to demonstrate your working system.</p>
 <p>Each of these exercises will be assessed during the laboratory session, using the assessment structure outlined in the Appendix section of this document. When you have completed an assessed exercise, you should get your work marked one of the <abbr title="Graduate Teaching Assistants">GTAs</abbr>. </p>
 <div class="admonition warning">
@@ -2029,6 +2029,7 @@ In this part, you will write a program to generate a repeating output sequence a
 <p class="admonition-title">Standardized Layout Recommendation</p>
 <p>We strongly advise following the chassis breadboard layout and pin assignments specified in the <debughl><a href="#robotbuild-LEDPatternBuild">Building the Robot Document</a></debughl>. Adhering to these standardized pin assignments ensures compatibility with subsequent code examples and allows laboratory staff and <abbr title="Graduate Teaching Assistants">GTAs</abbr> to assist you efficiently during troubleshooting.</p>
 </div>
+<p><a name="section-2-integrate-the-potentiometer-value-into-your-led-sequence-program"></a></p>
 <h2 id="basicexercises-ledpattern-part-2-potentiometer-control-of-the-sequence-rate">Part 2: Potentiometer Control of the Sequence Rate</h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
@@ -2106,8 +2107,9 @@ In this part, you will write a program to generate a repeating output sequence a
 <li><strong>Prepare for Marking Sign-Off:</strong> Save your finalized sketch (Part3_Integrated_LED_Pattern.ino). Verify your system satisfies all criteria in the <debughl><a href="#basicexercises-ledpattern-ledFlashEx">Exercise Assessment</a></debughl> before calling a <abbr title="Graduate Teaching Assistant">GTA</abbr> to demonstrate your working circuit and code.</li>
 </ol>
 <p><a name="ledFlashEx"></a></p>
-<h2 id="basicexercises-ledpattern-exercise-assessment">Exercise Assessment</h2>
-<h3 id="basicexercises-ledpattern-what-do-we-expect-to-see-from-the-demonstration">What do we expect to see from the demonstration?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What do we expect to see from the demonstration?</strong></p>
 <ul>
 <li>The three <abbr title="Light Emitting Diodes">LEDs</abbr> should be flashing in a continuously repeating sequence of at least 8 different patterns.</li>
 <li>When you rotate the potentiometer to the right, the sequence should speed up, and when you rotate the potentiometer to the left, the sequence should slow down. There should be a continuous variation in sequence speed proportional to the position of the potentiometer between the left and right extremes.</li>
@@ -2116,6 +2118,7 @@ In this part, you will write a program to generate a repeating output sequence a
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div>
 <h2 id="basicexercises-ledpattern-appendix-potino-code">Appendix: POT.INO Code</h2>
 <p><a name="potInoCode"></a></p>
@@ -2226,7 +2229,9 @@ The Averaging Code, above, sums the result of 8 <abbr title="Analogue to Digital
   <li> Perform an experiment to characterise the Sharp IR sensor between 1cm and 80cm distance. The results from this experiment should be a graph of the ADC measurement value from the Sharp IR distance sensor, against the distance from the target. Note: Your graph should have a similar characteristic to that shown in <debughl><a href="#basicexercises-irsensor-irSensorDist">Fig 3</a></debughl>.</li>
 </ol>
 
-<h2 id="basicexercises-irsensor-what-we-expect-to-see-from-your-demonstration">What we expect to see from your demonstration?</h2>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
 <p>When completed, your code should allow you to run an experiment to draw the following graph:</p>
 <ul>
 <li>A graph of <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value against distance.</li>
@@ -2238,6 +2243,7 @@ You should plot your results in a computer package, such as Excel or MATLAB, wit
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div></div></section><section class="print-page" id="basicexercises-driveservomotor" heading-number="5.4"><div><h1 id="drive-the-servo-motor-exercise">Drive the Servo Motor Exercise</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
@@ -2434,13 +2440,13 @@ You should plot your results in a computer package, such as Excel or MATLAB, wit
 <p>Read the <debughl><a href="#disclaimer">Disclaimer</a></debughl> document before proceeding.</p>
 <p><strong>The University or <abbr title="Multidisciplinary Engineering Education">MEE</abbr> take no responsibility for damaged laptops due to this issue.</strong> We recommend using the University IT equipment to mitigate damaging your personal equipment.</p>
 </div>
-<h3 id="basicexercises-driveservomotor-what-do-we-expect-to-see-from-your-demonstration">What do we expect to see from your demonstration?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
 <p>Your Servo must be powered from the external power supply during this exercise.</p>
 <ul>
-<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set as close to horizontal as possible.<ul>
+<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should be set as close to horizontal as possible.</li>
 <li>You will need to adjust the initial angle of the servo in code to achieve this.</li>
-</ul>
-</li>
 <li>The servo should wait 1 second before raising to as close to the vertical position as possible.</li>
 <li>The servo should wait 1 second before dropping to the horizontal position.</li>
 <li>The servo should wait 1 second before raising again to the vertical position.</li>
@@ -2454,6 +2460,7 @@ You should plot your results in a computer package, such as Excel or MATLAB, wit
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div></div></section><section class="print-page" id="basicexercises-dcmotor" heading-number="5.5"><div><h1 id="dc-motor-exercise">DC Motor Exercise</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
@@ -2720,7 +2727,9 @@ The pin descriptions for each pins on the TB6612FNG breakout board are described
 </ul>
 </li>
 </ul>
-<h3 id="basicexercises-dcmotor-what-do-we-expect-to-see-in-the-demonstration">What do we expect to see in the demonstration?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
 <ul>
 <li>Demonstrate that you have fulfilled the requirements of the exercise with your working system.</li>
 <li>The mapping of the potentiometer to shaft speed is consistent with the description above.</li>
@@ -2731,6 +2740,7 @@ The pin descriptions for each pins on the TB6612FNG breakout board are described
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div></div></section><section class="print-page" id="basicexercises-encodemotor" heading-number="5.6"><div><h1 id="interfacing-the-incremental-encoder-from-the-gear-motor">Interfacing the Incremental Encoder from the Gear Motor</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
@@ -2994,7 +3004,9 @@ During this exercise you will be required to integrate the code form:</p>
 </ul>
 </li>
 </ol>
-<h3 id="basicexercises-encodemotor-what-do-we-expect-to-see-in-the-demonstration">What do we expect to see in the demonstration?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
 <ul>
 <li>Demonstrate that you have fulfilled the requirements of the exercise with your working system.</li>
 <li>The rotational sequence for the output shaft as described above.</li>
@@ -3005,6 +3017,7 @@ During this exercise you will be required to integrate the code form:</p>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div>
 <h2 id="basicexercises-encodemotor-advanced-exercise-reading-multiple-encoders-efficiently-non-assessed">Advanced Exercise: Reading multiple encoders efficiently. (Non-Assessed)</h2>
 <div class="admonition note">
@@ -3376,7 +3389,9 @@ $$</p>
 <p>The <span class="arithmatex">\(K_p\)</span> and <span class="arithmatex">\(K_i\)</span> values are negative because of the negative slope of the <abbr title="Infra Red">IR</abbr> sensor response. </p>
 <p>The controller values have been selected to show a slight overshoot when the target is moved, if used with a control sample period of 10ms.</p>
 </div>
-<h3 id="advancedexercises-piirdist-what-do-we-expect-to-see-in-the-demonstration">What do we expect to see in the demonstration?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
 <ul>
 <li>At the start of the demonstration, your robot chassis should be placed approximately 30cm from the target, (the kit box stood up on its end works well for this).</li>
 <li>On resetting the Arduino, your lolly stick should go to the horizontal position, if it is not already there.</li>
@@ -3387,6 +3402,7 @@ $$</p>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div></div></section><section class="print-page" id="advancedexercises-piencoder" heading-number="6.3"><div><h1 id="closed-loop-control-using-the-encoder-as-a-feedback-sensor">Closed Loop Control Using the Encoder as a Feedback Sensor</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
@@ -3522,7 +3538,9 @@ $$</p>
 <p>The sampling time for the <abbr title="Proportional and Integral Controller">PI</abbr> controller should be set to 10ms.</p>
 <p>We recommend using the following controller gains: Kp = 4.0, Ki = 0.0. These controller values should give an oscillatory response.</p>
 </div>
-<h3 id="advancedexercises-piencoder-what-do-we-expect-to-see-from-the-demonstration">What do we expect to see from the demonstration?</h3>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
 <ul>
 <li>When the robot is reset, there is a delay of 3 seconds before the system starts</li>
 <li>The robot should move forward 30cm</li>
@@ -3543,6 +3561,7 @@ $$</p>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div></div></section><section class="print-page" id="advancedexercises-piirsequence" heading-number="6.4"><div><h1 id="sequenced-control-of-the-robot-chassis">Sequenced Control of the Robot Chassis</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
@@ -3586,12 +3605,22 @@ $$</p>
 <li>Stop and wait for a button press.</li>
 <li>When the button is pressed, wait for 1 second - repeat the sequence.</li>
 </ul>
-<h3 id="advancedexercises-piirsequence-what-do-we-expect-to-see-from-the-demonstration">What do we expect to see from the demonstration?</h3>
-<p>Show code.</p>
-<p>Use above sequence.</p>
+<div class="admonition warning">
+<p class="admonition-title">Exercise Assessment</p>
+<p><strong>What we expect to see from your demonstration?</strong></p>
+<ul>
+<li>Demonstrate the the above sequence to the <abbr title="Graduate Teaching Assistant">GTA</abbr></li>
+<li>Show your code to the <abbr title="Graduate Teaching Assistant">GTA</abbr> to demonstrate that you have implemented:<ul>
+<li>Closed loop <abbr title="Proportional and Integral Controller">PI</abbr> controllers for the <abbr title="Infra Red">IR</abbr> sensor and encoder position control states</li>
+<li>A <code>switch</code> statement to achieve the state machine behaviour of the system</li>
+<li>All timing using the millisecond tick timer, milli(), i.e. your loop function must not contain delay() or delayMicroseconds() functions.</li>
+</ul>
+</li>
+</ul>
 <div class="admonition success">
 <p class="admonition-title">Now Get Your Work Marked by a <abbr title="Graduate Teaching Assistant">GTA</abbr></p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
+</div>
 </div></div></section></section><section class="print-page" id="assessment" heading-number="7"><div><h1 id="assessment-information">Assessment Information</h1>
 <h2 id="assessment-assessed-exercises">Assessed Exercises</h2>
 <p>There are 9 assessed exercises, each will build on a previous exercise. Six of these exercises are classed as “<debughl><a href="#basicexercises">Basic</a></debughl>” and we expect that all groups should be able to complete these using the three laboratory classes and maybe a little working outside the lab. These <debughl><a href="#basicexercises">Basic</a></debughl> exercises are worth 60% of the total assessment mark. There are also three “<debughl><a href="#advancedexercises">Advanced</a></debughl>” exercises, which are an extension to the Basic exercises, and <strong>will</strong> require extra work outside the laboratory session to complete – these are worth the final 40% of the assessment mark. </p>
