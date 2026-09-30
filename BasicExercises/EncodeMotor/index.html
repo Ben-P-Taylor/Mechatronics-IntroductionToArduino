@@ -654,9 +654,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-exercise-reading-multiple-encoders-efficiently-non-assessed" class="md-nav__link">
+  <a href="#extension-exercise-reading-multiple-encoders-efficiently-non-assessed" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced Exercise: Reading multiple encoders efficiently. (Non-Assessed)
+      Extension Exercise: Reading multiple encoders efficiently. (Non-Assessed)
     </span>
   </a>
   
@@ -893,9 +893,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-exercise-reading-multiple-encoders-efficiently-non-assessed" class="md-nav__link">
+  <a href="#extension-exercise-reading-multiple-encoders-efficiently-non-assessed" class="md-nav__link">
     <span class="md-ellipsis">
-      Advanced Exercise: Reading multiple encoders efficiently. (Non-Assessed)
+      Extension Exercise: Reading multiple encoders efficiently. (Non-Assessed)
     </span>
   </a>
   
@@ -923,8 +923,9 @@
 <p>This is an assessed Exercise. When you have completed the <a href="#encoderExercise">Assessed Exercise</a>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#EncoderPic">Building the Robot: Fig. 15</a></debughl>. Furthermore, you should ensure that all the connections described in the <debughl><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debughl> are correct.</p>
+<p class="admonition-title">Prerequisite for this Exercise</p>
+<p>Before starting this exercise, verify that you have completed the circuit on the robot chassis as illustrated in <debughl><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debughl> and all connections are correct and secure.</p>
+<p>Before you start this exercise, you should complete the <debughl><a href="../DcMotor/">DC Motor Exercise</a></debughl>.</p>
 </div>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
@@ -935,42 +936,47 @@
 </figure>
 
 <h2 id="introduction-and-background">Introduction and Background</h2>
-<p>Rotary sensors are used to measure the position and/or speed of a rotating body, (generally a shaft), and can either have an analogue or digital output. The term rotary encoder generally described a digital rotational position sensor. </p>
-<p>Rotary position encoders come in two different types:</p>
+<p>Rotary sensors measure the angular position and/or rotational speed of a rotating body (typically a shaft) using either analog or digital outputs. The term rotary encoder generally describes a digital rotational position sensor.</p>
+<p>Rotary encoders fall into two primary categories:</p>
 <ol>
-<li>Absolute position encoder: This class of devices will indicate the absolute position of a rotating body. This measurement does not require an initial position reference. </li>
-<li>Incremental position encoder: This class of device will indicate the position of the rotating shaft, relative to an initial position or index point. Absolute position can be obtained by knowing the exact initial position, at start-up, or index point, (if the device has an index pulse).</li>
+<li><strong>Absolute Position Encoders:</strong> Devices in this class output the exact angular position of the rotating shaft immediately upon power-up, without requiring an initial zero reference or homing sequence.</li>
+<li><strong>Incremental Position Encoders:</strong> Devices in this class report relative changes in angular displacement from a starting reference point. Absolute position can only be determined if the system records a known initial start-up position or detects an explicit index pulse (Z-channel).</li>
 </ol>
-<p>The following link will provide you with some further insight into rotary position encoders:</p>
-<p><a href="https://en.wikipedia.org/wiki/Rotary_encoder">https://en.wikipedia.org/wiki/Rotary_encoder</a></p>
-<p>Rotary speed can be measured by a rotary shaft encoder, often called a tachometer – we will not further discuss these devices in this document. Shaft speed can be calculated from the position encoder, by measuring the displacement of a rotary shaft and dividing this by the time interval between measurements.</p>
-<p>The sensing technologies for position encoders varies between devices, but the two most common are optical and magnetic. The incremental encoder used on the FIT0450 gear motor, (contained within the Mechatronics kit), is a magnetic quadrature encoder. This is a specific type of incremental encoder called a quadrature encoder and has two square wave outputs, A and B, both offset by 90°, as illustrated in <debughl><a href="#encoderAandB">Fig 1</a></debughl>.</p>
+<p>For additional background on encoder working principles, refer to the <debughl><a href="https://en.wikipedia.org/wiki/Rotary_encoder" target="_blank">Wikipedia Entry on Rotary Encoders</a></debughl>.</p>
+<p>Rotary speed can be measured directly using a rotary shaft encoder designed as a tachometer (though dedicated tachometers will not be covered further in this document). Alternatively, rotational speed (<span class="arithmatex">\(\omega\)</span>) can be calculated from a position encoder by measuring angular displacement (<span class="arithmatex">\(\Delta\theta\)</span>) over a known sampling time interval (<span class="arithmatex">\(\Delta t\)</span>):</p>
+<div class="arithmatex">\[\omega = \frac{\Delta\theta}{\Delta t}\]</div>
+<p>Sensing technologies for position encoders vary across designs, with optical and magnetic sensing being the two most common approaches. The incremental encoder integrated into the FIT0450 geared DC motor (included in your Mechatronics kit) is a magnetic quadrature encoder. Quadrature encoders output two channel square waves, designated Channel A and Channel B, which are phase-shifted relative to each other by <span class="arithmatex">\(90^\circ\)</span>, as illustrated in <debughl><a href="#encoderAandB">Fig 2</a></debughl>.</p>
 <figure>
   <a name="encoderAandB"></a>
   <a class="glightbox" href="../../Images/Encoder%20A%20and%20B%20Signals.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Example of the quadrature encoder output." src="../../Images/Encoder%20A%20and%20B%20Signals.png"></a>
   <figcaption>Example of the quadrature encoder output.</figcaption>
 </figure>
-<p>Figure 20 shows the quadrature encoder attached to the FIT0450 gear. This device has a 120:1 gear box attached between the motor and the output shaft. There is a quadrature encoder, comprising of an 8 pole-pair magnetic disc, attached to the back of the motor shaft, and 2 offset Hall effect switch sensors, mounted to the motor body.</p>
-<div class="admonition info title">
-<p class="admonition-title">What is the difference between a sensor and a switch sensor?</p>
-<p>With an analogue sensor device, the output of the device is a continuous variable quantity and may require signal conditioning before the output can be read by a microcontroller. In the case of a switch sensor, the output is either a LOW or HIGH digital level, and the switch sensor contains all or most of the signal conditioning required to interface with a microcontroller.</p>
+<p><debughl><a href="#encoderPic">Fig 3</a></debughl> shows the magnetic quadrature encoder integrated into the FIT0450 geared DC motor assembly. This actuator features a <span class="arithmatex">\(120:1\)</span> reduction gearbox positioned between the DC motor shaft and the primary output drive. The sensing hardware consists of an <span class="arithmatex">\(8\)</span>-pole-pair magnetic disc mounted directly onto the rear armature shaft, paired with two spatially offset Hall-effect switch sensors fixed to the motor casing.</p>
+<div class="admonition info">
+<p class="admonition-title">Analogue Sensors vs. Digital Switch Sensors</p>
+<p>An analogue sensor produces a continuous, variable output signal (such as a changing voltage level) that typically requires external signal conditioning or filtering before being processed by a microcontroller's <abbr title="Analogue to Digital Converter">ADC</abbr>.</p>
+<p>In contrast, a <strong>digital switch sensor</strong> incorporates internal signal-conditioning circuitry (e.g., Schmitt triggers or comparators) to directly output clean <code>HIGH</code> (<span class="arithmatex">\(5\,\text{V}\)</span>) or <code>LOW</code> (<span class="arithmatex">\(0\,\text{V}\)</span>) logic levels, enabling direct connection to digital GPIO pins.</p>
 </div>
 <figure>
   <a name="encoderPic"></a>
   <a class="glightbox" href="../../Images/Encoder%20Picture.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Connections between the encoder and the Arduino and components of the encoder." src="../../Images/Encoder%20Picture.png"></a>
   <figcaption>Connections between the encoder and the Arduino and components of the encoder.</figcaption>
 </figure>
-<p>As the disk rotates, each time a north pole of the magnet passes a Hall effect switch, the output changes from 0 to 1 and back to 0 when the south pole passes. This results in a square wave output from the Hall effect switch as the shaft rotates. The encoder has two Hall outputs, A and B, one for each Hall effect switch sensor. The sensors are offset 90°, (electrically), around the circumference of the disk, consequently, outputs A and B are 90° out of phase with respect to each other, as shown in <debughl><a href="#encoderAandB">Fig 1</a></debughl>. This difference in phase is crucial in determining the direction of rotation of the disc, such that, output A will lead B in one direction and output B will lead A in the other.</p>
-<p>The number of magnetic sections of the disc determines the number of “pulses per revolution”, which is a characteristic of each encoder. This is important in determining the minimum detectable angle of rotation and, therefore, the accuracy of the system overall. </p>
-<p>As mentioned above, there are 8 magnetic pole pairs on the disk, consequently, there are 8 pulses on the output of each sensor for one revolution of the magnetic disk. The motor has a 120:1 gear box, therefore, for one rotation of the output shaft there will be <span class="arithmatex">\(8\times120=960\)</span> pulses on the output of each sensor (or <span class="arithmatex">\(960\times4\)</span> digital edges). The positional accuracy of the encoder is, therefore, 960 pulses per revolution, or:</p>
+<p>As the magnetic disc rotates, each transition of a north pole past a Hall-effect switch toggles the output logic state from <code>0</code> to <code>1</code> (and back to 0 when a south pole passes). This continuous transition produces a digital square wave at the output of each switch sensor. The encoder contains two outputs, <strong>Channel A</strong> and <strong>Channel B</strong>, corresponding to the two Hall sensors. The physical sensors are spatially positioned <span class="arithmatex">\(90^\circ\)</span> electrically out of phase around the disc's circumference. Consequently, outputs A and B generate square waves offset by <span class="arithmatex">\(90^\circ\)</span>, as shown in <debughl><a href="#encoderAandB">Fig 2</a></debughl>. This phase shift is critical for directional decoding: Channel A leads Channel B during clockwise rotation, whereas Channel B leads Channel A during counter-clockwise rotation.</p>
+<p>For the FIT0450 motor, the magnetic disc contains <span class="arithmatex">\(8\)</span> pole pairs, yielding <span class="arithmatex">\(8\)</span> full square-wave pulses per sensor for a single revolution of the motor armature shaft. Because the motor is fitted with a <span class="arithmatex">\(120:1\)</span> reduction gearbox, one complete revolution of the main output shaft corresponds to:</p>
 <div class="arithmatex">\[
- \frac{360°}{960 \space pulses \space per \space revolution} = 0.375° \space per \space pulse.
+8 \text{ pulses/rev} \times 120 = 960 \text{ pulses per output shaft revolution}
 \]</div>
-<p>When using a quadrature encoder with a microcontroller, the rotation of the encoder can be fast, leading to high frequency pulses. As a result, trying to read the states of the encoder outputs in the Arduino loop function is not a reliable method for reading the quadrature encoder. If the microcontroller is busy executing other instructions when the pin’s state changes, then the pulse is not counted, resulting in a mismatch between the real angle and the software measurement. A much more reliable way of acquiring the outputs A and B is through a special feature of the microcontroller called an interrupt. The interrupt module can be used to sense an event on a digital input, (in this case the encoder output), and run a special piece of code, to “service” the interrupt. This special piece of code is called an interrupt service routine, or ISR.</p>
-<p>In the case of reading the quadrature encoder, we use a level change interrupt on the pins of the microcontroller, attached to the quadrature encoder. Each time there is a level transition in either output A or B, the main code is interrupted and the ISR is run by the microcontroller. This means that whatever the microcontroller is busy doing, the execution is stopped to process the interrupt, and no pulses are lost.</p>
-<p>There several ways of using the interrupts to measure the encoder outputs. For maximum resolution, two interrupts are required, but a single interrupt can be used to produce a position resolution of half this resolution. </p>
-<p>The method, illustrated in <debughl><a href="#EncoderBits">Table 1</a></debughl>, uses a counter to track the “pulse” position of the encoder, and two interrupts for the two inputs, A and B. One ISR is attached to the A pin interrupt and processes the event associated with a change in the A input value, and similarly, there is an ISR for input pin B.
-Table 3 illustrates the operation of the two ISR servicing the A and B pin interrupts. When an encoder interrupt occurs on either pin A or B, the pin values are compares and the counter value is either incremented or decremented, depending on the A and B pin values and the logical function described in <debughl><a href="#EncoderBits">Table 1</a></debughl>. <debughl><a href="#EncoderBits">Table 1</a></debughl> also shown which ISR each line of the table is processed.</p>
+<p>Counting both rising and falling edges across both channels quadruples the available measurement resolution (<span class="arithmatex">\(960 \times 4 = 3,840 \text{ state transitions/rev}\)</span>). Base pulse-counting accuracy without quadrature edge decoding corresponds to <span class="arithmatex">\(960 \text{ PPR}\)</span>, equivalent to:</p>
+<div class="arithmatex">\[
+\frac{360^\circ}{960 \text{ pulses}} = 0.375^\circ \text{ per pulse}
+\]</div>
+<p>At higher rotational speeds, encoder outputs generate high-frequency pulse trains. Polling pin states sequentially inside the standard Arduino <code>loop()</code> function is unreliable; if the microcontroller is executing other tasks during a pin transition, pulses will be missed, leading to cumulative position errors. To ensure reliable signal processing, encoder channels should be sampled using hardware <strong>interrupts</strong>. The microcontroller's interrupt module detects logic state changes on dedicated General Purpose Input/Output (GPIO) pins, temporarily pausing main thread execution to instantly run a specialized function known as an <strong>Interrupt Service Routine (<abbr title="Interrupt Service Routine">ISR</abbr>)</strong>.</p>
+<p>Reading a quadrature encoder relies on level-change interrupts configured on the microcontroller's digital input pins connected to Channels A and B. Whenever a logic-level transition occurs on either channel, the main execution thread is interrupted and the corresponding Interrupt Service Routine (<abbr title="Interrupt Service Routine">ISR</abbr>) is immediately executed. Consequently, processor tasks are temporarily paused to service the encoder event, preventing lost pulses.</p>
+<p>In the case of reading the quadrature encoder, we use a level change interrupt on the pins of the microcontroller, attached to the quadrature encoder. Each time there is a level transition in either output A or B, the main code is interrupted and the <abbr title="Interrupt Service Routine">ISR</abbr> is run by the microcontroller. This means that whatever the microcontroller is busy doing, the execution is stopped to process the interrupt, and no pulses are lost.</p>
+<p>Interrupts can be configured in multiple ways to track encoder outputs. Achieving maximum resolution (<span class="arithmatex">\(4\times\)</span> decoding) requires configuring interrupts on both input pins, whereas using a single interrupt on one channel yields half the resolution (<span class="arithmatex">\(2\times\)</span> decoding). </p>
+<p>The dual-interrupt method, outlined in <debughl><a href="#EncoderBits">Table 1</a></debughl>, uses a position counter variable alongside two distinct <abbr title="Interrupt Service Routines">ISRs</abbr> to track movement. One <abbr title="Interrupt Service Routine">ISR</abbr> is attached to Pin A to process transitions on Channel A, while a second <abbr title="Interrupt Service Routine">ISR</abbr> is attached to Pin B for Channel B.</p>
+<p><debughl><a href="#EncoderBits">Table 1</a></debughl> details the operational logic for both <abbr title="Interrupt Service Routine">ISR</abbr> handlers. When an interrupt occurs on either pin, the current state of Channel A is compared against Channel B. Based on these pin states and the logical conditions summarized in Table 1, the position counter is either incremented or decremented. <debughl><a href="#EncoderBits">Table 1</a></debughl> also indicates which <abbr title="Interrupt Service Routine">ISR</abbr> processes each specific condition row.</p>
 <p><a name="EncoderBits"></a></p>
 <table>
   <thead>
@@ -989,9 +995,8 @@ Table 3 illustrates the operation of the two ISR servicing the A and B pin inter
   <caption>Control operation of the H-bridge.</caption>
 </table>
 
-<p>The following code snippet is a framework to setup pins D2 and D3 as digital inputs and assign each one an interrupt service routine, <code>ChannelA()</code> and <code>ChannelB()</code>, respectively.</p>
-<p>The code provided, below, is a framework to set up the interrupt capable, digital input pins for the Arduino Uno, D2 and D3. The functions <code>ChannelA()</code> and <code>ChannelB()</code> are declared as ISRs using the <code>attachInterrupt()</code> function.</p>
-<p></p><div class="language-Arduino highlight"><span class="filename">How to setup The D2 and D3 pins as interrupt capable</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define PINA 2 </span><span class="c1">// A output of the  encoder attached to PIN 2 of the Arduino</span>
+<p>The code snippet below provides a framework for configuring digital pins <code>D2</code> and <code>D3</code> on the Arduino Uno as interrupt-capable inputs. Using the <code>attachInterrupt()</code> function, these pins are assigned to their respective <abbr title="Interrupt Service Routines">ISRs</abbr>, <code>ChannelA()</code> and <code>ChannelB()</code>, which trigger on any state transition (<code>CHANGE</code>).</p>
+<div class="language-Arduino highlight"><span class="filename">How to setup The D2 and D3 pins as interrupt capable</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define PINA 2 </span><span class="c1">// A output of the  encoder attached to PIN 2 of the Arduino</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define PINB 3 </span><span class="c1">// B output of the  encoder attached to PIN 3 of the Arduino</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kr">volatile</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">enc_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Pulse count from the quadrature encoder</span>
@@ -1022,30 +1027,34 @@ Table 3 illustrates the operation of the two ISR servicing the A and B pin inter
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="p">...</span>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">}</span>
 </span></code></pre></div>
-See the following link for a fuller description of the attachInterrupt() function:
-<p><debughl><a href="https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/" target="_blank">https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/</a></debughl></p>
-<p>We use the CHANGE option with the attachInterrupt() function to ensure that the interrupt is generated for both rising and falling transitions of the interrupt pins, A and B.</p>
-<p>Note: the enc_count variable has been declared as “volatile”. This is required for variables that will be changed in an ISR, because the memory storage needs to be handled slightly differently for that usage of variables. See the following link for more details:</p>
-<p><debughl><a href="https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/" target='"_Blank'>https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/</a></debughl></p>
-<div class="admonition note title">
-<p class="admonition-title">Note Regarding Interrupt Pins on the Arduino</p>
-<p>On the Arduino UNO, only pins D2 and D3 can be used with the attachInterrupt() function. On an Arduino Mega, pins D2, D3, D18, D19, D20, D21 are available (D20 and D21 cannot be used if I2C is used used (I2C is a communication protocol for some specific sensors; not among those in the Mechatronics kit)). </p>
+<p>For a detailed technical description of the function, refer to the <a href="https://docs.arduino.cc/language-reference/en/functions/external-interrupts/attachInterrupt/" target="_blank">official Arduino attachInterrupt() Reference Guide</a>.</p>
+<p>The <code>CHANGE</code> interrupt mode is passed to <code>attachInterrupt()</code> to ensure an interrupt fires on both rising (<span class="arithmatex">\(0 \rightarrow 1\)</span>) and falling (<span class="arithmatex">\(1 \rightarrow 0\)</span>) signal edges on Channels A and B, maximizing pulse count resolution.</p>
+<div class="admonition note">
+<p class="admonition-title">The <code>volatile</code> Keyword Qualifier</p>
+<p>The enc_count global variable is declared with the volatile qualifier. Any variable modified within an <abbr title="Interrupt Service Routine">ISR</abbr> and read in the main loop must be qualified as volatile. This directs the compiler to load the variable from RAM rather than caching it in a CPU register, ensuring thread-safe reads during asynchronous interrupt events.</p>
+<p>For further information, consult the <a href="https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/" target="_blank">Arduino <code>volatile</code> Reference Guide</a>.</p>
 </div>
-<p>Before attempting to control the rotation of the shaft of a DC motor, you should convert the encoder output into a useful value, suggestions are output shaft revolutions or wheel angle. The following equations can be used to calculate these values:</p>
+<div class="admonition note">
+<p class="admonition-title">Arduino Hardware Interrupt Pin Allocation</p>
+<p>On the <strong>Arduino Uno</strong>, hardware interrupts are available strictly on digital pins <code>D2</code> (Interrupt 0) and <code>D3</code> (Interrupt 1).</p>
+<p>On the <strong>Arduino Mega 2560</strong>, pins <code>D2</code>, <code>D3</code>, <code>D18</code>, <code>D19</code>, <code>D20</code>, and <code>D21</code> support external interrupts. Note that pins <code>D20</code> (SDA) and <code>D21</code> (SCL) cannot be used for interrupts if <span class="arithmatex">\(\text{I}^2\text{C}\)</span> bus communication is active (though <span class="arithmatex">\(\text{I}^2\text{C}\)</span> is not utilized by the sensors in this Mechatronics kit).</p>
+</div>
+<p>Before implementing closed-loop DC motor control, converts raw pulse counts into physical engineering units—such as output shaft revolutions or angular position (<span class="arithmatex">\(\theta\)</span>). Calculate output shaft revolutions using:</p>
 <div class="arithmatex">\[
 shaft \space revolutions=\frac{pulse \space count}{pulses \space per \space revolution}
 \]</div>
-<p>If the angle is required instead:</p>
+<p>To compute angular displacement in degrees (<span class="arithmatex">\(^\circ\)</span>):</p>
 <div class="arithmatex">\[
-shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per \space revolution}
+shaft \space angle=360°\times\frac{pulse \space count}{pulses \space per \space revolution}
 \]</div>
-<div class="admonition note title">
-<p class="admonition-title">Remember</p>
-<p>The above Equations relate to complete pulses on each data line. The presented code will increment a counter for each digital edge on both A and B data lines, therefore, the shaft ravolutions and the shaft angle will be quarter of the calculated value, using the code templates provided.</p>
+<div class="admonition note">
+<p class="admonition-title">Quadrature Edge Counting &amp; Resolution Scaling</p>
+<p>The equations above assume a pulse count based on full square-wave cycles (<span class="arithmatex">\(1\times\)</span> resolution). Because the provided dual-<abbr title="Interrupt Service Routine">ISR</abbr> framework triggers on every rising and falling edge across both channels (<span class="arithmatex">\(4\times\)</span> quadrature state decoding), the total accrued edge count is four times higher.</p>
 </div>
 <h2 id="reading-the-output-of-the-incremental-encoder">Reading the Output of the Incremental Encoder</h2>
-<p>The aim of this exercise is to read the encoder position and display this on the serial monitor.</p>
-<p>Before starting, you should ensure that all the connections described in the <debughl><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debughl> are correct.</p>
+<p>The aim of this exercise is to sample the rotary encoder position using interrupts and continuously output the accumulated position data to the Arduino <abbr title="Integrated Development Environment">IDE</abbr> Serial Monitor.</p>
+<p>Before proceeding, verify that all hardware wiring and pin connections comply with the specifications in the <debughl><a href="../../RobotBuild/#Encoder">Building the Robot: Circuit Layout for the Encoders and Motor Exercise</a></debughl> guide.</p>
+<p>The following code template below provides the foundation for reading the FIT0450 incremental encoder. This sketch is incomplete; you must apply the technical principles covered in the preceding theory sections to implement the missing logic during the assessed exercise below.</p>
 <p><a name="TwoInterruptEncoder"></a>
 </p><div class="language-Arduino highlight"><span class="filename">TwoInterruptEncoder.ino Example Code Template</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#define ENC_K [Insert the value for the FIT0450 Gearmotor] </span><span class="c1">//Number of edges</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1">//  per revolution of the output shaft</span>
@@ -1130,31 +1139,32 @@ shaft \space revolutions=360°\times\frac{pulse \space count}{pulses \space per 
 </span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">  </span><span class="c1">// This time focus on the rows of the table where Output B is changing</span>
 </span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition note title">
-<p class="admonition-title">Remember</p>
-<p>This Interrupt Method counts the digital edges of the A and B signals, not the number of pulses. As a result, there are <span class="arithmatex">\(4\times\)</span> the number of edges to pulses, therefore, the output count will be <span class="arithmatex">\(4\times\)</span> greater than the number of pulses.</p>
+<div class="admonition note">
+<p class="admonition-title">Quadrature Edge Count vs. Pulse Count</p>
+<p>This dual-interrupt implementation detects every rising and falling logic edge across both Channel A and Channel B signals (<span class="arithmatex">\(4\times\)</span> quadrature edge decoding), rather than counting full square-wave pulses. Consequently, the accumulated count will be four times greater (<span class="arithmatex">\(4\times\)</span>) than the raw pulse count.</p>
 </div>
 <p><a name="encoderPosition"></a></p>
 <h2 id="reading-the-rotary-encoder-exercise">Reading the Rotary Encoder Exercise</h2>
-<p>The aim of this exercise is for you to develop the Encoder Read functionality before you attempt to use the encoders in conjunction with actuating the motor.</p>
-<p>This is a non-assessed exercise, but it is strongly recommended that you complete this exercise before proceeding, because it provides you with the first half of the requirements for the <debughl><a href="#encoderExercise">Assessed Exercise</a><debughl>.</debughl></debughl></p>
+<p>The aim of this exercise is to implement and verify rotary encoder signal acquisition prior to integrating DC motor actuation.</p>
+<p>While this exercise is non-assessed, completing it is strongly recommended before attempting subsequent tasks, as it establishes the foundational pulse-counting functionality required for the <debughl><a href="#encoderExercise" target="_blank">Assessed Exercise</a></debughl>.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Copy and paste the code provided, above, into a new Arduino sketch.</li>
-<li>The code for the pin A ISR, channelA(), is partially completed. You should implement the logic function for the A interrupt illustrated in <debughl><a href="#EncoderBits">Table 1</a></debughl>.</li>
-<li>Use your working for the <code>ChannelA()</code> code to write the code for the <code>ChannelB()</code> function.</li>
-<li>Modify the code to update the serial monitor display every 250ms.</li>
-<li>Ensure that you have set the <code>ENC_K</code> value to the number of digital edges per revolution, not number of pulses</li>
-<li>Run your code and rotate the motor wheel. The Serial Monitor should display the correct values.</li>
+<li>Copy and paste the starter code template provided above into a new Arduino sketch.</li>
+<li>The <abbr title="Interrupt Service Routine">ISR</abbr> for Channel A, ChannelA(), is partially implemented. Complete the function by applying the state-evaluation logic defined in <debughl><a href="#EncoderBits">Table 1</a></debughl>.</li>
+<li>Based on your implementation of ChannelA(), write the corresponding logic for the ChannelB() <abbr title="Interrupt Service Routine">ISR</abbr> function.</li>
+<li>Modify the code to update and print the encoder values to the Serial Monitor every <span class="arithmatex">\(250\,\text{ms}\)</span>.</li>
+<li>Ensure that the ENC_K constant is set to the total number of digital edges per output revolution, rather than the raw pulse count.</li>
+<li>Upload the code to your Arduino board and manually rotate the motor wheel. Verify that the Serial Monitor outputs accurate, real-time positional data and correctly indicates direction changes.</li>
 </ol>
 <div class="admonition note">
-<p class="admonition-title">Stop Using the <code>Delay()</code> Function</p>
-<p>For the timing of the serial monitor, you should use the millis() method in the TwoInterruptEncoder.ino template file, and not use the delay() method. Inserting delay functions into your code is bad practice and can cause problems during future development.</p>
+<p class="admonition-title">Avoid Using the <code>Delay()</code> Function</p>
+<p>For the timing of the serial monitor and other events, you should use the <code>millis()</code> method in the <code>TwoInterruptEncoder.ino</code> template file, and not use the <code>delay()</code> method. </p>
+<p>Using blocking functions like <code>delay()</code> is bad practice in embedded software development; it freezes processor execution, delays non-interrupt loop tasks, and causes significant timing jitter in multitasking systems, preventing your code from executing in a deterministic manner.</p>
 </div>
 <p><a name="encoderExercise"></a></p>
 <h2 id="assessed-exercise">Assessed Exercise</h2>
-<p>The aim of this exercise is to measure the wheel angle of the gear motor, using the quadrature encoder, and move the wheel angle to a series of desired locations.
-During this exercise you will be required to integrate the code form:</p>
+<p>The aim of this exercise is to measure the angular position of the motor wheel using the quadrature encoder and control the motor actuation to position the wheel accurately across a sequence of target setpoints.</p>
+<p>During this exercise, you are required to integrate your implementations from the following preceding tasks:</p>
 <ul>
 <li>The <debughl><a href="#encoderPosition">Reading the Rotary Encoder Exercise</a></debughl>, above</li>
 <li>The <debughl><a href="../DcMotor/#dcMotorExercise">DC Motor: Assessed Exercise</a></debughl></li>
@@ -1180,6 +1190,10 @@ During this exercise you will be required to integrate the code form:</p>
 </ul>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Non-Blocking Timing Requirements</p>
+</div>
+<p><strong>Remember:</strong> do not use blocking functions such as <code>delay()</code> in your code. Implement non-blocking timing using the <code>millis()</code> function, as demonstrated in the <code>TwoInterruptEncoder.ino</code> template file above.</p>
 <div class="admonition warning">
 <p class="admonition-title">Exercise Assessment</p>
 <p><strong>What we expect to see from your demonstration?</strong></p>
@@ -1195,69 +1209,84 @@ During this exercise you will be required to integrate the code form:</p>
 <p>Once you have completed your code and are satisfied with its operation, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for marking.</p>
 </div>
 </div>
-<h2 id="advanced-exercise-reading-multiple-encoders-efficiently-non-assessed">Advanced Exercise: Reading multiple encoders efficiently. (Non-Assessed)</h2>
+<h2 id="extension-exercise-reading-multiple-encoders-efficiently-non-assessed">Extension Exercise: Reading multiple encoders efficiently. (Non-Assessed)</h2>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">Formative Exercise</p>
 </div>
-<p>Note: This is a formative exercise and will not be assessed, but you may find it useful to complete, to help you with your group project.</p>
-<p>The aim of this exercise is to use the pin change interrupt on one of the input ports of the microcontroller, instead of the dedicated interrupt pins. (<em><strong>Note:</strong> this is a feature of AVR microcontrollers and may not be available on all devices or may be implemented slightly differently.</em>)</p>
-<p>When controlling a mobile robot, it is usually necessary to read more than one encoder. Unfortunately, when using an Arduino UNO, the <code>attachInterrupt()</code> instruction can only be used with digital pins D2 and D3. Moving to a board with more I/Os, such as the Mega, solves the problem to some degree. Still, when dealing with a larger number of encoders, a more general approach may be required. </p>
-<p>A simple and efficient way of acquiring two or more encoders, is to use the pin change interrupts. The pins on a microcontroller are grouped in ports. On typical Arduino boards each port consists of up to 8 pins. These can be found by looking at a pinout diagram for the board in use, such as shown for the Arduino Uno in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>.</p>
+<p>This extension exercise is non-assessed and formative. Completing this task is recommended, as the interrupt techniques covered here may be very useful for your group project.</p>
+<p>The aim of this exercise is to implement <strong>Pin Change Interrupts (PCINT)</strong> on micro-controller I/O ports rather than relying exclusively on dedicated external interrupt pins (INT0/INT1).</p>
+<p><em><strong>Note:</strong> Pin Change Interrupts are a hardware feature specific to AVR microcontrollers (e.g., ATmega328P). Implementation details and register configurations may vary across different architecture families.</em></p>
+<p>When controlling differential-drive or multi-axis mobile robots, multiple quadrature encoders must be sampled simultaneously. On the Arduino Uno, external hardware interrupts via attachInterrupt() are constrained strictly to digital pins D2 and D3. Upgrading to a larger development board—such as the Arduino Mega 2560—provides additional external interrupt pins, but scaling to higher encoder counts requires a more flexible architectural solution.</p>
+<p>A scalable and hardware-efficient approach for acquiring two or more quadrature encoders is utilizing <strong>Pin Change Interrupts (PCINT)</strong>. On AVR microcontrollers, General Purpose Input/Output (GPIO) pins are organized into 8-bit hardware <strong>Ports</strong>. For instance, on the Arduino Uno (ATmega328P), physical I/O pins map directly to <strong>Port B</strong>, <strong>Port C</strong>, and <strong>Port D</strong>, as illustrated in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>.</p>
 <figure>
   <a name="arduinoPinout"></a>
   <a class="glightbox" href="../../Images/ArduinoPinout.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Pinout of the Arduino UNO board." src="../../Images/ArduinoPinout.png"></a>
   <figcaption>Pinout of the Arduino UNO board.</figcaption>
 </figure>
-<p>In this exercise, you will consider the Port D pins on I/O D0 to D7, as illustrated in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>.</p>
-<div class="admonition note title">
-<p class="admonition-title">Note:</p>
-<p>This method does not use the Arduino libraries to use the interrupts. Instead, you will be interfacing with the microcontroller control resisters directly, unlike the interrupt pins method shown in Exercise 2, which uses the pre-build Arduino libraries.</p>
+<p>In this exercise, you will consider <strong>Port D</strong> pins on digital I/O <code>D0</code> through <code>D7</code>, as illustrated in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>.</p>
+<div class="admonition note">
+<p class="admonition-title">Direct Hardware Register Configuration</p>
+<p>This advanced method bypasses standard Arduino framework abstraction functions like <code>attachInterrupt()</code>. Instead, you will directly configure the microcontroller's low-level Control Registers (<code>PCICR</code>, <code>PCMSK2</code>), providing faster execution and lower interrupt overhead.</p>
 </div>
-<p>In order to use the pin change interrupts, you will need to:</p>
-<ul>
-<li>Determine which pins we wish to attach an interrupt to perform our operation.<ul>
-<li>Ideally this would be from a single port.</li>
-</ul>
-</li>
-<li>Enable the pin change interrupt for the port you wish to use.</li>
-<li>Select the pins we wish to use.</li>
-<li>Edit the associated interrupt service routine, ISR.<ul>
-<li>In your ISR, you will need determine which pin(s) has changed state and work accordingly.</li>
-</ul>
-</li>
-</ul>
-<p>This process is explained in more depth in the <debughl><a href="https://dronebotworkshop.com/interrupts/" target='"_blank'>DroneBot Workshop article</a></debughl>.</p>
-<p>The advantage of using this more advanced approach is that any pin on the microcontroller can be used to read encoder outputs, dramatically increasing the number of encoders that can be used in a system.
-Let us consider a system with two encoders attached to an Arduino Uno on pins D3, D4, D5, and D6, for the encoder 1 A &amp; B pins and the encoder 2 A &amp; B pins, respectively. As can be seen from <debughl><a href="#arduinoPinout">Fig 4</a></debughl>, all these pins are part of Port D on the Arduino Uno.</p>
-<p>The code below shows a snippet of code outlining a basic framework of how to initialise this process:</p>
+<p>To implement Pin Change Interrupts (PCINT) on Port D, execute the following configuration steps:</p>
 <ol>
-<li>Activate the pin change interrupts for PORT D, using the command: <code>PCICR |= 0b00000100;</code></li>
-<li>Reset the port D pin change mask to ensure correct operation: <code>PCMSK2 = 0;</code></li>
-<li>Select the interrupt pins of interest from the port D interrupt mask register: <code>PCMSK2 |= 0b01111000;</code></li>
+<li><strong>Pin Grouping:</strong> Identify the input pins to attach interrupts to, ideally selecting pins on a single 8-bit port to simplify state masking.</li>
+<li><strong>Port Enable:</strong> Enable the Pin Change Interrupt Control Register (<code>PCICR</code>) for the selected port bank.</li>
+<li><strong>Pin Masking:</strong> Select specific interrupt pins by updating the corresponding Pin Change Mask Register (<code>PCMSK2</code>).</li>
+<li><strong><abbr title="Interrupt Service Routine">ISR</abbr> Implementation:</strong> Write the dedicated Interrupt Service Routine vector (e.g., <code>ISR(PCINT2_vect)</code>).<ul>
+<li>Within the <abbr title="Interrupt Service Routine">ISR</abbr>, evaluate the port's current state against its previous state to determine which specific pin triggered the transition and increment/decrement position counters accordingly.</li>
+</ul>
+</li>
 </ol>
-<p>The masking operation tells the microcontroller which pins it needs to listen to and which pins to ignore. This operation is needed to avoid the interrupt being triggered by changes in pins that are not connected to the encoders.</p>
-<div class="language-Arduino highlight"><span class="filename">Basic framework for the pin change interrupt method, (code snippet)</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">PCICR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b00000100</span><span class="p">;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b01111000</span><span class="p">;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">{</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="c1">// Put your main code here, to run repeatedly:</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1">// This is the interrupt service routine for the Port D pin change interrupt</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1">// Nore: you cannot define the name for this ISR</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">ISR</span><span class="w"> </span><span class="p">(</span><span class="n">PCINT2_vect</span><span class="p">){</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="p">}</span>
+<p>For a detailed walkthrough of register flags and hardware vectors, refer to the following article: <debughl><a href="https://dronebotworkshop.com/interrupts/" target='"_blank'>DroneBot Workshop Interrupts Guide</a></debughl>.</p>
+<p>The principal advantage of direct register configuration is flexibility: almost any microcontroller pin can serve as an interrupt source, significantly expanding encoder channel capacity.</p>
+<p>Consider a dual-encoder setup on an Arduino Uno:</p>
+<ul>
+<li><strong>Encoder 1 (Left):</strong> Channel A <span class="arithmatex">\(\rightarrow\)</span> Pin <code>D3</code>, Channel B <span class="arithmatex">\(\rightarrow\)</span> Pin <code>D4</code></li>
+<li><strong>Encoder 2 (Right):</strong> Channel A <span class="arithmatex">\(\rightarrow\)</span> Pin <code>D5</code>, Channel B <span class="arithmatex">\(\rightarrow\)</span> Pin <code>D6</code></li>
+</ul>
+<p>As shown in <debughl><a href="#arduinoPinout">Fig 4</a></debughl>, pins D3 through D6 all map directly to physical <strong>Port D</strong> (<code>PORTD</code> and <code>PIND</code> registers), allowing a single <abbr title="Interrupt Service Routine">ISR</abbr> vector to service both quadrature encoders simultaneously.</p>
+<p>The code snippet below outlines the basic register initialization sequence required to configure Pin Change Interrupts (PCINT) on Port D:</p>
+<ol>
+<li>
+<p>*<em>Enable Port D Interrupt Bank:</em> Activate the Pin Change Interrupt bit for Port D (<code>PCIE2</code>) in the Pin Change Interrupt Control Register (<code>PCICR</code>):</p>
+<div class="language-Arduino highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">PCICR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b00000100</span><span class="p">;</span><span class="w"> </span><span class="c1">// Set bit 2 (PCIE2) to enable PCINT for Port D (pins D0–D7)</span>
 </span></code></pre></div>
-<p>The interrupts are now only active on the 4 pins connected to the encoders, D3 to D6. When one of the pins changes its state, the function ISR(PCINT2_vect) is automatically executed. <em><strong>Note:</strong> PCINT2_vect is the interrupt request handler for PORT D and is required code work for the ISR.</em></p>
-<p>One method to measure the output of the attached encoders is to define a look-up table to modify the encoder counter. The look-up table output defines whether the encoder counter is incremented, decremented, or left unchanged, based on the values of pervious measured state and the current measured state of the encoder.</p>
-<p>We can define an encoder variable for each encoder, made up 4 bits of data arranged in the form, shown in <debughl><a href="#encoderDataVariable">Fig 5</a></debughl>:</p>
+</li>
+<li>
+<p><strong>Clear Mask Register:</strong> Reset the Port D Pin Change Mask Register (<code>PCMSK2</code>) to clear any residual bit configurations:</p>
+<div class="language-Arduino highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">PCMSK2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Clear all Port D interrupt masks</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Set Pin Interrupt Masks:</strong> Unmask digital pins <code>D3</code>, <code>D4</code>, <code>D5</code>, and <code>D6</code> (<code>PCINT19</code> through <code>PCINT22</code>) in <code>PCMSK2</code>:</p>
+<div class="language-Arduino highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">PCMSK2</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b01111000</span><span class="p">;</span><span class="w"> </span><span class="c1">// Enable PCINT on pins D3, D4, D5, and D6</span>
+</span></code></pre></div>
+</li>
+</ol>
+<p>Bitwise masking explicitly informs the microcontroller which digital pins must trigger the interrupt routine and which pins should be ignored. Masking unneeded pins prevents spurious interrupts from pin state toggles on unrelated I/O channels (such as serial UART communications on <code>D0</code> and <code>D1</code>).</p>
+<div class="language-Arduino highlight"><span class="filename">Basic framework for the pin change interrupt method, (code snippet)</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">PCICR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b00000100</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b01111000</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">{</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="c1">// Put your main code here, to run repeatedly:</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1">// This is the interrupt service routine for the Port D pin change interrupt</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// Nore: you cannot define the name for this ISR</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">ISR</span><span class="w"> </span><span class="p">(</span><span class="n">PCINT2_vect</span><span class="p">){</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Interrupts are now enabled exclusively on the four encoder channels: pins <code>D3</code> through <code>D6</code>. Whenever a logic edge transition occurs on any of these masked pins, the Interrupt Service Routine vector <code>ISR(PCINT2_vect)</code> automatically triggers.</p>
+<p><strong><em>Note:</em></strong> <code>PCINT2_vect</code> is the hardware Interrupt Vector location for <strong>`</strong>Port D** on ATmega microcontrollers and must be defined explicitly in your Arduino code.</p>
+<p>An efficient approach for decoding multiple quadrature encoders inside a single <abbr title="Interrupt Service Routine">ISR</abbr> is implementing a Lookup Table (LUT) state machine. The lookup table yields a direction value (<span class="arithmatex">\(+1\)</span>, <span class="arithmatex">\(-1\)</span>, or <span class="arithmatex">\(0\)</span>) to increment, decrement, or leave the position counter unchanged by comparing the previous measured state against the current measured state of Channels A and B.To evaluate state transitions, construct a 4-bit composite state variable for each encoder structured as shown in<debughl><a href="#encoderDataVariable">Fig 5</a></debughl>: </p>
 <figure>
   <a name="encoderDataVariable"></a>
   <a class="glightbox" href="../../Images/Encoder%20Data%20Variable.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Arrangement of the encoder data variable." src="../../Images/Encoder%20Data%20Variable.png"></a>
@@ -1292,106 +1321,113 @@ Let us consider a system with two encoders attached to an Arduino Uno on pins D3
     <caption>Lookup tables for the encoder state and lookup table output.</caption>
 </table>
 
-<p><em>Where: </em><em>No</em><em> = No rotation (current state = previous state), and </em><em>NA</em><em> = Not applicable (Impossible condition. Only one bit at a time can change)</em></p>
+<p><em>Where: <strong>No</strong> = No rotation (current state = previous state), and <strong>NA</strong> = Not applicable (Impossible condition. Only one bit at a time can change)</em></p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Analyse <debughl><a href="#encoderStates">Table 2</a></debughl> and you’ll see that the number of rows that have a +1 or -1 is 8, the same as the number of rows of <debughl><a href="#EncoderBits">Table 1</a></debughl>. Try also comparing the rows between the two tables, to better understand how <debughl><a href="#encoderStates">Table 2</a></debughl> was derived.</p>
+<p class="admonition-title">Comparing Quadrature State Logic Tables</p>
+<p>Analyse <debughl><a href="#encoderStates">Table 2</a></debughl> to observe that exactly 8 state transition rows produce a valid count change (<span class="arithmatex">\(+1\)</span> or <span class="arithmatex">\(-1\)</span>), matching the 8 valid transition states in <debughl><a href="#EncoderBits">Table 1</a></debughl>.</p>
+<p>Compare the corresponding rows between both tables to understand how the 4-bit composite state values in <debughl><a href="#encoderStates">Table 2</a></debughl> are mapped directly from raw binary pin transitions.</p>
 </div>
-<p>The resulting 4-bit binary encoder variable produces a decimal number between 0 and 15. This number can then be used to index an array of data - the lookup table, comprising of the data in column 5 from Table 4. It is important to keep all entries, even the impossible ones, so that one can create the following lookup table array:</p>
-<p><code>static const int9_t lookup_table[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};</code></p>
-<p>The code example in DualEncoderUsingPinChangeInterrupts.ino, presented below, provides the full code for reading 2 encoders on digital pins, D3, D4, D5, and D6, as described above.</p>
+<p>The resulting 4-bit binary state variable yields a decimal index between <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(15\)</span> (<span class="arithmatex">\(2^4 = 16\)</span> total state combinations). This index directly queries a lookup table (LUT) array containing the transition values (<span class="arithmatex">\(+1\)</span>, <span class="arithmatex">\(-1\)</span>, or <span class="arithmatex">\(0\)</span>) derived from Column 5 of Table 4. It is essential to retain all 16 entries—including invalid or non-adjacent state transitions—to maintain fixed-array indexing boundaries.</p>
+<p>The lookup table array is initialized as:</p>
+<div class="language-Arduino highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kr">static</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="n">int9_t</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">-1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">-1</span><span class="p">,</span><span class="mi">-1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">-1</span><span class="p">,</span><span class="mi">0</span><span class="p">};</span>
+</span></code></pre></div>
+<p>The complete implementation script, <code>DualEncoderUsingPinChangeInterrupts.ino</code>, below, demonstrates dual quadrature encoder decoding across digital pins <code>D3</code>, <code>D4</code>, <code>D5</code>, and <code>D6</code> using Port D Pin Change Interrupts.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
 <li>Using the technique described above, modify your Arduino code that you wrote for Exercise 2 to use the pin change interrupt for a single encoder attached to pins D2 and D3. </li>
 <li>When you have this working, try changing the encoder connection pins and modify your script accordingly.</li>
 </ol>
-<div class="language-Arduino highlight"><span class="filename">Example code for the pin change interrupt method: DualEncoderUsingPinChangeInterrupts.ino</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Initialise the encoder counter variables</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kr">volatile</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">enc1_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kr">volatile</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">enc2_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// Intialise a variable to to record the tick counter value</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kr">long</span><span class="w"> </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="n">PCICR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b00000100</span><span class="p">;</span><span class="w">   </span><span class="c1">// Activate the port D pin change interrupt on the</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="c1">// pin change interrupt control register</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">            </span><span class="c1">// Reset the port D pin change mask</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b01111000</span><span class="p">;</span><span class="w">  </span><span class="c1">// Select the interrupt pins of interest from the</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">  </span><span class="c1">// port D interrupt mask register</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="c1">// Define the pin modes dor D3, D4, D4, D6</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="c1">// Open the serial port at 9600 baud</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">  </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w">  </span><span class="c1">// Record an initial tick counter value</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="p">}</span>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">tickValue</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// if 100ms has elapsed sine the last</span>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">  </span><span class="c1">// time the followin code block ran</span>
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">    </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w">  </span><span class="c1">// Record the current tick counter value</span>
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">    </span><span class="c1">// Display the current encoder counter values on the serial monitor</span>
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Encoder 1 Count = "</span><span class="p">);</span>
-</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">enc1_count</span><span class="p">);</span>
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">Encoder 2 Count = "</span><span class="p">);</span>
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">enc2_count</span><span class="p">);</span>
-</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="p">}</span>
-</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>
-</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="c1">// This is the the interrupt service routine for the Port D pin change</span>
-</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="c1">// interrupt</span>
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="c1">// Note: you cannot define the name for this ISR</span>
-</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="n">ISR</span><span class="p">(</span><span class="n">PCINT2_vect</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">  </span><span class="kr">static</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="kr">int8_t</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">     </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
-</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">  </span><span class="c1">// Byte that stores the current and previous state of the encoder outputs</span>
-</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="w">  </span><span class="c1">// for encoder 1</span>
-</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="w">  </span><span class="kr">static</span><span class="w"> </span><span class="kr">uint8_t</span><span class="w"> </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="w">  </span><span class="c1">// Byte that stores the current and previous state of the encoder outputs</span>
-</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="w">  </span><span class="c1">// for encoder 2</span>
-</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="w">  </span><span class="kr">static</span><span class="w"> </span><span class="kr">uint8_t</span><span class="w"> </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
-</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">  </span><span class="c1">// Shift the previous current encoder value to the pervious position</span>
-</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="w">  </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>
-</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="w">  </span><span class="c1">// The following line is a compound instruction:</span>
-</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="w">  </span><span class="c1">// Read prot D and use an AND mask to remove bit information, then Shift</span>
-</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a><span class="w">  </span><span class="c1">// the data relating to D3 and D4 to the first 2 bits. OR this with the</span>
-</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a><span class="w">  </span><span class="c1">// enc1_val register to form the 4-bit current and previous encoder variable</span>
-</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a><span class="w">  </span><span class="n">enc1_Val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">PIND</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b00011000</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>
-</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a><span class="w">  </span><span class="c1">// Add the lookup table value relating to enc1_val to the encoder 1 counter</span>
-</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a><span class="w">  </span><span class="n">enc1_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[</span><span class="n">enc1_val</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b00001111</span><span class="p">];</span>
-</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>
-</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a><span class="w">  </span><span class="c1">// Shift the previous current encoder value to the pervious position</span>
-</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a><span class="w">  </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>
-</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a><span class="w">  </span><span class="c1">// The following line is a compound instruction:</span>
-</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a><span class="w">  </span><span class="c1">// Read prot D and use an AND mask to remove bit information, then Shift</span>
-</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a><span class="w">  </span><span class="c1">// the data relating to D5 and D6 to the first 2 bits. OR this with the</span>
-</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a><span class="w">  </span><span class="c1">// enc1_val register to form the 4-bit current and previous encoder variable</span>
-</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a><span class="w">  </span><span class="n">enc2_Val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">PIND</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b01100000</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
-</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>
-</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a><span class="w">  </span><span class="c1">// Add the lookup table value relating to enc2_val to the encoder 2 counter</span>
-</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a><span class="w">  </span><span class="n">enc2_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[</span><span class="n">enc2_val</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b00001111</span><span class="p">];</span>
-</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a><span class="p">}</span>
+<div class="language-Arduino highlight"><span class="filename">Example code for the pin change interrupt method: DualEncoderUsingPinChangeInterrupts.ino</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Initialise the encoder counter variables</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kr">volatile</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">enc1_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kr">volatile</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">enc2_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">// Intialise a variable to to record the tick counter value</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kr">long</span><span class="w"> </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="n">PCICR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b00000100</span><span class="p">;</span><span class="w">   </span><span class="c1">// Activate the port D pin change interrupt on the</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="c1">// pin change interrupt control register</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">            </span><span class="c1">// Reset the port D pin change mask</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="n">PCMSK2</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mb">0b01111000</span><span class="p">;</span><span class="w">  </span><span class="c1">// Select the interrupt pins of interest from the</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="c1">// port D interrupt mask register</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="c1">// Define the pin modes dor D3, D4, D4, D6</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="kr">INPUT</span><span class="p">);</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="c1">// Open the serial port at 9600 baud</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">  </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w">  </span><span class="c1">// Record an initial tick counter value</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="p">}</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">tickValue</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// if 100ms has elapsed sine the last</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">  </span><span class="c1">// time the followin code block ran</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">    </span><span class="n">tickValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w">  </span><span class="c1">// Record the current tick counter value</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">    </span><span class="c1">// Display the current encoder counter values on the serial monitor</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"Encoder 1 Count = "</span><span class="p">);</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="n">enc1_count</span><span class="p">);</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\t</span><span class="s">Encoder 2 Count = "</span><span class="p">);</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">enc2_count</span><span class="p">);</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="p">}</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="c1">// This is the the interrupt service routine for the Port D pin change</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="c1">// interrupt</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="c1">// Note: you cannot define the name for this ISR</span>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="n">ISR</span><span class="p">(</span><span class="n">PCINT2_vect</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">  </span><span class="kr">static</span><span class="w"> </span><span class="kr">const</span><span class="w"> </span><span class="kr">int8_t</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">     </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">  </span><span class="c1">// Byte that stores the current and previous state of the encoder outputs</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">  </span><span class="c1">// for encoder 1</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">  </span><span class="kr">static</span><span class="w"> </span><span class="kr">uint8_t</span><span class="w"> </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="w">  </span><span class="c1">// Byte that stores the current and previous state of the encoder outputs</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="w">  </span><span class="c1">// for encoder 2</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="w">  </span><span class="kr">static</span><span class="w"> </span><span class="kr">uint8_t</span><span class="w"> </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="w">  </span><span class="c1">// Shift the previous current encoder value to the pervious position</span>
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="w">  </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a><span class="w">  </span><span class="c1">// The following line is a compound instruction:</span>
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="w">  </span><span class="c1">// Read prot D and use an AND mask to remove bit information, then Shift</span>
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="w">  </span><span class="c1">// the data relating to D3 and D4 to the first 2 bits. OR this with the</span>
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a><span class="w">  </span><span class="c1">// enc1_val register to form the 4-bit current and previous encoder variable</span>
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="w">  </span><span class="n">enc1_Val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc1_val</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">PIND</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b00011000</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a><span class="w">  </span><span class="c1">// Add the lookup table value relating to enc1_val to the encoder 1 counter</span>
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="w">  </span><span class="n">enc1_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[</span><span class="n">enc1_val</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b00001111</span><span class="p">];</span>
+</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>
+</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a><span class="w">  </span><span class="c1">// Shift the previous current encoder value to the pervious position</span>
+</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a><span class="w">  </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>
+</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a><span class="w">  </span><span class="c1">// The following line is a compound instruction:</span>
+</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a><span class="w">  </span><span class="c1">// Read prot D and use an AND mask to remove bit information, then Shift</span>
+</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a><span class="w">  </span><span class="c1">// the data relating to D5 and D6 to the first 2 bits. OR this with the</span>
+</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a><span class="w">  </span><span class="c1">// enc1_val register to form the 4-bit current and previous encoder variable</span>
+</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a><span class="w">  </span><span class="n">enc2_Val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">enc2_val</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">((</span><span class="n">PIND</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b01100000</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>
+</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a><span class="w">  </span><span class="c1">// Add the lookup table value relating to enc2_val to the encoder 2 counter</span>
+</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a><span class="w">  </span><span class="n">enc2_count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lookup_table</span><span class="p">[</span><span class="n">enc2_val</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mb">0b00001111</span><span class="p">];</span>
+</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a><span class="p">}</span>
 </span></code></pre></div>
-<div class="admonition note title">
-<p class="admonition-title">Bitshift operations</p>
-<p>Bitshift operations are used to manipulate variables at a bit level. The right bit-shift operator (&gt;&gt;) is used to shift bits to the right (e.g. y=x&gt;&gt;3 means take x, shift the bits 3 positions to the right and save the results in y). The left bit-shift operator (&lt;&lt;) operates in a similar way but shifts bits to the left.</p>
+<div class="admonition note">
+<p class="admonition-title">Bitwise Shift Operators</p>
+<p>Bit-shift operators manipulate variables directly at the binary bit level:</p>
+<ul>
+<li><strong>Right Shift (<code>&gt;&gt;</code>):</strong> Shifts all bits in an integer to the right by a specified number of bit positions. For example, <code>y = x &gt;&gt; 3;</code> shifts the binary representation of <code>x</code> three positions to the right and assigns the resulting value to <code>y</code>.</li>
+<li><strong>Left Shift (<code>&lt;&lt;</code>):</strong> Shifts all bits to the left by a specified number of bit positions (e.g., <code>y = x &lt;&lt; 2;</code> shifts the bits of <code>x</code> two positions to the left).</li>
+</ul>
 </div>
-<div class="admonition note title">
-<p class="admonition-title">Also Note</p>
-<p>After computing the encoder count, one still needs to convert it to revolutions of the encoder, or revolutions of motor shaft, using suitable constants.</p>
+<div class="admonition note">
+<p class="admonition-title">Kinematic Conversion</p>
+<p>After calculating the total encoder count, convert this value into encoder or motor output shaft revolutions, or angle, using the appropriate scaling constants.</p>
 </div></div>
 
 
@@ -1422,7 +1458,7 @@ Let us consider a system with two encoders attached to an Arduino Uno on pins D3
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2025.
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2026.
 
     </div>
   

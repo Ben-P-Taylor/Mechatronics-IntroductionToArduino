@@ -580,7 +580,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercises:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -869,7 +878,16 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Introduction">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercises:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercises:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -936,7 +954,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#dcMotorPic">Building the Robot: Fig. 12</a></debughl>. Furthermore, you should ensure that all the connections described in the <a href="../../RobotBuild/#poweredServo">Building the Robot: Circuit Layout for the Externally Powered Servo Exercise</a> are correct.</p>
+<p>Before starting the software development for this exercise, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#dcMotorPic">Building the Robot: Fig. 12</a></debughl>. Furthermore, you should ensure that all the connections described in the <a href="../../RobotBuild/#poweredServo">Building the Robot: Circuit Layout for the Externally Powered Servo Exercise</a> are correct.</p>
 </div>
 <p>The following video is a quick demonstration of the final outcome from this exercise:</p>
 <figure>
@@ -947,24 +965,25 @@
 </figure>
 
 <h2 id="introduction">Introduction</h2>
-<p>The aim of this exercise is to demonstrate the control of a position control servo, in this case the MG90 servomotor. The MG90 is a very low power servo motor and can be driven directly from the Arduino board power supply.</p>
+<p>The aim of this exercise is to demonstrate the control of a position-control servo—specifically the MG90 servomotor. The MG90 is a low-power servo motor that can be driven directly from the Arduino board power supply.</p>
+<h2 id="exercises">Exercises:</h2>
 <h3 id="controlling-a-standard-servomotor-directly-from-the-arduino-informal-exercise">Controlling a Standard Servomotor directly from the Arduino. (Informal Exercise)</h3>
 <p><a name="mg90Servo"></a></p>
 <div class="admonition info">
 <p class="admonition-title">Transitioning to MG90 Servo Motors</p>
 <p>We are transitioning away from SG90 servos due to robustness issues and replacing these with MG90 servos. Some of you may still find that you have an SG90 servo in your kit – this is OK, you can use this device with same wiring, fixtures, and code.</p>
 </div>
-<p>The MG90 is a very low power servo motor and can be driven directly from the Arduino board power supply, without the need for an external supply. If you attempt this with the MG996 servo, you may find that the current draw is too great, and this may cause glitches in the power supply lines that cause the Arduino to "<debughl><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" title="Link to an article on the All About Circuits website">Brownout reset</a></debughl>”. For the remainder of this exercise, we will use the MG90.</p>
+<p>The MG90 is a low-power servo motor and can be driven directly from the Arduino board power supply without requiring an external supply. However, if you attempt this with the MG996 servo, the current draw may be too large, causing voltage drops on the power supply lines that trigger an Arduino "<debughl><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" title="Link to an article on the All About Circuits website">Brownout reset</a></debughl>”. For the remainder of this exercise, we will use the MG90.</p>
 <div class="admonition note">
 <p class="admonition-title">Note on the following Informal Exercise</p>
-<p>The exercise is a legacy exercise from a previous iteration of this course and required an unconnected Arduino and a MG90 servo, i.e. not connected into your robot chassis, as shown in <debughl><a href="#simpleServo">Fig. 2</a></debughl>.</p>
-<p>This exercise is not manditory, but provides you with a code example for the operation of a standard servo motor, and the code is applicable for both the MG90 and the larger MG996. This example code, provided, can form the basis of the assessed exercise for the servo integrated onto the robot chassis.</p>
+<p>This exercise is a legacy task from a previous iteration of the course and requires an standalone Arduino and an MG90 servo (i.e., not mounted on the robot chassis), as shown in <debughl><a href="#simpleServo">Fig. 2</a></debughl>.</p>
+<p>This exercise is not mandatory, but it provides an example sketch for operating a standard servo motor. The provided code is applicable to both the MG90 and the larger MG996, and it can serve as a foundation for the assessed exercise using the servo mounted on the robot chassis.</p>
 </div>
-<p>During this exercise, we will use the circuit shown in <debughl><a href="#simpleServo">Fig. 2</a></debughl>, where:</p>
+<p>During this exercise, use the circuit shown in <debughl><a href="#simpleServo">Fig. 2</a></debughl>, where:</p>
 <ul>
-<li>The red wire of the servo is the positive supply, and is connected to the 5V if the Arduino</li>
-<li>The brown wire is the negative supply and should be connected to the ground line.</li>
-<li>The orange wire is the control line and should be connected to a <abbr title="Pulse Width Modulation">PWM</abbr> enabled I/O pin on the Arduino board, in this example, pin 9.</li>
+<li><strong>Red Wire:</strong> Positive power supply connection, connected to the <span class="arithmatex">\(+5\,\text{V}\)</span> pin on the Arduino board.</li>
+<li><strong>Brown Wire:</strong> Ground connection, connected to an Arduino <abbr title="Electrical Ground or 0V">GND</abbr> pin.</li>
+<li><strong>Orange Wire:</strong> (may be yellow) Pulse-Width Modulation (<abbr title="Pulse Width Modulation">PWM</abbr>) control line, connected to <abbr title="Pulse Width Modulation">PWM</abbr>-enabled digital pin 9 on the Arduino board.The orange wire is the control line and should be connected to a <abbr title="Pulse Width Modulation">PWM</abbr> enabled I/O pin on the Arduino board, in this example, pin 9.</li>
 </ul>
 <figure>
   <a name="simpleServo"></a>
@@ -972,14 +991,14 @@
   <figcaption>Circuit diagram for this Exercise.</figcaption>
 </figure>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Connecting the wires directly into the servo connector will result in a weak mechanical connection. This connection should be sufficient for this exercise, but if you wish for a more robust connection, you can push the male header pins into the breadboard and use this as intermediate connection.</p>
+<p class="admonition-title">Wiring Connection Tip</p>
 </div>
+<p>Connecting the lab's solid-core wires directly into the servo connector will result in a weak mechanical connection. While this connection is sufficient for this exercise, you can push male header pins into the breadboard to serve as an intermediate connection for improved mechanical stability.</p>
 <p><strong>Procedure:</strong></p>
 <ol>
-<li>Connect the circuit shown in <debughl><a href="#simpleServo">Fig. 2</a></debughl>.</li>
-<li>Download the <debughl><a href="https://drive.google.com/uc?id=12UGk72jEbWFEJZEG9WvTIxJYWdE80f4-">Standard_Servo_Example.ino</a></debughl> code from the Blackboard folder for this practical. Also included below:</li>
-</ol>
+<li>Connect the circuit as shown in <debughl><a href="#simpleServo">Fig. 2</a></debughl>.</li>
+<li>
+<p>Copy the Standard_Servo_Example.ino sketch listed below:</p>
 <p><em>Arduino code for the Standard_Servo_Example.ino Example</em>
 </p><div class="language-Arduino highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This Example code is for use with the Controlling a Standard Servomotor exercise</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">//</span>
@@ -997,133 +1016,133 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">// Setup function</span>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">{</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="c1">// "attach"  servo 1 to the defined pin</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="n">pinServo1</span><span class="p">);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1">// "attach"  servo 1 to the defined pin</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">servo1</span><span class="p">.</span><span class="nf">attach</span><span class="p">(</span><span class="n">pinServo1</span><span class="p">);</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="c1">// set the neutral, centre, position for the servo</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="c1">// set the neutral, centre, position for the servo</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="c1">// Alternte command for setting the neutral position</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(1500);</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1">// Alternte command for setting the neutral position</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1">//servo1.writeMicroseconds(1500);</span>
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position, (1000ms is more time than needed)</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="c1">// wait until the servo has moved into position, (1000ms is more time than needed)</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
 </span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">}</span>
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="c1">// -------------------------------------</span>
 </span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="c1">// Loop Function</span>
 </span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span>
 </span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="p">{</span>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">  </span><span class="c1">// start from the nuetral position, (90 degrees from the fully clockwise position)</span>
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(1500);  // Alternate Command</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="c1">// start from the nuetral position, (90 degrees from the fully clockwise position)</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="c1">//servo1.writeMicroseconds(1500);  // Alternate Command</span>
 </span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="c1">// wait until the servo has moved into position</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
 </span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="c1">// move to  0 degrees, (fully clockwise)</span>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(500);  // Alternate Command</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="c1">// move to  0 degrees, (fully clockwise)</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="c1">//servo1.writeMicroseconds(500);  // Alternate Command</span>
 </span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position</span>
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="c1">// wait until the servo has moved into position</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
 </span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="c1">// move to 180 degrees, (fully anti cloclwise position)</span>
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">  </span><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">  </span><span class="c1">//servo1.writeMicroseconds(2500);  // Alternate Command</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="c1">// move to 180 degrees, (fully anti cloclwise position)</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="n">servo1</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="c1">//servo1.writeMicroseconds(2500);  // Alternate Command</span>
 </span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">  </span><span class="c1">// wait until the servo has moved into position</span>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="c1">// wait until the servo has moved into position</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="nf">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
 </span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="p">}</span>
 </span></code></pre></div>
+</li>
+<li>
 <p>Looking at the code, above, you will see that the servo library had been included in the sketch. This external is library containing several functions that allow the Arduino to control a variety of servo motors. The Arduino reference library webpage for the servo library is located here:</p>
-<p><debughl><a href="https://www.arduino.cc/reference/en/libraries/servo/" title="Arduino reference library webpage for the servo library">https://www.arduino.cc/reference/en/libraries/servo/</a></debughl></p>
+<p><debughl><a href="https://www.arduino.cc/reference/en/libraries/servo/" target="_blank" title="Arduino reference library webpage for the servo library">https://www.arduino.cc/reference/en/libraries/servo/</a></debughl></p>
 <p>Before you can use the servo control commands in your code, you must first perform the following operations in your code, (look at the code to see how this has been done):</p>
 <ul>
-<li>In the global namespace area:<ul>
-<li>Include the servo library <code>Servo servo1;</code></li>
-<li>Declare a servomotor class variable. This is used by the Arduino <abbr title="Integrated Development Environment">IDE</abbr> to direct your commands to the correct servo motor.</li>
+<li><strong>In the global scope:</strong></li>
+<li>Include the servo library <code>#include &lt;Servo.h&gt;</code></li>
+<li>Declare a servo motor object variable (e.g., Servo servo1;). This object is used by the Arduino environment to direct commands to a specific servo motor.</li>
+<li><strong>In the <code>setup()</code> function:</strong></li>
+<li>Link the servo motor object to an output pin using the 'attach()' method. </li>
 </ul>
-</li>
-<li>In the <code>setup()</code> function:<ul>
-<li>The servo motor class needs to be linked to an output pin. This is achieved using the <code>attach()</code> function. </li>
-</ul>
-</li>
-</ul>
-<p>In Standard_Servo_Example.ino we have declared a servo class variable as <code>servo1</code>, we have defined I/O pin 9 as the servo control pin, and we attached the <code>servo1</code> class to pin 9, using the following command: <code>servo1.attach(pinServo1);</code></p>
-<p>The servomotor is controlled using an encoded <abbr title="Pulse Width Modulation">PWM</abbr> signal. The on time of the <abbr title="Pulse Width Modulation">PWM</abbr> signal should be bounded between 1000μs and 2000μs, with a pulse repetition rate between 40 and 200Hz, i.e. a period between 5ms and 25ms.</p>
-<p>The servo centre position, or ‘neutral’ position, of the servo is commanded using a 1500μs pulse width. Typically, the 90° clockwise position is commanded with a pulse width of approximately 500μs, and the 90° anticlockwise position is commanded with a pulse width of approximately 2500μs. These 90° position pulse widths are often slightly different for each servo model, so you may need to refine these timings for servos you have been provided.</p>
+<p>In 'Standard_Servo_Example.ino', we have declared a Servo object named <code>servo1</code>, defined digital pin 9 as the control pin, and we attached  <code>servo1</code> to pin 9, using the following statement: <code>servo1.attach(pinServo1);</code></p>
+<p>The servo motor is controlled using a Pulse-Width Modulation (<abbr title="Pulse Width Modulation">PWM</abbr>) signal. The active high duration of the <abbr title="Pulse Width Modulation">PWM</abbr> signal is typically bounded between <span class="arithmatex">\(1000\mu\text{s}\)</span> and <span class="arithmatex">\(2000\,\mu\text{s}\)</span>, with a pulse repetition rate between <span class="arithmatex">\(40\,\text{Hz}\)</span> and <span class="arithmatex">\(200\,\text{Hz}\)</span> (a period between <span class="arithmatex">\(5\,\text{ms}\)</span> and <span class="arithmatex">\(25\,\text{ms}\)</span>).</p>
+<p>The center or neutral position of the servo is commanded using a <span class="arithmatex">\(1500\mu\text{s}\)</span> pulse width. Typically, the <span class="arithmatex">\(+90^\circ\)</span> clockwise position is commanded with a pulse width of approximately <span class="arithmatex">\(500\mu\text{s}\)</span>, and the <span class="arithmatex">\(-90^\circ\)</span> counter-clockwise position is commanded with a pulse width of approximately <span class="arithmatex">\(2500\mu\text{s}\)</span>. These <span class="arithmatex">\(90^\circ\)</span> position pulse widths often vary slightly between servo models, so you may need to adjust these timings for your specific hardware.</p>
 <p>The servo library has two functions for controlling the position of the servo:</p>
 <ul>
-<li><code>write()</code>, which directly commands the servo angle.</li>
-<li><code>writeMicroseconds()</code>, which commands a specifically timed pulse width for the servo output.</li>
+<li><code>write()</code>: Commands the target angle directly in degrees.</li>
+<li><code>writeMicroseconds()</code>: Commands a specific pulse-width duration in microseconds to the output pin.</li>
 </ul>
-<p>The <code>write()</code> function may not be accurate for the servomotors you have been provided, and may vary between different models. You should investigate the accuracy of these commands when using the <code>write()</code> and <code>writeMicroseconds()</code> for applications which require accurate output angles.</p>
-<ol start="3">
-  <li>Look at the Standard_Servo_Example.ino code, and see how the servo library has been used, how a servo is declared and attached to the system.</li>
-  <li>Run the sketch and observe its operation</li>
+<p>The <code>write()</code> function may not be precise for all servo motor models. You should evaluate the positioning accuracy of both <code>write()</code> and <code>writeMicroseconds()</code> for applications that require accurate output angles.</p>
+</li>
+<li>
+<p>Look at the Standard_Servo_Example.ino code, and see how the servo library has been used, how a servo is declared and attached to the system.</p>
+</li>
+<li>Run the sketch and observe its operation</li>
 </ol>
-
 <h3 id="controlling-a-standard-servo-with-an-external-power-supply">Controlling a Standard Servo with an External Power Supply</h3>
-<p>The previous exercise demonstrates how to connect and power a small servo directly from the pins of the Arduino device. When operating with several small servos, or one or more larger servos, the power supply from the Arduino will not be capable of providing the power supply requirements for this load. This may result in the servos not working at all, or unpredicted system behaviour, due to <debughl><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" title="Link to an article on the All About Circuits website">Brownout reset</a></debughl>.</p>
-<p>This section will show how to power the servos from an external power supply, while controlling them from the Arduino.</p>
-<p>The SG90 is a very low power servo motor and can be driven directly from the Arduino board power supply, as shown in <debughl><a href="#simpleServo">Fig. 1</a></debughl>.</p>
-<p>If we wish to connect a larger servo to the system, then we must use an external power supply to power the servo, as illustrated in <debughl><a href="#ServoExternalPower">Fig. 2</a></debughl>. In <debughl><a href="#ServoExternalPower">Fig. 2</a></debughl>, we can see that the red, +5V line is supplied from the external power supply, and the <abbr title="Electrical Ground or 0V">GND</abbr> line of all the elements, Arduino, power entry socket, and servo are linked. This is to ensure that all the circuit elements are referenced to the same voltage.</p>
+<p>The previous exercise demonstrates how to connect and power a small servo directly from the pins of the Arduino board. When operating multiple small servos or larger servos, the Arduino's onboard power supply cannot satisfy the load requirements. This can cause the servos to malfunction or lead to unpredictable system behavior caused by a <debughl><a href="https://www.allaboutcircuits.com/technical-articles/what-is-brown-out-reset-microcontroller-prevent-false-power-down/" title="Link to an article on the All About Circuits website">Brownout reset</a></debughl>.</p>
+<p>This section describes how to power servos using an external power supply while maintaining control from the Arduino.</p>
+<p>The SG90 is a low-power servo motor and can be driven directly from the Arduino board power supply, as shown in <debughl><a href="#simpleServo">Fig. 1</a></debughl>.</p>
+<p>To connect a larger servo to the system, you must use an external power supply to power the motor, as illustrated in <debughl><a href="#ServoExternalPower">Fig. 2</a></debughl>. As shown in <debughl><a href="#ServoExternalPower">Fig. 2</a></debughl>, the red <span class="arithmatex">\(+5\,\text{V}\)</span> line is supplied from the external power supply, while the ground (<abbr title="Electrical Ground or 0V">GND</abbr>) lines of all elements - the Arduino, power entry jack, and servo motor - are connected together. This shared ground connection ensures that all circuit components share a common reference potential.</p>
 <figure>
   <a name="ServoExternalPower"></a>
   <a class="glightbox" href="../../Images/ServoExternalPower.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wiring diagram for the servo powered from an external power supply." src="../../Images/ServoExternalPower.png"></a>
   <figcaption>Wiring diagram for the servo powered from an external power supply.</figcaption>
 </figure>
-<p>The pin connections for the external power supply connector, (provided in the mechatronics kit box), are shown in <debughl><a href="#dcPower">Fig. 3</a></debughl>.</p>
+<p>The pin connections for the external DC power jack (provided in the mechatronics kit box) are shown in <debughl><a href="#dcPower">Fig. 3</a></debughl>.</p>
 <figure>
   <a name="dcPower"></a>
   <a class="glightbox" href="../../Images/DCpower.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Annotated picture of the external power supply connector pins" src="../../Images/DCpower.jpg"></a>
   <figcaption>Annotated picture of the external power supply connector pins.</figcaption>
 </figure>
 <h3 id="linear-mapping-of-a-value-to-a-measurement">Linear mapping of a Value to a Measurement</h3>
-<p>In some cases a sensor measurement can be linearly mapped from an input variable to a meaningful measurement value. In this case, we can map the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value from the potentiometer, between 0 and 1023, into a servo angle between 90° and 0°, i.e. the lolly stick between horizontal and vertical.</p>
-<p>The map function can be used to provide a linear calibration/mapping between a measured value and a real world parameter. In this exercise, you will use the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value as the input to a <code>map()</code> function and use it to provide the linear command for the servomotor output.</p>
+<p>In some cases, a sensor measurement can be linearly mapped from an input variable to a meaningful engineering value. In this exercise, you can map the analog-to-digital converter (<abbr title="Analogue to Digital Converter">ADC</abbr>) measurement value from the potentiometer (ranging from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(1023\)</span>) to a servo angle between <span class="arithmatex">\(90^\circ\)</span> and <span class="arithmatex">\(0^\circ\)</span> (representing the lolly stick between horizontal and vertical orientations).</p>
+<p>The <code>map()</code> function provides linear calibration and scaling between an input measurement and a real-world parameter. In this exercise, you will pass the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value as the input to the <code>map()</code> function and use its output to generate the position command for the servo motor.</p>
 <div class="admonition info">
-<p class="admonition-title"><code>map()</code> function</p>
-<p>See the <code>map()</code> function page from the Arduino language reference pages for a description: <debughl><a href="https://docs.arduino.cc/language-reference/en/functions/math/map/" target="_blank">https://docs.arduino.cc/language-reference/en/functions/math/map/</a></debughl></p>
+<p class="admonition-title"><code>map()</code> Function Documentation</p>
+<p>Refer to the <code>map()</code> function page from the Arduino Language Reference for a description: <debughl><a href="https://docs.arduino.cc/language-reference/en/functions/math/map/" target="_blank">https://docs.arduino.cc/language-reference/en/functions/math/map/</a></debughl></p>
 </div>
 <p><a name="ServoExercise"></a></p>
 <h2 id="assessed-exercise-driving-the-mg996-servo-on-the-front-of-the-robot-chassis">Assessed Exercise: Driving the MG996 Servo on the front of the Robot Chassis</h2>
 <div class="admonition note">
 <p class="admonition-title">Before Starting This Exercise</p>
-<p>Ensure that you have the servo and the external power supply connected, as described in the <debughl><a href="../../RobotBuild/#ElecConn">Electrical Connections section of the Building the Robot</a></debughl> Document</p>
+<p>Ensure that you have the servo and external power supply connected as described in the <debughl><a href="../../RobotBuild/#ElecConn">Electrical Connections</a></debughl>section of the Building the Robot document.</p>
 </div>
-<p>The aim of this exercise is to demonstrate that you can operate a standard servo powered from an external supply, and reset the servo to the null position. </p>
+<p>The aim of this exercise is to demonstrate that you can operate a standard servo motor powered from an external supply and reset it to its neutral position.</p>
 <p><strong>Procedure:</strong></p>
 <ul>
-<li>Before starting this exercise, you will need to remove the <debughl><a href="../../RobotBuild/#LollyAss" title="Jump to the 'Assembling the Lolly Stick D Assembly' section of the Building the Robot Chassis document">lolly stick assembly</a></debughl> from the MG996 servo on the robot chassis</li>
-<li>Write a program to reset the servo to the null position, using the command: <code>servo1.write(90);</code></li>
-<li>While the servo is in the null position, reattach the <debughl><a href="../../RobotBuild/#LollyAss" title="Jump to the 'Assembling the Lolly Stick D Assembly' section of the Building the Robot Chassis document">lolly stick assembly</a></debughl>, with the arm as close to horizontal as the servo shaft will allow.</li>
-<li>Write a 2nd program, (the assessed part), to perform the following:<ul>
-<li>When the Arduino is reset, or initially programmed, the servo arm (lolly stick assembly) should reset to the horizontal position.<ul>
-<li>You will need to adjust the initial angle of the servo in code to achieve this, because <code>servo1.write(90);</code> will not quite achieve this.</li>
+<li>Before starting this exercise, remove the <debughl><a href="../../RobotBuild/#LollyAss">lolly stick assembly</a></debughl> from the MG996 servo on the robot chassis</li>
+<li>Write a program to reset the servo motor to its neutral position using the command: <code>servo1.write(90);</code></li>
+<li>While the servo motor is held in the neutral position, reattach the <debughl><a href="../../RobotBuild/#LollyAss">lolly stick assembly</a></debughl>, with the arm as close to horizontal as the servo shaft splines allow.</li>
+<li>Write a second program (the assessed portion) to perform the following sequence:<ul>
+<li>Upon reset or initial execution, the servo arm (lolly stick assembly) must move to the horizontal position.<ul>
+<li>Note: You must tune the initial command angle in software to achieve true horizontal, as <code>servo1.write(90);</code> alone may not align precisely.</li>
 </ul>
 </li>
-<li>The servo position should remain commanded to horizontal for 1 second</li>
-<li>The servo arm should then raise to the vertical position and maintain this position for 1 second.</li>
-<li>Repeat the above horizontal to vertical process once.</li>
-<li>After a further 1 second delay, the lolly stick angle should track the potentiometer input:<ul>
-<li><abbr title="Analogue to Digital Converter">ADC</abbr> value, 0 to 1023 maps a to servo angle of approximately 90° to 0°, maps between horizontal to vertical</li>
-</ul>
-</li>
+<li>Maintain the horizontal position for <span class="arithmatex">\(1\,\text{s}\)</span>.</li>
+<li>Rotate the servo arm to the vertical position and hold it for <span class="arithmatex">\(1\,\text{s}\)</span></li>
+<li>Repeat the horizontal-to-vertical movement sequence once more.</li>
+<li>After an additional <span class="arithmatex">\(1\,\text{s}\)</span> delay, continuously map the lolly stick angle to the potentiometer input:<ul>
+<li>An <abbr title="Analogue to Digital Converter">ADC</abbr> value from <span class="arithmatex">\(0\)</span> to <span class="arithmatex">\(1023\)</span> must map linearly to a servo command angle from approximately <span class="arithmatex">\(90^\circ\)</span> down to <span class="arithmatex">\(0^\circ\)</span> (corresponding to horizontal through vertical positions).</li>
 </ul>
 </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You will need to adjust the map angles to get the servo to a position as close to horizontal and vertical as possible. 90° servo demand is not exactly horizontal and 0° servo demand is not exactly vertical.</p>
+</li>
+</ul>
+<p>!!! !!! Note "Calibrating Servo Angles"
+You must adjust the mapped target angles to position the servo arm as close to horizontal and vertical as possible. A commanded servo demand of <span class="arithmatex">\(90^\circ\)</span> is rarely perfectly horizontal, and <span class="arithmatex">\(0^\circ\)</span> is rarely perfectly vertical.</p>
+<div class="admonition warning">
+<p class="admonition-title">Power Supply Requirement</p>
 </div>
-<p>The power supply of your servo <strong>MUST</strong> be supplied from the external power supply and not the Arduino +5V. The <abbr title="Electrical Ground or 0V">GND</abbr> of the Arduino, external supply and servo must be connected to the same node.</p>
+<p>The power supply for your servo MUST be provided by the external power supply and not from the Arduino <span class="arithmatex">\(+5\,\text{V}\)</span> rail. The <abbr title="Electrical Ground or 0V">GND</abbr> lines of the Arduino, external power supply, and servo motor must all be connected to the same ground node.</p>
 <div class="admonition danger">
-<p class="admonition-title">Danger: You can destroy your Laptop motherboard if you get this wrong</p>
-<p>If you connect the +5V supply of the Arduino and the external power supply together you risk destroying the motherboard of your laptop by sending a voltage spike up the <abbr title="Universal Serial Bus">USB</abbr> lead when the servo operates.</p>
-<p>Read the <debughl><a href="../../Disclaimer/">Disclaimer</a></debughl> document before proceeding.</p>
-<p><strong>The University or <abbr title="Multidisciplinary Engineering Education">MEE</abbr> take no responsibility for damaged laptops due to this issue.</strong> We recommend using the University IT equipment to mitigate damaging your personal equipment.</p>
+<p class="admonition-title">Danger: Risk of damage to your Laptop motherboard</p>
+<p>If you connect the <span class="arithmatex">\(+5\,\text{V}\)</span> pin of the Arduino board directly to the external power supply, you risk destroying your laptop's motherboard by sending a voltage spike back through the <abbr title="Universal Serial Bus">USB</abbr> cable when the servo motor operates.</p>
+<p>Please read the <debughl><a href="../../Disclaimer/">Disclaimer</a></debughl> document before proceeding.</p>
+<p><strong>The University of Sheffield and the Centre for Engineering Education (CEE) accept no responsibility for damaged personal devices caused by incorrect wiring.</strong> We strongly recommend using University IT equipment during practical sessions to mitigate the risk of damage to your personal devices.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Exercise Assessment</p>
@@ -1176,7 +1195,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2025.
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2026.
 
     </div>
   

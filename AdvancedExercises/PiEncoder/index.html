@@ -903,9 +903,9 @@
 <p>Before starting these exercises, you should ensure that you have completed all the <debughl><a href="../../BasicExercises/">Basic Exercises</a></debughl> and have fully constructed the robot chassis, as described in the <debughl><a href="../../RobotBuild/">Building the Robot</a></debughl> document.</p>
 </div>
 <h2 id="introduction">Introduction</h2>
-<p>During this exercise you will write a program to move the robot chassis forwards and backwards through a sequence of set distances. The robot must be controlled in closed loop, using a <abbr title="Proportional and Integral Controller">PI</abbr> controller, and using the motor encoder as the feedback sensor.</p>
-<p>Your code should use a simple finite state machine to control the sequences of operation.</p>
-<p>The following video is a quick demonstration of the final outcome from this exercise:</p>
+<p>In this exercise, you will implement a program to drive the robot chassis forward and backward through a predefined sequence of distance setpoints. The system must operate under closed-loop control using a Proportional-Integral (<abbr title="Proportional and Integral Controller">PI</abbr>) controller with quadrature motor encoders providing position feedback.</p>
+<p>Your firmware architecture should incorporate a Finite State Machine (<abbr title="Finite State Machine">FSM</abbr>) to govern operational state transitions and sequence progression.</p>
+<p>The following video demonstrates the closed-loop tracking response and sequential state progression of the completed system:</p>
 <figure>
 <div style="text-align: center;">
 <iframe id="kaltura_player" type="text/javascript" src='https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_i0np4hs9&amp;config[provider]={"widgetId":"1_pzx4118a"}' style="width: 608px;height: 402px;border: 0;" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="Kaltura Player"></iframe>
@@ -914,21 +914,34 @@
 </figure>
 
 <h3 id="a-simple-finite-state-machine">A Simple Finite State Machine</h3>
-<p>In simple terms, finite state machines are a design methodology for designing and implementing a program to a system that is triggered by events that occur. We will only consider their use in the most simple form. </p>
-<p>A simple state machine can define the operation of a system in terms of the “states” of the system and the triggers, (or events), that decide when to transition between one state and another: “state transition conditions”. The system can only transition from one state and another when state transition conditions are satisfied</p>
-<p>Let us consider a very simple system: a system consisting of a light bulb and an on/off switch. The light can only be on or off, therefore we can define two-states to describe this behaviour. The state transition condition to transition between state 1, (on), to state 2, (off), is for the switch to be moved to the off position. Similarly, to transition from state 2 to state 1, the switch must be moved to the on position. This operation is summarised on the state transition diagram, shown in <debughl><a href="#onOffStateMachine">Fig. 2</a></debughl>:</p>
+<p>A Finite State Machine (<abbr title="Finite State Machine">FSM</abbr>) is a software architecture design pattern used to govern system behavior based on discrete states and event-driven conditions. We will only consider their use in the most simple form.</p>
+<p>An <abbr title="Finite State Machine">FSM</abbr> defines operation using three primary elements:</p>
+<ol>
+<li><strong>States:</strong> The operational modes or conditions of the system at any given moment.</li>
+<li><strong>Triggers / Events:</strong> Inputs or conditions that occur within the system or environment.</li>
+<li><strong>State Transition Conditions:</strong> Logical criteria evaluated to determine when the system transitions from one active state to another. A system can only switch states when its associated transition conditions are fully satisfied.</li>
+</ol>
+<p>Consider a simple two-state system: a light bulb connected to an <strong>ON/OFF</strong> toggle switch. The bulb can exist in only one of two states: <strong>ON</strong> or <strong>OFF</strong>. Moving the switch to the "OFF" position triggers the transition from <strong>State 1 (ON)</strong> to <strong>State 2 (OFF)</strong>. Conversely, moving the switch to the "ON" position fulfills the condition to transition from <strong>State 2 (OFF)</strong> back to <strong>State 1 (ON)</strong>.</p>
+<p>This sequential operation is represented in the state transition diagram shown in <debughl><a href="#onOffStateMachine">Fig. 2</a></debughl>:</p>
 <figure>
   <a name="onOffStateMachine"></a>
   <a class="glightbox" href="../../Images/OnOffStateMachine.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A state transition diagram for the on/off light bulb/switch system." src="../../Images/OnOffStateMachine.png"></a>
   <figcaption>A state transition diagram for the on/off light bulb/switch system.</figcaption>
 </figure>
+<p>We can extend this concept to a four-state light dimmer system with variable intensity outputs: <strong>OFF</strong>, <strong>DIMMED</strong>, <strong>MEDIUM</strong>, and <strong>BRIGHT</strong>. System transitions are controlled by two pushbuttons: ON and OFF.</p>
+<ul>
+<li><strong>Power-On Default:</strong> Upon system reset, the state machine automatically initializes to <strong>State 1 (OFF)</strong>.</li>
+<li><strong>ON Button Press:</strong> Increments brightness level, cycling sequentially through active states (<strong>State 2: DIMMED</strong> <span class="arithmatex">\(\rightarrow\)</span> <strong>State 3: MEDIUM</strong> <span class="arithmatex">\(\rightarrow\)</span> <strong>State 4: BRIGHT</strong> <span class="arithmatex">\(\rightarrow\)</span> <strong>State 2: DIMMED</strong>, etc).</li>
+<li><strong>OFF Button Press:</strong> Overrides current activity and forces an immediate transition back to <strong>State 1 (OFF)</strong> from any active state.</li>
+</ul>
+<p>This operation is illustrated in the state transition diagram shown in <debughl><a href="#dimmerStateMachine">Fig. 3</a></debughl>:</p>
 <p>This is a very simple state machine example for a 2 state system. We can extend this idea to a system which varies the light level output between: off, dimmed, medium and bright, with state transitions defined by two buttons: on and off. <a name="lightDimmer"></a>When the system starts, the system automatically switches to state 1: off. The on button is used to switch the light on and toggle the system states between states 2, 3 and 4, to adjust the brightness, whereas if the off button is pressed, the system will always return to the off state. This operation is summarised on the state transition diagram, <debughl><a href="#dimmerStateMachine">Fig. 3</a></debughl>:</p>
 <figure>
   <a name="dimmerStateMachine"></a>
   <a class="glightbox" href="../../Images/DimmerState.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A state transition diagram for the light dimmer system." src="../../Images/DimmerState.png"></a>
   <figcaption>A state transition diagram for the light dimmer system.</figcaption>
 </figure>
-<p>To implement the <debughl><a href="#lightDimmer">light dimmer system state machine</a></debughl>, we can use a <code>switch</code> statement, where each <code>case</code> statement defines the state behaviour of the system, such that:</p>
+<p>To implement the <debughl><a href="#lightDimmer">light dimmer system state machine</a></debughl>, we can use a <code>switch</code> statement, where each <code>case</code> label defines the specific execution logic and transition checks for a single operational state, such that:</p>
 <div class="language-Arduino highlight"><span class="filename">Arduino code describing the light dimmer system state machine</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#define onPin 1       </span><span class="c1">// On button pin</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define offPin 2      </span><span class="c1">// Of button pin</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#define outputPin 13  </span><span class="c1">// LED output Pin</span>
@@ -1012,21 +1025,23 @@
 </div>
 <p><a name="PiEncEx"></a></p>
 <h2 id="assessed-exercise">Assessed Exercise</h2>
-<p>During this exercise, you will write a program to move the robot forwards and backwards between several positions. Your solution must include:</p>
+<p>In this exercise, you will develop firmware to move the robot chassis forward and backward through a sequence of designated target positions.</p>
+<ol>
+<li><strong>Closed-Loop <abbr title="Proportional and Integral Controller">PI</abbr> Position Control:</strong> Implement a Proportional-Integral (<abbr title="Proportional and Integral Controller">PI</abbr>) control loop that uses quadrature motor encoder counts as position feedback. Open-loop time-based movement (e.g., driving motors forward for a fixed duration) is strictly prohibited.</li>
+<li><strong>Finite State Machine Architecture:</strong> Use a Finite State Machine (<abbr title="Finite State Machine">FSM</abbr>) to manage sequential system behaviour and switch target position setpoints.</li>
+<li><strong>Non-Blocking Execution &amp; Timing:</strong> All loop timing, interval scheduling, and state transitions must be executed using non-blocking timing with millis(). The use of blocking functions like delay() or delayMicroseconds() in your execution loop is strictly forbidden.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Design Hints &amp; Recommended Tuning</p>
 <ul>
-<li>A <abbr title="Proportional and Integral Controller">PI</abbr> controller to control the position of the robot, using the motor encoder as position feedback<ul>
-<li>You must not use open loop timing to control your system.</li>
-</ul>
+<li>State-Driven Position Setpoints: The <abbr title="Finite State Machine">FSM</abbr> states represent target position setpoints (<span class="arithmatex">\(r[k]\)</span>) supplied to the <abbr title="Proportional and Integral Controller">PI</abbr> controller. Evaluate and update the position control loop within the state machine execution block.</li>
+<li>Deterministic Sampling Period: Set the <abbr title="Proportional and Integral Controller">PI</abbr> controller loop sampling period to <span class="arithmatex">\(\Delta T = 10\,\text{ms}\)</span> (<span class="arithmatex">\(100\,\text{Hz}\)</span>) using non-blocking millis() timing logic.</li>
+<li>
+<p>Initial Controller Tuning: Begin tuning with the following gain parameters:</p>
+<div class="arithmatex">\[K_p = 4.0, \quad K_i = 0.0\]</div>
+<p>These baseline parameters produce an underdamped (oscillatory) system response, allowing you to observe closed-loop transient dynamics before fine-tuning integral action.</p>
 </li>
-<li>A simple state machine to switch between states of the system, (in this case the position demand for the robot).</li>
-<li>All timing must be achieved using the millisecond tick timer, <code>milli()</code>, i.e. your loop function must not contain <code>delay()</code> or <code>delayMicroseconds()</code> functions.</li>
 </ul>
-<div class="admonition info title">
-<p class="admonition-title">Hint:</p>
-<p><problemhl>The state transition conditions are </problemhl></p>
-<p>The system states are a position demand reference value for the <abbr title="Proportional and Integral Controller">PI</abbr> controller. Process the position controller within the case statements.</p>
-<p>The sampling time for the <abbr title="Proportional and Integral Controller">PI</abbr> controller should be set to 10ms.</p>
-<p>We recommend using the following controller gains: Kp = 4.0, Ki = 0.0. These controller values should give an oscillatory response.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Exercise Assessment</p>
@@ -1082,7 +1097,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2025.
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2026.
 
     </div>
   

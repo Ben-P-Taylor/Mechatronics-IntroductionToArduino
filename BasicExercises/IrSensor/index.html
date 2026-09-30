@@ -932,13 +932,13 @@
 <div><h1 id="measure-the-output-of-the-sharp-ir-distance-sensor-exercise">Measure the Output of the Sharp <abbr title="Infra Red">IR</abbr> Distance Sensor Exercise</h1>
 <div class="admonition info">
 <p class="admonition-title"><abbr title="Graduate Teaching Assistant">GTA</abbr> Marking</p>
-<p>This is an assessed Exercise. When you have completed the <debughl><a href="#irSensorExercise">Assessed Exercise</a></debughl>, you should show your work to a <abbr title="Graduate Teaching Assistant">GTA</abbr> to get marked.</p>
+<p>This is an assessed laboratory exercise. Upon completing all practical tasks, verify that your work satisfies the <debughl><a href="#irSensorExercise">Assessed Exercise Requirements</a></debughl> before demonstrating your system to a Graduate Teaching Assistant (<abbr title="Graduate Teaching Assistant">GTA</abbr>) for marking.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before starting these exercises, you should ensure that you have completed the circuit on the robot chassis, as suggested on <debughl><a href="../../RobotBuild/#irSensorPic">Building the Robot: Fig. 11</a></debughl>. Furthermore, you should ensure that all the connections described in the <debughl><a href="../../RobotBuild/#irSensor">Building the Robot: Circuit Layout for the <abbr title="Infra Red">IR</abbr> Sensor Exercise</a></debughl> are correct.</p>
+<p>Before beginning software implementation, verify that the Sharp <abbr title="Infra Red">IR</abbr> distance sensor is securely mounted to the robot chassis, as shown in <debughl><a href="../../RobotBuild/#irSensorPic">Building the Robot: Fig. 11</a></debughl>. Verify the wiring and pin allocation against the suggested layout, given in <a href="../../RobotBuild/#irSensor">Building the Robot: <abbr title="Infra Red">IR</abbr> Sensor Circuit Layout</a></p>
 </div>
-<p>The following video is a quick demonstration of the final outcome from this exercise:</p>
+<p>The following video provides a quick demonstration of the expected outcomes for this exercise: </p>
 <figure>
 <div style="text-align: center;">
 <iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/2103181/embedPlaykitJs/uiconf_id/53345422?iframeembed=true&amp;entry_id=1_sf98riu0&amp;config%5Bprovider%5D=%7B%22widgetId%22%3A%221_zed54ef2%22%7D&amp;config%5Bplayback%5D=%7B%22startTime%22%3A0%7D" style="width: 400px;height: 285px;border: 0;" allowfullscreen webkitallowfullscreen mozallowfullscreen allow="autoplay *; fullscreen *; encrypted-media *" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" title="IR Sensor Video"></iframe>
@@ -947,16 +947,17 @@
 </figure>
 
 <h2 id="introduction-and-background">Introduction and Background</h2>
-<p>The aim of this exercise is to generate a graph of sensor measurement from the Sharp <abbr title="Infra Red">IR</abbr> distance sensor against measurement distance. During this exercise, you will interface the Sharp <abbr title="Infra Red">IR</abbr> distance sensor with the Arduino, record the measured voltage as a function of the distance to a target, and observe any constraints for the operation of this sensor.</p>
-<p>Before you start this exercise, you will need to construct the circuit according to <debughl><a href="../../RobotBuild/#irSensor">the <abbr title="Infra Red">IR</abbr> sensor circuit instructions</a></debughl> in the <debughl><a href="../../RobotBuild/">Building the Robot Document</a></debughl>.</p>
+<p>The aim of this exercise is to experimentally characterise the Sharp <abbr title="Infra Red">IR</abbr> sensor and draw a graph of the measured output against measurement distance. During this exercise, you will interface the Sharp <abbr title="Infra Red">IR</abbr> distance sensor with the Arduino's <abbr title="Analogue to Digital Converter">ADC</abbr>, record the measured output voltage as a function of the distance to a target, and evaluate operational limitations—specifically the minimum detection threshold and dynamic range.</p>
+<p>!!!! note "Hardware Assembly Checklist"
+Before proceeding with this exercise, you must ensure that the circuit is constructed in accordance with <debughl><a href="../../RobotBuild/#irSensor">the <abbr title="Infra Red">IR</abbr> sensor circuit instructions</a></debughl> from the <debughl><a href="../../RobotBuild/">Building the Robot Document</a></debughl>.</p>
 <h3 id="noise-on-the-ir-sensor">Noise on the <abbr title="Infra Red">IR</abbr> sensor</h3>
-<p>The <abbr title="Infra Red">IR</abbr> sensor is not an ideal sensor and induces noise onto the output of the sensor, as shown in <debughl><a href="#irWithNoise">Fig 1</a></debughl>.</p>
+<p>The <abbr title="Infra Red">IR</abbr> sensor is not an ideal sensor. As can be seen from <debughl><a href="#irWithNoise">Fig 1</a></debughl>, significant noise is induced onto the output of the sensor during operation.</p>
 <figure>
   <a name="irWithNoise"></a>
   <a class="glightbox" href="../../Images/SerialPlotter-irWithNoise.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Serial Plotter Showing Noise on the IR distance sensor." src="../../Images/SerialPlotter-irWithNoise.png"></a>
   <figcaption>Serial Plotter Showing Noise on the <abbr title="Infra Red">IR</abbr> distance sensor.</figcaption>
 </figure>
-<p>A <debughl><a href="https://en.wikipedia.org/wiki/Moving_average">simple moving averaging</a></debughl> filter technique can be used on the data to reduce the noise content of the signal. A simple, but effective, implementation of this technique is shown in the Averaging Code, below:</p>
+<p>A <debughl><a href="https://en.wikipedia.org/wiki/Moving_average">simple moving averaging</a></debughl> filter technique can be used on the output data from the <abbr title="Infra Red">IR</abbr> sensor to reduce the noise content of the signal. A simple, but effective, implementation of this such techniques is illustrated in the Averaging Code, provided below:</p>
 <p></p><div class="language-Arduino highlight"><span class="filename">Averaging Code</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">//Read the IR sensor</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">irPin</span><span class="p">);</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -972,22 +973,26 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">// right shift 3 places to divide by 8</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">irVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irVal</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </span></code></pre></div>
-The Averaging Code, above, sums the result of 8 <abbr title="Analogue to Digital Converter">ADC</abbr> readings of the <abbr title="Infra Red">IR</abbr> sensor and take the average value of these readings. This is a crude, but effective method for noise reduction, in this instance. The results of this implementation can be seen from the data shown in <debughl><a href="#averagedIrSensor">Fig 2</a></debughl>.
+The Averaging Code, above, sums the result of 8 <abbr title="Analogue to Digital Converter">ADC</abbr> readings from the <abbr title="Infra Red">IR</abbr> sensor and take the average value of these readings. This is a crude, but effective method for noise reduction, in this instance. The results of this implementation can be seen from the data shown in <debughl><a href="#averagedIrSensor">Fig 2</a></debughl>.
 <figure>
   <a name="averagedIrSensor"></a>
   <a class="glightbox" href="../../Images/SerialPlotter-irWithAveraging.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Serial Plotter Showing the Averaged IR Sensor Data." src="../../Images/SerialPlotter-irWithAveraging.png"></a>
   <figcaption>Serial Plotter Showing the Averaged <abbr title="Infra Red">IR</abbr> Sensor Data.</figcaption>
 </figure>
-<p>Camparing the magnitude of the noise on the <abbr title="Infra Red">IR</abbr> sensor measurement, between <debughl><a href="#irWithNoise">Fig 1</a></debughl> and <debughl><a href="#averagedIrSensor">Fig 2</a></debughl> it can be seen that this averaging technique has significantly reduced the sensor noise. </p>
+<p>Comparing the noise magnitude superimposed on the raw <abbr title="Infra Red">IR</abbr> sensor measurement in <debughl><a href="#irWithNoise">Fig 1</a></debughl> against the filtered response in <debughl><a href="#averagedIrSensor">Fig 2</a></debughl> demonstrates that this 8-sample moving-average technique significantly reduces the noise signals induced onto the <abbr title="Infra Red">IR</abbr> sensor measurement.</p>
 <h3 id="experimental-setup-with-lolly-stick-up">Experimental Setup with Lolly Stick up</h3>
-<p>The <abbr title="Infra Red">IR</abbr> sensor is sensitive to picking up reflections from any surface that it is operating. It has been found from experimentation, that raising the sensor above the surface that it is operating produces improved and more consistant results.</p>
+<p>The <abbr title="Infra Red">IR</abbr> sensor is sensitive to picking up reflections from any surface that it is operating. It has been found from experimentation, that raising the sensor above the surface (operating plane) produces improved and more consistant results.</p>
 <p>As a result, when using the <abbr title="Infra Red">IR</abbr> sensor, you should ensure that the lolly stick assembly is in the upright position, as shown in the righthand figure in the <debughl><a href="../../RobotBuild/#LollyUp">Building the Robot document</a></debughl></p>
-<p>For more details on concerning the pin connections for the Sharp GP2Y0A21YK0F distance measurement sensor, see the data sheet for the sensor on the Blackboard site:</p>
+<div class="admonition note">
+<p class="admonition-title">Component Data Sheets and Technical Documentation</p>
+<div class="language-text highlight"><pre><span></span><code>For more details on concerning the pin connections for the Sharp GP2Y0A21YK0F distance measurement sensor, see the data sheet for the sensor on the Blackboard site:
+</code></pre></div>
+</div>
 <ul>
 <li><debughl>ACS231 Blackboards Site&gt;&gt;Mechatronics Kit Information&gt;&gt; Component Data Sheets and Technical Documentation.</debughl></li>
 </ul>
 <h2 id="expected-results">Expected Results</h2>
-<p>The <abbr title="Infra Red">IR</abbr> sensor has a non-linear distance to output voltage characteristic, as illustrated in <debughl><a href="#irSensorDist">Fig 3</a></debughl>. This graph has been provided as an example characteristic for how your data should come out...except that your results should have a y-axis scale!</p>
+<p>The <abbr title="Infra Red">IR</abbr> sensor has a non-linear distance to output voltage characteristic, as illustrated in <debughl><a href="#irSensorDist">Fig 3</a></debughl>. The sample curve in <debughl><a href="#irSensorDist">Fig 3</a></debughl> illustrates the expected profile of your empirical dataset — note, however, that your recorded plot must include a fully scaled and labeled vertical axis representing the output values from the Arduino <abbr title="Analogue to Digital Converter">ADC</abbr>, not voltage.</p>
 <figure>
   <a name="irSensorDist"></a>
   <a class="glightbox" href="../../Images/Expected%20IR%20Sensor%20Result.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Characteristic measurement result from the IR distance sensor." src="../../Images/Expected%20IR%20Sensor%20Result.png"></a>
@@ -995,30 +1000,26 @@ The Averaging Code, above, sums the result of 8 <abbr title="Analogue to Digital
 </figure>
 <p><a name="irSensorExercise"></a></p>
 <h2 id="assessed-exercise">Assessed Exercise</h2>
-<p>For this exercise you will write an Arduino sketch to measure the output of the <abbr title="Infra Red">IR</abbr> sensor and display its value of on the serial monitor. The distance measurements should be taken at static positions, using a series of measurement points similar to:</p>
+<p>For this assessed exercise you will develop an Arduino sketch to sample the output of the <abbr title="Infra Red">IR</abbr> sensor and display the <abbr title="Analogue to Digital Converter">ADC</abbr> value of on the serial monitor. The distance measurements should be taken at <strong><em>STATIC</em></strong> positions, using a series of measurement points at:</p>
 <p>1cm, 2cm, 3cm, 4cm, 5cm, 6cm, 7cm, 8cm, 9cm, 10cm, 15cm, 20cm, 25cm, 30cm, 35cm, 40cm, 45cm, 50cm, 55cm, 60cm, 65cm, 70cm, 75cm, and 80cm</p>
-<p>You should plot your results in a computer package, such as Excel or MATLAB, with the x-axis as the distance measured, and the y-axis as the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value. </p>
+<p>You will collect static calibration data and generate a plot using a software analysis tool (such as Microsoft Excel, MATLAB, or Python/Matplotlib). The resulting plot must display Target Distance (<span class="arithmatex">\(\text{cm}\)</span>) on the horizontal (<span class="arithmatex">\(x\)</span>) axis and <abbr title="Analogue to Digital Converter">ADC</abbr> Reading on the vertical (<span class="arithmatex">\(y\)</span>) axis. </p>
 <p><strong>Procedure:</strong></p>
 <ol>
-  <li> The starting point for this exercise is the <debughl><a href="../../RobotBuild#irSensor">circuit layout for the IR sensor</a></debughl> and the potentiometer code, <debughl><a href="../ledPattern#potInoCode">POT.ini</a></debughl> located at the end of the <debughl><a href="../ledPattern">LED pattern exercise</a></debughl>.</li>
-
-  <li> Write an Arduino sketch to read the analogue measurement value from the IR distance sensor and display the reading on the serial monitor. (It is acceptable to use a fresh copy of the <debughl><a href="../ledPattern/#potInoCode">POT.ini</a></debughl> as a template for this exercise.)</li>
+<li><strong>Develop the Acquisition Sketch:</strong> Using the POT.ino sketch as a template, write an Arduino sketch to sample the output of the <abbr title="Infra Red">IR</abbr> distance sensor, incorporating the 8-sample moving avarage filter, and stream the results to the serial monitor.</li>
+<li><strong>Prepare Measurement Fixture:</strong> Position the robot chassis level surface. Align a ruler or tape measure along the sensor's optical axis. Ensure no adjacent obstacles infringe on the sensor's field of view.</li>
+<li><strong>Record the Sensor Output at Different Distances:</strong> For all of the distance measurements, listed above, record and tabulate the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement values.</li>
+<li><strong>Plot Sensor Transfer Function:</strong> From this dataset, plot the results for Target Distance (<span class="arithmatex">\(\text{cm}\)</span>) on the horizontal (<span class="arithmatex">\(x\)</span>) axis and <abbr title="Analogue to Digital Converter">ADC</abbr> Reading on the vertical (<span class="arithmatex">\(y\)</span>) axis.</li>
+<li><strong>Demonstrate and Obtain Sign-Off:</strong> Present your resulting graph to a <abbr title="Graduate Teaching Assistant">GTA</abbr> for assessment and demonstrate the operation of your working system.</li>
 </ol>
-
-<p>Once you have the measured value of the distance sensor being streamed to the serial monitor, you will be required to plot the distance sensor measurement value against distance measured, (with a ruler/scale).</p>
-<ol start="3">
-  <li> Perform an experiment to characterise the Sharp IR sensor between 1cm and 80cm distance. The results from this experiment should be a graph of the ADC measurement value from the Sharp IR distance sensor, against the distance from the target. Note: Your graph should have a similar characteristic to that shown in <debughl><a href="./#irSensorDist">Fig 3</a></debughl>.</li>
-</ol>
-
 <div class="admonition warning">
 <p class="admonition-title">Exercise Assessment</p>
 <p><strong>What we expect to see from your demonstration?</strong></p>
 <p>When completed, your code should allow you to run an experiment to draw the following graph:</p>
 <ul>
 <li>A graph of <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value against distance.</li>
-<li>The trace should be correctly framed within the axes.</li>
+<li>The graph should be correctly framed within the axes.</li>
 <li>Appropriate axes labels, with units and a descriptive graph title.
-You should plot your results in a computer package, such as Excel or MATLAB, with the x-axis as the distance measured, and the y-axis as the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value, as illustrated in <debughl><a href="#irSensorDist">Fig 3</a></debughl></li>
+You should plot your results in a computer package, such as Microsoft Excel, MATLAB, or Python/Matplotlib, with the x-axis as the distance measured, and the y-axis as the <abbr title="Analogue to Digital Converter">ADC</abbr> measurement value, as illustrated in <debughl><a href="#irSensorDist">Fig 3</a></debughl></li>
 </ul>
 <p>We expect you to also demonstrate the operation of your code and the output on the Serial Monitor, as describes in the procedure.</p>
 <div class="admonition success">
@@ -1055,7 +1056,7 @@ You should plot your results in a computer package, such as Excel or MATLAB, wit
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2025.
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />  &copy; <a href="https://www.sheffield.ac.uk/engineering/diamond-engineering/our-staff/ben-taylor">Ben Taylor</a>, The University of Sheffield, 2026.
 
     </div>
   
